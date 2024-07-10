@@ -8,7 +8,7 @@ local CONFIG = {
         NAME = 'Dummy Target',
     },
     DUMMY_SKIN = {
-        NAME = 'Dummy Target Retronia'
+        NAME = 'Dummy Target Ravenor'
     },
     ATTRIBUTES = {
         ITEM_DUMMY_TIME = "ITEM_ATTRIBUTE_DUMMY_TIME",

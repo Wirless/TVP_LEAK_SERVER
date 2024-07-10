@@ -473,7 +473,7 @@ storeIndex = {
         icon = '13/Category_Items',
         offers = {
             {
-                name = "Retronia Backpack",
+                name = "Ravenor Backpack",
                 price = 20,
                 id = 5117,
                 count = 1,

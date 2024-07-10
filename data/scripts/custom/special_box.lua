@@ -32,8 +32,8 @@ local CONFIG = {
             },
             EFFECT_ON_EARN = CONST_ME_MAGIC_GREEN,
             MESSAGE_ON_EARN = {
-                [1] = "You received 100 Retronia Coins",
-                [2] = "You received 1 Retronia Backpack",
+                [1] = "You received 100 Ravenor Coins",
+                [2] = "You received 1 Ravenor Backpack",
                 [3] = "You received 3 Ticket Dummy",
                 [4] = "You received Beegar Outfit Full",
                 [5] = "Check it in your storeinbox."
@@ -62,11 +62,11 @@ local CONFIG = {
             },
             EFFECT_ON_EARN = CONST_ME_MAGIC_GREEN,
             MESSAGE_ON_EARN = {
-                [1] = "You received 150 Retronia Coins",
-                [2] = "You received 1 Retronia Backpack",
+                [1] = "You received 150 Ravenor Coins",
+                [2] = "You received 1 Ravenor Backpack",
                 [3] = "You received 1 Dummy Skin",
                 [4] = "You received 7 Ticket Dummy",
-                [5] = "You received 1 Retronia Arrow Quiver",
+                [5] = "You received 1 Ravenor Arrow Quiver",
                 [6] = "You received Wizard Outfit Full",
                 [7] = "Check it in your storeinbox."
             }
@@ -94,12 +94,12 @@ local CONFIG = {
             },
             EFFECT_ON_EARN = CONST_ME_MAGIC_GREEN,
             MESSAGE_ON_EARN = {
-                [1] = "You received 300 Retronia Coins",
-                [2] = "You received 1 Retronia Backpack",
+                [1] = "You received 300 Ravenor Coins",
+                [2] = "You received 1 Ravenor Backpack",
                 [3] = "You received 1 Dummy Skin",
                 [4] = "You received 10 Ticket Dummy",
-                [5] = "You received 1 Retronia Bolt Quiver",
-                [6] = "You received Royal Retronia Outfit Full",
+                [5] = "You received 1 Ravenor Bolt Quiver",
+                [6] = "You received Royal Ravenor Outfit Full",
                 [7] = "Check it in your storeinbox."
             }
         }

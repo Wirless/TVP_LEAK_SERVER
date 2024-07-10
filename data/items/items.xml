@@ -32851,14 +32851,14 @@
 		<attribute key="moveable" value="true" />
 		<attribute key="raritytier" value="1" />
 	</item>
-	<item id="5092" article="a" name="Retronia coin" plural="Retronia coins">
+	<item id="5092" article="a" name="Ravenor coin" plural="Ravenor coins">
 		<attribute key="stackable" value="true" />
 		<attribute key="clientid" value="5097" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="10" />
 		<attribute key="moveable" value="true" />
 	</item>
-	<item id="5093" article="a" name="Retronia backpack">
+	<item id="5093" article="a" name="Ravenor backpack">
 		<attribute key="description" value="A special backpack." />
 		<attribute key="type" value="container" />
 		<attribute key="group" value="container" />
@@ -32935,7 +32935,7 @@
 		<attribute key="moveable" value="true" />
 	</item>
 	<item id="5101" name="blessing scroll">
-		<attribute key="description" value="You will receive all the blessings of the Gods of Retronia." />
+		<attribute key="description" value="You will receive all the blessings of the Gods of Ravenor." />
 		<attribute key="useable" value="true" />
 		<attribute key="clientid" value="5096" />
 		<attribute key="pickupable" value="true" />
@@ -32974,7 +32974,7 @@
 		<attribute key="weight" value="5" />
 		<attribute key="moveable" value="true" />
 	</item>
-	<item id="5106" article="a" name="Retronia quiver">
+	<item id="5106" article="a" name="Ravenor quiver">
 		<attribute key="description" value="It is only possible to carry arrows." />
 		<attribute key="type" value="container" />
 		<attribute key="group" value="container" />
@@ -32986,7 +32986,7 @@
 		<attribute key="containersize" value="8" />
 		<attribute key="moveable" value="true" />
 	</item>
-	<item id="5107" name="Retronia quiver">
+	<item id="5107" name="Ravenor quiver">
 		<attribute key="description" value="It is only possible to carry bolts." />
 		<attribute key="type" value="container" />
 		<attribute key="group" value="container" />
@@ -33036,22 +33036,22 @@
 		<attribute key="decayto" value="0" />
 		<attribute key="duration" value="5000" />
 	</item>
-	<item id="5113" article="a" name="Retronia Golden Founders Trophy">
-		<attribute key="description" value="A memory for those who started their journey together with Retronia. Since September 2023." />
+	<item id="5113" article="a" name="Ravenor Golden Founders Trophy">
+		<attribute key="description" value="A memory for those who started their journey together with Ravenor. Since September 2023." />
 		<attribute key="clientid" value="5115" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="1000" />
 		<attribute key="moveable" value="true" />
 	</item>
-	<item id="5114" article="a" name="Retronia Silver Founders Trophy">
-		<attribute key="description" value="A memory for those who started their journey together with Retronia. Since September 2023." />
+	<item id="5114" article="a" name="Ravenor Silver Founders Trophy">
+		<attribute key="description" value="A memory for those who started their journey together with Ravenor. Since September 2023." />
 		<attribute key="clientid" value="5117" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="1000" />
 		<attribute key="moveable" value="true" />
 	</item>
-	<item id="5115" article="a" name="Retronia Bronze Founders Trophy">
-		<attribute key="description" value="A memory for those who started their journey together with Retronia. Since September 2023." />
+	<item id="5115" article="a" name="Ravenor Bronze Founders Trophy">
+		<attribute key="description" value="A memory for those who started their journey together with Ravenor. Since September 2023." />
 		<attribute key="clientid" value="5116" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="1000" />
@@ -33063,7 +33063,7 @@
 		<attribute key="weight" value="500" />
 		<attribute key="moveable" value="true" />
 	</item>
-	<item id="5117" name="Retronia Backpack">
+	<item id="5117" name="Ravenor Backpack">
 		<attribute key="type" value="container" />
 		<attribute key="group" value="container" />
 		<attribute key="clientid" value="5114" />
@@ -33369,7 +33369,7 @@
 		<attribute key="weight" value="5" />
 		<attribute key="moveable" value="true" />
 	</item>
-	<item id="5154" article="a" name="Retronia tapestry">
+	<item id="5154" article="a" name="Ravenor tapestry">
 		<attribute key="ishangable" value="true" />
 		<attribute key="clientid" value="5245" />
 		<attribute key="pickupable" value="true" />

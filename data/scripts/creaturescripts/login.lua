@@ -35,8 +35,8 @@ function creatureevent.onLogin(player)
 		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, "Please choose your outfit.")
 	else
 		-- 23:46 Your last visit in Tibia: 11. Jul 2005 22:19:56 CEST.
-		-- Your last visit in Retronia: Fri Mar 01 23:45:34 2024.
-		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, string.format("Your last visit in Retronia: %s GMT-3.", os.date("%d %b %Y %X", player:getLastLoginSaved())))
+		-- Your last visit in Ravenor: Fri Mar 01 23:45:34 2024.
+		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, string.format("Your last visit in Ravenor: %s GMT-3.", os.date("%d %b %Y %X", player:getLastLoginSaved())))
 	end
 
 	--Bestiary Points:

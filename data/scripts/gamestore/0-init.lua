@@ -6,7 +6,7 @@ GameStore = {
 	table = "web_accounts",
 	tableName = "shop_coins",
 	historyMaxRows = 26,
-	storeUrl = "https://retronia.online/?subtopic=getcoins",
+	storeUrl = "https://ravenor.online/?subtopic=getcoins",
 	imagesUrl = "https://skydrivestudios.com/store",
 	debug = false,
 	usingStoreInbox = false,

@@ -13,6 +13,6 @@ function action.onUse(player, item, fromPosition, target, toPosition)
     return onUse(player, item, fromPosition, target, toPosition)
 end
 
-action:id(5092) -- Retronia coins
+action:id(5092) -- Ravenor coins
 action:register()
 
