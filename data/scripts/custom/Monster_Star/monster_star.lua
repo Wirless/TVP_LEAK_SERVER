@@ -53,25 +53,6 @@ function Monster:adjustMonsterStar(pos, stage)
             return true
         end
     end
-
-    self:registerEliteSkills(stage)
-end
-
-function Monster:registerEliteSkills(stage)
-    if not stage or stage == STAR_NONE then
-        return
-    end
-    
-    local allSkills, skills = getShuffledMonsterSkills(), {}
-    if math.random(0, 1000) <= 500 then
-        for i = 1, stage do
-            if allSkills[i] then
-                table.insert(skills, allSkills[i])
-            end
-        end
-    end
-
-    self:registerSkills(skills)
 end
 
 local function addExtraLoot(corpse, items, randomCount)
