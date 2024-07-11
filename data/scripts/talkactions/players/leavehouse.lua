@@ -2,8 +2,6 @@ local talkaction = TalkAction("!leavehouse")
 
 function talkaction.onSay(player, words, param)
 
-	if true then return true end
-
 	local position = player:getPosition()
 	local tile = Tile(position)
 	local house = tile and tile:getHouse()

@@ -7,7 +7,7 @@ local config = {
 
 function talkaction.onSay(player, words, param)
 	if config.disableBuyhouse then
-		-- player:sendTextMessage(MESSAGE_INFO_DESCR, "Buying houses in game is currently disabled.")
+		player:sendTextMessage(MESSAGE_INFO_DESCR, "Buying houses in game is currently disabled.")
 		return false
 	end
 		
