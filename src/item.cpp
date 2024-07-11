@@ -1635,13 +1635,13 @@ void Item::rollRarityLevel(Star_t monsterStar)
 
 	if (monsterStar == STAR_NONE) { // NORMAL
 		if (tierLevel == ITEM_TIER_1 || freeze_chance)
-			commonChance = 600;
+			commonChance = 400;
 		else if (tierLevel == ITEM_TIER_2)
-			commonChance = 300;
-		else if (tierLevel == ITEM_TIER_3)
 			commonChance = 200;
+		else if (tierLevel == ITEM_TIER_3)
+			commonChance = 150;
 		else if (tierLevel == ITEM_TIER_4)
-			commonChance = 100;
+			commonChance = 80;
 	} else if (monsterStar == STAR_ONE) { // ELITE 1
 		if (tierLevel == ITEM_TIER_1 || freeze_chance)
 			commonChance = 500;
