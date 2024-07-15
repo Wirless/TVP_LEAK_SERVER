@@ -242,7 +242,6 @@ void BedItem::regeneratePlayer(Player* player) const
 
 		if (regenAmount > 0) {
 			player->changeHealth(regenAmount, false);
-			player->changeMana(regenAmount);
 		}
 	}
 
