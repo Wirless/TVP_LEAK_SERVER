@@ -213,9 +213,9 @@ rookTownName = "Rookgaard"
 -------------------
 -- rateSpawn: increases respawn time by the given percentage, 50 = 50% faster respawn time
 rateExp = 1
-rateSkill = 1
-rateLoot = 100
-rateMagic = 1
+rateSkill = 4
+rateLoot = 300
+rateMagic = 2
 rateSpawn = 0
 
 -----------------
