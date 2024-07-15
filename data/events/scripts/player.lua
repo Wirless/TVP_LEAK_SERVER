@@ -277,15 +277,13 @@ function Player:onGainExperience(source, exp, rawExp)
 
 			for _, member in pairs(members) do
 				local vocationId = member:getVocation():getClientId()
-				if vocationId > 0 then
-					if vocations[vocationId] then
-						vocations[vocationId] = true
-						partyBonus = 10
-						break
-					end
-
-					partyBonus = partyBonus + 5
+				if vocations[vocationId] then
+					vocations[vocationId] = true
+					partyBonus = 10
+					break
 				end
+
+				partyBonus = partyBonus + 5
 			end
 		end
 
