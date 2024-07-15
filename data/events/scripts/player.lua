@@ -264,6 +264,36 @@ function Player:onGainExperience(source, exp, rawExp)
 		end
 	end
 
+	local partyBonus = 0
+	local vocations = {}
+
+	local party = self:getParty()
+	if party then
+
+		local members = party:getMembers()
+		table.insert(members, party:getLeader())
+
+		if #members > 1 then
+
+			for _, member in pairs(members) do
+				local vocationId = member:getVocation():getClientId()
+				if vocationId > 0 then
+					if vocations[vocationId] then
+						vocations[vocationId] = true
+						partyBonus = 10
+						break
+					end
+
+					partyBonus = partyBonus + 5
+				end
+			end
+		end
+
+	end
+
+
+	exp = exp * (1 + partyBonus / 100)
+
 	return hasEventCallback(EVENT_CALLBACK_ONGAINEXPERIENCE) and EventCallback(EVENT_CALLBACK_ONGAINEXPERIENCE, self, source, exp, rawExp) or exp
 end
 
