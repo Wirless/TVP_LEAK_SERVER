@@ -184,7 +184,6 @@ pip-log.txt
 ## TFS / OT
 #############
 gamedata/
-config.lua
 cmake/
 backups/
 vcpkg_installed/
