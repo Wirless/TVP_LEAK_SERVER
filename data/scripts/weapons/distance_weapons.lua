@@ -6,23 +6,20 @@ weapon:register()
 
 local weapon = Weapon(WEAPON_DISTANCE)
 
-weapon:action("move")
 weapon:id(2389) -- Spear
-weapon:breakChance(0)
+weapon:breakChance(5)
 weapon:register()
 
 local weapon = Weapon(WEAPON_DISTANCE)
 
-weapon:action("move")
+weapon:action("removecount")
 weapon:id(2399) -- Throwing Star
-weapon:breakChance(5)
 weapon:register()
 
 local weapon = Weapon(WEAPON_DISTANCE)
 
-weapon:action("move")
+weapon:action("removecount")
 weapon:id(2410) -- Throwing Knife
-weapon:breakChance(5)
 weapon:register()
 
 local weapon = Weapon(WEAPON_AMMO)

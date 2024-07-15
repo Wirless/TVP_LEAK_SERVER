@@ -155,7 +155,7 @@ action:register()
 
 local weapon = Weapon(WEAPON_DISTANCE)
 
-weapon:action("move")
+weapon:action("removecount")
 
 function weapon.onUseWeapon(player, var, hit, stone)
 
@@ -262,5 +262,4 @@ function weapon.onUseWeapon(player, var, hit, stone)
 end
 
 weapon:id(SMALL_STONE) -- Small stone
-weapon:breakChance(5)
 weapon:register()
