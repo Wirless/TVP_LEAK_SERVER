@@ -63,6 +63,8 @@ function talkaction.onSay(player, words, param)
 
 	house:setOwnerGuid(player:getGuid())
 	local townName = house:getTown():getName()
+	local timestamp = os.time()
+	db.asyncQuery(string.format("INSERT INTO `buy_house_history`(`player_id`, `rent`, `house_id`, `time`, `date_str`) VALUES (%d, %d, %d, %d, \"%s\")", player:getGuid(), price, house:getId(), timestamp, os.date("%d-%m-%Y %H:%M:%S", timestamp)))
 	player:sendTextMessage(MESSAGE_INFO_DESCR, "You have successfully bought this house, be sure to have the money for the rent in the depot of " .. townName .. ".")
 	return false
 end

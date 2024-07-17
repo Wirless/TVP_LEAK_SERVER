@@ -437,6 +437,10 @@ bool House::executeTransfer(HouseTransferItem* item, Player* newOwner)
 		return false;
 	}
 
+	Database& db = Database::getInstance();
+	time_t currentTime = time(nullptr);
+	db.executeQuery(fmt::format("INSERT INTO `buy_house_history`(`player_id`, `house_id`, `time`, `date_str`) VALUES ({:d}, {:d}, {:d}, \"{:s}\")", newOwner->getGUID(), id, currentTime, formatDate(currentTime)));
+
 	setOwner(newOwner->getGUID());
 	transferItem = nullptr;
 	return true;
