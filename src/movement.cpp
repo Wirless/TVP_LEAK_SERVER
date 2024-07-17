@@ -891,7 +891,7 @@ ReturnValue MoveEvent::EquipItem(MoveEvent* moveEvent, Player* player, Item* ite
 		g_game.changeSpeed(player, it.abilities->speed);
 	}
 
-	uint32_t speedTier = player->getCustomItemAttrStat(ITEM_RND_SPEED);
+	uint32_t speedTier = item->getIntCustomAttribute(player, std::to_string(ITEM_RND_SPEED));
 	if (speedTier > 0)
 	{
 		g_game.changeSpeed(player, 5 * speedTier);
