@@ -13,6 +13,16 @@ function talkaction.onSay(player, words, param)
 		return false
 	end
 
+	if tradePartner:getLevel() < config.level then
+		player:sendCancelMessage("You need level 30 or higher to buy a house.")
+		return false
+	end
+
+	if configManager.getBoolean(configKeys.HOUSES_ONLY_PREMIUM) and not tradePartner:isPremium() then
+		player:sendCancelMessage("You need a premium account in order to buy a house.")
+		return false
+	end
+
 	local returnValue = house:startTrade(player, tradePartner)
 	if returnValue ~= RETURNVALUE_NOERROR then
 		player:sendCancelMessage(returnValue)
