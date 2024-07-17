@@ -5,12 +5,6 @@ local CONFIG = {
 
 local action = Action()
 function action.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-    if CONFIG.USED[player:getGuid()] then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You can only use one blessing scroll per day.")
-        return true
-    end
-
     if player:removeMoney(player:getLevel() * 0 + 0) then
         for i = 1, #CONFIG.BLESS do
             player:addBlessing(CONFIG.BLESS[i])
