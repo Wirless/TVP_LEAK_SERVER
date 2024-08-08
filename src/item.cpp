@@ -997,47 +997,19 @@ int32_t getRarityAttributeRequiredLevelFunction(ItemRarityLevel rarityLevel, Ite
 {
 	if (tierLevel == ITEM_TIER_1)
 	{
-		if (rarityLevel == ITEM_UNCOMMON)
-			return 15;
-		else if (rarityLevel == ITEM_RARE)
-			return 20;
-		else if (rarityLevel == ITEM_EPIC)
-			return 25;
-		else if (rarityLevel == ITEM_LEGENDARY)
-			return 35;
+		return 1;
 	}
 	else if (tierLevel == ITEM_TIER_2)
 	{
-		if (rarityLevel == ITEM_UNCOMMON)
-			return 45;
-		else if (rarityLevel == ITEM_RARE)
-			return 55;
-		else if (rarityLevel == ITEM_EPIC)
-			return 65;
-		else if (rarityLevel == ITEM_LEGENDARY)
-			return 75;
+		return 30;
 	}
 	else if (tierLevel == ITEM_TIER_3)
 	{
-		if (rarityLevel == ITEM_UNCOMMON)
-			return 80;
-		else if (rarityLevel == ITEM_RARE)
-			return 85;
-		else if (rarityLevel == ITEM_EPIC)
-			return 90;
-		else if (rarityLevel == ITEM_LEGENDARY)
-			return 100;
+		return 50;
 	}
 	else if (tierLevel == ITEM_TIER_4)
 	{
-		if (rarityLevel == ITEM_UNCOMMON)
-			return 110;
-		else if (rarityLevel == ITEM_RARE)
-			return 120;
-		else if (rarityLevel == ITEM_EPIC)
-			return 130;
-		else if (rarityLevel == ITEM_LEGENDARY)
-			return 140;
+		return 80;
 	}
 
 	return 0;
