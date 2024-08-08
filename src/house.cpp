@@ -439,7 +439,7 @@ bool House::executeTransfer(HouseTransferItem* item, Player* newOwner)
 
 	Database& db = Database::getInstance();
 	time_t currentTime = time(nullptr);
-	db.executeQuery(fmt::format("INSERT INTO `buy_house_history`(`player_id`, `house_id`, `time`, `date_str`) VALUES ({:d}, {:d}, {:d}, \"{:s}\")", newOwner->getGUID(), id, currentTime, formatDate(currentTime)));
+	db.executeQuery(fmt::format("INSERT INTO `transfer_house_history`(`player_id`, `new_owner`, `house_id`, `time`, `date_str`) VALUES ({:d}, {:d}, {:d}, {:d}, \"{:s}\")", owner, newOwner->getGUID(), id, currentTime, formatDate(currentTime)));
 
 	setOwner(newOwner->getGUID());
 	transferItem = nullptr;
@@ -813,6 +813,11 @@ void Houses::payHouses(RentPeriod_t rentPeriod) const
 		}
 
 		if (paidRent) {
+
+			Database& db = Database::getInstance();
+			time_t currentTime = time(nullptr);
+			db.executeQuery(fmt::format("INSERT INTO `payment_house_history`(`player_id`, `rent`, `house_id`, `time`, `date_str`) VALUES ({:d}, {:d}, {:d}, {:d}, \"{:s}\")", ownerId, houseRent, house->getId(), currentTime, formatDate(currentTime)));
+
 			time_t paidUntil = house->getPaidUntil();
 			switch (rentPeriod) {
 				case RENTPERIOD_DAILY:
