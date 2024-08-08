@@ -922,6 +922,16 @@ std::string LuaScriptInterface::getFieldString(lua_State* L, int32_t arg, const 
 	return getString(L, -1);
 }
 
+uint64_t LuaScriptInterface::getFieldUnsigned(lua_State* L, const char* key)
+{
+	lua_pushstring(L, key);
+	lua_gettable(L, -2); // get table[key]
+
+	uint64_t result = (uint64_t)lua_tonumber(L, -1);
+	lua_pop(L, 1); // remove number and key
+	return result;
+}
+
 LuaDataType LuaScriptInterface::getUserdataType(lua_State* L, int32_t arg)
 {
 	if (lua_getmetatable(L, arg) == 0) {
@@ -1143,6 +1153,9 @@ void LuaScriptInterface::registerFunctions()
 	//registerGlobalVariable(name, value)
 	//registerEnum(value)
 	//registerEnumIn(tableName, value)
+
+	// enums
+	registerEnums(luaState);
 
 	// Enums
 	registerEnum(ACCOUNT_TYPE_NORMAL)
@@ -2437,6 +2450,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "getBestiaryStage", LuaScriptInterface::luaPlayerGetBestiaryStage);
 
 	registerMethod("Player", "sendCancelTarget", LuaScriptInterface::luaPlayerSendCancelTarget);
+
+	registerMethod("Player", "updateBattlepass", LuaScriptInterface::luaPlayerUpdateBattlepass);
 
 	// Monster
 	registerClass("Monster", "Creature", LuaScriptInterface::luaMonsterCreate);
@@ -10226,6 +10241,41 @@ int LuaScriptInterface::luaPlayerGetBestiaryStage(lua_State* L)
 		return 1;
 	}
 	lua_pushnumber(L, player->getBestiaryStage(mType));
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerUpdateBattlepass(lua_State* L)
+{
+	// player:updateBattlepass(id[, value])
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	std::string strValue;
+	uint16_t intValue = 0;
+	if (lua_gettop(L) > 2) {
+		if (lua_isnumber(L, -1)) {
+			intValue = getNumber<uint8_t>(L, 3);
+		}
+		else if (lua_isstring(L, -1)) {
+			strValue = getString(L, 3);
+		}
+	}
+
+	BattlePassQuests_t id = static_cast<BattlePassQuests_t>(getNumber<uint8_t>(L, 2));
+	if (!strValue.empty()) {
+		player->updateBattlepass(id, strValue);
+	}
+	else if (intValue != 0) {
+		player->updateBattlepass(id, intValue);
+	}
+	else {
+		player->updateBattlepass(id);
+	}
+
+	lua_pushboolean(L, true);
 	return 1;
 }
 

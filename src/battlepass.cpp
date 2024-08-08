@@ -496,7 +496,7 @@ void BattlePass::addRewards(Player* player) const
 				break;
 			}
 			case BATTLEPASS_REWARD_MOUNT: {
-				player->tameMount(std::get<1>(itReward));
+				//player->tameMount(std::get<1>(itReward));
 				break;
 			}
 			case BATTLEPASS_REWARD_WINGS: {
@@ -528,7 +528,7 @@ void BattlePass::addRewards(Player* player) const
 					break;
 				}
 				case BATTLEPASS_REWARD_MOUNT: {
-					player->tameMount(std::get<1>(itReward));
+					//player->tameMount(std::get<1>(itReward));
 					break;
 				}
 				case BATTLEPASS_REWARD_WINGS: {

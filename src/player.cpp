@@ -55,6 +55,8 @@ Player::Player(ProtocolGame_ptr p) :
 {
 	storeInbox->setParent(this);
 	storeInbox->incrementReferenceCounter();
+
+	battlepass = std::make_unique<BattlePass>();
 }
 
 Player::~Player()
@@ -1717,6 +1719,7 @@ void Player::addExperience(Creature* source, uint64_t exp)
 
 	uint32_t prevLevel = level;
 	while (experience >= nextLevelExp) {
+		updateBattlepass(BATTLEPASS_QUEST_GET_LEVEL);
 
 		healthMax += vocation->getHPGain();
 		//health += vocation->getHPGain();
@@ -3691,6 +3694,18 @@ bool Player::onKilledCreature(Creature* target, bool lastHit/* = true*/)
 
 	Player* targetPlayer = target->getPlayer();
 	if (!targetPlayer) {
+		MonsterClass_t monsterClass = target->getMonsterClass();
+		if (monsterClass != MONSTER_NONE) {
+			updateBattlepass(BATTLEPASS_QUEST_KILL_MONSTERS, monsterClass);
+		}
+
+		if (target->isBoss()) {
+			updateBattlepass(BATTLEPASS_QUEST_KILL_BOSS, target->getName());
+		}
+		else {
+			updateBattlepass(BATTLEPASS_QUEST_KILL_MONSTER, target->getName());
+		}
+
 		return false;
 	}
 
@@ -4556,6 +4571,118 @@ void Player::updateRegeneration()
 			conditionAttr->setParam(CONDITION_PARAM_MANAGAIN, mana_amount);
 			conditionAttr->setParam(CONDITION_PARAM_MANATICKS, 25 * mana_ticks / manaRegen);
 		}
+	}
+}
+
+void Player::updateBattlepass(BattlePassQuests_t id, const std::string& value)
+{
+	updateBattlepassCounter(id, value);
+}
+
+void Player::updateBattlepass(BattlePassQuests_t id, uint16_t value)
+{
+	updateBattlepassCounter(id, value);
+}
+
+void Player::updateBattlepass(BattlePassQuests_t id)
+{
+	updateBattlepassCounter(id, {});
+}
+
+void Player::updateBattlepassCounter(BattlePassQuests_t id, std::any value)
+{
+	if (!g_game.isBattlepassActive()) {
+		return;
+	}
+
+	BattlePassQuestsVector quests;
+	if (battlepass->update(id, value, &quests)) {
+		// Send to client
+		if (openBattlepass && client) {
+			// Send the battlepass quest progress to the game client
+			client->sendUpdateBattlepassQuest(quests);
+		}
+	}
+}
+
+void Player::sendBattlepassQuests(bool sendLevels)
+{
+	if (!client) {
+		return;
+	}
+
+	openBattlepass = true;
+	battlepass->checkQuestsCooldown(level);
+	client->sendBattlepassQuests(battlepass->getExperience(), battlepass->getLevel(), battlepass->getBattlepass(), BattlePasses::getInstance()->getRewards(), battlepass->hasPremium(), sendLevels);
+}
+
+void Player::addBattlepassQuest(BattlePassType_t type, BattlePassQuests_t id, uint32_t amount, time_t cooldown, const std::any& value, bool shuffled)
+{
+	battlepass->addQuest(type, id, amount, cooldown, value, shuffled, nullptr);
+}
+
+void Player::resetBattlepass()
+{
+	// Reset the battlepass data
+	battlepass->reset(level);
+}
+
+void Player::buyPremiumBattlepass()
+{
+	if (!openBattlepass || !client) {
+		return;
+	}
+
+	if (battlepass->hasPremium()) {
+		// Already has premium battlepass
+		client->sendBattlepassPremium(0, true);
+	}
+	else if (!removeItemOfType(BATTLEPASS_PREMIUM_COIN_ID, BATTLEPASS_PREMIUM_COST, -1)) {
+		// Not enough items to activate premium battlepass
+		client->sendBattlepassPremium(1, false);
+	}
+	else {
+		// Buy premium battlepass
+		battlepass->setPremium(true);
+		client->sendBattlepassPremium(2, true);
+	}
+}
+
+void Player::completeBattlepassQuest(uint8_t id, uint16_t questId)
+{
+	switch (id) {
+	case 2: {
+		// "Complete" button pressed
+		time_t cooldown;
+		if (battlepass->completeQuest(getPlayer(), questId, &cooldown)) {
+			// Quest completed successfully, send the info back to game client
+			if (client && openBattlepass) {
+				client->sendUpdateBattlepassQuest(questId, battlepass->getExperience(), battlepass->getLevel(), cooldown);
+			}
+		}
+		break;
+	}
+	case 3:
+	{
+		if (getItemTypeCount(BATTLEPASS_PREMIUM_COIN_ID) < BATTLEPASS_SHUFFLE_COST) {
+			// Not enough items to shuffle quest
+			client->sendBattlepassPremium(4, battlepass->hasPremium());
+			break;
+		}
+
+		BattlePassPlayerData data;
+		if (battlepass->shuffleQuest(level, questId, data)) {
+			// Quest shuffled successfully, send the info back to game client
+			removeItemOfType(BATTLEPASS_PREMIUM_COIN_ID, BATTLEPASS_SHUFFLE_COST, -1);
+			if (client && openBattlepass) {
+				client->sendBattlepassQuest(questId, data);
+				client->sendBattlepassPremium(3, battlepass->hasPremium());
+			}
+		}
+		break;
+	}
+	default:
+		break;
 	}
 }
 

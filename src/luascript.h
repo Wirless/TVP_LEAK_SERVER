@@ -353,6 +353,8 @@ class LuaScriptInterface
 		static Creature* getCreature(lua_State* L, int32_t arg);
 		static Player* getPlayer(lua_State* L, int32_t arg);
 
+		static uint64_t getFieldUnsigned(lua_State* L, const char* key);
+
 		template<typename T>
 		static T getField(lua_State* L, int32_t arg, const std::string& key)
 		{
@@ -1024,6 +1026,8 @@ class LuaScriptInterface
 		static int luaPlayerGetBestiaryStage(lua_State* L);
 
 		static int luaPlayerSendCancelTarget(lua_State* L);
+
+		static int luaPlayerUpdateBattlepass(lua_State* L);
 
 		// Monster
 		static int luaMonsterCreate(lua_State* L);

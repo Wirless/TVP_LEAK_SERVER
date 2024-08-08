@@ -345,6 +345,13 @@ class Creature : virtual public Thing
 			return true;
 		}
 
+		virtual bool isBoss() const {
+			return false;
+		}
+		virtual MonsterClass_t getMonsterClass() const {
+			return MONSTER_NONE;
+		}
+
 		virtual void changeHealth(int32_t healthChange, bool sendHealthChange = true);
 
 		void gainHealth(Creature* healer, int32_t healthGain);

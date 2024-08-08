@@ -137,6 +137,7 @@ class MonsterType
 		Outfit_t outfit = {};
 		RaceType_t race = RACE_BLOOD;
 		Star_t star = STAR_NONE;
+		MonsterClass_t monsterClass = MONSTER_NONE;
 
 		LightInfo light = {};
 		uint16_t lookcorpse = 0;
