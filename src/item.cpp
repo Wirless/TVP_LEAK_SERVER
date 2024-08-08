@@ -1632,45 +1632,15 @@ void Item::rollRarityLevel(Star_t monsterStar)
 	uint32_t rarityLevel = ITEM_COMMON;
 	uint32_t commonChance;
 
-
-	if (monsterStar == STAR_NONE) { // NORMAL
-		if (tierLevel == ITEM_TIER_1 || freeze_chance)
-			commonChance = 400;
-		else if (tierLevel == ITEM_TIER_2)
-			commonChance = 200;
-		else if (tierLevel == ITEM_TIER_3)
-			commonChance = 150;
-		else if (tierLevel == ITEM_TIER_4)
-			commonChance = 80;
-	} else if (monsterStar == STAR_ONE) { // ELITE 1
-		if (tierLevel == ITEM_TIER_1 || freeze_chance)
-			commonChance = 500;
-		else if (tierLevel == ITEM_TIER_2)
-			commonChance = 270;
-		else if (tierLevel == ITEM_TIER_3)
-			commonChance = 160;
-		else if (tierLevel == ITEM_TIER_4)
-			commonChance = 90;
-	} else if (monsterStar == STAR_TWO) { // ELITE 2
-		if (tierLevel == ITEM_TIER_1 || freeze_chance)
-			commonChance = 420;
-		else if (tierLevel == ITEM_TIER_2)
-			commonChance = 210;
-		else if (tierLevel == ITEM_TIER_3)
-			commonChance = 140;
-		else if (tierLevel == ITEM_TIER_4)
-			commonChance = 70;
-	} else if (monsterStar == STAR_THREE) { // ELITE 3
-		if (tierLevel == ITEM_TIER_1 || freeze_chance)
-			commonChance = 340;
-		else if (tierLevel == ITEM_TIER_2)
-			commonChance = 150;
-		else if (tierLevel == ITEM_TIER_3)
-			commonChance = 100;
-		else if (tierLevel == ITEM_TIER_4)
-			commonChance = 50;
-	}
-
+	if (tierLevel == ITEM_TIER_1 || freeze_chance)
+		commonChance = 400;
+	else if (tierLevel == ITEM_TIER_2)
+		commonChance = 200;
+	else if (tierLevel == ITEM_TIER_3)
+		commonChance = 150;
+	else if (tierLevel == ITEM_TIER_4)
+		commonChance = 80;
+	
 	// No momento, é a chance de vir comum
 
 	uint32_t uncommonChance = commonChance + g_config.getNumber(ConfigManager::ITEM_UNCOMMON_CHANCE);
