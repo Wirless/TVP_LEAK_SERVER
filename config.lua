@@ -218,6 +218,11 @@ rateLoot = 300
 rateMagic = 2
 rateSpawn = 0
 
+--------------------------
+-- Battlepass Settings --
+--------------------------
+battlePassEndDate = "10.08.2024.10.00" -- // Date format - 20.09.2023.10.00
+
 -----------------
 -- LUA Scripts --
 -----------------

@@ -260,6 +260,7 @@ bool ConfigManager::load()
 	string[IP_LOCK_MESSAGE] = getGlobalString(L, "ipLockMessage", "IP address blocked for 30 minutes. Please wait.");
 	string[ACCOUNT_LOCK_MESSAGE] = getGlobalString(L, "accountLockMessage", "Account disabled for five minutes. Please wait.");
 	string[LOG_PATH] = getGlobalString(L, "logPath", "/data/gamedata/logs/");
+	string[BATTLEPASS_END_DATE] = getGlobalString(L, "battlePassEndDate", "");
 
 	integer[CLIENT_VERSION] = getGlobalNumber(L, "clientVersion");
 	integer[MAX_PLAYERS] = getGlobalNumber(L, "maxPlayers");
