@@ -14563,9 +14563,9 @@
 		<attribute key="clientid" value="3265" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="7000" />
-		<attribute key="defense" value="19" />
-		<attribute key="attack" value="38" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="25" />
+		<attribute key="attack" value="30" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="sword" />
 		<attribute key="moveable" value="true" />
@@ -14575,9 +14575,9 @@
 		<attribute key="clientid" value="3266" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="5000" />
-		<attribute key="defense" value="8" />
-		<attribute key="attack" value="31" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="10" />
+		<attribute key="attack" value="25" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="axe" />
 		<attribute key="moveable" value="true" />
@@ -14609,9 +14609,9 @@
 		<attribute key="clientid" value="3269" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="9000" />
-		<attribute key="defense" value="11" />
-		<attribute key="attack" value="44" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="14" />
+		<attribute key="attack" value="35" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="axe" />
 		<attribute key="moveable" value="true" />
@@ -14676,9 +14676,9 @@
 		<attribute key="clientid" value="3275" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="7000" />
-		<attribute key="defense" value="9" />
-		<attribute key="attack" value="44" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="12" />
+		<attribute key="attack" value="35" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="axe" />
 		<attribute key="moveable" value="true" />
@@ -14712,9 +14712,9 @@
 		<attribute key="clientid" value="3278" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="4300" />
-		<attribute key="defense" value="30" />
-		<attribute key="attack" value="69" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="40" />
+		<attribute key="attack" value="55" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="sword" />
 		<attribute key="moveable" value="true" />
@@ -14724,9 +14724,9 @@
 		<attribute key="clientid" value="3279" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="8500" />
-		<attribute key="defense" value="8" />
-		<attribute key="attack" value="56" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="10" />
+		<attribute key="attack" value="45" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="club" />
 		<attribute key="moveable" value="true" />
@@ -14751,9 +14751,9 @@
 		<attribute key="clientid" value="3281" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="18000" />
-		<attribute key="defense" value="17" />
-		<attribute key="attack" value="58" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="22" />
+		<attribute key="attack" value="46" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="sword" />
 		<attribute key="moveable" value="true" />
@@ -14926,9 +14926,9 @@
 		<attribute key="clientid" value="3296" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="6400" />
-		<attribute key="defense" value="29" />
-		<attribute key="attack" value="66" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="38" />
+		<attribute key="attack" value="53" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="sword" />
 		<attribute key="moveable" value="true" />
@@ -14983,9 +14983,9 @@
 		<attribute key="clientid" value="3301" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="5250" />
-		<attribute key="defense" value="17" />
-		<attribute key="attack" value="33" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="23" />
+		<attribute key="attack" value="26" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="sword" />
 		<attribute key="moveable" value="true" />
@@ -14996,9 +14996,9 @@
 		<attribute key="clientid" value="3302" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="6700" />
-		<attribute key="defense" value="12" />
-		<attribute key="attack" value="59" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="16" />
+		<attribute key="attack" value="47" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="axe" />
 		<attribute key="moveable" value="true" />
@@ -15009,9 +15009,9 @@
 		<attribute key="clientid" value="3303" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="9000" />
-		<attribute key="defense" value="17" />
-		<attribute key="attack" value="65" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="22" />
+		<attribute key="attack" value="52" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="axe" />
 		<attribute key="moveable" value="true" />
@@ -15123,9 +15123,9 @@
 		<attribute key="clientid" value="3313" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="8000" />
-		<attribute key="defense" value="8" />
-		<attribute key="attack" value="43" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="10" />
+		<attribute key="attack" value="34" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="axe" />
 		<attribute key="moveable" value="true" />
@@ -15135,9 +15135,9 @@
 		<attribute key="clientid" value="3314" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="7800" />
-		<attribute key="defense" value="19" />
-		<attribute key="attack" value="49" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="25" />
+		<attribute key="attack" value="39" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="axe" />
 		<attribute key="moveable" value="true" />
@@ -15147,9 +15147,9 @@
 		<attribute key="clientid" value="3315" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="11000" />
-		<attribute key="defense" value="11" />
-		<attribute key="attack" value="58" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="15" />
+		<attribute key="attack" value="46" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="axe" />
 		<attribute key="moveable" value="true" />
@@ -15301,9 +15301,9 @@
 		<attribute key="clientid" value="3328" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="5250" />
-		<attribute key="defense" value="11" />
-		<attribute key="attack" value="49" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="15" />
+		<attribute key="attack" value="39" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="axe" />
 		<attribute key="moveable" value="true" />
@@ -15335,9 +15335,9 @@
 		<attribute key="clientid" value="3331" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="5250" />
-		<attribute key="defense" value="11" />
-		<attribute key="attack" value="61" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="14" />
+		<attribute key="attack" value="49" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="axe" />
 		<attribute key="moveable" value="true" />
@@ -15347,9 +15347,9 @@
 		<attribute key="clientid" value="3332" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="7000" />
-		<attribute key="defense" value="9" />
-		<attribute key="attack" value="60" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="12" />
+		<attribute key="attack" value="48" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="club" />
 		<attribute key="moveable" value="true" />
@@ -15381,9 +15381,9 @@
 		<attribute key="clientid" value="3335" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="6400" />
-		<attribute key="defense" value="18" />
-		<attribute key="attack" value="56" />
-		<attribute key="attackspeed" value="2600" />
+		<attribute key="defense" value="24" />
+		<attribute key="attack" value="45" />
+		<attribute key="attackspeed" value="2080" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="axe" />
 		<attribute key="moveable" value="true" />
@@ -15437,9 +15437,9 @@
 		<attribute key="clientid" value="3340" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="11000" />
-		<attribute key="defense" value="11" />
-		<attribute key="attack" value="61" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="15" />
+		<attribute key="attack" value="49" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="club" />
 		<attribute key="moveable" value="true" />
@@ -15449,9 +15449,9 @@
 		<attribute key="clientid" value="3341" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="4000" />
-		<attribute key="defense" value="23" />
-		<attribute key="attack" value="63" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="30" />
+		<attribute key="attack" value="50" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="club" />
 		<attribute key="moveable" value="true" />
@@ -15461,9 +15461,9 @@
 		<attribute key="clientid" value="3342" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="6150" />
-		<attribute key="defense" value="8" />
-		<attribute key="attack" value="60" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="10" />
+		<attribute key="attack" value="48" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="axe" />
 		<attribute key="moveable" value="true" />
@@ -26114,9 +26114,9 @@
 		<attribute key="clientid" value="3346" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="8000" />
-		<attribute key="defense" value="5" />
-		<attribute key="attack" value="35" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="7" />
+		<attribute key="attack" value="28" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="axe" />
 		<attribute key="moveable" value="true" />
@@ -26126,9 +26126,9 @@
 		<attribute key="clientid" value="3347" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="8000" />
-		<attribute key="defense" value="6" />
-		<attribute key="attack" value="23" />
-		<attribute key="attackspeed" value="2500" />
+		<attribute key="defense" value="8" />
+		<attribute key="attack" value="18" />
+		<attribute key="attackspeed" value="2000" />
 		<attribute key="slottype" value="two-handed" />
 		<attribute key="weapontype" value="axe" />
 		<attribute key="moveable" value="true" />
