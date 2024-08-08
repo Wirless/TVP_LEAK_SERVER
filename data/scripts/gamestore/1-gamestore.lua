@@ -569,6 +569,17 @@ storeIndex = {
 
                 -- Internal variables
                 category_id = "5"
+            },
+            {
+                name = "Amulet of Loss",
+                price = 50,
+                id = 2173,
+                count = 1,
+                description = "- With this item, you will be protected from lossing your items when you die.",
+                type = GameStore_OfferTypes.OFFER_TYPE_ITEM,
+
+                -- Internal variables
+                category_id = "5"
             }
         }
     },
