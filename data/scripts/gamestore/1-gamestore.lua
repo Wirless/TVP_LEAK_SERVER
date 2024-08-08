@@ -84,16 +84,6 @@ storeIndex = {
 
                 -- Internal variables
                 category_id = "2"
-            }, {
-                name = "Amulet of Loss",
-                price = 250, --TODO: Define price
-                id = 2173,
-                count = 1,
-                description = "- This amulet will protect you from losing your items on death.\n\n- The amulet will be destroyed after one use.",
-                type = GameStore_OfferTypes.OFFER_TYPE_ITEM,
-
-                -- Internal variables
-                category_id = "2"
             }
         }
     },
