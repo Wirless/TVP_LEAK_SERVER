@@ -36,7 +36,7 @@ local function onUse(player, item, fromPosition, target, toPosition, isHotkey)
     local itm = items[item.itemid]
     if itm then
         -- Verifique o nível do jogador aqui (substitua 45 pelo nível desejado)
-        if player:getLevel() >= 55 then
+        if player:getLevel() >= 1 then
             local done = false
             for storage, value in pairs(stors) do
                 if player:getStorageValue(storage) >= value then
@@ -56,7 +56,7 @@ local function onUse(player, item, fromPosition, target, toPosition, isHotkey)
                 player:getPosition():sendMagicEffect(CONST_ME_POFF)
             end
         else
-            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need level 55 or higher to use this item.")
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need level 1 or higher to use this item.")
         end
     end
     return true
