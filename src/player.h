@@ -1052,6 +1052,10 @@ class Player final : public Creature, public Cylinder
 			return openContainers;
 		}
 
+		void removeKillingEnd() {
+			playerKillerEnd = 0;
+		}
+
 		void updateRegeneration();
 		bool isLightExchangeable() const override;
 

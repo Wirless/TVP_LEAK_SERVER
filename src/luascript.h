@@ -903,6 +903,7 @@ class LuaScriptInterface
 
 		static int luaPlayerGetMurderTimestamps(lua_State* L);
 		static int luaPlayerGetPlayerKillerEnd(lua_State* L);
+		static int luaPlayerRemoveKillingEnd(lua_State* L);
 
 		static int luaPlayerGetItemCount(lua_State* L);
 		static int luaPlayerGetItemById(lua_State* L);

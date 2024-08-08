@@ -2317,6 +2317,7 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Player", "getMurderTimestamps", LuaScriptInterface::luaPlayerGetMurderTimestamps);
 	registerMethod("Player", "getPlayerKillerEnd", LuaScriptInterface::luaPlayerGetPlayerKillerEnd);
+	registerMethod("Player", "removeKillerEnd", LuaScriptInterface::luaPlayerRemoveKillingEnd);
 
 	registerMethod("Player", "getItemCount", LuaScriptInterface::luaPlayerGetItemCount);
 	registerMethod("Player", "getItemById", LuaScriptInterface::luaPlayerGetItemById);
@@ -8677,6 +8678,19 @@ int LuaScriptInterface::luaPlayerGetPlayerKillerEnd(lua_State* L)
 	}
 
 	lua_pushnumber(L, player->playerKillerEnd);
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerRemoveKillingEnd(lua_State* L)
+{
+	// player:removeKillingEnd()
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	player->removeKillingEnd();
 	return 1;
 }
 
