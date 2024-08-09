@@ -35921,4 +35921,370 @@
 		<attribute key="weight" value="5" />
 		<attribute key="moveable" value="true" />
 	</item>
+	<item id="5499" article="a" name="dead betrayed wraith">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5657" />
+		<attribute key="decayto" value="5500" />
+		<attribute key="duration" value="1800" />
+		<attribute key="fluidsource" value="blood" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5500" article="a" name="dead betrayed wraith">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5658" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="1" />
+	</item>
+	<item id="5501" article="a" name="dead blightwalker">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5659" />
+		<attribute key="decayto" value="5502" />
+		<attribute key="duration" value="1800" />
+		<attribute key="fluidsource" value="slime" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5502" article="a" name="dead blightwalker">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5660" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="10" />
+	</item>
+	<item id="5503" article="a" name="dead dark torturer">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5661" />
+		<attribute key="decayto" value="5504" />
+		<attribute key="duration" value="1800" />
+		<attribute key="fluidsource" value="blood" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5504" article="a" name="dead dark torturer">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5662" />
+		<attribute key="decayto" value="5505" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5505" article="a" name="dead dark torturer">
+		<attribute key="clientid" value="5663" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+		<attribute key="fluidsource" value="blood" />
+	</item>
+	<item id="5506" article="a" name="dead defiler">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5665" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+		<attribute key="fluidsource" value="slime" />
+		<attribute key="containersize" value="10" />
+	</item>
+	<item id="5507" article="a" name="dead destroyer">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5667" />
+		<attribute key="decayto" value="5508" />
+		<attribute key="duration" value="1800" />
+		<attribute key="fluidsource" value="blood" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5508" article="a" name="dead destroyer">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5668" />
+		<attribute key="decayto" value="5509" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5509" article="a" name="dead destroyer">
+		<attribute key="clientid" value="5669" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+	</item>
+	<item id="5510" article="a" name="dead diabolic imp">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5671" />
+		<attribute key="decayto" value="5511" />
+		<attribute key="duration" value="1800" />
+		<attribute key="fluidsource" value="blood" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5511" article="a" name="dead diabolic imp">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5672" />
+		<attribute key="decayto" value="5512" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5512" article="a" name="dead diabolic imp">
+		<attribute key="clientid" value="5673" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5513" article="a" name="dead hand of cursed fate">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5675" />
+		<attribute key="decayto" value="5514" />
+		<attribute key="duration" value="1800" />
+		<attribute key="fluidsource" value="slime" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5514" article="a" name="dead hand of cursed fate">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5676" />
+		<attribute key="decayto" value="5515" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5515" article="a" name="dead hand of cursed fate">
+		<attribute key="clientid" value="5677" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5516" article="a" name="dead hellfire fighter">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5679" />
+		<attribute key="decayto" value="5517" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5517" article="a" name="dead hellfire fighter">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5680" />
+		<attribute key="decayto" value="5518" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5518" name="dead hellfire fighter">
+		<attribute key="clientid" value="5681" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5519" article="a" name="dead hellhound">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5683" />
+		<attribute key="decayto" value="5520" />
+		<attribute key="duration" value="1800" />
+		<attribute key="fluidsource" value="blood" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5520" article="a" name="dead hellhound">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5684" />
+		<attribute key="decayto" value="5521" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5521" article="a" name="dead hellhound">
+		<attribute key="clientid" value="5685" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5522" article="a" name="dead juggernaut">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5687" />
+		<attribute key="decayto" value="5523" />
+		<attribute key="duration" value="1800" />
+		<attribute key="fluidsource" value="slime" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5523" article="a" name="dead juggernaut">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5688" />
+		<attribute key="decayto" value="5524" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5524" article="a" name="dead juggernaut">
+		<attribute key="clientid" value="5689" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5525" article="a" name="dead lost soul">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5692" />
+		<attribute key="decayto" value="5526" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5526" article="a" name="dead lost soul">
+		<attribute key="clientid" value="5690" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5527" article="a" name="dead nightmare">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5694" />
+		<attribute key="decayto" value="5528" />
+		<attribute key="duration" value="1800" />
+		<attribute key="fluidsource" value="blood" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5528" article="a" name="dead nightmare">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5695" />
+		<attribute key="decayto" value="5529" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5529" article="a" name="dead nightmare">
+		<attribute key="clientid" value="5696" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5530" article="a" name="dead phantasm">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5698" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="weight" value="0" />
+		<attribute key="decayto" value="5531" />
+		<attribute key="duration" value="1800" />
+		<attribute key="fluidsource" value="slime" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5531" article="a" name="dead phantasm">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5699" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="weight" value="0" />
+		<attribute key="decayto" value="5532" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5532" article="a" name="dead phantasm">
+		<attribute key="clientid" value="5700" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="weight" value="0" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5533" article="a" name="dead plaguesmith">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5702" />
+		<attribute key="decayto" value="5534" />
+		<attribute key="duration" value="1800" />
+		<attribute key="fluidsource" value="slime" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5534" article="a" name="dead plaguesmith">
+		<attribute key="clientid" value="5703" />
+		<attribute key="decayto" value="5535" />
+		<attribute key="duration" value="1800" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5535" article="a" name="dead plaguesmith">
+		<attribute key="clientid" value="5704" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5536" article="a" name="dead spectre">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5706" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="weight" value="0" />
+		<attribute key="decayto" value="5537" />
+		<attribute key="duration" value="1800" />
+		<attribute key="fluidsource" value="slime" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5537" article="a" name="dead spectre">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5707" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="weight" value="0" />
+		<attribute key="decayto" value="5538" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5538" article="a" name="dead spectre">
+		<attribute key="clientid" value="5708" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="weight" value="0" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5539" article="a" name="dead undead dragon">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5710" />
+		<attribute key="decayto" value="5540" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5540" article="a" name="dead undead dragon">
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="clientid" value="5711" />
+		<attribute key="decayto" value="5541" />
+		<attribute key="duration" value="1800" />
+		<attribute key="containersize" value="0" />
+		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5541" article="a" name="dead undead dragon">
+		<attribute key="clientid" value="5712" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="1800" />
+		<attribute key="moveable" value="true" />
+	</item>
 </items>
