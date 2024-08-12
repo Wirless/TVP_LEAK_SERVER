@@ -24,9 +24,8 @@
 		<attack name="manadrain" delay="4" target="0" radius="3" min="-5" max="-80">
 			<attribute key="areaEffect" value="yellowbubble"/>
 		</attack>
-		<attack name="phantasm drown" delay="6"/>
-		<attack name="drunk" delay="6" radius="5" target="0" duration="6000">
-			<attribute key="areaEffect" value="redshimmer"/>
+		<attack name="drunk" delay="7" target="0" radius="3" duration="5000">
+			<attribute key="areaEffect" value="greenspark"/>
 		</attack>
 	</attacks>
 	<defenses>
