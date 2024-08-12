@@ -53,7 +53,7 @@
 		<item id="2399" countmax="5" chance="2222"/><!-- assassin star -->
 		<!-- <item id="5480" chance="2222"/>cat's paw -->
 		<!--<item id="5022" countmax="2" chance="2760"/> orichalcum pearl -->
-		<item id="7412" chance="850"/><!-- butcher axe -->
+		<!--<item id="7412" chance="850"/> butcher axe -->
 	<!-- 	<item id="5801" chance="1192"/>jewelled backpack -->
 		<item id="2432" chance="480"/><!-- vile axe -->
 		<item id="2470" chance="30"/><!-- golden legs -->
