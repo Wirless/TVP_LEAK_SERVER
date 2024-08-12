@@ -26,10 +26,12 @@
 		<attack name="drunk" delay="7" target="0" radius="3" duration="5000">
 			<attribute key="areaEffect" value="greenspark"/>
 		</attack>
-		<attack name="blightwalker curse" delay="6"/>
+
+		<!-- <attack name="blightwalker curse" delay="6"/>
 		<attack name="speed" delay="4" duration="20000" speed="-80" speedvariation="20" radius="5" target="0">
 			<attribute key="shootEffect" value="poison"/>
-		</attack>
+		</attack> -->
+
 	</attacks>
 	<defenses armor="50" defense="50"/>
 	

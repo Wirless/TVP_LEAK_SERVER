@@ -20,7 +20,9 @@
 		<attack name="drunk" delay="6" radius="4" target="0" duration="6000">
 			<attribute key="areaEffect" value="purplenote"/>
 		</attack>
-		<attack name="spectre drown" delay="6"/>
+
+		<!-- <attack name="spectre drown" delay="6"/> -->
+
 		<attack name="manadrain" delay="6" range="7" min="-100" max="-400"/>
 		<attack name="lifedrain" delay="4" range="7" min="-300" max="-550">
 			<attribute key="areaEffect" value="redshimmer"/>

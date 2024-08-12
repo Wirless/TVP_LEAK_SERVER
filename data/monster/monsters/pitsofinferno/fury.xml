@@ -26,10 +26,12 @@
 		<attack name="physical" delay="7" radius="4" target="0" min="-120" max="-300">
 			<attribute key="areaEffect" value="redspark"/>
 		</attack>
-		<attack name="fury skill reducer" delay="8"/>
+
+		<!-- <attack name="fury skill reducer" delay="8"/>
 		<attack name="lifedrain" delay="7" radius="3" target="0" min="-120" max="-300">
 			<attribute key="areaEffect" value="blackspark"/>
-		</attack>
+		</attack> -->
+
 	</attacks>
 	<defenses armor="20" defense="20">
 		<defense name="speed" delay="11" duration="4000" speed="90" speedvariation="5">

@@ -20,7 +20,9 @@
 		<attack name="physical" delay="7" range="7" min="-0" max="-781">
 			<attribute key="shootEffect" value="throwingknife"/>
 		</attack>
-		<attack name="dark torturer skill reducer" delay="8"/>
+
+		<!-- <attack name="dark torturer skill reducer" delay="8"/> -->
+
 	</attacks>
 	<defenses armor="40" defense="40">
 		<defense name="healing" delay="7" min="200" max="250">
