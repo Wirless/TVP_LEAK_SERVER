@@ -1252,7 +1252,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 		int64_t itemTier = const_cast<Item*>(item)->getItemTierRarity();
 
 		int32_t requiredLevel = getRarityAttributeRequiredLevelFunction((ItemRarityLevel)itemRarity, (ItemTierLevel)itemTier);
-		if (requiredLevel > 0)
+		if (requiredLevel > 1)
 			s << "\nRequired player level " << requiredLevel << " to activate attributes from rarity. " << std::endl;
 	}
 
