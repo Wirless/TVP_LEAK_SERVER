@@ -3567,6 +3567,9 @@ void Game::playerSay(uint32_t playerId, uint16_t channelId, SpeakClasses type,
 
 void Game::registerFailedAccountLogin(uint32_t accountNumber)
 {
+	if (g_config.getNumber(ConfigManager::FAILED_LOGINATTEMPTS_ACCOUNT_LOCK) == 0) {
+		return;
+	}
 	auto it = accountLoginAttemptsMap.find(accountNumber);
 	if (it == accountLoginAttemptsMap.end()) {
 		auto pair = std::make_pair<uint32_t, uint64_t>(1, OTSYS_TIME());
@@ -3586,8 +3589,13 @@ bool Game::isAccountLocked(uint32_t accountNumber)
 	if (it == accountLoginAttemptsMap.end()) {
 		return false;
 	}
+	bool locked = it->second.first >= g_config.getNumber(ConfigManager::FAILED_LOGINATTEMPTS_ACCOUNT_LOCK) && OTSYS_TIME() <= it->second.second;
 
-	return it->second.first >= g_config.getNumber(ConfigManager::FAILED_LOGINATTEMPTS_ACCOUNT_LOCK) && OTSYS_TIME() <= it->second.second;
+	if (it->second.first >= g_config.getNumber(ConfigManager::FAILED_LOGINATTEMPTS_ACCOUNT_LOCK) && OTSYS_TIME() >= it->second.second) {
+		it->second.first = 0;
+		locked = false;
+	}
+	return locked;
 }
 
 void Game::resetIpLoginAttempts(uint32_t ip)
@@ -3596,8 +3604,9 @@ void Game::resetIpLoginAttempts(uint32_t ip)
 	if (it == ipLoginAttemptsMap.end()) {
 		return;
 	}
-
-	ipLoginAttemptsMap.erase(it);
+	if (OTSYS_TIME() - (g_config.getNumber(ConfigManager::IP_LOCK_DURATION)) >= it->second.second) {
+		ipLoginAttemptsMap.erase(it);
+	}
 }
 
 void Game::resetAccountLoginAttempts(uint32_t accountNumber)
@@ -3612,6 +3621,10 @@ void Game::resetAccountLoginAttempts(uint32_t accountNumber)
 
 void Game::registerFailedIPLogin(uint32_t ip)
 {
+	std::lock_guard<std::mutex> lock(ipLoginAttemptsLock);
+	if (g_config.getNumber(ConfigManager::FAILED_LOGINATTEMPTS_IP_BAN) == 0) {
+		return;
+	}
 	auto it = ipLoginAttemptsMap.find(ip);
 	if (it == ipLoginAttemptsMap.end()) {
 		auto pair = std::make_pair<uint32_t, uint64_t>(1, OTSYS_TIME());
@@ -3631,8 +3644,13 @@ bool Game::isIPLocked(uint32_t ip)
 	if (it == ipLoginAttemptsMap.end()) {
 		return false;
 	}
+	bool locked = it->second.first >= g_config.getNumber(ConfigManager::FAILED_LOGINATTEMPTS_IP_BAN) && OTSYS_TIME() <= it->second.second;
 
-	return it->second.first >= g_config.getNumber(ConfigManager::FAILED_LOGINATTEMPTS_IP_BAN) && OTSYS_TIME() <= it->second.second;
+	if (it->second.first >= g_config.getNumber(ConfigManager::FAILED_LOGINATTEMPTS_IP_BAN) && OTSYS_TIME() >= it->second.second) {
+		it->second.first = 0;
+		locked = false;
+	}
+	return locked;
 }
 
 bool Game::playerSaySpell(Player* player, SpeakClasses type, const std::string& text)
