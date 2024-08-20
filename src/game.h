@@ -603,6 +603,8 @@ class Game
 
 		std::unordered_map<uint32_t, std::pair<uint32_t, uint64_t>> accountLoginAttemptsMap;
 		std::unordered_map<uint32_t, std::pair<uint32_t, uint64_t>> ipLoginAttemptsMap;
+		std::mutex accountLoginAttemptsLock;
+		std::mutex ipLoginAttemptsLock;
 
 		std::list<Item*> decayItems[EVENT_DECAY_BUCKETS];
 		std::list<Creature*> checkCreatureLists[EVENT_CREATURECOUNT];
