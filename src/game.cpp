@@ -3567,6 +3567,7 @@ void Game::playerSay(uint32_t playerId, uint16_t channelId, SpeakClasses type,
 
 void Game::registerFailedAccountLogin(uint32_t accountNumber)
 {
+	std::lock_guard<std::mutex> lock(accountLoginAttemptsLock);
 	if (g_config.getNumber(ConfigManager::FAILED_LOGINATTEMPTS_ACCOUNT_LOCK) == 0) {
 		return;
 	}
@@ -3585,6 +3586,7 @@ void Game::registerFailedAccountLogin(uint32_t accountNumber)
 
 bool Game::isAccountLocked(uint32_t accountNumber)
 {
+	std::lock_guard<std::mutex> lock(accountLoginAttemptsLock);
 	auto it = accountLoginAttemptsMap.find(accountNumber);
 	if (it == accountLoginAttemptsMap.end()) {
 		return false;
@@ -3600,6 +3602,7 @@ bool Game::isAccountLocked(uint32_t accountNumber)
 
 void Game::resetIpLoginAttempts(uint32_t ip)
 {
+	std::lock_guard<std::mutex> lock(ipLoginAttemptsLock);
 	auto it = ipLoginAttemptsMap.find(ip);
 	if (it == ipLoginAttemptsMap.end()) {
 		return;
@@ -3611,11 +3614,11 @@ void Game::resetIpLoginAttempts(uint32_t ip)
 
 void Game::resetAccountLoginAttempts(uint32_t accountNumber)
 {
+	std::lock_guard<std::mutex> lock(accountLoginAttemptsLock);
 	auto it = accountLoginAttemptsMap.find(accountNumber);
 	if (it == accountLoginAttemptsMap.end()) {
 		return;
 	}
-
 	accountLoginAttemptsMap.erase(it);
 }
 
@@ -3640,6 +3643,7 @@ void Game::registerFailedIPLogin(uint32_t ip)
 
 bool Game::isIPLocked(uint32_t ip)
 {
+	std::lock_guard<std::mutex> lock(ipLoginAttemptsLock);
 	auto it = ipLoginAttemptsMap.find(ip);
 	if (it == ipLoginAttemptsMap.end()) {
 		return false;
