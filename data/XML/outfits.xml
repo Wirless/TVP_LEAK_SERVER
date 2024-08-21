@@ -29,6 +29,7 @@
 	<outfit type="0" looktype="284" name="Shaman" premium="no" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="286" name="Brotherhood of Bones" premium="no" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="287" name="Halloween GM" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="330" name="Crow" premium="no" unlocked="no" enabled="yes" />
 
 	<!-- Male outfits -->
 	<outfit type="1" looktype="128" name="Citizen" premium="no" unlocked="yes" enabled="yes" />
@@ -59,5 +60,5 @@
 	<outfit type="1" looktype="269" name="Shaman" premium="no" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="285" name="Brotherhood of Bones" premium="no" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="287" name="Halloween GM" premium="no" unlocked="no" enabled="yes" />
-	
+	<outfit type="1" looktype="329" name="Crow" premium="no" unlocked="no" enabled="yes" />
 </outfits>
