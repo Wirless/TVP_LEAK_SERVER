@@ -13,7 +13,7 @@ function talkaction.onSay(player, words, param)
 		return false
 	end
 
-	if tradePartner:getLevel() < config.level then
+	if tradePartner:getLevel() < 30 then
 		player:sendCancelMessage("You need level 30 or higher to buy a house.")
 		return false
 	end
