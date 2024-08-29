@@ -15,8 +15,27 @@
 	<monster name="Crystal Spider" file="monsters/crystal spider.xml"/>
 	<monster name="PumpkinHead" file="monsters/pumpkinhead.xml"/>
 	<monster name="Novice PumpkinHead" file="monsters/novice pumpkinhead.xml"/>
-	
-	
+
+    <!-- Pits of Inferno -->
+	<monster name="Betrayed Wraith" file="monsters/pitsofinferno/betrayed wraith.xml"/>
+	<monster name="Blightwalker" file="monsters/pitsofinferno/blightwalker.xml"/>
+	<monster name="Dark Torturer" file="monsters/pitsofinferno/dark torturer.xml"/>
+	<monster name="defiler" file="monsters/pitsofinferno/Defiler.xml"/>
+	<monster name="Destroyer" file="monsters/pitsofinferno/destroyer.xml"/>
+	<monster name="Diabolic Imp" file="monsters/pitsofinferno/diabolic imp.xml"/>
+	<monster name="Fury" file="monsters/pitsofinferno/fury.xml"/>
+	<monster name="Hand Of Cursed Fate" file="monsters/pitsofinferno/hand of cursed fate.xml"/>
+	<monster name="Hellfire Fighter" file="monsters/pitsofinferno/hellfire fighter.xml"/>
+	<monster name="Hellhound" file="monsters/pitsofinferno/hellhound.xml"/>
+	<monster name="juggernaut" file="monsters/pitsofinferno/Juggernaut.xml"/>
+	<monster name="Lost Soul" file="monsters/pitsofinferno/lost soul.xml"/>
+	<monster name="Nightmare" file="monsters/pitsofinferno/nightmare.xml"/>
+	<monster name="Phantasm" file="monsters/pitsofinferno/phantasm.xml"/>
+	<monster name="Plaguesmith" file="monsters/pitsofinferno/plaguesmith.xml"/>
+	<monster name="Son Of Verminor" file="monsters/pitsofinferno/son of verminor.xml"/>
+	<monster name="Spectre" file="monsters/pitsofinferno/spectre.xml"/>
+	<monster name="Undead Dragon" file="monsters/pitsofinferno/undead dragon.xml"/>
+
 	<!-- 772 Monsters -->
 	<monster name="Assassin" file="monsters/assassin.xml"/>
 	<monster name="Bandit" file="monsters/bandit.xml"/>

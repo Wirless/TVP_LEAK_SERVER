@@ -10,6 +10,7 @@ end
 
 function Monster:onCreate(position)
 	G_MONSTERSTAR.processSpawn(self, position)
+	self:checkStatisticsMode()
 end
 
 function Monster:onDeath(player, position)

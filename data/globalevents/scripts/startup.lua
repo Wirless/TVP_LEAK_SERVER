@@ -29,5 +29,34 @@ function onStartup()
 		db.query("INSERT INTO `towns` (`id`, `name`, `posx`, `posy`, `posz`) VALUES (" .. town:getId() .. ", " .. db.escapeString(town:getName()) .. ", " .. position.x .. ", " .. position.y .. ", " .. position.z .. ")")
 	end
 
+	--Update house website rent info
+	local houseList = Game.getHouses()
+	for _, house in ipairs(houseList) do
+		local housePrice = configManager.getNumber(configKeys.HOUSE_PRICE)
+		local rent = house:getRent()
+		if housePrice > -1 then
+			local price = house:getTileCount() * housePrice
+			if price ~= rent then
+				house:setRent(price)
+				db.asyncQuery("UPDATE `houses` SET `rent` = " .. price .. " WHERE `id` = " .. house:getId())
+			end
+		end
+	end
+
 	Game.loadBosses()
+
+	if getConfigInfo("ignoreMaintance") then
+		print("Ignoring maintenance game status.")
+		return true
+	end
+
+	addEvent(function()
+		Game.setGameState(GAME_STATE_MAINTAIN)
+		print("Game state set to maintain.")
+	end, 3 * 1000)
+
+	addEvent(function()
+		Game.setGameState(GAME_STATE_NORMAL)
+		print("Game state set to normal.")
+	end, 5 * 60 * 1000)
 end

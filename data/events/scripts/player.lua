@@ -281,7 +281,6 @@ function Player:onGainExperience(source, exp, rawExp)
 					partyBonus = 10
 					break
 				end
-				
 				vocations[vocationId] = true
 				partyBonus = partyBonus + 5
 			end
