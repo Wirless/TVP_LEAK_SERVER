@@ -32,6 +32,7 @@
 #include "scheduler.h"
 #include "databasetasks.h"
 #include "script.h"
+#include "battlepass.h"
 #include "logger.h"
 #include <fstream>
 #include <fmt/format.h>
@@ -297,6 +298,11 @@ void mainLoader(int, char*[], ServiceManager* services)
 	std::cout << ">> Loading outfits" << std::endl;
 	if (!Outfits::getInstance().loadFromXml()) {
 		startupErrorMessage("Unable to load outfits!");
+		return;
+	}
+
+	if (!BattlePasses::getInstance()->load()) {
+		startupErrorMessage("Unable to load battlepass!");
 		return;
 	}
 

@@ -907,6 +907,10 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 		}
 	}
 
+	if ((attr = monsterNode.attribute("classId"))) {
+		mType->info.monsterClass = static_cast<MonsterClass_t>(pugi::cast<uint16_t>(attr.value()));
+	}
+
 	if ((attr = monsterNode.attribute("experience"))) {
 		mType->info.experience = pugi::cast<uint64_t>(attr.value());
 	}

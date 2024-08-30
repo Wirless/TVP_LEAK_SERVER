@@ -116,6 +116,7 @@ class ConfigManager
 			ACCOUNT_LOCK_MESSAGE,
 			IP_LOCK_MESSAGE,
 			LOG_PATH,
+			BATTLEPASS_END_DATE,
 
 			LAST_STRING_CONFIG /* this must be the last one */
 		};

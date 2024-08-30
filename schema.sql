@@ -1210,6 +1210,7 @@ CREATE TABLE IF NOT EXISTS `players` (
   `skill_shielding_tries` bigint(20) unsigned NOT NULL DEFAULT '0',
   `skill_fishing` int(10) unsigned NOT NULL DEFAULT '10',
   `skill_fishing_tries` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `battlepass` blob NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `account_id` (`account_id`),

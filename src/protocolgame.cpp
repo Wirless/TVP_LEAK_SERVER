@@ -561,6 +561,7 @@ void ProtocolGame::parsePacketOnDispatcher(NetworkMessage msg)
 	case 0xDD: parseRemoveVip(msg); break;
 	case 0xE6: parseBugReport(msg); break;
 	case 0xE8: parseDebugAssert(msg); break;
+	case 0x61: parseBattlepass(msg); break;
 
 	default:
 		g_logger.gameLog(spdlog::level::info, fmt::format("{:s} sent an unknown packet type: {:d}", player->getName(), static_cast<uint16_t>(recvbyte)));
@@ -2760,6 +2761,210 @@ void ProtocolGame::parseNewWalking(NetworkMessage& msg)
 	}
 
 	g_game.playerNewWalk(playerId, playerPosition, flags, path);
+}
+
+void ProtocolGame::parseBattlepass(NetworkMessage& msg)
+{
+	uint8_t id = msg.getByte();
+	switch (id) {
+	case 0: {
+		// The battlepass window has been opened, send all current quests
+		addGameTask(&Game::playerOpenBattlepass, player->getID(), msg.getByte() != 0);
+		break;
+	}
+	case 1: {
+		// The battlepass window has been closed
+		addGameTask(&Game::playerCloseBattlepass, player->getID());
+		break;
+	}
+	case 2:
+	case 3: {
+		// Player hit the "Complete" (2) or "Shuffle" (3) button
+		addGameTask(&Game::playerModifyQuest, player->getID(), id, msg.get<uint16_t>());
+		break;
+	}
+	case 4: {
+		// Player buys premium battlepass
+		addGameTask(&Game::playerBuyPremiumBattlepass, player->getID());
+		break;
+	}
+	default:
+		break;
+	}
+}
+
+void ProtocolGame::sendBattlepassQuests(uint32_t experience, uint16_t level, const BattlePassPlayerDataMap& data, const BattlePassRewardsMap& levels, bool hasPremium, bool sendLevels)
+{
+	NetworkMessage msg;
+	msg.addByte(0x27);
+	msg.addByte(0);
+	msg.add<uint32_t>(experience);
+	msg.add<uint16_t>(level);
+	msg.addByte(hasPremium ? 0x01 : 0x00);
+	msg.addByte(data.size());
+
+	const auto timeNow = OTSYS_TIME();
+	for (auto& itBattlepass : data) {
+		msg.addByte(itBattlepass.first);
+		msg.addByte(itBattlepass.second.size());
+		for (auto& itQuest : itBattlepass.second) {
+			msg.addByte(itQuest.id);
+			msg.addByte(itQuest.shuffled ? 0x01 : 0x00);
+			msg.add<uint16_t>(itQuest.data->id);
+			msg.add<uint32_t>(itQuest.amount);
+			msg.add<uint32_t>(itQuest.data->amount);
+			msg.add<uint32_t>(itQuest.data->experience);
+			if (itQuest.cooldown > timeNow) {
+				msg.add<uint32_t>(itQuest.cooldown - timeNow);
+			}
+			else if (itQuest.cooldown == 1) {
+				msg.add<uint32_t>(1);
+			}
+			else {
+				msg.add<uint32_t>(0);
+			}
+
+			AddAnyValue(msg, itQuest.id, itQuest.data->value);
+		}
+	}
+
+	if (sendLevels) {
+		msg.addByte(1);
+		msg.add<uint16_t>(levels.size());
+		for (auto& [level, rewards] : levels) {
+			msg.add<uint16_t>(level); // Battlepass level
+			// Free rewards
+			msg.addByte(rewards.freeRewards.size());
+			for (auto& [type, rewardId, clientId, amount] : rewards.freeRewards) {
+				msg.addByte(type);
+				if (type == BATTLEPASS_REWARD_ITEM) {
+					msg.add<uint16_t>(clientId); // Client ID
+				}
+				else {
+					msg.add<uint16_t>(rewardId); // Outfit/mount/wings ID
+				}
+				msg.add<uint16_t>(amount); // Amount
+			}
+
+			// Premium rewards
+			msg.addByte(rewards.premiumRewards.size());
+			for (auto& [type, rewardId, clientId, amount] : rewards.premiumRewards) {
+				msg.addByte(type);
+				if (type == BATTLEPASS_REWARD_ITEM) {
+					msg.add<uint16_t>(clientId); // Client ID
+				}
+				else {
+					msg.add<uint16_t>(rewardId); // Outfit/mount/wings ID
+				}
+				msg.add<uint16_t>(amount); // Amount
+			}
+		}
+	}
+	else {
+		msg.addByte(0);
+	}
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendUpdateBattlepassQuest(const BattlePassQuestsVector& quests)
+{
+	NetworkMessage msg;
+	msg.addByte(0x27);
+	msg.addByte(1);
+	msg.addByte(quests.size());
+
+	const auto timeNow = OTSYS_TIME();
+	for (auto& itBattlepass : quests) {
+		msg.addByte(itBattlepass->id);
+		msg.addByte(itBattlepass->type);
+		msg.add<uint16_t>(itBattlepass->data->id);
+		msg.add<uint32_t>(itBattlepass->amount);
+		AddAnyValue(msg, itBattlepass->id, itBattlepass->data->value);
+
+		if (itBattlepass->amount >= itBattlepass->data->amount) {
+			if (itBattlepass->cooldown > timeNow) {
+				msg.add<uint32_t>(itBattlepass->cooldown - timeNow);
+			}
+			else if (itBattlepass->cooldown <= 1) {
+				msg.add<uint32_t>(itBattlepass->cooldown);
+			}
+			else {
+				msg.add<uint32_t>(1);
+			}
+		}
+	}
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendUpdateBattlepassQuest(uint16_t id, uint32_t experience, uint16_t level, time_t cooldown)
+{
+	NetworkMessage msg;
+	msg.addByte(0x27);
+	msg.addByte(2);
+	msg.add<uint16_t>(id);
+	msg.add<uint32_t>(experience);
+	msg.add<uint16_t>(level);
+	msg.add<uint32_t>(cooldown);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendBattlepassQuest(uint16_t questId, const BattlePassPlayerData& data)
+{
+	NetworkMessage msg;
+	msg.addByte(0x27);
+	msg.addByte(3);
+	msg.add<uint16_t>(questId);
+	msg.addByte(data.id);
+	msg.add<uint16_t>(data.data->id);
+	msg.add<uint32_t>(data.data->amount);
+	msg.add<uint32_t>(data.data->experience);
+	AddAnyValue(msg, data.id, data.data->value);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendBattlepassPremium(uint8_t id, bool isPremium)
+{
+	NetworkMessage msg;
+	msg.addByte(0x27);
+	msg.addByte(4);
+	msg.addByte(id);
+	msg.addByte(isPremium ? 0x01 : 0x00);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::AddAnyValue(NetworkMessage& msg, BattlePassQuests_t id, const std::any& value)
+{
+	if (value.has_value()) {
+		msg.addByte(0x01);
+
+		const auto& valueType = value.type();
+		if (valueType == typeid(uint16_t)) {
+			switch (id) {
+			case BATTLEPASS_QUEST_KILL_MONSTERS: {
+				msg.addByte(ItemAttributesStruct::STRING);
+				msg.addString(getMonsterClassName(std::any_cast<uint16_t>(value)));
+				break;
+			}
+											   /*case BATTLEPASS_QUEST_GET_ITEM: {
+												   msg.addByte(ItemAttributesStruct::STRING);
+												   msg.addString(getRarityName(std::any_cast<uint16_t>(value)));
+												   break;
+											   }*/
+			default: {
+				msg.addByte(ItemAttributesStruct::INTEGER);
+				msg.add<uint16_t>(std::any_cast<uint16_t>(value));
+				break;
+			}
+			}
+		}
+		else if (valueType == typeid(std::string)) {
+			msg.addByte(ItemAttributesStruct::STRING);
+			msg.addString(std::any_cast<std::string>(value));
+		}
+	}
+	else {
+		msg.addByte(0x00);
+	}
 }
 
 void ProtocolGame::checkPredictiveWalking(const Position& pos)

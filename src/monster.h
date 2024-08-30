@@ -110,6 +110,13 @@ class Monster final : public Creature
 			return mType->info.isAttackable;
 		}
 
+		bool isBoss() const override {
+			return mType->info.isBoss;
+		}
+		MonsterClass_t getMonsterClass() const override {
+			return mType->info.monsterClass;
+		}
+
 		bool hasBestiary() const {
 			return mType->info.bestiary.id != 0;
 		}

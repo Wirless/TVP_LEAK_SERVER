@@ -96,5 +96,7 @@ itemAttrTypes stringToItemAttribute(const std::string& str);
 const char* getReturnMessage(ReturnValue value);
 
 int64_t OTSYS_TIME();
+std::string getMonsterClassName(uint16_t monsterClass);
+//std::string getRarityName(uint16_t rarityId);
 
 #endif

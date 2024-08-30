@@ -1235,3 +1235,82 @@ int64_t OTSYS_TIME()
 {
 	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
+
+std::string getMonsterClassName(uint16_t monsterClass)
+{
+	switch (monsterClass) {
+	case MONSTER_UNDERWATER:
+		return "underwater";
+	case MONSTER_ANIMAL:
+		return "animal";
+	case MONSTER_UNDEAD:
+		return "undead";
+	case MONSTER_HUMAN:
+		return "human";
+	case MONSTER_SERPENT:
+		return "serpent";
+	case MONSTER_DRAKEN:
+		return "draken";
+	case MONSTER_LIZARD:
+		return "lizard";
+	case MONSTER_DRAGON:
+		return "dragon";
+	case MONSTER_BOSS:
+		return "boss";
+	case MONSTER_MUTATED:
+		return "mutate";
+	case MONSTER_DJINN:
+		return "djinn";
+	case MONSTER_BONELORD:
+		return "bonelord";
+	case MONSTER_MINOTAUR:
+		return "minotaur";
+	case MONSTER_TROLL:
+		return "troll";
+	case MONSTER_ORC:
+		return "orc";
+	case MONSTER_GOBLIN:
+		return "goblin";
+	case MONSTER_GIANT:
+		return "giant";
+	case MONSTER_ELF:
+		return "elf";
+	case MONSTER_DWARF:
+		return "dwarf";
+	case MONSTER_GEO_ELEMENTAL:
+		return "geo-elemental";
+	case MONSTER_PYRO_ELEMENTAL:
+		return "pyro-elemental";
+	case MONSTER_CRYO_ELEMENTAL:
+		return "cryo-elemental";
+	case MONSTER_ELECTRO_ELEMENTAL:
+		return "electro-elemental";
+	case MONSTER_DEMON:
+		return "demon";
+	case MONSTER_ARACHNID:
+		return "arachnid";
+	case MONSTER_WIZARD:
+		return "wizard";
+	default:
+		return "unknown";
+	}
+}
+
+//std::string getRarityName(uint16_t rarityId)
+//{
+//	switch (rarityId)
+//	{
+//		case ITEM_RARITY_COMMON:
+//			return "Common";
+//		case ITEM_RARITY_RARE:
+//			return "Rare";
+//		case ITEM_RARITY_EPIC:
+//			return "Epic";
+//		case ITEM_RARITY_LEGENDARY:
+//			return "Legendary";
+//		case ITEM_RARITY_BRUTAL:
+//			return "Brutal";
+//		default:
+//			return "";
+//	}
+//}

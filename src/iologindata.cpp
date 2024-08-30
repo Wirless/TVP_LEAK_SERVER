@@ -184,13 +184,13 @@ bool IOLoginData::preloadPlayer(Player* player, const std::string& name)
 bool IOLoginData::loadPlayerById(Player* player, uint32_t id)
 {
 	Database& db = Database::getInstance();
-	return loadPlayer(player, db.storeQuery(fmt::format("SELECT `id`, `name`, `account_id`, `group_id`, `sex`, `vocation`, `experience`, `level`, `maglevel`, `health`, `healthmax`, `blessings`, `mana`, `manamax`, `manaspent`, `soul`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `posx`, `posy`, `posz`, `cap`, `lastlogin`, `lastlogout`, `lastip`, `conditions`, `skulltime`, `skull`, `town_id`, `balance`, `stamina`, `skill_fist`, `skill_fist_tries`, `skill_club`, `skill_club_tries`, `skill_sword`, `skill_sword_tries`, `skill_axe`, `skill_axe_tries`, `skill_dist`, `skill_dist_tries`, `skill_shielding`, `skill_shielding_tries`, `skill_fishing`, `skill_fishing_tries` FROM `players` WHERE `id` = {:d}", id)));
+	return loadPlayer(player, db.storeQuery(fmt::format("SELECT `id`, `name`, `account_id`, `group_id`, `sex`, `vocation`, `experience`, `level`, `maglevel`, `health`, `healthmax`, `blessings`, `mana`, `manamax`, `manaspent`, `soul`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `posx`, `posy`, `posz`, `cap`, `lastlogin`, `lastlogout`, `lastip`, `conditions`, `skulltime`, `skull`, `town_id`, `balance`, `stamina`, `skill_fist`, `skill_fist_tries`, `skill_club`, `skill_club_tries`, `skill_sword`, `skill_sword_tries`, `skill_axe`, `skill_axe_tries`, `skill_dist`, `skill_dist_tries`, `skill_shielding`, `skill_shielding_tries`, `skill_fishing`, `skill_fishing_tries`, `battlepass` FROM `players` WHERE `id` = {:d}", id)));
 }
 
 bool IOLoginData::loadPlayerByName(Player* player, const std::string& name)
 {
 	Database& db = Database::getInstance();
-	return loadPlayer(player, db.storeQuery(fmt::format("SELECT `id`, `name`, `account_id`, `group_id`, `sex`, `vocation`, `experience`, `level`, `maglevel`, `health`, `healthmax`, `blessings`, `mana`, `manamax`, `manaspent`, `soul`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `posx`, `posy`, `posz`, `cap`, `lastlogin`, `lastlogout`, `lastip`, `conditions`, `skulltime`, `skull`, `town_id`, `balance`, `stamina`, `skill_fist`, `skill_fist_tries`, `skill_club`, `skill_club_tries`, `skill_sword`, `skill_sword_tries`, `skill_axe`, `skill_axe_tries`, `skill_dist`, `skill_dist_tries`, `skill_shielding`, `skill_shielding_tries`, `skill_fishing`, `skill_fishing_tries` FROM `players` WHERE `name` = {:s}", db.escapeString(name))));
+	return loadPlayer(player, db.storeQuery(fmt::format("SELECT `id`, `name`, `account_id`, `group_id`, `sex`, `vocation`, `experience`, `level`, `maglevel`, `health`, `healthmax`, `blessings`, `mana`, `manamax`, `manaspent`, `soul`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `posx`, `posy`, `posz`, `cap`, `lastlogin`, `lastlogout`, `lastip`, `conditions`, `skulltime`, `skull`, `town_id`, `balance`, `stamina`, `skill_fist`, `skill_fist_tries`, `skill_club`, `skill_club_tries`, `skill_sword`, `skill_sword_tries`, `skill_axe`, `skill_axe_tries`, `skill_dist`, `skill_dist_tries`, `skill_shielding`, `skill_shielding_tries`, `skill_fishing`, `skill_fishing_tries`, `battlepass` FROM `players` WHERE `name` = {:s}", db.escapeString(name))));
 }
 
 bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
@@ -257,6 +257,76 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 			delete condition;
 		}
 		condition = Condition::createCondition(propStream);
+	}
+
+	// unserialize battlepass
+	unsigned long battlepassSize;
+	const char* battlepass = result->getStream("battlepass", battlepassSize);
+	PropStream propStreamBattlepass;
+	propStreamBattlepass.init(battlepass, battlepassSize);
+	uint32_t battlepassExperience = 0;
+	if (propStreamBattlepass.read<uint32_t>(battlepassExperience)) {
+		player->battlepass->setExperience(battlepassExperience);
+	}
+
+	uint16_t battlepassLevel = 0;
+	if (propStreamBattlepass.read<uint16_t>(battlepassLevel)) {
+		player->battlepass->setLevel(battlepassLevel);
+	}
+
+	bool battlepassPremium = false;
+	if (propStreamBattlepass.read<bool>(battlepassPremium)) {
+		player->battlepass->setPremium(battlepassPremium);
+	}
+
+	uint8_t battlepassCounterTypes = 0;
+	if (propStreamBattlepass.read<uint8_t>(battlepassCounterTypes) && battlepassCounterTypes != 0) {
+		for (uint8_t i = 0; i < battlepassCounterTypes; ++i) {
+			uint8_t battlepassMainId = 0;
+			if (!propStreamBattlepass.read<uint8_t>(battlepassMainId)) {
+				continue;
+			}
+
+			uint8_t battlepassCounterIds = 0;
+			if (!propStreamBattlepass.read<uint8_t>(battlepassCounterIds)) {
+				continue;
+			}
+
+			BattlePassType_t battlepassType = static_cast<BattlePassType_t>(battlepassMainId);
+			for (uint8_t j = 0; j < battlepassCounterIds; ++j) {
+				uint16_t battlepassId = 0;
+				if (!propStreamBattlepass.read<uint16_t>(battlepassId)) {
+					continue;
+				}
+
+				uint64_t battlepassCooldown = 0;
+				uint32_t battlepassAmount = 0;
+				uint8_t battlepassValue = 0;
+				if (!propStreamBattlepass.read<uint64_t>(battlepassCooldown) || !propStreamBattlepass.read<uint32_t>(battlepassAmount) || !propStreamBattlepass.read<uint8_t>(battlepassValue)) {
+					continue;
+				}
+
+				bool shuffled = battlepassValue == 1;
+				std::any value;
+				if (propStreamBattlepass.read<uint8_t>(battlepassValue) && battlepassValue != 0) {
+					if (battlepassValue == ItemAttributesStruct::Type::INTEGER) {
+						uint16_t battlepassValue16 = 0;
+						propStreamBattlepass.read<uint16_t>(battlepassValue16);
+						value = battlepassValue16;
+					}
+					else if (battlepassValue == ItemAttributesStruct::Type::STRING) {
+						std::string stringValue;
+						propStreamBattlepass.readString(stringValue);
+						value = stringValue;
+					}
+				}
+
+				player->addBattlepassQuest(battlepassType, static_cast<BattlePassQuests_t>(battlepassId), battlepassAmount, battlepassCooldown, value, shuffled);
+			}
+		}
+	}
+	else {
+		player->resetBattlepass();
 	}
 
 	if (!player->setVocation(result->getNumber<uint16_t>("vocation"))) {
@@ -728,6 +798,44 @@ bool IOLoginData::savePlayer(Player* player, bool internalSave)
 	size_t conditionsSize;
 	const char* conditions = propWriteStream.getStream(conditionsSize);
 
+	//serialize battlepass
+	PropWriteStream propWriteStreamBattlepass;
+	propWriteStreamBattlepass.write<uint32_t>(player->battlepass->getExperience());
+	propWriteStreamBattlepass.write<uint16_t>(player->battlepass->getLevel());
+	propWriteStreamBattlepass.write<bool>(player->battlepass->hasPremium());
+
+	BattlePassPlayerDataMap battlepassData = player->battlepass->getBattlepass();
+	propWriteStreamBattlepass.write<uint8_t>(battlepassData.size());
+
+	for (auto& itBattlepassType : battlepassData) {
+		propWriteStreamBattlepass.write<uint8_t>(itBattlepassType.first); // Battlepass type (daily, weekly, special)
+		propWriteStreamBattlepass.write<uint8_t>(itBattlepassType.second.size());
+		for (auto& itBattlepass : itBattlepassType.second) {
+			propWriteStreamBattlepass.write<uint16_t>(itBattlepass.id); // Battlepass id (type of the quest, kill a monster, get an item etc...)
+			propWriteStreamBattlepass.write<uint64_t>(itBattlepass.cooldown);
+			propWriteStreamBattlepass.write<uint32_t>(itBattlepass.amount);
+			propWriteStreamBattlepass.write<uint8_t>(itBattlepass.shuffled ? 1 : 0);
+			if (itBattlepass.data->value.has_value())
+			{
+				const auto& valueType = itBattlepass.data->value.type();
+				if (valueType == typeid(uint16_t)) {
+					propWriteStreamBattlepass.write<uint8_t>(ItemAttributesStruct::Type::INTEGER);
+					propWriteStreamBattlepass.write<uint16_t>(std::any_cast<uint16_t>(itBattlepass.data->value));
+				}
+				else if (valueType == typeid(std::string)) {
+					propWriteStreamBattlepass.write<uint8_t>(ItemAttributesStruct::Type::STRING);
+					propWriteStreamBattlepass.writeString(std::any_cast<std::string>(itBattlepass.data->value));
+				}
+			}
+			else {
+				propWriteStreamBattlepass.write<uint8_t>(0);
+			}
+		}
+	}
+
+	size_t battlepassSize;
+	const char* battlepass = propWriteStreamBattlepass.getStream(battlepassSize);
+
 	//First, an UPDATE query to write the player itself
 	std::ostringstream query;
 	query << "UPDATE `players` SET ";
@@ -769,6 +877,7 @@ bool IOLoginData::savePlayer(Player* player, bool internalSave)
 	if (!internalSave) {
 		query << "`conditions` = " << db.escapeBlob(conditions, conditionsSize) << ',';
 	}
+	query << "`battlepass` = " << db.escapeBlob(battlepass, battlepassSize) << ',';
 
 	if (g_game.getWorldType() != WORLD_TYPE_PVP_ENFORCED) {
 		query << "`skulltime` = " << player->playerKillerEnd << ',';

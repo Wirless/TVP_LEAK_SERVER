@@ -221,6 +221,10 @@ class LuaScriptInterface
 		int32_t getEvent();
 		int32_t getMetaEvent(const std::string& globalName, const std::string& eventName);
 
+		static void registerGlobalVariable(lua_State* L, const std::string& name, lua_Number value);
+		static void registerEnums(lua_State*);
+		static void registerEnum(lua_State*, const char*, lua_Number);
+
 		static ScriptEnvironment* getScriptEnv() {
 			assert(scriptEnvIndex >= 0 && scriptEnvIndex < 16);
 			return scriptEnv + scriptEnvIndex;
@@ -353,6 +357,8 @@ class LuaScriptInterface
 		static Creature* getCreature(lua_State* L, int32_t arg);
 		static Player* getPlayer(lua_State* L, int32_t arg);
 
+		static uint64_t getFieldUnsigned(lua_State* L, const char* key);
+
 		template<typename T>
 		static T getField(lua_State* L, int32_t arg, const std::string& key)
 		{
@@ -447,7 +453,6 @@ class LuaScriptInterface
 		void registerMetaMethod(const std::string& className, const std::string& methodName, lua_CFunction func);
 		void registerGlobalMethod(const std::string& functionName, lua_CFunction func);
 		void registerVariable(const std::string& tableName, const std::string& name, lua_Number value);
-		void registerGlobalVariable(const std::string& name, lua_Number value);
 		void registerGlobalBoolean(const std::string& name, bool value);
 
 		static std::string getStackTrace(lua_State* L, const std::string& error_desc);
@@ -1024,6 +1029,8 @@ class LuaScriptInterface
 		static int luaPlayerGetBestiaryStage(lua_State* L);
 
 		static int luaPlayerSendCancelTarget(lua_State* L);
+
+		static int luaPlayerUpdateBattlepass(lua_State* L);
 
 		// Monster
 		static int luaMonsterCreate(lua_State* L);

@@ -454,6 +454,13 @@ class Game
 		void setGameState(GameState_t newState);
 		void saveGameState();
 
+		// Battlepass
+		bool playerOpenBattlepass(uint32_t playerId, bool sendLevels);
+		bool playerCloseBattlepass(uint32_t playerId);
+		bool playerModifyQuest(uint32_t playerId, uint8_t id, uint16_t questId);
+		bool playerBuyPremiumBattlepass(uint32_t playerId);
+		bool isBattlepassActive() const { return battlepassActive; }
+
 		//Events
 		void processConditions();
 		void checkCreatures(size_t index);
@@ -663,6 +670,7 @@ class Game
 		uint32_t lastStageLevel = 0;
 		bool stagesEnabled = false;
 		bool useLastStageLevel = false;
+		bool battlepassActive = false;
 
 		bool allowMapSave = true;
 		bool sendPlayersToTemple = false;

@@ -24,6 +24,7 @@
 #include "chat.h"
 #include "creature.h"
 #include "tasks.h"
+#include "battlepass.h"
 
 #include "walkmatrix.h"
 
@@ -143,6 +144,14 @@ class ProtocolGame final : public Protocol
 		void parseOpenPrivateChannel(NetworkMessage& msg);
 		void parseCloseChannel(NetworkMessage& msg);
 
+		//Battlepass
+		void parseBattlepass(NetworkMessage& msg);
+		void sendBattlepassPremium(uint8_t id, bool isPremium);
+		void sendBattlepassQuest(uint16_t questId, const BattlePassPlayerData& data);
+		void sendBattlepassQuests(uint32_t experience, uint16_t level, const BattlePassPlayerDataMap& data, const BattlePassRewardsMap& levels, bool hasPremium, bool sendLevels);
+		void sendUpdateBattlepassQuest(uint16_t id, uint32_t experience, uint16_t level, time_t cooldown);
+		void sendUpdateBattlepassQuest(const BattlePassQuestsVector& data);
+
 		//Send functions
 		void sendChannelMessage(const std::string& author, const std::string& text, SpeakClasses type, uint16_t channel);
 		void sendClosePrivate(uint16_t channelId);
@@ -260,6 +269,7 @@ class ProtocolGame final : public Protocol
 
 		//shop
 		void AddShopItem(NetworkMessage& msg, const ShopInfo& item);
+		void AddAnyValue(NetworkMessage& msg, BattlePassQuests_t id, const std::any& value);
 
 		//otclient
 		void parseExtendedOpcode(NetworkMessage& msg);

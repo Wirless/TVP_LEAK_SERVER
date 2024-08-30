@@ -37,6 +37,7 @@
 #include "wings.h"
 #include "shaders.h"
 #include "storeinbox.h"
+#include "battlepass.h"
 
 #include <bitset>
 
@@ -595,6 +596,8 @@ class Player final : public Creature, public Cylinder
 		void addSkillAdvance(skills_t skill, uint64_t count);
 		void removeSkillTries(skills_t skill, uint64_t count, bool notify = false);
 
+		time_t getPremiumEndsAt() const { return premiumEndsAt; }
+
 		int32_t getArmor() const override;
 		int32_t getDefense() const override;
 		float getAttackFactor() const override;
@@ -1027,6 +1030,18 @@ class Player final : public Creature, public Cylinder
 			}
 		}
 
+		void updateBattlepass(BattlePassQuests_t id, const std::string& value);
+		void updateBattlepass(BattlePassQuests_t id, uint16_t value);
+		void updateBattlepass(BattlePassQuests_t id);
+		void updateBattlepassCounter(BattlePassQuests_t id, std::any value);
+		void addBattlepassQuest(BattlePassType_t type, BattlePassQuests_t id, uint32_t amount, time_t cooldown, const std::any& value, bool shuffled);
+		void resetBattlepass();
+		void sendBattlepassQuests(bool sendLevels);
+		void completeBattlepassQuest(uint8_t id, uint16_t questId);
+		void closeBattlepassWindow() { openBattlepass = false; }
+		void buyPremiumBattlepass();
+		bool hasPremiumBattlepass() const { return battlepass->hasPremium(); }
+
 		void receivePing() {
 			lastPong = OTSYS_TIME();
 		}
@@ -1219,6 +1234,8 @@ class Player final : public Creature, public Cylinder
 		fightMode_t fightMode = FIGHTMODE_ATTACK;
 		AccountType_t accountType = ACCOUNT_TYPE_NORMAL;
 
+		std::unique_ptr<BattlePass> battlepass;
+
 		bool isLoggingOut = false;
 		bool chaseMode = false;
 		bool secureMode = false;
@@ -1226,6 +1243,7 @@ class Player final : public Creature, public Cylinder
 		bool pzLocked = false;
 		bool isConnecting = false;
 		bool addAttackSkillPoint = false;
+		bool openBattlepass = false;
 		bool inventoryAbilities[CONST_SLOT_LAST + 1] = {};
 
 		static uint32_t playerAutoID;

@@ -81,6 +81,25 @@ void Game::start(ServiceManager* manager)
 	}
 	g_scheduler.addEvent(createSchedulerTask(EVENT_CREATURE_THINK_INTERVAL, std::bind(&Game::checkCreatures, this, 0)));
 	g_scheduler.addEvent(createSchedulerTask(EVENT_DECAYINTERVAL, std::bind(&Game::checkDecay, this)));
+
+	// Date format - 20.09.2023.10.00
+	const std::string battlepassFormatDate = g_config.getString(ConfigManager::BATTLEPASS_END_DATE);
+	if (!battlepassFormatDate.empty())
+	{
+		const IntegerVector battlepassDate = vectorAtoi(explodeString(battlepassFormatDate, "."));
+
+		std::tm tm = {};
+		tm.tm_year = battlepassDate[2] - 1900; // years since 1900
+		tm.tm_mon = battlepassDate[1] - 1; // months since January [0,11]
+		tm.tm_mday = battlepassDate[0]; // day of the month [1,31]
+		tm.tm_hour = battlepassDate[3]; // hours since midnight [0,23]
+		tm.tm_min = battlepassDate[4]; // minutes after the hour [0,59]
+		tm.tm_isdst = -1; // daylight saving time flag
+
+		std::time_t t = std::mktime(&tm);
+		std::time_t timeNow = std::time(nullptr);
+		battlepassActive = t > timeNow;
+	}
 }
 
 GameState_t Game::getGameState() const
@@ -5888,6 +5907,50 @@ bool Game::reload(ReloadTypes_t reloadType)
 			return true;
 		}
 	}
+	return true;
+}
+
+bool Game::playerOpenBattlepass(uint32_t playerId, bool sendLevels)
+{
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return false;
+	}
+
+	player->sendBattlepassQuests(sendLevels);
+	return true;
+}
+
+bool Game::playerCloseBattlepass(uint32_t playerId)
+{
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return false;
+	}
+
+	player->closeBattlepassWindow();
+	return true;
+}
+
+bool Game::playerModifyQuest(uint32_t playerId, uint8_t id, uint16_t questId)
+{
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return false;
+	}
+
+	player->completeBattlepassQuest(id, questId);
+	return true;
+}
+
+bool Game::playerBuyPremiumBattlepass(uint32_t playerId)
+{
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return false;
+	}
+
+	player->buyPremiumBattlepass();
 	return true;
 }
 
