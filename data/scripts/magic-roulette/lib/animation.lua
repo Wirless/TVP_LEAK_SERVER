@@ -17,6 +17,7 @@ function Animation:moveDummies(slot, speed)
 			local dummy = tile:getTopCreature()
 			if dummy then
 				if position.x == slot.startPosition.x then
+					position:sendMagicEffect(14)
 					dummy:remove()
 				else
 					dummy:setSpeed(speed)
@@ -30,9 +31,9 @@ end
 
 
 function Animation:createDummy(slot, defaultSpeed, lookTypeEx)
-	local dummy = Game.createMonster(Constants.ROULETTE_DUMMY_NAME, slot.endPosition, false, true)
+	local dummy = Game.createMonster(Constants.ROULETTE_DUMMY_NAME, slot.endPosition, true, false)
 	if dummy then
-		dummy:setBaseSpeed(defaultSpeed)
+		dummy:setSpeed(defaultSpeed)
 		dummy:setOutfit {lookTypeEx = lookTypeEx}
 	end
 
@@ -44,7 +45,7 @@ function Animation:start(args)
 	local events = {}
 
 	local initEvent = 12
-	local initSpeed = 7000
+	local initSpeed = 3000
 	local formula = 1.1
 	
 	for i = 42, 1, -1 do
@@ -106,7 +107,7 @@ function Animation:drawFireworks(slot)
 		if time > 0 then
 			count = count + 1
 			for _, position in ipairs(slot:getPositions()) do
-				position:sendMagicEffect(math.random(28, 31))
+				position:sendMagicEffect(math.random(22, 25))
 			end
 			addEvent(decrease, 850)
 		end
@@ -121,9 +122,11 @@ function Animation:drawRewardHighlight(slot, rewardId)
 		if tile then
 			local dummy = tile:getTopCreature()
 			if dummy then
+				local position = dummy:getPosition()
+
 				dummy:setOutfit { lookTypeEx = rewardId }
-				dummy:getPosition():sendMagicEffect(38)
-				dummy:getPosition():sendMagicEffect(57)
+				position:sendMagicEffect(11)
+				position:sendMagicEffect(4)
 			end
 		end
 	end
