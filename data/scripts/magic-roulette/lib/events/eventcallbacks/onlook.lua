@@ -1,10 +1,10 @@
 --[[
 	Description: This file is part of Roulette System (refactored)
-	Author: Lyµ
-	Discord: Lyµ#8767
+	Author: Lyï¿½
+	Discord: Lyï¿½#8767
 ]]
 
-local Constants = require('data/scripts/features/magic-roulette/lib/core/constants')
+local Constants = require('data/scripts/magic-roulette/lib/core/constants')
 
 local ec = EventCallback
 ec.onLook = function(self, thing, position, distance, description)

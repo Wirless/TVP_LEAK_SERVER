@@ -1,12 +1,12 @@
 --[[
 	Description: This file is part of Roulette System (refactored)
-	Author: Lyµ
-	Discord: Lyµ#8767
+	Author: Lyï¿½
+	Discord: Lyï¿½#8767
 ]]
 
-local DatabaseRoulettePlays = require('data/scripts/features/magic-roulette/lib/database/roulette_plays')
-local Constants = require('data/scripts/features/magic-roulette/lib/core/constants')
-local Strings = require('data/scripts/features/magic-roulette/lib/core/strings')
+local DatabaseRoulettePlays = require('data/scripts/magic-roulette/lib/database/roulette_plays')
+local Constants = require('data/scripts/magic-roulette/lib/core/constants')
+local Strings = require('data/scripts/magic-roulette/lib/core/strings')
 
 local Functions = {}
 

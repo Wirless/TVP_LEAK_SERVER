@@ -4,10 +4,10 @@
 	Discord: Lyµ#8767
 ]]
 
-local Constants = require('data/scripts/features/magic-roulette/lib/core/constants')
-local Strings = require('data/scripts/features/magic-roulette/lib/core/strings')
-local DatabaseRoulettePlays = require('data/scripts/features/magic-roulette/lib/database/roulette_plays')
-local Functions = require('data/scripts/features/magic-roulette/lib/core/functions')
+local Constants = require('data/scripts/magic-roulette/lib/core/constants')
+local Strings = require('data/scripts/magic-roulette/lib/core/strings')
+local DatabaseRoulettePlays = require('data/scripts/magic-roulette/lib/database/roulette_plays')
+local Functions = require('data/scripts/magic-roulette/lib/core/functions')
 
 local MAX_DROPSET_RATE = 10000
 

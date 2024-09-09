@@ -1,11 +1,11 @@
 --[[
 	Description: This file is part of Roulette System (refactored)
-	Author: Lyµ
-	Discord: Lyµ#8767
+	Author: Lyï¿½
+	Discord: Lyï¿½#8767
 ]]
 
-local DatabaseRoulettePlays = require('data/scripts/features/magic-roulette/lib/database/roulette_plays')
-local Functions = require('data/scripts/features/magic-roulette/lib/core/functions')
+local DatabaseRoulettePlays = require('data/scripts/magic-roulette/lib/database/roulette_plays')
+local Functions = require('data/scripts/magic-roulette/lib/core/functions')
 
 local creatureevent = CreatureEvent('Roulette Login')
 

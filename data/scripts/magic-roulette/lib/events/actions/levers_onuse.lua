@@ -1,12 +1,12 @@
 --[[
 	Description: This file is part of Roulette System (refactored)
-	Author: Lyµ
-	Discord: Lyµ#8767
+	Author: Lyï¿½
+	Discord: Lyï¿½#8767
 ]]
 
-local Config = require('data/scripts/features/magic-roulette/config')
-local Roulette = require('data/scripts/features/magic-roulette/lib/roulette')
-local Strings = require('data/scripts/features/magic-roulette/lib/core/strings')
+local Config = require('data/scripts/magic-roulette/config')
+local Roulette = require('data/scripts/magic-roulette/lib/roulette')
+local Strings = require('data/scripts/magic-roulette/lib/core/strings')
 
 local action = Action()
 

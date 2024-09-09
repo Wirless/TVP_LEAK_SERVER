@@ -1,4 +1,4 @@
-local Roulette = require('data/scripts/features/magic-roulette/lib/roulette')
+local Roulette = require('data/scripts/magic-roulette/lib/roulette')
 
 local globalevent = GlobalEvent()
 

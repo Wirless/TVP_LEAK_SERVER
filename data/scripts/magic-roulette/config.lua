@@ -1,11 +1,11 @@
 --[[
 	Description: This file is part of Roulette System (refactored)
-	Author: Lyµ
-	Discord: Lyµ#8767
+	Author: Lyï¿½
+	Discord: Lyï¿½#8767
 ]]
 
 
-local Slot = require('data/scripts/features/magic-roulette/lib/classes/slot')
+local Slot = require('data/scripts/magic-roulette/lib/classes/slot')
 
 return {
 	slots = {

@@ -4,7 +4,7 @@
 	Discord: Lyµ#8767
 ]]
 
-local Constants = require('data/scripts/features/magic-roulette/lib/core/constants')
+local Constants = require('data/scripts/magic-roulette/lib/core/constants')
 
 local Animation = {}
 
