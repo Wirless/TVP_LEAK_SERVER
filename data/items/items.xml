@@ -35916,7 +35916,7 @@
 	<item id="5498" name="Soul forgiver">
 		<attribute key="description" value="The Gods of Ravenor will forgive your sins." />
 		<attribute key="useable" value="true" />
-		<attribute key="clientid" value="5096" />
+		<attribute key="clientid" value="5722" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="5" />
 		<attribute key="moveable" value="true" />
@@ -36286,5 +36286,20 @@
 		<attribute key="decayto" value="0" />
 		<attribute key="duration" value="1800" />
 		<attribute key="moveable" value="true" />
+	</item>
+	<item id="5542" article="a" name="fire">
+		<attribute key="clientid" value="2137" />
+		<attribute key="replaceable" value="false" />
+		<attribute key="lightlevel" value="7" />
+		<attribute key="lightcolor" value="215" />
+		<attribute key="specialfieldblockpath" value="1" />
+	</item>
+		<item id="5543" name="dummy trash">
+		<attribute key="clientid" value="5713" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="weight" value="570" />
+		<attribute key="moveable" value="true" />
+		<attribute key="decayto" value="0" />
+		<attribute key="duration" value="5000" />
 	</item>
 </items>

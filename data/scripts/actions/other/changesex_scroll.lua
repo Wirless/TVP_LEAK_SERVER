@@ -26,6 +26,7 @@ local outfits = {
     [25] = {male = 268, female = 283},
     [26] = {male = 269, female = 284},
     [27] = {male = 285, female = 286},
+    [28] = {male = 329, female = 330},
 }
 
 local function findCurrentOutfit(outfit)

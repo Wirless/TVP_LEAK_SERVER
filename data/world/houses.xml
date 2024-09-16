@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <houses>
 	<house name="Spiritkeep" houseid="1" entryx="32265" entryy="32316" entryz="7" rent="19210" townid="1" size="288" />
-	<house name="Snake Tower" houseid="2" entryx="32436" entryy="32359" entryz="7" rent="29720" townid="1" size="499" />
+	<house name="Snake Tower" houseid="2" entryx="32436" entryy="32359" entryz="7" rent="29720" townid="1" size="442" />
 	<house name="Halls of the Adventurers" houseid="3" entryx="32397" entryy="32042" entryz="7" rent="15380" townid="1" size="223" />
 	<house name="Dark Mansion" houseid="4" entryx="32397" entryy="32155" entryz="7" rent="17845" townid="1" size="275" />
 	<house name="Bloodhall" houseid="5" entryx="32469" entryy="32170" entryz="7" rent="15270" townid="1" size="232" />

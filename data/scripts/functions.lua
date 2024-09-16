@@ -186,7 +186,7 @@ function onUseMachete(player, item, fromPosition, target, toPosition)
 	return destroyItem(player, target, toPosition)
 end
 
-function onUsePick(player, item, fromPosition, target, toPosition)
+function onUsePick_original(player, item, fromPosition, target, toPosition)
 	local tile = Tile(toPosition)
 	if not tile then
 		return false
@@ -195,7 +195,7 @@ function onUsePick(player, item, fromPosition, target, toPosition)
 	if tile:getItemByGroup(ITEM_GROUP_SPLASH) then
 		target = tile:getGround()
 	end
-
+	
 	if table.contains(pickGrounds, target.itemid) and target.actionid == actionIds.pickHole then
 		target:transform(392) -- decays automatically into normal dirt tile
 		target:decay()

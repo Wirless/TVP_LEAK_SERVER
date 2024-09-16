@@ -610,6 +610,16 @@ storeIndex = {
 
                 -- Internal variables
                 category_id = "6"
+            }, {
+                name = "Remove Red Skull Scroll",
+                price = 300,
+                id = 5498,
+                count = 1,
+                description = "- Remove your red skull",
+                type = GameStore_OfferTypes.OFFER_TYPE_ITEM,
+
+                -- Internal variables
+                category_id = "6"
             }
         }
     },

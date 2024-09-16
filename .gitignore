@@ -187,3 +187,4 @@ gamedata/
 cmake/
 backups/
 vcpkg_installed/
+.ignore/

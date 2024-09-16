@@ -1,5 +1,22 @@
 <?xml version="1.0"?>
 <spawns>
+	<spawn centerx="32057" centery="31861" centerz="8" radius="5">
+		<monster name="vampire" x="-2" y="-1" z="8" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="32076" centery="31861" centerz="8" radius="5">
+		<monster name="tarantula" x="3" y="-2" z="8" spawntime="60" direction="2" />
+		<monster name="tarantula" x="4" y="0" z="8" spawntime="60" direction="2" />
+		<monster name="tarantula" x="-2" y="5" z="8" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="32083" centery="31872" centerz="8" radius="5">
+		<monster name="demon skeleton" x="0" y="0" z="8" spawntime="60" direction="2" />
+		<monster name="demon skeleton" x="0" y="1" z="8" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="32054" centery="31873" centerz="8" radius="5">
+		<monster name="skeleton" x="-2" y="-1" z="8" spawntime="60" direction="2" />
+		<monster name="skeleton" x="-1" y="-1" z="8" spawntime="60" direction="2" />
+		<monster name="skeleton" x="-1" y="1" z="8" spawntime="60" direction="2" />
+	</spawn>
 	<tvpspawn centerx="32354" centery="31646" centerz="1" monstername="valkyrie" spawntime="600" amount="2" radius="10" />
 	<tvpspawn centerx="32356" centery="31646" centerz="1" monstername="amazon" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32535" centery="31773" centerz="1" npcname="thanita" spawntime="60" amount="1" direction="2" radius="2" />
@@ -127,6 +144,13 @@
 	<tvpspawn centerx="32598" centery="31652" centerz="4" monstername="minotaur archer" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33197" centery="31678" centerz="4" monstername="ghoul" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33194" centery="31679" centerz="4" monstername="demon skeleton" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="33301" centery="31680" centerz="4" monstername="necromancer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33280" centery="31682" centerz="4" monstername="assassin" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33279" centery="31683" centerz="4" monstername="assassin" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33281" centery="31684" centerz="4" monstername="assassin" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33284" centery="31697" centerz="4" monstername="hero" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33288" centery="31697" centerz="4" monstername="hero" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33304" centery="31706" centerz="4" monstername="hero" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32979" centery="31714" centerz="4" monstername="orc shaman" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32962" centery="31721" centerz="4" monstername="orc leader" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32970" centery="31721" centerz="4" monstername="orc berserker" spawntime="600" amount="2" radius="30" />
@@ -176,6 +200,8 @@
 	<tvpspawn centerx="32137" centery="32171" centerz="4" npcname="hyacinth" spawntime="60" amount="1" direction="2" radius="2" />
 	<tvpspawn centerx="33073" centery="32171" centerz="4" monstername="dragon" spawntime="999" amount="1" radius="30" />
 	<tvpspawn centerx="33077" centery="32171" centerz="4" monstername="dragon" spawntime="999" amount="1" radius="30" />
+	<tvpspawn centerx="32494" centery="32342" centerz="4" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32493" centery="32343" centerz="4" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32659" centery="32352" centerz="4" monstername="tarantula" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33205" centery="32381" centerz="4" monstername="wasp" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33215" centery="32381" centerz="4" monstername="wasp" spawntime="600" amount="2" radius="30" />
@@ -252,6 +278,20 @@
 	<tvpspawn centerx="32599" centery="31652" centerz="5" monstername="orc warrior" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32370" centery="31669" centerz="5" monstername="wasp" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33194" centery="31679" centerz="5" monstername="ghoul" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="33296" centery="31680" centerz="5" monstername="bandit" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33302" centery="31682" centerz="5" monstername="bandit" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33295" centery="31683" centerz="5" monstername="priestess" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33280" centery="31684" centerz="5" monstername="smuggler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33281" centery="31684" centerz="5" monstername="wild warrior" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33296" centery="31696" centerz="5" monstername="bandit" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33275" centery="31697" centerz="5" monstername="stalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33284" centery="31697" centerz="5" monstername="priestess" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33286" centery="31697" centerz="5" monstername="priestess" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33285" centery="31698" centerz="5" monstername="necromancer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33295" centery="31705" centerz="5" monstername="stalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33275" centery="31706" centerz="5" monstername="bandit" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33285" centery="31706" centerz="5" monstername="witch" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33304" centery="31707" centerz="5" monstername="hunter" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32975" centery="31717" centerz="5" monstername="war wolf" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32964" centery="31723" centerz="5" monstername="orc rider" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32970" centery="31723" centerz="5" monstername="orc leader" spawntime="600" amount="3" radius="30" />
@@ -337,6 +377,7 @@
 	<tvpspawn centerx="32657" centery="32331" centerz="5" monstername="poison spider" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32674" centery="32332" centerz="5" monstername="poison spider" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33305" centery="32342" centerz="5" monstername="wasp" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32494" centery="32344" centerz="5" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33105" centery="32347" centerz="5" monstername="wasp" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32656" centery="32353" centerz="5" monstername="tarantula" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33205" centery="32380" centerz="5" monstername="wasp" spawntime="600" amount="2" radius="30" />
@@ -518,20 +559,46 @@
 	<tvpspawn centerx="32359" centery="31683" centerz="6" npcname="humphrey" spawntime="60" amount="1" direction="2" radius="2" />
 	<tvpspawn centerx="33197" centery="31684" centerz="6" monstername="ghoul" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32661" centery="31685" centerz="6" npcname="eroth" spawntime="60" amount="1" direction="2" radius="2" />
+	<tvpspawn centerx="33277" centery="31688" centerz="6" monstername="bandit" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33285" centery="31688" centerz="6" monstername="smuggler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33271" centery="31690" centerz="6" monstername="smuggler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33293" centery="31690" centerz="6" monstername="monk" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33303" centery="31690" centerz="6" monstername="smuggler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33312" centery="31691" centerz="6" monstername="hunter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33311" centery="31692" centerz="6" monstername="hunter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33286" centery="31694" centerz="6" monstername="dark monk" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33100" centery="31696" centerz="6" monstername="dragon" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="33306" centery="31697" centerz="6" monstername="monk" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32672" centery="31699" centerz="6" npcname="roderick" spawntime="60" amount="1" direction="2" radius="2" />
+	<tvpspawn centerx="33283" centery="31699" centerz="6" monstername="dark monk" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33286" centery="31699" centerz="6" monstername="dark monk" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33269" centery="31700" centerz="6" monstername="smuggler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33303" centery="31700" centerz="6" monstername="smuggler" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33089" centery="31702" centerz="6" monstername="dragon" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="33273" centery="31702" centerz="6" monstername="monk" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33279" centery="31703" centerz="6" monstername="bandit" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33285" centery="31707" centerz="6" monstername="monk" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33303" centery="31707" centerz="6" monstername="bandit" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33304" centery="31707" centerz="6" monstername="bandit" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="31950" centery="31708" centerz="6" monstername="deer" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32642" centery="31709" centerz="6" npcname="elf guard" spawntime="60" amount="1" direction="2" radius="2" />
+	<tvpspawn centerx="33288" centery="31712" centerz="6" monstername="smuggler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33284" centery="31713" centerz="6" monstername="smuggler" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="31949" centery="31715" centerz="6" monstername="deer" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32713" centery="31715" centerz="6" monstername="orc berserker" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32975" centery="31716" centerz="6" monstername="war wolf" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32970" centery="31718" centerz="6" monstername="orc leader" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32712" centery="31720" centerz="6" monstername="orc" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32966" centery="31722" centerz="6" monstername="orc shaman" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32979" centery="31723" centerz="6" monstername="war wolf" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32721" centery="31725" centerz="6" monstername="orc berserker" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32960" centery="31726" centerz="6" monstername="orc berserker" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32723" centery="31727" centerz="6" monstername="orc shaman" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32971" centery="31729" centerz="6" monstername="war wolf" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32957" centery="31737" centerz="6" monstername="orc berserker" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32716" centery="31739" centerz="6" monstername="orc" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32983" centery="31739" centerz="6" monstername="orc shaman" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32720" centery="31740" centerz="6" monstername="orc leader" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32848" centery="31740" centerz="6" monstername="orc spearman" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32848" centery="31743" centerz="6" monstername="orc warrior" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32973" centery="31749" centerz="6" monstername="orc berserker" spawntime="600" amount="2" radius="30" />
@@ -735,15 +802,23 @@
 	<tvpspawn centerx="33305" centery="32286" centerz="6" monstername="minotaur" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33314" centery="32292" centerz="6" monstername="minotaur" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33202" centery="32310" centerz="6" monstername="wasp" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32506" centery="32319" centerz="6" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32498" centery="32322" centerz="6" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32485" centery="32330" centerz="6" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32654" centery="32332" centerz="6" monstername="poison spider" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32674" centery="32332" centerz="6" monstername="poison spider" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32508" centery="32336" centerz="6" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33307" centery="32343" centerz="6" monstername="wasp" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32494" centery="32344" centerz="6" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32479" centery="32345" centerz="6" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32662" centery="32347" centerz="6" monstername="centipede" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33105" centery="32347" centerz="6" monstername="wasp" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32635" centery="32351" centerz="6" monstername="smuggler" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32630" centery="32352" centerz="6" monstername="wild warrior" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32654" centery="32353" centerz="6" monstername="skeleton" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32502" centery="32355" centerz="6" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33032" centery="32356" centerz="6" monstername="giant spider" spawntime="900" amount="1" radius="30" />
+	<tvpspawn centerx="32491" centery="32358" centerz="6" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32346" centery="32363" centerz="6" npcname="norf" spawntime="60" amount="1" direction="2" radius="2" />
 	<tvpspawn centerx="33206" centery="32381" centerz="6" monstername="wasp" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33214" centery="32382" centerz="6" monstername="wasp" spawntime="600" amount="2" radius="30" />
@@ -1078,10 +1153,14 @@
 	<tvpspawn centerx="32232" centery="31677" centerz="7" npcname="nielson" spawntime="60" amount="1" direction="2" radius="2" />
 	<tvpspawn centerx="32582" centery="31679" centerz="7" monstername="orc spearman" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="32583" centery="31679" centerz="7" monstername="elf" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="33298" centery="31679" centerz="7" monstername="dark monk" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33300" centery="31679" centerz="7" monstername="dark monk" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32465" centery="31680" centerz="7" monstername="deer" spawntime="600" amount="5" radius="30" />
 	<tvpspawn centerx="32552" centery="31680" centerz="7" monstername="skeleton" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32584" centery="31681" centerz="7" monstername="orc warrior" spawntime="500" amount="2" radius="30" />
 	<tvpspawn centerx="32644" centery="31681" centerz="7" monstername="Purple Butterfly" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="33279" centery="31681" centerz="7" monstername="assassin" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33281" centery="31681" centerz="7" monstername="assassin" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32581" centery="31682" centerz="7" monstername="orc" spawntime="400" amount="5" radius="30" />
 	<tvpspawn centerx="33197" centery="31682" centerz="7" monstername="ghoul" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33161" centery="31683" centerz="7" monstername="Purple Butterfly" spawntime="1200" amount="1" radius="30" />
@@ -1090,23 +1169,31 @@
 	<tvpspawn centerx="31985" centery="31685" centerz="7" monstername="winter wolf" spawntime="650" amount="6" radius="30" />
 	<tvpspawn centerx="33169" centery="31686" centerz="7" monstername="wolf" spawntime="600" amount="7" radius="30" />
 	<tvpspawn centerx="33111" centery="31689" centerz="7" monstername="deer" spawntime="600" amount="5" radius="30" />
+	<tvpspawn centerx="33312" centery="31689" centerz="7" monstername="stalker" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32946" centery="31690" centerz="7" monstername="orc berserker" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="33281" centery="31690" centerz="7" monstername="bandit" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33299" centery="31690" centerz="7" monstername="bandit" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32925" centery="31691" centerz="7" monstername="orc warrior" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32029" centery="31692" centerz="7" npcname="carlson" spawntime="60" amount="1" direction="2" radius="2" />
 	<tvpspawn centerx="32388" centery="31692" centerz="7" monstername="bug" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32928" centery="31692" centerz="7" monstername="pig" spawntime="900" amount="4" radius="10" />
 	<tvpspawn centerx="32939" centery="31693" centerz="7" monstername="orc spearman" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32945" centery="31694" centerz="7" monstername="pig" spawntime="900" amount="5" radius="10" />
-	<tvpspawn centerx="33274" centery="31696" centerz="7" monstername="wolf" spawntime="600" amount="7" radius="30" />
+	<tvpspawn centerx="33299" centery="31696" centerz="7" monstername="wild warrior" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32698" centery="31697" centerz="7" monstername="bug" spawntime="777" amount="10" radius="30" />
+	<tvpspawn centerx="33272" centery="31697" centerz="7" monstername="hunter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33273" centery="31697" centerz="7" monstername="hunter" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32476" centery="31698" centerz="7" monstername="rabbit" spawntime="600" amount="2" radius="10" />
 	<tvpspawn centerx="32675" centery="31698" centerz="7" npcname="olrik" spawntime="60" amount="1" direction="2" radius="2" />
 	<tvpspawn centerx="33159" centery="31698" centerz="7" monstername="rabbit" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33207" centery="31698" centerz="7" monstername="hunter" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="33279" centery="31698" centerz="7" monstername="wild warrior" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32602" centery="31699" centerz="7" monstername="wasp" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32917" centery="31699" centerz="7" monstername="orc shaman" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33251" centery="31699" centerz="7" monstername="cyclops" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32919" centery="31700" centerz="7" monstername="orc warrior" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="33278" centery="31701" centerz="7" monstername="bandit" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33294" centery="31702" centerz="7" monstername="bandit" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32936" centery="31703" centerz="7" monstername="pig" spawntime="900" amount="7" radius="10" />
 	<tvpspawn centerx="32933" centery="31704" centerz="7" monstername="orc rider" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32938" centery="31704" centerz="7" monstername="orc warrior" spawntime="600" amount="2" radius="30" />
@@ -1118,15 +1205,17 @@
 	<tvpspawn centerx="32919" centery="31708" centerz="7" monstername="orc" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32961" centery="31708" centerz="7" monstername="orc spearman" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33204" centery="31708" centerz="7" monstername="wolf" spawntime="600" amount="4" radius="30" />
-	<tvpspawn centerx="33300" centery="31708" centerz="7" monstername="bear" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="33286" centery="31708" centerz="7" monstername="monk" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32915" centery="31709" centerz="7" monstername="orc spearman" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32976" centery="31709" centerz="7" monstername="bear" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32374" centery="31710" centerz="7" monstername="Purple Butterfly" spawntime="1200" amount="1" radius="30" />
 	<tvpspawn centerx="32918" centery="31710" centerz="7" monstername="pig" spawntime="900" amount="6" radius="10" />
+	<tvpspawn centerx="33279" centery="31710" centerz="7" monstername="smuggler" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="31991" centery="31711" centerz="7" monstername="winter wolf" spawntime="750" amount="3" radius="30" />
 	<tvpspawn centerx="32580" centery="31711" centerz="7" monstername="bear" spawntime="500" amount="1" radius="30" />
 	<tvpspawn centerx="32619" centery="31711" centerz="7" monstername="deer" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32661" centery="31711" centerz="7" monstername="wolf" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="33293" centery="31711" centerz="7" monstername="smuggler" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32885" centery="31712" centerz="7" monstername="wolf" spawntime="600" amount="6" radius="30" />
 	<tvpspawn centerx="33107" centery="31713" centerz="7" monstername="rabbit" spawntime="600" amount="2" radius="10" />
 	<tvpspawn centerx="32856" centery="31714" centerz="7" monstername="bug" spawntime="600" amount="4" radius="30" />
@@ -1141,11 +1230,13 @@
 	<tvpspawn centerx="33158" centery="31717" centerz="7" monstername="wolf" spawntime="600" amount="7" radius="30" />
 	<tvpspawn centerx="32232" centery="31718" centerz="7" monstername="troll" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33198" centery="31718" centerz="7" monstername="rabbit" spawntime="600" amount="1" radius="10" />
+	<tvpspawn centerx="32716" centery="31720" centerz="7" monstername="orc" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="31954" centery="31721" centerz="7" monstername="rabbit" spawntime="600" amount="2" radius="10" />
 	<tvpspawn centerx="32962" centery="31721" centerz="7" monstername="wolf" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32967" centery="31721" centerz="7" monstername="orc shaman" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32969" centery="31721" centerz="7" monstername="orc spearman" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33201" centery="31721" centerz="7" monstername="rabbit" spawntime="600" amount="3" radius="20" />
+	<tvpspawn centerx="32724" centery="31722" centerz="7" monstername="orc spearman" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33230" centery="31722" centerz="7" monstername="bear" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="31964" centery="31723" centerz="7" monstername="polar bear" spawntime="800" amount="1" radius="30" />
 	<tvpspawn centerx="32266" centery="31723" centerz="7" monstername="deer" spawntime="600" amount="3" radius="30" />
@@ -1153,6 +1244,7 @@
 	<tvpspawn centerx="32979" centery="31723" centerz="7" monstername="orc berserker" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32489" centery="31724" centerz="7" monstername="goblin" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32977" centery="31724" centerz="7" monstername="orc warrior" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32715" centery="31725" centerz="7" monstername="orc" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32928" centery="31725" centerz="7" monstername="orc spearman" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32959" centery="31725" centerz="7" monstername="orc berserker" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33260" centery="31725" centerz="7" monstername="rabbit" spawntime="600" amount="3" radius="10" />
@@ -1163,6 +1255,7 @@
 	<tvpspawn centerx="33296" centery="31730" centerz="7" monstername="rabbit" spawntime="600" amount="2" radius="10" />
 	<tvpspawn centerx="31951" centery="31731" centerz="7" monstername="polar bear" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32971" centery="31731" centerz="7" monstername="orc warrior" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32723" centery="31732" centerz="7" monstername="orc spearman" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32969" centery="31732" centerz="7" monstername="orc berserker" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33283" centery="31732" centerz="7" monstername="sheep" spawntime="600" amount="5" radius="30" />
 	<tvpspawn centerx="32303" centery="31733" centerz="7" monstername="rabbit" spawntime="750" amount="6" radius="10" />
@@ -1181,7 +1274,7 @@
 	<tvpspawn centerx="32957" centery="31738" centerz="7" monstername="orc warrior" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32925" centery="31739" centerz="7" monstername="orc warrior" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32942" centery="31739" centerz="7" monstername="orc warrior" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="33268" centery="31739" centerz="7" monstername="rabbit" spawntime="600" amount="2" radius="10" />
+	<tvpspawn centerx="32710" centery="31740" centerz="7" monstername="orc" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32849" centery="31740" centerz="7" monstername="orc" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32891" centery="31740" centerz="7" monstername="orc" spawntime="1000" amount="5" radius="30" />
 	<tvpspawn centerx="32955" centery="31740" centerz="7" monstername="orc spearman" spawntime="600" amount="2" radius="30" />
@@ -1978,11 +2071,13 @@
 	<tvpspawn centerx="32343" centery="32324" centerz="7" monstername="wolf" spawntime="700" amount="5" radius="30" />
 	<tvpspawn centerx="32670" centery="32324" centerz="7" monstername="poison spider" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32317" centery="32325" centerz="7" monstername="spider" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="33066" centery="32325" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32637" centery="32326" centerz="7" monstername="wolf" spawntime="600" amount="6" radius="30" />
+	<tvpspawn centerx="32513" centery="32327" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="50" />
 	<tvpspawn centerx="33241" centery="32328" centerz="7" monstername="lion" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32414" centery="32329" centerz="7" monstername="deer" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32428" centery="32329" centerz="7" monstername="rabbit" spawntime="600" amount="3" radius="10" />
-	<tvpspawn centerx="32450" centery="32329" centerz="7" monstername="spider" spawntime="600" amount="8" radius="30" />
+	<tvpspawn centerx="32497" centery="32329" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="50" />
 	<tvpspawn centerx="32782" centery="32330" centerz="7" monstername="ghoul" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="32655" centery="32331" centerz="7" monstername="poison spider" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32804" centery="32331" centerz="7" monstername="elf Scout" spawntime="700" amount="2" radius="30" />
@@ -1995,6 +2090,7 @@
 	<tvpspawn centerx="32399" centery="32334" centerz="7" monstername="spider" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32342" centery="32335" centerz="7" monstername="wolf" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32822" centery="32335" centerz="7" monstername="wolf" spawntime="580" amount="2" radius="30" />
+	<tvpspawn centerx="33065" centery="32338" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32272" centery="32339" centerz="7" npcname="hardek" spawntime="60" amount="1" direction="2" radius="2" />
 	<tvpspawn centerx="32696" centery="32339" centerz="7" monstername="snake" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32749" centery="32339" centerz="7" monstername="rabbit" spawntime="700" amount="3" radius="10" />
@@ -2003,12 +2099,14 @@
 	<tvpspawn centerx="32731" centery="32340" centerz="7" monstername="poison spider" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32772" centery="32340" centerz="7" monstername="skeleton" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32304" centery="32342" centerz="7" monstername="spider" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32485" centery="32342" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="50" />
 	<tvpspawn centerx="32639" centery="32342" centerz="7" monstername="smuggler" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32780" centery="32342" centerz="7" monstername="ghoul" spawntime="460" amount="4" radius="30" />
 	<tvpspawn centerx="33306" centery="32342" centerz="7" monstername="wasp" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32644" centery="32344" centerz="7" monstername="wild warrior" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32657" centery="32344" centerz="7" monstername="scorpion" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32777" centery="32344" centerz="7" monstername="skeleton" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32503" centery="32346" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="50" />
 	<tvpspawn centerx="32621" centery="32346" centerz="7" monstername="bandit" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32786" centery="32346" centerz="7" monstername="ghoul" spawntime="700" amount="2" radius="30" />
 	<tvpspawn centerx="32250" centery="32347" centerz="7" monstername="snake" spawntime="600" amount="3" radius="30" />
@@ -2023,11 +2121,13 @@
 	<tvpspawn centerx="32380" centery="32352" centerz="7" monstername="wolf" spawntime="600" amount="8" radius="30" />
 	<tvpspawn centerx="32654" centery="32352" centerz="7" monstername="poison spider" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32777" centery="32353" centerz="7" monstername="demon skeleton" spawntime="950" amount="2" radius="30" />
+	<tvpspawn centerx="32483" centery="32355" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="50" />
 	<tvpspawn centerx="32784" centery="32355" centerz="7" monstername="ghoul" spawntime="650" amount="4" radius="30" />
 	<tvpspawn centerx="32666" centery="32356" centerz="7" monstername="slime" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32729" centery="32357" centerz="7" monstername="deer" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33044" centery="32357" centerz="7" monstername="poison spider" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32259" centery="32358" centerz="7" monstername="bear" spawntime="800" amount="3" radius="30" />
+	<tvpspawn centerx="32484" centery="32359" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="50" />
 	<tvpspawn centerx="32778" centery="32359" centerz="7" monstername="skeleton" spawntime="550" amount="3" radius="30" />
 	<tvpspawn centerx="33020" centery="32359" centerz="7" monstername="poison spider" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32687" centery="32361" centerz="7" monstername="wolf" spawntime="600" amount="2" radius="30" />
@@ -3271,6 +3371,7 @@
 	<tvpspawn centerx="32055" centery="31681" centerz="8" monstername="minotaur" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="31969" centery="31682" centerz="8" monstername="frost troll" spawntime="750" amount="3" radius="30" />
 	<tvpspawn centerx="33180" centery="31682" centerz="8" monstername="cyclops" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="33305" centery="31682" centerz="8" monstername="hero" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32097" centery="31683" centerz="8" monstername="rotworm" spawntime="700" amount="1" radius="30" />
 	<tvpspawn centerx="32002" centery="31684" centerz="8" monstername="minotaur" spawntime="650" amount="4" radius="30" />
 	<tvpspawn centerx="33210" centery="31684" centerz="8" monstername="dwarf guard" spawntime="600" amount="2" radius="30" />
@@ -3284,6 +3385,7 @@
 	<tvpspawn centerx="32040" centery="31687" centerz="8" monstername="minotaur" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32416" centery="31688" centerz="8" monstername="rat" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33215" centery="31690" centerz="8" monstername="dwarf guard" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="33299" centery="31690" centerz="8" monstername="hero" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33217" centery="31691" centerz="8" monstername="cyclops" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33221" centery="31692" centerz="8" monstername="dwarf guard" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33223" centery="31693" centerz="8" monstername="dwarf soldier" spawntime="600" amount="4" radius="30" />
@@ -3314,16 +3416,24 @@
 	<tvpspawn centerx="32238" centery="31718" centerz="8" monstername="troll" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32230" centery="31720" centerz="8" monstername="troll" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32479" centery="31722" centerz="8" monstername="wolf" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32729" centery="31722" centerz="8" monstername="cyclops" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32714" centery="31723" centerz="8" monstername="cyclops" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32742" centery="31724" centerz="8" monstername="cyclops" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33069" centery="31728" centerz="8" monstername="troll" spawntime="600" amount="7" radius="30" />
 	<tvpspawn centerx="33311" centery="31728" centerz="8" monstername="skeleton" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32408" centery="31729" centerz="8" monstername="poison spider" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="33273" centery="31729" centerz="8" monstername="cyclops" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32701" centery="31731" centerz="8" monstername="cyclops" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33097" centery="31736" centerz="8" monstername="troll" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32713" centery="31738" centerz="8" monstername="cyclops" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32741" centery="31738" centerz="8" monstername="cyclops" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32983" centery="31738" centerz="8" monstername="orc shaman" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32725" centery="31739" centerz="8" monstername="cyclops" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33084" centery="31739" centerz="8" monstername="troll" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32981" centery="31740" centerz="8" monstername="orc berserker" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32716" centery="31743" centerz="8" monstername="cyclops" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33113" centery="31744" centerz="8" monstername="troll" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32928" centery="31746" centerz="8" monstername="orc leader" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32700" centery="31748" centerz="8" monstername="cyclops" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32310" centery="31749" centerz="8" monstername="bug" spawntime="444" amount="3" radius="30" />
 	<tvpspawn centerx="32892" centery="31750" centerz="8" monstername="orc spearman" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32364" centery="31751" centerz="8" monstername="bug" spawntime="600" amount="3" radius="30" />
@@ -3334,8 +3444,11 @@
 	<tvpspawn centerx="32964" centery="31753" centerz="8" monstername="orc shaman" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33074" centery="31753" centerz="8" monstername="troll" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32946" centery="31754" centerz="8" monstername="war wolf" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32718" centery="31755" centerz="8" monstername="cyclops" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32733" centery="31755" centerz="8" monstername="cyclops" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32948" centery="31756" centerz="8" monstername="orc rider" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32343" centery="31757" centerz="8" monstername="bug" spawntime="831" amount="2" radius="30" />
+	<tvpspawn centerx="32702" centery="31757" centerz="8" monstername="cyclops" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32223" centery="31762" centerz="8" monstername="rabbit" spawntime="600" amount="2" radius="10" />
 	<tvpspawn centerx="33057" centery="31762" centerz="8" monstername="troll" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32355" centery="31763" centerz="8" monstername="bug" spawntime="600" amount="3" radius="30" />
@@ -3438,15 +3551,19 @@
 	<tvpspawn centerx="32189" centery="31852" centerz="8" monstername="skeleton" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33072" centery="31853" centerz="8" monstername="goblin" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33107" centery="31853" centerz="8" monstername="goblin" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32068" centery="31855" centerz="8" monstername="tarantula" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32068" centery="31859" centerz="8" monstername="tarantula" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32220" centery="31860" centerz="8" monstername="skeleton" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32215" centery="31863" centerz="8" monstername="poison spider" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32225" centery="31863" centerz="8" monstername="poison spider" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33067" centery="31864" centerz="8" monstername="goblin" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32221" centery="31868" centerz="8" monstername="skeleton" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33110" centery="31868" centerz="8" monstername="goblin" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32062" centery="31869" centerz="8" monstername="tarantula" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33082" centery="31871" centerz="8" monstername="goblin" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32210" centery="31873" centerz="8" monstername="skeleton" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32830" centery="31873" centerz="8" monstername="beholder" spawntime="6000" amount="1" radius="30" />
+	<tvpspawn centerx="32068" centery="31874" centerz="8" monstername="tarantula" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32529" centery="31875" centerz="8" monstername="dwarf" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32226" centery="31876" centerz="8" monstername="ghoul" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32835" centery="31876" centerz="8" monstername="slime" spawntime="600" amount="1" radius="30" />
@@ -3874,22 +3991,34 @@
 	<tvpspawn centerx="32500" centery="32270" centerz="8" monstername="troll" spawntime="900" amount="2" radius="30" />
 	<tvpspawn centerx="32459" centery="32276" centerz="8" monstername="troll" spawntime="1000" amount="2" radius="30" />
 	<tvpspawn centerx="33208" centery="32276" centerz="8" monstername="rotworm" spawntime="500" amount="4" radius="30" />
+	<tvpspawn centerx="33088" centery="32277" centerz="8" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33192" centery="32277" centerz="8" monstername="rotworm" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="33308" centery="32278" centerz="8" monstername="minotaur guard" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32323" centery="32280" centerz="8" npcname="partos" spawntime="60" amount="1" direction="2" radius="2" />
+	<tvpspawn centerx="33091" centery="32281" centerz="8" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33302" centery="32281" centerz="8" monstername="minotaur" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="33025" centery="32282" centerz="8" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33027" centery="32282" centerz="8" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33314" centery="32282" centerz="8" monstername="minotaur" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32817" centery="32284" centerz="8" monstername="giant spider" spawntime="1200" amount="1" radius="30" />
 	<tvpspawn centerx="33242" centery="32285" centerz="8" monstername="rotworm" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="32478" centery="32290" centerz="8" monstername="troll" spawntime="800" amount="2" radius="30" />
+	<tvpspawn centerx="33082" centery="32290" centerz="8" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33303" centery="32290" centerz="8" monstername="minotaur" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33305" centery="32290" centerz="8" monstername="minotaur guard" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33312" centery="32290" centerz="8" monstername="minotaur" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33220" centery="32292" centerz="8" monstername="rotworm" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="32491" centery="32294" centerz="8" monstername="troll" spawntime="1200" amount="2" radius="30" />
+	<tvpspawn centerx="33026" centery="32294" centerz="8" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33057" centery="32298" centerz="8" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33071" centery="32298" centerz="8" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33036" centery="32299" centerz="8" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33092" centery="32299" centerz="8" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32433" centery="32302" centerz="8" monstername="wasp" spawntime="700" amount="3" radius="30" />
+	<tvpspawn centerx="33045" centery="32304" centerz="8" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33231" centery="32304" centerz="8" monstername="rotworm" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="32421" centery="32305" centerz="8" monstername="wasp" spawntime="700" amount="2" radius="30" />
+	<tvpspawn centerx="33083" centery="32306" centerz="8" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33321" centery="32308" centerz="8" monstername="rotworm" spawntime="500" amount="2" radius="30" />
 	<tvpspawn centerx="33236" centery="32311" centerz="8" monstername="rotworm" spawntime="500" amount="2" radius="30" />
 	<tvpspawn centerx="32427" centery="32312" centerz="8" monstername="wasp" spawntime="700" amount="2" radius="30" />
@@ -3898,6 +4027,7 @@
 	<tvpspawn centerx="33316" centery="32316" centerz="8" monstername="rotworm" spawntime="500" amount="2" radius="30" />
 	<tvpspawn centerx="33299" centery="32317" centerz="8" monstername="rotworm" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="33217" centery="32322" centerz="8" monstername="rotworm" spawntime="500" amount="2" radius="30" />
+	<tvpspawn centerx="32488" centery="32323" centerz="8" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33234" centery="32323" centerz="8" monstername="rotworm" spawntime="500" amount="4" radius="30" />
 	<tvpspawn centerx="33252" centery="32324" centerz="8" monstername="rotworm" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="32459" centery="32326" centerz="8" monstername="swamp troll" spawntime="600" amount="3" radius="30" />
@@ -3937,9 +4067,11 @@
 	<tvpspawn centerx="33010" centery="32348" centerz="8" monstername="rotworm" spawntime="500" amount="2" radius="30" />
 	<tvpspawn centerx="33027" centery="32348" centerz="8" monstername="rotworm" spawntime="500" amount="2" radius="30" />
 	<tvpspawn centerx="32706" centery="32349" centerz="8" monstername="cave rat" spawntime="600" amount="5" radius="30" />
+	<tvpspawn centerx="33060" centery="32349" centerz="8" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32792" centery="32350" centerz="8" monstername="ghoul" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32728" centery="32351" centerz="8" monstername="poison spider" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33320" centery="32351" centerz="8" monstername="rotworm" spawntime="500" amount="2" radius="30" />
+	<tvpspawn centerx="32506" centery="32355" centerz="8" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32674" centery="32355" centerz="8" monstername="centipede" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32698" centery="32355" centerz="8" monstername="poison spider" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="33017" centery="32355" centerz="8" monstername="rotworm" spawntime="500" amount="2" radius="30" />
@@ -3948,18 +4080,24 @@
 	<tvpspawn centerx="32775" centery="32357" centerz="8" monstername="ghoul" spawntime="700" amount="2" radius="30" />
 	<tvpspawn centerx="32779" centery="32357" centerz="8" monstername="demon skeleton" spawntime="950" amount="2" radius="30" />
 	<tvpspawn centerx="32788" centery="32357" centerz="8" monstername="skeleton" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32520" centery="32359" centerz="8" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32794" centery="32359" centerz="8" monstername="ghoul" spawntime="750" amount="1" radius="30" />
 	<tvpspawn centerx="32661" centery="32360" centerz="8" monstername="bandit" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32786" centery="32362" centerz="8" monstername="ghoul" spawntime="550" amount="3" radius="30" />
 	<tvpspawn centerx="33059" centery="32363" centerz="8" monstername="rotworm" spawntime="500" amount="2" radius="30" />
+	<tvpspawn centerx="32498" centery="32364" centerz="8" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32777" centery="32364" centerz="8" monstername="skeleton" spawntime="650" amount="3" radius="30" />
 	<tvpspawn centerx="32709" centery="32365" centerz="8" monstername="skeleton" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33036" centery="32365" centerz="8" monstername="rotworm" spawntime="500" amount="2" radius="30" />
 	<tvpspawn centerx="32343" centery="32366" centerz="8" monstername="bug" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33023" centery="32367" centerz="8" monstername="rotworm" spawntime="500" amount="2" radius="30" />
+	<tvpspawn centerx="32533" centery="32368" centerz="8" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32792" centery="32368" centerz="8" monstername="ghoul" spawntime="700" amount="3" radius="30" />
 	<tvpspawn centerx="32659" centery="32370" centerz="8" monstername="bandit" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32715" centery="32371" centerz="8" monstername="poison spider" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32517" centery="32372" centerz="8" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32516" centery="32373" centerz="8" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32498" centery="32374" centerz="8" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33059" centery="32375" centerz="8" monstername="rotworm" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="32372" centery="32377" centerz="8" monstername="bear" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32602" centery="32377" centerz="8" monstername="bandit" spawntime="600" amount="4" radius="30" />
@@ -4053,13 +4191,17 @@
 	<tvpspawn centerx="33100" centery="32534" centerz="8" monstername="stone golem" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32777" centery="32535" centerz="8" monstername="sibang" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32782" centery="32535" centerz="8" monstername="kongra" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32902" centery="32538" centerz="8" monstername="hydra" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33132" centery="32538" centerz="8" monstername="blue djinn" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33134" centery="32538" centerz="8" monstername="lion" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32941" centery="32540" centerz="8" monstername="hydra" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32850" centery="32543" centerz="8" monstername="sibang" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32814" centery="32544" centerz="8" monstername="kongra" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32819" centery="32545" centerz="8" monstername="merlkin" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32894" centery="32545" centerz="8" monstername="hydra" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32835" centery="32546" centerz="8" monstername="sibang" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32849" centery="32546" centerz="8" monstername="kongra" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32951" centery="32547" centerz="8" monstername="hydra" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32788" centery="32548" centerz="8" monstername="kongra" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32815" centery="32549" centerz="8" monstername="sibang" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32770" centery="32550" centerz="8" monstername="merlkin" spawntime="600" amount="1" radius="30" />
@@ -4067,6 +4209,7 @@
 	<tvpspawn centerx="32784" centery="32550" centerz="8" monstername="merlkin" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32792" centery="32550" centerz="8" monstername="sibang" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32822" centery="32551" centerz="8" monstername="kongra" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32908" centery="32551" centerz="8" monstername="hydra" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32849" centery="32552" centerz="8" monstername="merlkin" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32788" centery="32554" centerz="8" monstername="kongra" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32760" centery="32556" centerz="8" monstername="sibang" spawntime="600" amount="2" radius="30" />
@@ -4074,6 +4217,7 @@
 	<tvpspawn centerx="32818" centery="32562" centerz="8" monstername="merlkin" spawntime="900" amount="1" radius="30" />
 	<tvpspawn centerx="33172" centery="32563" centerz="8" monstername="larva" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33162" centery="32564" centerz="8" monstername="larva" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32919" centery="32565" centerz="8" monstername="hydra" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33188" centery="32565" centerz="8" monstername="larva" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32758" centery="32566" centerz="8" monstername="sibang" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33151" centery="32566" centerz="8" monstername="larva" spawntime="600" amount="2" radius="30" />
@@ -4105,6 +4249,7 @@
 	<tvpspawn centerx="33137" centery="32585" centerz="8" monstername="larva" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33168" centery="32585" centerz="8" monstername="larva" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33188" centery="32587" centerz="8" monstername="larva" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32903" centery="32588" centerz="8" monstername="hydra" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33173" centery="32588" centerz="8" monstername="larva" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32694" centery="32591" centerz="8" monstername="swamp troll" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32687" centery="32592" centerz="8" monstername="swamp troll" spawntime="600" amount="3" radius="30" />
@@ -4119,11 +4264,13 @@
 	<tvpspawn centerx="32685" centery="32599" centerz="8" monstername="swamp troll" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33183" centery="32599" centerz="8" monstername="larva" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33175" centery="32603" centerz="8" monstername="larva" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32928" centery="32604" centerz="8" monstername="hydra" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33062" centery="32604" centerz="8" monstername="green djinn" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33140" centery="32604" centerz="8" monstername="larva" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33239" centery="32604" centerz="8" monstername="larva" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32690" centery="32605" centerz="8" monstername="swamp troll" spawntime="600" amount="5" radius="30" />
 	<tvpspawn centerx="32681" centery="32607" centerz="8" monstername="swamp troll" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32908" centery="32607" centerz="8" monstername="hydra" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33067" centery="32607" centerz="8" monstername="gargoyle" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="33133" centery="32607" centerz="8" monstername="larva" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33158" centery="32607" centerz="8" monstername="larva" spawntime="600" amount="2" radius="30" />
@@ -4560,6 +4707,8 @@
 	<tvpspawn centerx="32215" centery="31683" centerz="9" monstername="slime" spawntime="800" amount="1" radius="30" />
 	<tvpspawn centerx="32487" centery="31685" centerz="9" monstername="troll" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="31915" centery="31687" centerz="9" monstername="orc spearman" spawntime="650" amount="2" radius="30" />
+	<tvpspawn centerx="33284" centery="31687" centerz="9" monstername="hero" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33311" centery="31688" centerz="9" monstername="hero" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32609" centery="31689" centerz="9" monstername="wasp" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32627" centery="31689" centerz="9" monstername="wasp" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33199" centery="31690" centerz="9" monstername="cyclops" spawntime="600" amount="3" radius="30" />
@@ -4567,10 +4716,14 @@
 	<tvpspawn centerx="32531" centery="31691" centerz="9" monstername="troll" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32596" centery="31693" centerz="9" monstername="wasp" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32037" centery="31695" centerz="9" monstername="rotworm" spawntime="500" amount="3" radius="30" />
+	<tvpspawn centerx="33293" centery="31695" centerz="9" monstername="hero" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="31969" centery="31696" centerz="9" monstername="rotworm" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32002" centery="31696" centerz="9" monstername="rotworm" spawntime="650" amount="2" radius="30" />
 	<tvpspawn centerx="32428" centery="31696" centerz="9" monstername="troll" spawntime="600" amount="5" radius="30" />
 	<tvpspawn centerx="32613" centery="31701" centerz="9" monstername="wasp" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="33276" centery="31702" centerz="9" monstername="hero" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33311" centery="31702" centerz="9" monstername="hero" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33293" centery="31703" centerz="9" monstername="hero" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33215" centery="31704" centerz="9" monstername="cyclops" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33245" centery="31704" centerz="9" monstername="cyclops" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32396" centery="31705" centerz="9" monstername="troll" spawntime="600" amount="2" radius="30" />
@@ -4687,27 +4840,53 @@
 	<tvpspawn centerx="33193" centery="31846" centerz="9" monstername="rotworm" spawntime="500" amount="2" radius="30" />
 	<tvpspawn centerx="33103" centery="31847" centerz="9" monstername="goblin" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33211" centery="31847" centerz="9" monstername="rotworm" spawntime="500" amount="3" radius="30" />
+	<tvpspawn centerx="32081" centery="31848" centerz="9" monstername="vampire" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32082" centery="31848" centerz="9" monstername="vampire" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33063" centery="31848" centerz="9" monstername="goblin" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33226" centery="31849" centerz="9" monstername="rotworm" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="33242" centery="31849" centerz="9" monstername="rotworm" spawntime="500" amount="2" radius="30" />
+	<tvpspawn centerx="32067" centery="31853" centerz="9" monstername="ghost" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32195" centery="31854" centerz="9" monstername="ghoul" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32066" centery="31855" centerz="9" monstername="crypt shambler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32068" centery="31855" centerz="9" monstername="ghost" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33082" centery="31856" centerz="9" monstername="goblin" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33233" centery="31858" centerz="9" monstername="rotworm" spawntime="500" amount="2" radius="30" />
 	<tvpspawn centerx="33250" centery="31858" centerz="9" monstername="rotworm" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="33264" centery="31859" centerz="9" monstername="rotworm" spawntime="500" amount="1" radius="30" />
+	<tvpspawn centerx="32068" centery="31861" centerz="9" monstername="bonebeast" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32082" centery="31861" centerz="9" monstername="crypt shambler" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32172" centery="31862" centerz="9" monstername="rotworm" spawntime="500" amount="1" radius="30" />
 	<tvpspawn centerx="32186" centery="31862" centerz="9" monstername="fire devil" spawntime="900" amount="1" radius="30" />
 	<tvpspawn centerx="32183" centery="31863" centerz="9" monstername="ghoul" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33220" centery="31863" centerz="9" monstername="rotworm" spawntime="500" amount="2" radius="30" />
+	<tvpspawn centerx="32082" centery="31865" centerz="9" monstername="ghoul" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32254" centery="31865" centerz="9" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32256" centery="31866" centerz="9" monstername="ghoul" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32067" centery="31867" centerz="9" monstername="bonebeast" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32254" centery="31867" centerz="9" monstername="stalker" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33207" centery="31867" centerz="9" monstername="rotworm" spawntime="500" amount="2" radius="30" />
+	<tvpspawn centerx="32057" centery="31868" centerz="9" monstername="mummy" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32065" centery="31868" centerz="9" monstername="vampire" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32066" centery="31868" centerz="9" monstername="crypt shambler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32067" centery="31868" centerz="9" monstername="ghoul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32068" centery="31868" centerz="9" monstername="vampire" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32067" centery="31869" centerz="9" monstername="ghoul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32067" centery="31870" centerz="9" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33236" centery="31873" centerz="9" monstername="rotworm" spawntime="500" amount="2" radius="30" />
 	<tvpspawn centerx="33266" centery="31873" centerz="9" monstername="rotworm" spawntime="500" amount="3" radius="30" />
+	<tvpspawn centerx="32056" centery="31874" centerz="9" monstername="skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32081" centery="31874" centerz="9" monstername="bonebeast" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32082" centery="31874" centerz="9" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32519" centery="31874" centerz="9" monstername="rotworm" spawntime="500" amount="3" radius="30" />
+	<tvpspawn centerx="32068" centery="31875" centerz="9" monstername="ghoul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32069" centery="31875" centerz="9" monstername="ghoul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32081" centery="31875" centerz="9" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32082" centery="31875" centerz="9" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32506" centery="31875" centerz="9" monstername="dwarf" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32529" centery="31875" centerz="9" monstername="dwarf" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32054" centery="31876" centerz="9" monstername="mummy" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32055" centery="31876" centerz="9" monstername="mummy" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32056" centery="31876" centerz="9" monstername="mummy" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32485" centery="31876" centerz="9" monstername="rotworm" spawntime="500" amount="2" radius="30" />
 	<tvpspawn centerx="32443" centery="31877" centerz="9" monstername="dwarf" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="33252" centery="31878" centerz="9" monstername="rotworm" spawntime="500" amount="2" radius="30" />
@@ -4718,7 +4897,11 @@
 	<tvpspawn centerx="32478" centery="31881" centerz="9" monstername="dwarf" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32513" centery="31882" centerz="9" monstername="dwarf" spawntime="600" amount="5" radius="30" />
 	<tvpspawn centerx="32515" centery="31883" centerz="9" monstername="rotworm" spawntime="500" amount="3" radius="30" />
+	<tvpspawn centerx="32082" centery="31884" centerz="9" monstername="vampire" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32503" centery="31884" centerz="9" monstername="poison spider" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32057" centery="31885" centerz="9" monstername="vampire" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32069" centery="31885" centerz="9" monstername="crypt shambler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32070" centery="31885" centerz="9" monstername="crypt shambler" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33120" centery="31885" centerz="9" monstername="orc shaman" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32636" centery="31886" centerz="9" npcname="jimbin" spawntime="60" amount="1" direction="2" radius="2" />
 	<tvpspawn centerx="32551" centery="31887" centerz="9" monstername="dwarf" spawntime="600" amount="3" radius="30" />
@@ -5118,18 +5301,24 @@
 	<tvpspawn centerx="32419" centery="32303" centerz="9" monstername="wasp" spawntime="700" amount="1" radius="30" />
 	<tvpspawn centerx="32440" centery="32303" centerz="9" monstername="wasp" spawntime="700" amount="1" radius="30" />
 	<tvpspawn centerx="33304" centery="32304" centerz="9" monstername="rotworm" spawntime="500" amount="4" radius="30" />
+	<tvpspawn centerx="33055" centery="32305" centerz="9" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33220" centery="32305" centerz="9" monstername="rotworm" spawntime="500" amount="2" radius="30" />
+	<tvpspawn centerx="33072" centery="32306" centerz="9" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33191" centery="32306" centerz="9" monstername="rotworm" spawntime="500" amount="4" radius="30" />
 	<tvpspawn centerx="32444" centery="32308" centerz="9" monstername="wasp" spawntime="700" amount="3" radius="30" />
 	<tvpspawn centerx="33240" centery="32308" centerz="9" monstername="rotworm" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="33269" centery="32308" centerz="9" monstername="rotworm" spawntime="500" amount="4" radius="30" />
 	<tvpspawn centerx="33287" centery="32309" centerz="9" monstername="rotworm" spawntime="500" amount="2" radius="30" />
+	<tvpspawn centerx="33064" centery="32312" centerz="9" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32700" centery="32313" centerz="9" monstername="rotworm" spawntime="500" amount="2" radius="30" />
+	<tvpspawn centerx="33035" centery="32313" centerz="9" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33206" centery="32313" centerz="9" monstername="rotworm" spawntime="500" amount="4" radius="30" />
 	<tvpspawn centerx="32424" centery="32314" centerz="9" monstername="wasp" spawntime="700" amount="2" radius="30" />
 	<tvpspawn centerx="33314" centery="32315" centerz="9" monstername="rotworm" spawntime="500" amount="4" radius="30" />
 	<tvpspawn centerx="32434" centery="32317" centerz="9" monstername="wasp" spawntime="700" amount="1" radius="30" />
 	<tvpspawn centerx="32122" centery="32318" centerz="9" monstername="rotworm" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="33072" centery="32318" centerz="9" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33056" centery="32319" centerz="9" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33333" centery="32319" centerz="9" monstername="rotworm" spawntime="500" amount="2" radius="30" />
 	<tvpspawn centerx="33339" centery="32319" centerz="9" monstername="rotworm" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="32138" centery="32321" centerz="9" monstername="rotworm" spawntime="500" amount="5" radius="30" />
@@ -5173,6 +5362,7 @@
 	<tvpspawn centerx="33025" centery="32362" centerz="9" monstername="rotworm" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="33308" centery="32363" centerz="9" monstername="rotworm" spawntime="500" amount="4" radius="30" />
 	<tvpspawn centerx="32112" centery="32364" centerz="9" monstername="rotworm" spawntime="650" amount="4" radius="30" />
+	<tvpspawn centerx="32524" centery="32364" centerz="9" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32661" centery="32364" centerz="9" monstername="slime" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33007" centery="32364" centerz="9" monstername="rotworm" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="33065" centery="32364" centerz="9" monstername="rotworm" spawntime="500" amount="2" radius="30" />
@@ -5180,11 +5370,15 @@
 	<tvpspawn centerx="33118" centery="32365" centerz="9" monstername="rotworm" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="32121" centery="32367" centerz="9" monstername="demon skeleton" spawntime="800" amount="3" radius="30" />
 	<tvpspawn centerx="32182" centery="32367" centerz="9" monstername="rotworm" spawntime="450" amount="5" radius="30" />
+	<tvpspawn centerx="32515" centery="32367" centerz="9" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33045" centery="32367" centerz="9" monstername="rotworm" spawntime="500" amount="2" radius="30" />
+	<tvpspawn centerx="33056" centery="32367" centerz="9" monstername="rotworm" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="32150" centery="32369" centerz="9" monstername="rotworm" spawntime="500" amount="4" radius="30" />
 	<tvpspawn centerx="32648" centery="32369" centerz="9" monstername="slime" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32716" centery="32369" centerz="9" monstername="skeleton" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32366" centery="32370" centerz="9" monstername="slime" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32379" centery="32371" centerz="9" monstername="skeleton" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32531" centery="32371" centerz="9" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32714" centery="32371" centerz="9" monstername="ghoul" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33139" centery="32372" centerz="9" monstername="rotworm" spawntime="500" amount="2" radius="30" />
 	<tvpspawn centerx="33020" centery="32375" centerz="9" monstername="rotworm" spawntime="500" amount="3" radius="30" />
@@ -5354,11 +5548,14 @@
 	<tvpspawn centerx="32770" centery="32534" centerz="9" monstername="kongra" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32807" centery="32535" centerz="9" monstername="merlkin" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32835" centery="32537" centerz="9" monstername="kongra" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32900" centery="32537" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32920" centery="32537" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33113" centery="32537" centerz="9" monstername="marid" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32750" centery="32539" centerz="9" monstername="sibang" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33105" centery="32540" centerz="9" monstername="blue djinn" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33111" centery="32540" centerz="9" monstername="fire elemental" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32785" centery="32541" centerz="9" monstername="kongra" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32936" centery="32541" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33192" centery="32541" centerz="9" monstername="scarab" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33212" centery="32545" centerz="9" monstername="larva" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33266" centery="32545" centerz="9" monstername="hyaena" spawntime="600" amount="3" radius="30" />
@@ -5366,11 +5563,16 @@
 	<tvpspawn centerx="33192" centery="32548" centerz="9" monstername="larva" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32792" centery="32549" centerz="9" monstername="sibang" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33126" centery="32549" centerz="9" monstername="scarab" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32955" centery="32550" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33143" centery="32550" centerz="9" monstername="scarab" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33207" centery="32550" centerz="9" monstername="scarab" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32976" centery="32551" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32934" centery="32552" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33179" centery="32553" centerz="9" monstername="scarab" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33219" centery="32555" centerz="9" monstername="scarab" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32901" centery="32557" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33289" centery="32557" centerz="9" monstername="snake" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32917" centery="32558" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33212" centery="32558" centerz="9" monstername="larva" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33193" centery="32559" centerz="9" monstername="scarab" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33168" centery="32560" centerz="9" monstername="scarab" spawntime="600" amount="2" radius="30" />
@@ -5390,12 +5592,14 @@
 	<tvpspawn centerx="33152" centery="32568" centerz="9" monstername="larva" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33235" centery="32568" centerz="9" monstername="scarab" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32750" centery="32569" centerz="9" monstername="sibang" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32971" centery="32569" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33187" centery="32569" centerz="9" monstername="scarab" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32842" centery="32570" centerz="9" monstername="sibang" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="33173" centery="32570" centerz="9" monstername="scarab" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32759" centery="32571" centerz="9" monstername="merlkin" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32766" centery="32571" centerz="9" monstername="sibang" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32779" centery="32571" centerz="9" monstername="kongra" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32919" centery="32571" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33165" centery="32572" centerz="9" monstername="scarab" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33225" centery="32572" centerz="9" monstername="larva" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33260" centery="32572" centerz="9" monstername="larva" spawntime="600" amount="2" radius="30" />
@@ -5415,8 +5619,10 @@
 	<tvpspawn centerx="32754" centery="32581" centerz="9" monstername="sibang" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33218" centery="32581" centerz="9" monstername="scarab" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32800" centery="32582" centerz="9" monstername="kongra" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32909" centery="32582" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33194" centery="32583" centerz="9" monstername="scarab" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33239" centery="32583" centerz="9" monstername="scarab" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32934" centery="32584" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33156" centery="32584" centerz="9" monstername="scarab" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32812" centery="32585" centerz="9" monstername="sibang" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="33132" centery="32585" centerz="9" monstername="larva" spawntime="600" amount="3" radius="30" />
@@ -5424,7 +5630,9 @@
 	<tvpspawn centerx="33260" centery="32585" centerz="9" monstername="larva" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32806" centery="32586" centerz="9" monstername="merlkin" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="33094" centery="32587" centerz="9" monstername="larva" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32969" centery="32588" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33274" centery="32588" centerz="9" monstername="larva" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32921" centery="32589" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33142" centery="32589" centerz="9" monstername="larva" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33210" centery="32589" centerz="9" monstername="larva" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33246" centery="32589" centerz="9" monstername="scarab" spawntime="900" amount="1" radius="30" />
@@ -5434,9 +5642,11 @@
 	<tvpspawn centerx="33190" centery="32593" centerz="9" monstername="scarab" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33266" centery="32593" centerz="9" monstername="larva" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32689" centery="32594" centerz="9" monstername="swamp troll" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32942" centery="32594" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33096" centery="32595" centerz="9" monstername="larva" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33122" centery="32595" centerz="9" monstername="scarab" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33152" centery="32595" centerz="9" monstername="scarab" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32908" centery="32597" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33227" centery="32597" centerz="9" monstername="scarab" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33244" centery="32597" centerz="9" monstername="larva" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33254" centery="32597" centerz="9" monstername="scarab" spawntime="600" amount="2" radius="30" />
@@ -5446,6 +5656,7 @@
 	<tvpspawn centerx="33208" centery="32598" centerz="9" monstername="scarab" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32701" centery="32599" centerz="9" monstername="swamp troll" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="33217" centery="32599" centerz="9" monstername="scarab" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32968" centery="32600" centerz="9" monstername="behemoth" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33129" centery="32600" centerz="9" monstername="larva" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33075" centery="32601" centerz="9" monstername="gargoyle" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="33237" centery="32601" centerz="9" monstername="scarab" spawntime="600" amount="1" radius="30" />
@@ -5944,6 +6155,8 @@
 	<tvpspawn centerx="32615" centery="31687" centerz="10" monstername="wasp" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32624" centery="31689" centerz="10" monstername="wasp" spawntime="500" amount="4" radius="30" />
 	<tvpspawn centerx="32634" centery="31695" centerz="10" monstername="wasp" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="33281" centery="31695" centerz="10" monstername="black knight" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33300" centery="31696" centerz="10" monstername="black knight" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32506" centery="31697" centerz="10" monstername="orc warrior" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32508" centery="31699" centerz="10" monstername="minotaur mage" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32616" centery="31701" centerz="10" monstername="wasp" spawntime="600" amount="4" radius="30" />
@@ -5989,15 +6202,26 @@
 	<tvpspawn centerx="32188" centery="31815" centerz="10" monstername="scorpion" spawntime="600" amount="5" radius="30" />
 	<tvpspawn centerx="33115" centery="31815" centerz="10" monstername="goblin" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="33075" centery="31822" centerz="10" monstername="goblin" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32096" centery="31823" centerz="10" monstername="banshee" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33092" centery="31823" centerz="10" monstername="goblin" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32066" centery="31824" centerz="10" monstername="lich" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32096" centery="31824" centerz="10" monstername="banshee" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32080" centery="31825" centerz="10" monstername="bonebeast" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32082" centery="31825" centerz="10" monstername="bonebeast" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32081" centery="31826" centerz="10" monstername="crypt shambler" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33060" centery="31831" centerz="10" monstername="goblin" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33109" centery="31836" centerz="10" monstername="goblin" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32255" centery="31837" centerz="10" monstername="wild warrior" spawntime="60" amount="1" radius="30" />
 	<tvpspawn centerx="33111" centery="31837" centerz="10" monstername="bug" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32077" centery="31839" centerz="10" monstername="mummy" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32081" centery="31839" centerz="10" monstername="vampire" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33233" centery="31840" centerz="10" monstername="rotworm" spawntime="500" amount="3" radius="30" />
+	<tvpspawn centerx="32078" centery="31841" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32084" centery="31841" centerz="10" monstername="mummy" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33066" centery="31841" centerz="10" monstername="goblin" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33095" centery="31841" centerz="10" monstername="goblin" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33097" centery="31841" centerz="10" monstername="bug" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32082" centery="31843" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32235" centery="31843" centerz="10" monstername="cave rat" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33108" centery="31848" centerz="10" monstername="bug" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32233" centery="31849" centerz="10" monstername="scorpion" spawntime="600" amount="1" radius="30" />
@@ -6209,6 +6433,7 @@
 	<tvpspawn centerx="32048" centery="32202" centerz="10" monstername="bug" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32027" centery="32204" centerz="10" monstername="rat" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32086" centery="32204" centerz="10" monstername="troll" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="33224" centery="32204" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32056" centery="32205" centerz="10" monstername="bug" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32015" centery="32206" centerz="10" monstername="cave rat" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32618" centery="32206" centerz="10" monstername="skeleton" spawntime="700" amount="2" radius="30" />
@@ -6226,75 +6451,131 @@
 	<tvpspawn centerx="32595" centery="32218" centerz="10" monstername="ghoul" spawntime="750" amount="2" radius="30" />
 	<tvpspawn centerx="32600" centery="32218" centerz="10" monstername="beholder" spawntime="900" amount="2" radius="30" />
 	<tvpspawn centerx="32020" centery="32221" centerz="10" monstername="rat" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="33238" centery="32225" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32058" centery="32228" centerz="10" monstername="bug" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32004" centery="32229" centerz="10" monstername="skeleton" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32369" centery="32229" centerz="10" monstername="orc" spawntime="400" amount="7" radius="30" />
 	<tvpspawn centerx="32422" centery="32230" centerz="10" monstername="beholder" spawntime="1200" amount="1" radius="30" />
 	<tvpspawn centerx="31969" centery="32231" centerz="10" monstername="troll" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="33213" centery="32231" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32431" centery="32233" centerz="10" monstername="beholder" spawntime="1500" amount="1" radius="30" />
 	<tvpspawn centerx="31976" centery="32234" centerz="10" monstername="troll" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32043" centery="32234" centerz="10" monstername="troll" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32383" centery="32234" centerz="10" monstername="orc" spawntime="600" amount="5" radius="30" />
+	<tvpspawn centerx="33263" centery="32236" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32655" centery="32240" centerz="10" monstername="rotworm" spawntime="750" amount="2" radius="30" />
+	<tvpspawn centerx="33247" centery="32240" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32439" centery="32241" centerz="10" monstername="beholder" spawntime="1000" amount="2" radius="30" />
 	<tvpspawn centerx="32528" centery="32243" centerz="10" monstername="scorpion" spawntime="1200" amount="2" radius="30" />
 	<tvpspawn centerx="31986" centery="32247" centerz="10" monstername="skeleton" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="33232" centery="32247" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33204" centery="32249" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33215" centery="32249" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32513" centery="32251" centerz="10" monstername="orc warrior" spawntime="800" amount="2" radius="30" />
 	<tvpspawn centerx="31970" centery="32253" centerz="10" monstername="skeleton" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32523" centery="32256" centerz="10" monstername="orc" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="33251" centery="32260" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32635" centery="32262" centerz="10" monstername="slime" spawntime="800" amount="1" radius="30" />
+	<tvpspawn centerx="33230" centery="32263" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32619" centery="32264" centerz="10" monstername="slime" spawntime="850" amount="1" radius="30" />
+	<tvpspawn centerx="33230" centery="32265" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33211" centery="32267" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32224" centery="32268" centerz="10" monstername="cyclops" spawntime="300" amount="2" radius="30" />
 	<tvpspawn centerx="32781" centery="32270" centerz="10" monstername="dragon" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32633" centery="32272" centerz="10" monstername="slime" spawntime="900" amount="1" radius="30" />
+	<tvpspawn centerx="32851" centery="32272" centerz="10" monstername="magicthrower" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32853" centery="32272" centerz="10" monstername="magicthrower" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32855" centery="32272" centerz="10" monstername="magicthrower" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32524" centery="32273" centerz="10" monstername="orc" spawntime="800" amount="4" radius="30" />
-	<tvpspawn centerx="32851" centery="32273" centerz="10" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32853" centery="32273" centerz="10" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32855" centery="32273" centerz="10" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32857" centery="32273" centerz="10" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32850" centery="32273" centerz="10" monstername="magicthrower" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32852" centery="32273" centerz="10" monstername="magicthrower" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32854" centery="32273" centerz="10" monstername="magicthrower" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32856" centery="32273" centerz="10" monstername="magicthrower" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32484" centery="32276" centerz="10" monstername="rat" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32851" centery="32276" centerz="10" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32853" centery="32276" centerz="10" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32855" centery="32276" centerz="10" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32857" centery="32276" centerz="10" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32850" centery="32276" centerz="10" monstername="magicthrower" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32852" centery="32276" centerz="10" monstername="magicthrower" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32854" centery="32276" centerz="10" monstername="magicthrower" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32856" centery="32276" centerz="10" monstername="magicthrower" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32851" centery="32277" centerz="10" monstername="magicthrower" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32853" centery="32277" centerz="10" monstername="magicthrower" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32855" centery="32277" centerz="10" monstername="magicthrower" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33303" centery="32278" centerz="10" monstername="minotaur mage" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33314" centery="32278" centerz="10" monstername="minotaur mage" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32828" centery="32281" centerz="10" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32859" centery="32281" centerz="10" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33303" centery="32281" centerz="10" monstername="minotaur archer" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33309" centery="32281" centerz="10" monstername="minotaur guard" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32830" centery="32282" centerz="10" monstername="Phantasm" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32850" centery="32282" centerz="10" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33301" centery="32282" centerz="10" monstername="minotaur guard" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32833" centery="32283" centerz="10" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32853" centery="32284" centerz="10" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33254" centery="32284" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33312" centery="32284" centerz="10" monstername="minotaur archer" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32776" centery="32286" centerz="10" monstername="dragon lord" spawntime="1800" amount="2" radius="30" />
+	<tvpspawn centerx="33218" centery="32286" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32775" centery="32289" centerz="10" monstername="dragon" spawntime="900" amount="4" radius="30" />
 	<tvpspawn centerx="33303" centery="32290" centerz="10" monstername="minotaur archer" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33301" centery="32291" centerz="10" monstername="minotaur mage" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33312" centery="32291" centerz="10" monstername="minotaur mage" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32486" centery="32292" centerz="10" monstername="rotworm" spawntime="800" amount="7" radius="30" />
+	<tvpspawn centerx="33236" centery="32292" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33304" centery="32292" centerz="10" monstername="minotaur guard" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32504" centery="32299" centerz="10" monstername="rat" spawntime="2000" amount="3" radius="30" />
-	<tvpspawn centerx="32837" centery="32302" centerz="10" monstername="scorpion" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="33264" centery="32299" centerz="10" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32514" centery="32304" centerz="10" monstername="slime" spawntime="1200" amount="1" radius="30" />
+	<tvpspawn centerx="32845" centery="32307" centerz="10" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32842" centery="32311" centerz="10" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32857" centery="32316" centerz="10" monstername="Betrayed Wraith" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32854" centery="32318" centerz="10" npcname="demonguard" spawntime="60" amount="1" direction="2" radius="2" />
 	<tvpspawn centerx="32853" centery="32319" centerz="10" monstername="scorpion" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32824" centery="32320" centerz="10" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32826" centery="32323" centerz="10" monstername="ghoul" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32843" centery="32326" centerz="10" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32842" centery="32329" centerz="10" monstername="ghoul" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32765" centery="32332" centerz="10" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32843" centery="32338" centerz="10" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32842" centery="32341" centerz="10" monstername="ghoul" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32823" centery="32320" centerz="10" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32827" centery="32320" centerz="10" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32823" centery="32322" centerz="10" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32840" centery="32325" centerz="10" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32842" centery="32325" centerz="10" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32845" centery="32327" centerz="10" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32763" centery="32328" centerz="10" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32759" centery="32329" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32762" centery="32330" centerz="10" monstername="ghost" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32768" centery="32331" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32758" centery="32332" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32766" centery="32334" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32762" centery="32335" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32768" centery="32335" centerz="10" monstername="ghost" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32770" centery="32337" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32842" centery="32337" centerz="10" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32845" centery="32339" centerz="10" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32843" centery="32341" centerz="10" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32781" centery="32342" centerz="10" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32859" centery="32343" centerz="10" monstername="scorpion" spawntime="600" amount="4" radius="30" />
-	<tvpspawn centerx="32824" centery="32344" centerz="10" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32859" centery="32342" centerz="10" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32824" centery="32343" centerz="10" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32770" centery="32345" centerz="10" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32826" centery="32347" centerz="10" monstername="ghoul" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32822" centery="32345" centerz="10" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32862" centery="32345" centerz="10" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32798" centery="32347" centerz="10" monstername="ghost" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32823" centery="32347" centerz="10" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32756" centery="32349" centerz="10" monstername="demon skeleton" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32758" centery="32349" centerz="10" monstername="ghost" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32771" centery="32350" centerz="10" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32758" centery="32352" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32750" centery="32354" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32753" centery="32355" centerz="10" monstername="ghost" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32806" centery="32356" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32753" centery="32357" centerz="10" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32751" centery="32358" centerz="10" monstername="ghost" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32783" centery="32358" centerz="10" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32756" centery="32359" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32803" centery="32359" centerz="10" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32806" centery="32359" centerz="10" monstername="ghost" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32806" centery="32362" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32791" centery="32363" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32793" centery="32365" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32790" centery="32368" centerz="10" monstername="demon skeleton" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32793" centery="32369" centerz="10" monstername="ghost" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32798" centery="32370" centerz="10" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33010" centery="32371" centerz="10" monstername="black sheep" spawntime="600" amount="7" radius="10" />
+	<tvpspawn centerx="32790" centery="32372" centerz="10" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33022" centery="32375" centerz="10" monstername="demon skeleton" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32601" centery="32384" centerz="10" monstername="monk" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32606" centery="32384" centerz="10" monstername="monk" spawntime="600" amount="3" radius="30" />
@@ -7157,22 +7438,33 @@
 	<tvpspawn centerx="31996" centery="32229" centerz="11" monstername="goblin" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32024" centery="32231" centerz="11" monstername="goblin" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32411" centery="32232" centerz="11" monstername="fire devil" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="33245" centery="32237" centerz="11" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32015" centery="32238" centerz="11" monstername="cave rat" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32442" centery="32241" centerz="11" monstername="beholder" spawntime="800" amount="3" radius="30" />
+	<tvpspawn centerx="33266" centery="32246" centerz="11" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32013" centery="32251" centerz="11" monstername="goblin" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="33214" centery="32251" centerz="11" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33246" centery="32268" centerz="11" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32469" centery="32276" centerz="11" monstername="skeleton" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="33196" centery="32277" centerz="11" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33314" centery="32278" centerz="11" monstername="mummy" spawntime="2000" amount="1" radius="30" />
 	<tvpspawn centerx="33302" centery="32279" centerz="11" monstername="minotaur mage" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32476" centery="32281" centerz="11" monstername="rotworm" spawntime="1100" amount="4" radius="30" />
 	<tvpspawn centerx="32464" centery="32282" centerz="11" monstername="rotworm" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32774" centery="32284" centerz="11" monstername="fire devil" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33304" centery="32285" centerz="11" monstername="minotaur mage" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="33219" centery="32288" centerz="11" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33269" centery="32288" centerz="11" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33314" centery="32288" centerz="11" monstername="minotaur mage" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="33246" centery="32289" centerz="11" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33309" centery="32291" centerz="11" monstername="minotaur mage" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33313" centery="32291" centerz="11" monstername="minotaur guard" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="33307" centery="32292" centerz="11" monstername="minotaur guard" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33304" centery="32293" centerz="11" monstername="minotaur archer" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32855" centery="32327" centerz="11" monstername="demon skeleton" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="33205" centery="32303" centerz="11" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33239" centery="32308" centerz="11" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32855" centery="32323" centerz="11" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32854" centery="32329" centerz="11" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32886" centery="32366" centerz="11" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33015" centery="32385" centerz="11" monstername="ghoul" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33005" centery="32397" centerz="11" monstername="mummy" spawntime="600" amount="2" radius="30" />
@@ -7782,42 +8074,108 @@
 	<tvpspawn centerx="32523" centery="32213" centerz="12" monstername="dragon" spawntime="900" amount="1" radius="30" />
 	<tvpspawn centerx="31986" centery="32219" centerz="12" monstername="minotaur" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32002" centery="32220" centerz="12" monstername="orc" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32825" centery="32233" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32827" centery="32235" centerz="12" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="31991" centery="32236" centerz="12" monstername="goblin" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="31980" centery="32237" centerz="12" monstername="goblin" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32825" centery="32237" centerz="12" monstername="Betrayed Wraith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32822" centery="32239" centerz="12" monstername="Betrayed Wraith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32825" centery="32239" centerz="12" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32829" centery="32239" centerz="12" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32022" centery="32241" centerz="12" monstername="goblin" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32885" centery="32257" centerz="12" monstername="ghoul" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32888" centery="32259" centerz="12" monstername="demon skeleton" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32824" centery="32242" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32821" centery="32243" centerz="12" monstername="Phantasm" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32826" centery="32245" centerz="12" monstername="Phantasm" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32824" centery="32247" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32824" centery="32258" centerz="12" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32884" centery="32259" centerz="12" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32886" centery="32262" centerz="12" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32370" centery="32263" centerz="12" monstername="dragon" spawntime="1200" amount="2" radius="30" />
-	<tvpspawn centerx="32826" centery="32264" centerz="12" monstername="demon skeleton" spawntime="600" amount="5" radius="30" />
-	<tvpspawn centerx="32884" centery="32272" centerz="12" monstername="ghoul" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32857" centery="32282" centerz="12" monstername="ghoul" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32865" centery="32285" centerz="12" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32868" centery="32285" centerz="12" monstername="ghoul" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32849" centery="32288" centerz="12" monstername="demon skeleton" spawntime="600" amount="4" radius="30" />
-	<tvpspawn centerx="32892" centery="32291" centerz="12" monstername="demon skeleton" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32828" centery="32267" centerz="12" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32824" centery="32269" centerz="12" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32849" centery="32275" centerz="12" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32882" centery="32275" centerz="12" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33234" centery="32275" centerz="12" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33237" centery="32275" centerz="12" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32863" centery="32276" centerz="12" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33235" centery="32276" centerz="12" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32851" centery="32278" centerz="12" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32857" centery="32278" centerz="12" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33234" centery="32278" centerz="12" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="33237" centery="32278" centerz="12" monstername="dragon lord" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32866" centery="32279" centerz="12" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32849" centery="32281" centerz="12" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32856" centery="32281" centerz="12" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32868" centery="32283" centerz="12" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32855" centery="32284" centerz="12" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32872" centery="32284" centerz="12" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32861" centery="32285" centerz="12" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32910" centery="32285" centerz="12" monstername="fire devil" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32846" centery="32286" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32868" centery="32286" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32880" centery="32287" centerz="12" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32905" centery="32287" centerz="12" monstername="fire devil" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32852" centery="32288" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32875" centery="32288" centerz="12" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32886" centery="32288" centerz="12" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32868" centery="32290" centerz="12" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32910" centery="32290" centerz="12" monstername="fire devil" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32890" centery="32291" centerz="12" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32899" centery="32291" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32847" centery="32292" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32860" centery="32292" centerz="12" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32864" centery="32292" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32856" centery="32293" centerz="12" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32911" centery="32293" centerz="12" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32890" centery="32295" centerz="12" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32895" centery="32295" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32906" centery="32295" centerz="12" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32860" centery="32296" centerz="12" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32876" centery="32302" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32889" centery="32307" centerz="12" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32768" centery="32308" centerz="12" monstername="dragon lord" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32795" centery="32309" centerz="12" monstername="dragon lord" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32883" centery="32309" centerz="12" monstername="demon skeleton" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32878" centery="32309" centerz="12" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32798" centery="32310" centerz="12" monstername="dragon" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32843" centery="32319" centerz="12" monstername="ghoul" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32890" centery="32310" centerz="12" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32883" centery="32312" centerz="12" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32841" centery="32318" centerz="12" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32844" centery="32321" centerz="12" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32805" centery="32322" centerz="12" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32843" centery="32324" centerz="12" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32767" centery="32330" centerz="12" monstername="dragon lord" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32888" centery="32331" centerz="12" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32816" centery="32332" centerz="12" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32889" centery="32332" centerz="12" monstername="ghoul" spawntime="600" amount="4" radius="30" />
+	<tvpspawn centerx="32844" centery="32333" centerz="12" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32820" centery="32334" centerz="12" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32848" centery="32334" centerz="12" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32886" centery="32334" centerz="12" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32790" centery="32335" centerz="12" monstername="dragon lord" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32814" centery="32337" centerz="12" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32890" centery="32337" centerz="12" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32786" centery="32338" centerz="12" monstername="dragon lord" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32817" centery="32339" centerz="12" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32864" centery="32342" centerz="12" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32851" centery="32344" centerz="12" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32875" centery="32343" centerz="12" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32850" centery="32344" centerz="12" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32868" centery="32344" centerz="12" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32803" centery="32345" centerz="12" monstername="dragon" spawntime="600" amount="4" radius="30" />
-	<tvpspawn centerx="32851" centery="32347" centerz="12" monstername="ghoul" spawntime="600" amount="4" radius="30" />
-	<tvpspawn centerx="32848" centery="32352" centerz="12" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32855" centery="32345" centerz="12" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32888" centery="32346" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32857" centery="32347" centerz="12" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32848" centery="32348" centerz="12" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32851" centery="32348" centerz="12" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32846" centery="32351" centerz="12" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32863" centery="32351" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32888" centery="32353" centerz="12" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32838" centery="32355" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32891" centery="32355" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32814" centery="32356" centerz="12" monstername="dragon lord" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32891" centery="32358" centerz="12" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32870" centery="32358" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32772" centery="32361" centerz="12" monstername="dragon lord" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32835" centery="32362" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32855" centery="32362" centerz="12" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32891" centery="32363" centerz="12" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32887" centery="32366" centerz="12" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32883" centery="32370" centerz="12" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32976" centery="32396" centerz="12" monstername="vampire" spawntime="600" amount="5" radius="30" />
 	<tvpspawn centerx="32964" centery="32399" centerz="12" monstername="vampire" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32970" centery="32403" centerz="12" monstername="mummy" spawntime="600" amount="2" radius="30" />
@@ -8333,26 +8691,60 @@
 	<tvpspawn centerx="31977" centery="32225" centerz="13" monstername="goblin" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="31975" centery="32230" centerz="13" monstername="goblin" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="31978" centery="32231" centerz="13" monstername="goblin" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32842" centery="32316" centerz="13" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32786" centery="32318" centerz="13" monstername="demon skeleton" spawntime="600" amount="4" radius="30" />
-	<tvpspawn centerx="32844" centery="32318" centerz="13" monstername="ghoul" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32823" centery="32320" centerz="13" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32849" centery="32333" centerz="13" monstername="ghoul" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32846" centery="32335" centerz="13" monstername="demon skeleton" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32808" centery="32338" centerz="13" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32883" centery="32339" centerz="13" monstername="ghoul" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32881" centery="32340" centerz="13" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32872" centery="32341" centerz="13" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32826" centery="32345" centerz="13" monstername="slime" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32892" centery="32345" centerz="13" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32794" centery="32346" centerz="13" monstername="giant spider" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32818" centery="32350" centerz="13" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32877" centery="32351" centerz="13" monstername="ghoul" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32794" centery="32354" centerz="13" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32873" centery="32354" centerz="13" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32846" centery="32355" centerz="13" monstername="ghoul" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32810" centery="32361" centerz="13" monstername="dragon lord" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32839" centery="32362" centerz="13" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
+	<tvpspawn centerx="32783" centery="32316" centerz="13" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32843" centery="32316" centerz="13" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32841" centery="32318" centerz="13" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32824" centery="32320" centerz="13" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32845" centery="32320" centerz="13" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32848" centery="32320" centerz="13" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32798" centery="32322" centerz="13" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32848" centery="32322" centerz="13" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32821" centery="32323" centerz="13" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32813" centery="32332" centerz="13" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32848" centery="32332" centerz="13" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32846" centery="32335" centerz="13" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32850" centery="32335" centerz="13" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32874" centery="32336" centerz="13" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32807" centery="32337" centerz="13" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32885" centery="32337" centerz="13" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32848" centery="32338" centerz="13" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32884" centery="32338" centerz="13" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32804" centery="32340" centerz="13" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32807" centery="32340" centerz="13" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32809" centery="32340" centerz="13" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32883" centery="32341" centerz="13" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32891" centery="32341" centerz="13" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32794" centery="32342" centerz="13" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32880" centery="32342" centerz="13" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32881" centery="32342" centerz="13" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32868" centery="32344" centerz="13" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32889" centery="32345" centerz="13" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32893" centery="32345" centerz="13" monstername="demon skeleton" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32827" centery="32346" centerz="13" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32849" centery="32346" centerz="13" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32794" centery="32347" centerz="13" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32876" centery="32349" centerz="13" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32803" centery="32352" centerz="13" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32822" centery="32352" centerz="13" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32848" centery="32352" centerz="13" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32798" centery="32353" centerz="13" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32875" centery="32353" centerz="13" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32795" centery="32355" centerz="13" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32825" centery="32355" centerz="13" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32872" centery="32356" centerz="13" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32879" centery="32356" centerz="13" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32846" centery="32357" centerz="13" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32885" centery="32358" centerz="13" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32872" centery="32359" centerz="13" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32809" centery="32360" centerz="13" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32833" centery="32361" centerz="13" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32838" centery="32363" centerz="13" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32874" centery="32363" centerz="13" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32812" centery="32364" centerz="13" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32795" centery="32366" centerz="13" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32841" centery="32367" centerz="13" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32848" centery="32367" centerz="13" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32844" centery="32369" centerz="13" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33055" centery="32489" centerz="13" monstername="priestess" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33058" centery="32490" centerz="13" monstername="mummy" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33052" centery="32492" centerz="13" monstername="vampire" spawntime="600" amount="2" radius="30" />
@@ -9166,27 +9558,60 @@
 	<tvpspawn centerx="32759" centery="32293" centerz="14" monstername="fire devil" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32765" centery="32293" centerz="14" monstername="fire devil" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32762" centery="32295" centerz="14" monstername="giant spider" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32885" centery="32302" centerz="14" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32883" centery="32303" centerz="14" monstername="ghoul" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32870" centery="32313" centerz="14" monstername="demon skeleton" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32862" centery="32316" centerz="14" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32891" centery="32318" centerz="14" monstername="ghoul" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32816" centery="32320" centerz="14" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32852" centery="32322" centerz="14" monstername="ghoul" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32883" centery="32325" centerz="14" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32807" centery="32326" centerz="14" monstername="slime" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32882" centery="32301" centerz="14" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32887" centery="32302" centerz="14" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32876" centery="32304" centerz="14" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32879" centery="32306" centerz="14" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32869" centery="32313" centerz="14" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32862" centery="32316" centerz="14" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32889" centery="32316" centerz="14" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32810" centery="32318" centerz="14" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32879" centery="32318" centerz="14" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32807" centery="32319" centerz="14" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32865" centery="32319" centerz="14" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32859" centery="32320" centerz="14" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32889" centery="32320" centerz="14" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32850" centery="32321" centerz="14" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32819" centery="32323" centerz="14" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32854" centery="32323" centerz="14" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32884" centery="32324" centerz="14" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32808" centery="32327" centerz="14" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32824" centery="32328" centerz="14" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32853" centery="32328" centerz="14" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32823" centery="32329" centerz="14" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32811" centery="32334" centerz="14" monstername="giant spider" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32819" centery="32336" centerz="14" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32881" centery="32340" centerz="14" monstername="ghoul" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32890" centery="32342" centerz="14" monstername="demon skeleton" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32806" centery="32344" centerz="14" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32856" centery="32344" centerz="14" monstername="ghoul" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32844" centery="32348" centerz="14" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32797" centery="32349" centerz="14" monstername="giant spider" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32882" centery="32356" centerz="14" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32813" centery="32357" centerz="14" monstername="slime" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32802" centery="32362" centerz="14" monstername="dragon lord" spawntime="600" amount="1" radius="30" />
+	<tvpspawn centerx="32879" centery="32329" centerz="14" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32890" centery="32329" centerz="14" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32810" centery="32332" centerz="14" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32891" centery="32332" centerz="14" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32850" centery="32333" centerz="14" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32811" centery="32334" centerz="14" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32817" centery="32336" centerz="14" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32879" centery="32336" centerz="14" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32800" centery="32339" centerz="14" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32883" centery="32339" centerz="14" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32805" centery="32340" centerz="14" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32806" centery="32341" centerz="14" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32825" centery="32342" centerz="14" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32826" centery="32342" centerz="14" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32890" centery="32342" centerz="14" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32857" centery="32343" centerz="14" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32805" centery="32344" centerz="14" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32849" centery="32344" centerz="14" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32808" centery="32345" centerz="14" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32827" centery="32345" centerz="14" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32798" centery="32346" centerz="14" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32844" centery="32348" centerz="14" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32858" centery="32349" centerz="14" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32797" centery="32350" centerz="14" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32887" centery="32350" centerz="14" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32800" centery="32354" centerz="14" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32853" centery="32356" centerz="14" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32879" centery="32356" centerz="14" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32797" centery="32357" centerz="14" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32813" centery="32357" centerz="14" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32816" centery="32359" centerz="14" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32804" centery="32360" centerz="14" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32800" centery="32362" centerz="14" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33257" centery="32490" centerz="14" monstername="banshee" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33253" centery="32492" centerz="14" monstername="stalker" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33261" centery="32493" centerz="14" monstername="stalker" spawntime="600" amount="3" radius="30" />
@@ -9980,57 +10405,268 @@
 	<tvpspawn centerx="32579" centery="32184" centerz="15" monstername="demon skeleton" spawntime="800" amount="4" radius="30" />
 	<tvpspawn centerx="32565" centery="32185" centerz="15" monstername="dragon" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32414" centery="32188" centerz="15" monstername="minotaur" spawntime="700" amount="3" radius="30" />
+	<tvpspawn centerx="32905" centery="32212" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32417" centery="32213" centerz="15" monstername="minotaur guard" spawntime="800" amount="1" radius="30" />
+	<tvpspawn centerx="32907" centery="32213" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32909" centery="32214" centerz="15" monstername="Hellhound" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32574" centery="32215" centerz="15" monstername="rat" spawntime="70" amount="12" radius="30" />
+	<tvpspawn centerx="32913" centery="32215" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32419" centery="32216" centerz="15" monstername="minotaur" spawntime="650" amount="4" radius="30" />
-	<tvpspawn centerx="32863" centery="32228" centerz="15" monstername="dragon lord" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32772" centery="32229" centerz="15" monstername="black knight" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32770" centery="32231" centerz="15" monstername="witch" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32869" centery="32231" centerz="15" monstername="dragon lord" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32780" centery="32232" centerz="15" monstername="witch" spawntime="600" amount="4" radius="30" />
-	<tvpspawn centerx="32862" centery="32234" centerz="15" monstername="dragon lord" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32792" centery="32235" centerz="15" monstername="black knight" spawntime="600" amount="4" radius="30" />
-	<tvpspawn centerx="32872" centery="32235" centerz="15" monstername="dragon lord" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32867" centery="32236" centerz="15" monstername="dragon lord" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32778" centery="32242" centerz="15" monstername="black knight" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32789" centery="32242" centerz="15" monstername="witch" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32829" centery="32264" centerz="15" monstername="mummy" spawntime="600" amount="4" radius="30" />
-	<tvpspawn centerx="32876" centery="32265" centerz="15" monstername="dragon lord" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32829" centery="32268" centerz="15" monstername="ghoul" spawntime="600" amount="5" radius="30" />
-	<tvpspawn centerx="32866" centery="32268" centerz="15" monstername="fire devil" spawntime="600" amount="4" radius="30" />
-	<tvpspawn centerx="32831" centery="32272" centerz="15" monstername="demon skeleton" spawntime="600" amount="5" radius="30" />
-	<tvpspawn centerx="32872" centery="32272" centerz="15" monstername="fire devil" spawntime="600" amount="6" radius="30" />
-	<tvpspawn centerx="32831" centery="32274" centerz="15" monstername="mummy" spawntime="600" amount="5" radius="30" />
-	<tvpspawn centerx="32862" centery="32276" centerz="15" monstername="fire devil" spawntime="600" amount="4" radius="30" />
-	<tvpspawn centerx="32828" centery="32278" centerz="15" monstername="demon skeleton" spawntime="600" amount="5" radius="30" />
-	<tvpspawn centerx="32884" centery="32278" centerz="15" monstername="dragon lord" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32783" centery="32279" centerz="15" monstername="slime" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32832" centery="32281" centerz="15" monstername="ghoul" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32790" centery="32283" centerz="15" monstername="scorpion" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32835" centery="32283" centerz="15" monstername="demon skeleton" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32831" centery="32284" centerz="15" monstername="mummy" spawntime="600" amount="4" radius="30" />
-	<tvpspawn centerx="32865" centery="32287" centerz="15" monstername="dragon lord" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32782" centery="32289" centerz="15" monstername="fire devil" spawntime="600" amount="4" radius="30" />
-	<tvpspawn centerx="32880" centery="32289" centerz="15" monstername="fire devil" spawntime="600" amount="4" radius="30" />
-	<tvpspawn centerx="32787" centery="32290" centerz="15" monstername="giant spider" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32872" centery="32290" centerz="15" monstername="fire devil" spawntime="600" amount="5" radius="30" />
-	<tvpspawn centerx="32784" centery="32300" centerz="15" monstername="demon skeleton" spawntime="600" amount="6" radius="30" />
-	<tvpspawn centerx="32888" centery="32311" centerz="15" monstername="demon skeleton" spawntime="600" amount="1" radius="30" />
-	<tvpspawn centerx="32889" centery="32313" centerz="15" monstername="ghoul" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32882" centery="32319" centerz="15" monstername="ghoul" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32881" centery="32321" centerz="15" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32891" centery="32324" centerz="15" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32854" centery="32326" centerz="15" monstername="giant spider" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32851" centery="32327" centerz="15" monstername="giant spider" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32817" centery="32328" centerz="15" monstername="dragon lord" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32854" centery="32337" centerz="15" monstername="giant spider" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32886" centery="32338" centerz="15" monstername="ghoul" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32815" centery="32343" centerz="15" monstername="dragon lord" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32847" centery="32343" centerz="15" monstername="giant spider" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32852" centery="32346" centerz="15" monstername="giant spider" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32860" centery="32347" centerz="15" monstername="giant spider" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32890" centery="32347" centerz="15" monstername="ghoul" spawntime="600" amount="2" radius="30" />
-	<tvpspawn centerx="32888" centery="32348" centerz="15" monstername="demon skeleton" spawntime="600" amount="2" radius="30" />
+	<tvpspawn centerx="32904" centery="32216" centerz="15" monstername="Hellhound" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32907" centery="32216" centerz="15" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32910" centery="32216" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32866" centery="32219" centerz="15" monstername="Hellhound" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32888" centery="32219" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32894" centery="32219" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32899" centery="32220" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32904" centery="32220" centerz="15" monstername="Hellhound" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32874" centery="32222" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32891" centery="32222" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32861" centery="32225" centerz="15" monstername="Hellhound" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32785" centery="32226" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32793" centery="32227" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32796" centery="32227" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32780" centery="32228" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32786" centery="32228" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32882" centery="32228" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32790" centery="32229" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32854" centery="32229" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32891" centery="32229" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32784" centery="32230" centerz="15" monstername="banshee" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32791" centery="32230" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32794" centery="32230" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32797" centery="32230" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32874" centery="32230" centerz="15" monstername="Hellhound" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32777" centery="32231" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32856" centery="32231" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32866" centery="32231" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32783" centery="32232" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32797" centery="32232" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32790" centery="32233" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32796" centery="32233" centerz="15" monstername="banshee" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32776" centery="32234" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32793" centery="32234" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32866" centery="32234" centerz="15" monstername="Hellhound" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32891" centery="32234" centerz="15" monstername="Hellhound" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32783" centery="32235" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32796" centery="32235" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32882" centery="32235" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32777" centery="32236" centerz="15" monstername="banshee" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32780" centery="32237" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32791" centery="32237" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32795" centery="32237" centerz="15" monstername="pig" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32797" centery="32237" centerz="15" monstername="pig" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32875" centery="32237" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32865" centery="32238" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32784" centery="32239" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32796" centery="32239" centerz="15" monstername="sheep" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32798" centery="32239" centerz="15" monstername="sheep" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32873" centery="32240" centerz="15" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32881" centery="32240" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32889" centery="32240" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32892" centery="32240" centerz="15" monstername="Hellhound" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32786" centery="32241" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32791" centery="32241" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32794" centery="32241" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32771" centery="32243" centerz="15" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32782" centery="32243" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32786" centery="32243" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32793" centery="32243" centerz="15" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32797" centery="32243" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32892" centery="32243" centerz="15" monstername="Hellhound" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32798" centery="32244" centerz="15" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32866" centery="32244" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32768" centery="32245" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32790" centery="32245" centerz="15" monstername="banshee" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32794" centery="32245" centerz="15" monstername="banshee" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32796" centery="32245" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32874" centery="32245" centerz="15" monstername="Hellhound" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32781" centery="32246" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32784" centery="32246" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32798" centery="32246" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32891" centery="32246" centerz="15" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32796" centery="32247" centerz="15" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32792" centery="32248" centerz="15" monstername="banshee" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32794" centery="32248" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32776" centery="32249" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32779" centery="32250" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32793" centery="32250" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32783" centery="32251" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32787" centery="32251" centerz="15" monstername="Dark Torturer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32830" centery="32259" centerz="15" monstername="lich" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32838" centery="32259" centerz="15" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32832" centery="32263" centerz="15" monstername="Undead Dragon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32835" centery="32263" centerz="15" monstername="Undead Dragon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32835" centery="32266" centerz="15" monstername="lich" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32873" centery="32266" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32878" centery="32266" centerz="15" monstername="Juggernaut" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32882" centery="32267" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32831" centery="32268" centerz="15" monstername="lich" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32873" centery="32268" centerz="15" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32881" centery="32269" centerz="15" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32872" centery="32270" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32782" centery="32271" centerz="15" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32788" centery="32271" centerz="15" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32786" centery="32272" centerz="15" monstername="Hand Of Cursed Fate" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32790" centery="32272" centerz="15" monstername="Betrayed Wraith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32876" centery="32272" centerz="15" monstername="Juggernaut" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32883" centery="32272" centerz="15" monstername="Juggernaut" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32836" centery="32273" centerz="15" monstername="lich" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32886" centery="32273" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32783" centery="32274" centerz="15" monstername="Betrayed Wraith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32786" centery="32275" centerz="15" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32790" centery="32275" centerz="15" monstername="Hand Of Cursed Fate" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32781" centery="32276" centerz="15" monstername="Hand Of Cursed Fate" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32788" centery="32276" centerz="15" monstername="Betrayed Wraith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32873" centery="32276" centerz="15" monstername="Fury" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32784" centery="32277" centerz="15" monstername="Betrayed Wraith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32864" centery="32277" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32884" centery="32277" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32859" centery="32278" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32779" centery="32279" centerz="15" monstername="Betrayed Wraith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32785" centery="32279" centerz="15" monstername="Hand Of Cursed Fate" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32831" centery="32279" centerz="15" monstername="lich" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32861" centery="32279" centerz="15" monstername="Fury" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32887" centery="32279" centerz="15" monstername="Fury" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32783" centery="32281" centerz="15" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32791" centery="32281" centerz="15" monstername="Betrayed Wraith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32863" centery="32281" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32864" centery="32281" centerz="15" monstername="Fury" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32872" centery="32281" centerz="15" monstername="Juggernaut" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32876" centery="32281" centerz="15" monstername="Juggernaut" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32883" centery="32281" centerz="15" monstername="Fury" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32788" centery="32283" centerz="15" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32837" centery="32283" centerz="15" monstername="lich" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32860" centery="32283" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32877" centery="32283" centerz="15" monstername="Fury" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32873" centery="32284" centerz="15" monstername="Fury" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32878" centery="32284" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32785" centery="32285" centerz="15" monstername="Betrayed Wraith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32782" centery="32286" centerz="15" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32883" centery="32286" centerz="15" monstername="Fury" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32887" centery="32286" centerz="15" monstername="Fury" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32788" centery="32287" centerz="15" monstername="Hand Of Cursed Fate" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32828" centery="32287" centerz="15" monstername="lich" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32873" centery="32288" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32878" centery="32288" centerz="15" monstername="Fury" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32781" centery="32289" centerz="15" monstername="Hand Of Cursed Fate" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32881" centery="32289" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32834" centery="32292" centerz="15" monstername="demon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32783" centery="32293" centerz="15" monstername="Hand Of Cursed Fate" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32787" centery="32294" centerz="15" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32834" centery="32297" centerz="15" monstername="lich" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32786" centery="32298" centerz="15" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32839" centery="32300" centerz="15" monstername="lich" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32786" centery="32301" centerz="15" monstername="Betrayed Wraith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32835" centery="32301" centerz="15" monstername="Undead Dragon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32841" centery="32302" centerz="15" monstername="Undead Dragon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32784" centery="32303" centerz="15" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32787" centery="32303" centerz="15" monstername="Spectre" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32840" centery="32303" centerz="15" monstername="lich" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32835" centery="32304" centerz="15" monstername="lich" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32844" centery="32304" centerz="15" monstername="Undead Dragon" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32888" centery="32310" centerz="15" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32888" centery="32313" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32892" centery="32315" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32851" centery="32316" centerz="15" monstername="Son Of Verminor" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32857" centery="32316" centerz="15" monstername="Son Of Verminor" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32862" centery="32316" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32881" centery="32316" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32867" centery="32317" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32845" centery="32318" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32852" centery="32318" centerz="15" monstername="Son Of Verminor" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32856" centery="32318" centerz="15" monstername="Son Of Verminor" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32847" centery="32319" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32863" centery="32319" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32881" centery="32319" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32807" centery="32320" centerz="15" monstername="Phantasm" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32824" centery="32320" centerz="15" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32865" centery="32320" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32815" centery="32321" centerz="15" monstername="Phantasm" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32805" centery="32322" centerz="15" monstername="Phantasm" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32846" centery="32322" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32856" centery="32322" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32862" centery="32322" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32867" centery="32322" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32882" centery="32322" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32823" centery="32323" centerz="15" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32890" centery="32323" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32857" centery="32324" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32864" centery="32324" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32844" centery="32325" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32848" centery="32325" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32853" centery="32325" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32884" centery="32325" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32804" centery="32326" centerz="15" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32867" centery="32326" centerz="15" monstername="Son Of Verminor" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32817" centery="32327" centerz="15" monstername="Phantasm" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32863" centery="32327" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32866" centery="32327" centerz="15" monstername="Son Of Verminor" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32892" centery="32328" centerz="15" monstername="Hellfire Fighter" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32805" centery="32329" centerz="15" monstername="Phantasm" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32809" centery="32329" centerz="15" monstername="Phantasm" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32889" centery="32329" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32803" centery="32330" centerz="15" monstername="Phantasm" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32808" centery="32330" centerz="15" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32818" centery="32330" centerz="15" monstername="Phantasm" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32847" centery="32330" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32853" centery="32331" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32857" centery="32332" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32863" centery="32333" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32854" centery="32334" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32867" centery="32334" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32814" centery="32335" centerz="15" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32857" centery="32335" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32855" centery="32336" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32847" centery="32337" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32850" centery="32337" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32865" centery="32337" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32885" centery="32337" centerz="15" monstername="Destroyer" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32809" centery="32338" centerz="15" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32845" centery="32338" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32845" centery="32339" centerz="15" monstername="Son Of Verminor" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32847" centery="32339" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32848" centery="32340" centerz="15" monstername="Son Of Verminor" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32885" centery="32340" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32817" centery="32341" centerz="15" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32859" centery="32341" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32892" centery="32341" centerz="15" monstername="Lost Soul" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32854" centery="32342" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32807" centery="32343" centerz="15" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32815" centery="32343" centerz="15" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32847" centery="32343" centerz="15" monstername="Son Of Verminor" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32868" centery="32343" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32888" centery="32343" centerz="15" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32845" centery="32344" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32850" centery="32344" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32857" centery="32344" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32866" centery="32345" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32855" centery="32346" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32858" centery="32346" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32813" centery="32348" centerz="15" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32890" centery="32348" centerz="15" monstername="Diabolic Imp" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32805" centery="32349" centerz="15" monstername="Phantasm" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32847" centery="32349" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32801" centery="32350" centerz="15" monstername="Phantasm" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32812" centery="32350" centerz="15" monstername="Nightmare" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32866" centery="32350" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32846" centery="32351" centerz="15" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32849" centery="32353" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32853" centery="32354" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32809" centery="32355" centerz="15" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32860" centery="32355" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32864" centery="32355" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32812" centery="32356" centerz="15" monstername="Illusion" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32844" centery="32357" centerz="15" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32860" centery="32358" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32854" centery="32359" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32845" centery="32360" centerz="15" monstername="Son Of Verminor" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32862" centery="32360" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32849" centery="32361" centerz="15" monstername="Plaguesmith" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32856" centery="32361" centerz="15" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32864" centery="32361" centerz="15" monstername="Blightwalker" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32846" centery="32362" centerz="15" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
+	<tvpspawn centerx="32853" centery="32362" centerz="15" monstername="Defiler" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33247" centery="32540" centerz="15" monstername="demon skeleton" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="33240" centery="32541" centerz="15" monstername="banshee" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="33254" centery="32541" centerz="15" monstername="lich" spawntime="600" amount="1" radius="30" />
