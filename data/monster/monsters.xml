@@ -6,6 +6,7 @@
 	<!-- Dummy Target -->
 	<monster name="Dummy Target" file="monsters/dummy target.xml"/>
 	<monster name="Dummy Target Ravenor" file="monsters/dummy target ravenor.xml"/>
+	<monster name="Dummy Target Demon" file="monsters/dummy target demon.xml"/>
 	<!-- New Monsters -->
 	<monster name="Barbarian Bloodwalker" file="monsters/barbarian bloodwalker.xml"/>
 	<monster name="Barbarian Brutetamer" file="monsters/barbarian brutetamer.xml"/>

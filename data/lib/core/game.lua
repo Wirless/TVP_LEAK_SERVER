@@ -30,6 +30,21 @@ function Game.isItemInPosition(position, itemid)
 	return true
 end
 
+function Game.getItemInPosition(position, itemid)
+	local tile = Tile(position)
+	if not tile then
+		error("Game.getItemInPosition - Tile not found")
+		return false
+	end
+
+	local item = tile:getItemById(itemid)
+	if not item then
+		return false
+	end
+
+	return item
+end
+
 function Game.removeItemInPosition(position, itemid)
 	local tile = Tile(position)
 	if not tile then

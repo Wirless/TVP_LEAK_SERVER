@@ -61,7 +61,7 @@ function door.onUse(player, item, fromPosition, target, toPosition)
 		local keyholenumber = target:getAttribute(ITEM_ATTRIBUTE_KEYHOLENUMBER)
 
 		if not keyholenumber then
-			player:sendTextMessage(MESSAGE_STATUS_SMALL, "The key does not match 1.")
+			player:sendTextMessage(MESSAGE_STATUS_SMALL, "The key does not match.")
 			return true
 		end
 
@@ -82,7 +82,7 @@ function door.onUse(player, item, fromPosition, target, toPosition)
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "Using key " .. keyholenumber .. " from keychain.")
 
 		elseif item:getAttribute(ITEM_ATTRIBUTE_KEYNUMBER) ~= keyholenumber then
-			player:sendTextMessage(MESSAGE_STATUS_SMALL, "The key does not match 3.")
+			player:sendTextMessage(MESSAGE_STATUS_SMALL, "The key does not match.")
 			return true
 		end
 		local transformTo = target.itemid + 2

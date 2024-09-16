@@ -41,7 +41,7 @@
 		<attack name="lifedrain" delay="7" radius="3" min="-100" max="-200">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
-		<attack name="undead dragon curse" delay="7"/>
+		<!-- <attack name="undead dragon curse" delay="7"/>-->
 	</attacks>
 	<defenses armor="40" defense="40">
 		<defense name="healing" delay="6" min="200" max="250">
