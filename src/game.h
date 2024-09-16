@@ -443,6 +443,7 @@ class Game
 		bool canThrowObjectTo(const Position& fromPos, const Position& toPos, bool multiFloor = false) const;
 
 		void changeSpeed(Creature* creature, int32_t varSpeedDelta);
+		void setCreatureSpeed(Creature* creature, int32_t speed);
 		void internalCreatureChangeOutfit(Creature* creature, const Outfit_t& outfit);
 		void internalCreatureChangeVisible(Creature* creature, bool visible);
 		void changeLight(const Creature* creature);
