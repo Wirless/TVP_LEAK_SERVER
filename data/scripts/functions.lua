@@ -1,8 +1,9 @@
-function onUseQuest(player, item, quest)
+local BACKPACK_ITEMID = 1988
+function onUseQuest(player, chest, quest)
 	local storageValue = quest.storageValue
 
 	if player:getStorageValue(storageValue) ~= -1 then
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "The " .. item:getName() .. " is empty.")
+		player:sendTextMessage(MESSAGE_INFO_DESCR, "The " .. chest:getName() .. " is empty.")
 		return true
 	end
 
@@ -11,112 +12,142 @@ function onUseQuest(player, item, quest)
 		rewards = { { item = quest.item, content = quest.content } }
 	end
 
-	local rewardTitle = {}
-	local rewardWeight = 0
+	local reward_weight = #rewards > 1 and ItemType(BACKPACK_ITEMID):getWeight() or 0
+	local strings = {}
 
-	local term = "it is"
+	local term = #rewards > 1 and "they are" or "it is"
 
-	for i, chest in ipairs(rewards) do
-		local mainItemType = ItemType(chest.item.id)
-		if not mainItemType then
+	for _, reward in ipairs(rewards) do
+		local itemType = ItemType(reward.item.id)
+		if not itemType then
+			print("Error on quest reward: " ..
+			reward:getActionId() .. " to player " .. player:getName() .. " - item " .. reward.item.id .. " not found")
 			return false
 		end
 
-		rewardTitle[i] = mainItemType:getName()
-		if mainItemType:isStackable() and chest.item.count > 1 then
-			rewardTitle[i] = chest.item.count .. " " .. mainItemType:getPluralName()
+		local string
+		local amount = math.max(1, reward.item.count or 0)
+		if itemType:isStackable() and amount > 1 then
+			string = amount .. "" .. itemType:getPluralName()
+			term = "they are"
+		else
+			string = itemType:getName()
 		end
-		if mainItemType:getArticle():len() > 0 and math.max(1, chest.item.count or 0) <= 1 then
-			rewardTitle[i] = mainItemType:getArticle() .. " " .. rewardTitle[i]
+		if itemType:getArticle():len() > 0 and amount <= 1 then
+			string = string.format("%s %s", itemType:getArticle(), string)
 		end
 
-		rewardWeight = mainItemType:getWeight(chest.item.count)
+		local weight = itemType:getWeight(reward.item.count)
 
-		if chest.content then
-			for _, reward in ipairs(chest.content) do
-				local itemType = ItemType(reward.id)
-				rewardWeight = rewardWeight + itemType:getWeight(reward.count)
+		if reward.content then
+			for _, reward in ipairs(reward.content) do
+				local it = ItemType(reward.id)
+				if not it then
+					print("Error on quest reward: " ..
+					chest:getActionId() .. " to player " .. player:getName() .. " - item " .. reward.id .. " not found")
+					return true
+				end
+				weight = weight + it:getWeight(reward.count)
 			end
 		end
 
-		if mainItemType:isStackable() and chest.item.count > 1 then
-			term = "they are"
-		end
-	end
-	
-	if #rewards > 1 then
-		term = "they are"
+		reward_weight = reward_weight + weight
+		table.insert(strings, string)
 	end
 
-	local noCapacityMessage = string.format("You have found %s. Weighing %d.%02d oz %s too heavy.", table.concat(rewardTitle, ", "), rewardWeight / 100, rewardWeight % 100, term)
+	local content_info = "a reward" --table.concat(strings, ", ")
 
-	if rewardWeight > player:getFreeCapacity() and not getPlayerFlagValue(player, PlayerFlag_HasInfiniteCapacity) then
-		player:sendTextMessage(MESSAGE_INFO_DESCR, noCapacityMessage)
+	if reward_weight > player:getFreeCapacity() and not getPlayerFlagValue(player, PlayerFlag_HasInfiniteCapacity) then
+		player:sendTextMessage(MESSAGE_INFO_DESCR,
+			string.format("You have found %s. It weighs %d.%02d oz %s too heavy.", content_info, reward_weight / 100,
+				reward_weight % 100, term))
 		return true
 	end
 
-	local addedItems = {}
+	local function apply_reward(item, reward, itemType)
+		item:rollRarity(true)
 
-	for i, chest in ipairs(rewards) do
-		local mainItemType = ItemType(chest.item.id)
-		local reward = Game.createItem(mainItemType:getId(), chest.item.count or chest.item.subtype or chest.item.charges)
+		if reward.item.text then
+			item:setAttribute(ITEM_ATTRIBUTE_TEXT, reward.item.text)
+		end
+
+		if reward.item.keynumber then
+			item:setAttribute(ITEM_ATTRIBUTE_KEYNUMBER, reward.item.keynumber)
+		end
+
+		if reward.content and itemType:isContainer() then
+			for _, reward_content in ipairs(reward.content) do
+				local content = item:addItem(reward_content.id,
+					reward_content.count or reward_content.subtype or reward_content.charges or 1, INDEX_WHEREEVER,
+					FLAG_IGNOREAUTOSTACK)
+				content:rollRarity(true)
+
+				if reward_content.text then
+					content:setAttribute(ITEM_ATTRIBUTE_TEXT, reward_content.text)
+				end
+
+				if reward_content.keynumber then
+					content:setAttribute(ITEM_ATTRIBUTE_KEYNUMBER, reward_content.keynumber)
+				end
+			end
+		end
+	end
+
+	local reward
+	if #rewards == 1 then
+		local rewardInfo = rewards[1]
+		local itemType = ItemType(rewardInfo.item.id)
+		reward = Game.createItem(itemType:getId(),
+			rewardInfo.item.count or rewardInfo.item.subtype or rewardInfo.item.charges or 1)
+
 		if not reward then
-			print("Something went wrong creating ".. item:getName() .." to player " .. self:getName())
+			print("Something went wrong creating " ..
+			reward:getName() .. " to player " .. player:getName() .. "on quest " .. chest:getActionId())
 			return false
 		end
-		table.insert(addedItems, reward)
 
-		reward:rollRarity(true)
+		apply_reward(reward, rewardInfo, itemType)
+	else
+		reward = Game.createItem(BACKPACK_ITEMID, 1)
+		for _, rewardInfo in ipairs(rewards) do
+			local itemType = ItemType(rewardInfo.item.id)
+			local item = reward:addItem(itemType:getId(),
+				rewardInfo.count or rewardInfo.subtype or rewardInfo.charges or 1,
+				INDEX_WHEREEVER, FLAG_IGNOREAUTOSTACK)
 
-		if chest.item.text then
-			reward:setAttribute(ITEM_ATTRIBUTE_TEXT, chest.item.text)
-		end
-
-		if chest.item.keynumber then
-			reward:setAttribute(ITEM_ATTRIBUTE_KEYNUMBER, chest.item.keynumber)
-		end
-
-		if chest.content and mainItemType:isContainer() then
-			for _, nextReward in ipairs(chest.content) do
-				local nextItem = reward:addItem(nextReward.id, nextReward.count or nextReward.subtype or nextReward.charges)
-				nextItem:rollRarity(true)
-
-				if nextReward.text then
-					nextItem:setAttribute(ITEM_ATTRIBUTE_TEXT, nextReward.text)
-				end
-
-				if nextReward.keynumber then
-					nextItem:setAttribute(ITEM_ATTRIBUTE_KEYNUMBER, nextReward.keynumber)
-				end
+			if not item then
+				print("Something went wrong creating " ..
+					item:getName() .. " to player " .. player:getName() .. "on quest " .. chest:getActionId())
+				return false
 			end
+
+			apply_reward(item, rewardInfo, itemType)
 		end
+	end
 
-		if player:getFreeCapacity() >= reward:getWeight() then
-			local item = player:addItemEx(reward)
+	local weight = reward:getWeight()
 
-			if item == RETURNVALUE_NOERROR then
-				player:sendTextMessage(MESSAGE_INFO_DESCR, "You have found " .. rewardTitle[i] .. ".")
+	if weight > player:getFreeCapacity() then
+		reward:remove()
+		player:sendTextMessage(MESSAGE_INFO_DESCR,
+			string.format("You have found %s. It weighs %d.%02d oz %s too heavy.", content_info,
+				weight / 100, weight % 100, term))
+		return true
+	end
 
-				if not getPlayerFlagValue(player, PlayerFlag_HasInfiniteCapacity) then
-					player:setStorageValue(storageValue, 1)
-				end
-			else
-				player:sendTextMessage(MESSAGE_INFO_DESCR, "You have found " .. rewardTitle[i] .. ", but you have no room to take it.")
-				for _, addedItem in pairs(addedItems) do
-					if addedItem then
-						addedItem:remove()
-					end
-				end
-			end
-		else
-			player:sendTextMessage(MESSAGE_INFO_DESCR, noCapacityMessage)
+	local returns = player:addItemEx(reward, false, INDEX_WHEREEVER, FLAG_IGNOREAUTOSTACK)
 
-			for _, addedItem in pairs(addedItems) do
-				if addedItem then
-					addedItem:remove()
-				end
-			end
-		end
+	if returns ~= RETURNVALUE_NOERROR then
+		reward:remove()
+		player:sendTextMessage(MESSAGE_INFO_DESCR,
+			string.format("You have found %s but you don't have room to take it.", content_info))
+		return true
+	end
+
+	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("You have found %s.", content_info))
+
+	if not getPlayerFlagValue(player, PlayerFlag_HasInfiniteCapacity) then
+		player:setStorageValue(storageValue, 1)
 	end
 
 	return true
