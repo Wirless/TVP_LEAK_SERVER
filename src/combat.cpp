@@ -878,9 +878,6 @@ void Combat::doTargetCombat(Creature* caster, Creature* target, CombatDamage& da
 
 			if (casterPlayer) {
 				Player* targetPlayer = target ? target->getPlayer() : nullptr;
-				if (damage.value != 0 && targetPlayer && casterPlayer != targetPlayer && damage.type != COMBAT_HEALING) {
-					damage.value /= 2;
-				}
 
 				if (!damage.critical && damage.type != COMBAT_HEALING && damage.origin != ORIGIN_CONDITION) {
 					uint16_t skill = casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_CRITICAL);
@@ -928,6 +925,10 @@ void Combat::doTargetCombat(Creature* caster, Creature* target, CombatDamage& da
 
 						damage.critical = true;
 					}
+				}
+
+				if (damage.value != 0 && targetPlayer && casterPlayer != targetPlayer && damage.type != COMBAT_HEALING) {
+					damage.value /= 2;
 				}
 			}
 

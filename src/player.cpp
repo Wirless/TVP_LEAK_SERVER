@@ -1920,6 +1920,8 @@ BlockType_t Player::blockHit(Creature* attacker, CombatType_t combatType, int32_
 			cDamage.origin = ORIGIN_NONE;
 			cDamage.type = combatType;
 			cDamage.value = -(damage * (0.25f * getCustomItemAttrStat(ITEM_RND_PARRY)) + 0.5f);
+			if (attacker->getPlayer())
+				cDamage.value /= 2;
 			g_game.combatChangeHealth(getCreature(), attacker->getCreature(), cDamage);
 			return BLOCK_ARMOR;
 		}
