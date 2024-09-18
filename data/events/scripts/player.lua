@@ -341,10 +341,18 @@ function Player:onBestiaryKill(monster)
 			if leader:getBestiaryKill(id) >= maxKill then
 				local members = party:getMembers()
 				local damageMap = monster:getDamageMap()
-				
-				table.sort(members, function (m_a, m_b)
-					local damage_a = damageMap[m_a:getId()] or 0
-					local damage_b = damageMap[m_b:getId()] or 0
+				table.sort(members, function(m_a, m_b)
+					local damage_a = 0
+					if damageMap[m_a:getId()] then
+						damage_a = damageMap[m_a:getId()].total
+					end
+
+					local damage_b = 0
+					if damageMap[m_b:getId()] then
+						damage_b = damageMap[m_b:getId()].total
+					end
+
+
 					return damage_a > damage_b
 				end)
 
