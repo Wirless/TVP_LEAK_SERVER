@@ -36294,7 +36294,7 @@
 		<attribute key="lightcolor" value="215" />
 		<attribute key="specialfieldblockpath" value="1" />
 	</item>
-		<item id="5543" name="dummy trash">
+	<item id="5543" name="dummy trash">
 		<attribute key="clientid" value="5713" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="570" />
@@ -36302,7 +36302,79 @@
 		<attribute key="decayto" value="0" />
 		<attribute key="duration" value="5000" />
 	</item>
-
+	<item id="5543" article="a" name="Ravenor amulet"> <!-- TODO: Definir funções -->
+		<attribute key="clientid" value="5714" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="moveable" value="true" />
+		<attribute key="weight" value="6500" /> <!-- TODO: Definir weight -->
+	</item>
+	<item id="5544" article="a" name="Ravenor backpack">
+		<attribute key="clientid" value="5715" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="moveable" value="true" />
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="weight" value="1800" />
+		<attribute key="slottype" value="backpack" />
+		<attribute key="containersize" value="40" /> <!-- TOOD: Definir backpack size -->
+	</item>
+	<item id="5545" article="a" name="Ravenor bolt quiver">
+		<attribute key="clientid" value="5716" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="moveable" value="true" />
+		<attribute key="description" value="It is only possible to carry bolts." />
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="weight" value="1800" />
+		<attribute key="ammotype" value="bolt" />
+		<attribute key="weapontype" value="quiver"/>
+		<attribute key="containersize" value="5" />
+		<attribute key="raritytier" value="1" /> <!-- TODO: Definir rarity tier -->
+	</item>
+	<item id="5546" article="a" name="Ravenor arrow quiver">
+		<attribute key="clientid" value="5717" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="moveable" value="true" />
+		<attribute key="weight" value="1800" />
+		<attribute key="description" value="It is only possible to carry arrows." />
+		<attribute key="type" value="container" />
+		<attribute key="group" value="container" />
+		<attribute key="ammotype" value="arrow" />
+		<attribute key="weapontype" value="quiver"/>
+		<attribute key="containersize" value="5" />
+		<attribute key="moveable" value="true" />
+		<attribute key="raritytier" value="1" /> <!-- TODO: Definir rarity tier -->
+	</item>
+	<item id="5547" article="a" name="Ravenor ring"> <!-- TODO: Definir funções -->
+		<attribute key="clientid" value="5718" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="moveable" value="true" />
+		<attribute key="weight" value="6500" /> <!-- TODO: Definir weight -->
+	</item>
+	<item id="5548" article="a" name="Ravenor shield">
+		<attribute key="clientid" value="5719" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="moveable" value="true" />
+		<attribute key="weight" value="5500" />
+		<attribute key="defense" value="30" />
+		<attribute key="weapontype" value="shield" />
+		<attribute key="managain" value="2" />
+		<attribute key="manaticks" value="4000" />
+		<attribute key="healthgain" value="5" />
+		<attribute key="healthticks" value="4000" />
+	</item>
+	<item id="5549" article="a" name="Ravenor boots">
+		<attribute key="clientid" value="5720" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="moveable" value="true" />
+		<attribute key="weight" value="1000" /> 
+		<attribute key="slottype" value="feet" />
+		<attribute key="speed" value="20" /> <!-- TODO: Definir speed -->
+		<attribute key="managain" value="2" />
+		<attribute key="manaticks" value="4000" />
+		<attribute key="healthgain" value="3" />
+		<attribute key="healthticks" value="4000" />
+	</item>
 	<item id="5550" article="a" name="Roulette coin" plural="Roulette coins">
 		<attribute key="stackable" value="true" />
 		<attribute key="clientid" value="5721" />
