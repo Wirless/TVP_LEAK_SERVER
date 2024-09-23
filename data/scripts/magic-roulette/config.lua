@@ -10,7 +10,7 @@ local Slot = require('data/scripts/magic-roulette/lib/classes/slot')
 return {
 	slots = {
 		[30020] = Slot { -- west roulette
-			needItem = {id = 2160, count = 1},
+			needItem = {id = 5550, count = 1},
 			tilesPerSlot = 11,
 			centerPosition = Position(32217, 32212, 5),
 
@@ -29,7 +29,7 @@ return {
 			},
 		},
 		[30021] = Slot { -- central roulette
-			needItem = {id = 2160, count = 1},
+			needItem = {id = 5550, count = 1},
 			tilesPerSlot = 11,
 			centerPosition = Position(32236, 32212, 5),
 
@@ -48,7 +48,7 @@ return {
 			},
 		},
 		[30022] = Slot { -- east roulette
-			needItem = {id = 2160, count = 1},
+			needItem = {id = 5550, count = 1},
 			tilesPerSlot = 11,
 			centerPosition = Position(32255, 32212, 5),
 

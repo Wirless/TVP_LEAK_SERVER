@@ -36302,4 +36302,12 @@
 		<attribute key="decayto" value="0" />
 		<attribute key="duration" value="5000" />
 	</item>
+
+	<item id="5550" article="a" name="Roulette coin" plural="Roulette coins">
+		<attribute key="stackable" value="true" />
+		<attribute key="clientid" value="5721" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="weight" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
 </items>

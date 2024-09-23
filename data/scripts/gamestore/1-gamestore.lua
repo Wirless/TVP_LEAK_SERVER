@@ -615,7 +615,17 @@ storeIndex = {
                 price = 300,
                 id = 5498,
                 count = 1,
-                description = "- Remove your red skull",
+                description = "- Remove your red skull.",
+                type = GameStore_OfferTypes.OFFER_TYPE_ITEM,
+
+                -- Internal variables
+                category_id = "6"
+            }, {
+                name = "Roulette Coin",
+                price = 150,
+                id = 5550,
+                count = 1,
+                description = "- Use this coin to try your luck on the roulette game.",
                 type = GameStore_OfferTypes.OFFER_TYPE_ITEM,
 
                 -- Internal variables
