@@ -588,6 +588,11 @@
 	<movevent event="Equip" itemid="5091" slot="hand" function="onEquipItem" /> <!-- Bolt Quiver -->
 	<movevent event="DeEquip" itemid="5091" slot="hand" function="onDeEquipItem" /> <!-- Bolt Quiver -->
 
+	<movevent event="Equip" itemid="5546" slot="hand" function="onEquipItem" /> <!-- Arrow Quiver -->
+	<movevent event="DeEquip" itemid="5546" slot="hand" function="onDeEquipItem" /> <!-- Arrow Quiver -->
+	<movevent event="Equip" itemid="5545" slot="hand" function="onEquipItem" /> <!-- Bolt Quiver -->
+	<movevent event="DeEquip" itemid="5545" slot="hand" function="onDeEquipItem" /> <!-- Bolt Quiver -->
+
 	<movevent event="Equip" itemid="5481" slot="hand" function="onEquipItem" /> <!-- Modified Crossbow -->
 	<movevent event="DeEquip" itemid="5481" slot="hand" function="onDeEquipItem" /> <!-- Modified Crossbow -->
 	<movevent event="Equip" itemid="5482" slot="hand" function="onEquipItem" /> <!-- Elven Crossbow -->

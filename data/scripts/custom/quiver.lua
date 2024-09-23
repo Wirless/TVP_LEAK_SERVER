@@ -1,5 +1,5 @@
-local quiverbolts = {5091, 5107}
-local quiverarrows = {5090, 5106}
+local quiverbolts = { 5545, 5091, 5107 }
+local quiverarrows = { 5546, 5090, 5106 }
 
 local quivers_by_ammotype = {}
 local ammos_by_quivertype = {}

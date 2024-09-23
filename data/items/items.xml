@@ -36316,7 +36316,7 @@
 		<attribute key="group" value="container" />
 		<attribute key="weight" value="1800" />
 		<attribute key="slottype" value="backpack" />
-		<attribute key="containersize" value="40" /> <!-- TOOD: Definir backpack size -->
+		<attribute key="containersize" value="40" />
 	</item>
 	<item id="5545" article="a" name="Ravenor bolt quiver">
 		<attribute key="clientid" value="5716" />
@@ -36329,7 +36329,7 @@
 		<attribute key="ammotype" value="bolt" />
 		<attribute key="weapontype" value="quiver"/>
 		<attribute key="containersize" value="5" />
-		<attribute key="raritytier" value="1" /> <!-- TODO: Definir rarity tier -->
+		<attribute key="raritytier" value="1" />
 	</item>
 	<item id="5546" article="a" name="Ravenor arrow quiver">
 		<attribute key="clientid" value="5717" />
@@ -36343,13 +36343,16 @@
 		<attribute key="weapontype" value="quiver"/>
 		<attribute key="containersize" value="5" />
 		<attribute key="moveable" value="true" />
-		<attribute key="raritytier" value="1" /> <!-- TODO: Definir rarity tier -->
+		<attribute key="raritytier" value="1" />
 	</item>
-	<item id="5547" article="a" name="Ravenor ring"> <!-- TODO: Definir funções -->
+	<item id="5547" article="a" name="Ravenor ring">
 		<attribute key="clientid" value="5718" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="moveable" value="true" />
-		<attribute key="weight" value="6500" /> <!-- TODO: Definir weight -->
+		<attribute key="lightlevel" value="9" />
+		<attribute key="lightcolor" value="215" />
+		<attribute key="weight" value="40" />
+		<attribute key="slottype" value="ring" />
 	</item>
 	<item id="5548" article="a" name="Ravenor shield">
 		<attribute key="clientid" value="5719" />
@@ -36367,9 +36370,9 @@
 		<attribute key="clientid" value="5720" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="moveable" value="true" />
-		<attribute key="weight" value="1000" /> 
 		<attribute key="slottype" value="feet" />
-		<attribute key="speed" value="20" /> <!-- TODO: Definir speed -->
+		<attribute key="weight" value="750" />
+		<attribute key="speed" value="20" />
 		<attribute key="managain" value="2" />
 		<attribute key="manaticks" value="4000" />
 		<attribute key="healthgain" value="3" />
