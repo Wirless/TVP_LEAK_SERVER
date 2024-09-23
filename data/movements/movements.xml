@@ -45,6 +45,8 @@
 	<!-- Boots -->
 	<movevent event="Equip" itemid="2195" slot="feet" function="onEquipItem" /> <!-- Boots of Haste -->
 	<movevent event="DeEquip" itemid="2195" slot="feet" function="onDeEquipItem" /> <!-- Boots of Haste -->
+	<movevent event="Equip" itemid="5549" slot="feet" function="onEquipItem" /> <!-- Ravenor boots -->
+	<movevent event="DeEquip" itemid="5549" slot="feet" function="onDeEquipItem" /> <!-- Ravenor boots-->
 	<movevent event="Equip" itemid="2640" slot="feet" function="onEquipItem" /> <!-- Soft Boots -->
 	<movevent event="DeEquip" itemid="2640" slot="feet" function="onDeEquipItem" /> <!-- Soft Boots -->
 	<movevent event="Equip" itemid="2641" slot="feet" function="onEquipItem" /> <!-- Patched Boots -->
@@ -93,6 +95,8 @@
 	<movevent event="DeEquip" itemid="2172" slot="necklace" function="onDeEquipItem" /> <!-- Bronze Amulet -->
 	<movevent event="Equip" itemid="2173" slot="necklace" function="onEquipItem" /> <!-- Amulet of Loss -->
 	<movevent event="DeEquip" itemid="2173" slot="necklace" function="onDeEquipItem" /> <!-- Amulet of Loss -->
+	<movevent event="Equip" itemid="5543" slot="necklace" function="onEquipItem" /> <!-- Ravenor amulet -->
+	<movevent event="DeEquip" itemid="5543" slot="necklace" function="onDeEquipItem" /> <!-- Ravenor amulet -->
 	<movevent event="Equip" itemid="2197" slot="necklace" function="onEquipItem" /> <!-- Stone Skin Amulet -->
 	<movevent event="DeEquip" itemid="2197" slot="necklace" function="onDeEquipItem" /> <!-- Stone Skin Amulet -->
 	<movevent event="Equip" itemid="2198" slot="necklace" function="onEquipItem" /> <!-- Elven Amulet -->

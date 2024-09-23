@@ -36302,14 +36302,6 @@
 		<attribute key="decayto" value="0" />
 		<attribute key="duration" value="5000" />
 	</item>
-	<item id="5543" article="a" name="Ravenor amulet">
-		<attribute key="clientid" value="5714" />
-		<attribute key="pickupable" value="true" />
-		<attribute key="moveable" value="true" />
-		<attribute key="weight" value="420" />
-		<attribute key="slottype" value="necklace" />
-		<attribute key="moveable" value="true" />
-	</item>
 	<item id="5544" article="a" name="Ravenor backpack">
 		<attribute key="clientid" value="5715" />
 		<attribute key="pickupable" value="true" />
@@ -36385,6 +36377,15 @@
 		<attribute key="clientid" value="5721" />
 		<attribute key="pickupable" value="true" />
 		<attribute key="weight" value="10" />
+		<attribute key="moveable" value="true" />
+	</item>
+
+	<item id="5551" article="a" name="Ravenor amulet">
+		<attribute key="clientid" value="5714" />
+		<attribute key="pickupable" value="true" />
+		<attribute key="moveable" value="true" />
+		<attribute key="weight" value="420" />
+		<attribute key="slottype" value="necklace" />
 		<attribute key="moveable" value="true" />
 	</item>
 </items>

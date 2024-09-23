@@ -31,7 +31,9 @@ VANISH,!                                -> "Shouldn't I teleport you back to Pem
 "amulet","of","loss"  -> Type=2173, Amount=1, Price=50000, "Do you want to buy an amulet of loss for %P gold?", Topic=3
 "amulet","of","loss",PvPEnforced,! -> "What a strange name for an amulet. Never heard about that one."
 
+"ravenor", "amulet",Count(5551)<1,! -> "Sorry, you don't have a ravenor amulat to enchant."
 
+"ravenor", "amulet" -> Type=5551, Amount=1, Price=50000, "Do you want to restore a Ravenor Amulet for %P gold?", Topic=6
 "protection","amulet" -> Type=2200, Amount=1, Price=700, "Do you want to buy a protection amulet for %P gold?", Topic=3
 "broken","amulet"     -> Type=2196, Amount=1, Price=50000, "Do you want to sell a broken amulet for %P gold?", Topic=4
 "amulet","of","life"  -> *
@@ -114,6 +116,10 @@ Topic=5,"yes",CountMoney<Price,!            -> "Oh. You do not have enough money
 Topic=5,"yes",!                             -> "So receive the wisdom of solitude, pilgrim", DeleteMoney, EffectOpp(13),SetQuestValue(101,1), Bless(1)
 Topic=5,!                             -> "Ok. As you wish."
 
+Topic=6,"yes",Count(Type)<1,! -> "Sorry, you don't have a ravenor amulat to enchant."
+Topic=6,"yes",CountMoney<Price,!            -> "Oh. You do not have enough money."
+Topic=6,"yes",! -> "Ok. Here your enchanted ravenor amulet!", Delete(Type), DeleteMoney, Create(Type)
+Topic=6,!                             -> "Ok. As you wish."
 
 }
 
