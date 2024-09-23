@@ -2073,11 +2073,11 @@
 	<tvpspawn centerx="32317" centery="32325" centerz="7" monstername="spider" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="33066" centery="32325" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32637" centery="32326" centerz="7" monstername="wolf" spawntime="600" amount="6" radius="30" />
-	<tvpspawn centerx="32513" centery="32327" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="50" />
+	<tvpspawn centerx="32513" centery="32327" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="33241" centery="32328" centerz="7" monstername="lion" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32414" centery="32329" centerz="7" monstername="deer" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32428" centery="32329" centerz="7" monstername="rabbit" spawntime="600" amount="3" radius="10" />
-	<tvpspawn centerx="32497" centery="32329" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="50" />
+	<tvpspawn centerx="32497" centery="32329" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32782" centery="32330" centerz="7" monstername="ghoul" spawntime="500" amount="3" radius="30" />
 	<tvpspawn centerx="32655" centery="32331" centerz="7" monstername="poison spider" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32804" centery="32331" centerz="7" monstername="elf Scout" spawntime="700" amount="2" radius="30" />
@@ -2099,14 +2099,14 @@
 	<tvpspawn centerx="32731" centery="32340" centerz="7" monstername="poison spider" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32772" centery="32340" centerz="7" monstername="skeleton" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32304" centery="32342" centerz="7" monstername="spider" spawntime="600" amount="3" radius="30" />
-	<tvpspawn centerx="32485" centery="32342" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="50" />
+	<tvpspawn centerx="32485" centery="32342" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32639" centery="32342" centerz="7" monstername="smuggler" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32780" centery="32342" centerz="7" monstername="ghoul" spawntime="460" amount="4" radius="30" />
 	<tvpspawn centerx="33306" centery="32342" centerz="7" monstername="wasp" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32644" centery="32344" centerz="7" monstername="wild warrior" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32657" centery="32344" centerz="7" monstername="scorpion" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32777" centery="32344" centerz="7" monstername="skeleton" spawntime="600" amount="4" radius="30" />
-	<tvpspawn centerx="32503" centery="32346" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="50" />
+	<tvpspawn centerx="32503" centery="32346" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32621" centery="32346" centerz="7" monstername="bandit" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="32786" centery="32346" centerz="7" monstername="ghoul" spawntime="700" amount="2" radius="30" />
 	<tvpspawn centerx="32250" centery="32347" centerz="7" monstername="snake" spawntime="600" amount="3" radius="30" />
@@ -2121,13 +2121,13 @@
 	<tvpspawn centerx="32380" centery="32352" centerz="7" monstername="wolf" spawntime="600" amount="8" radius="30" />
 	<tvpspawn centerx="32654" centery="32352" centerz="7" monstername="poison spider" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32777" centery="32353" centerz="7" monstername="demon skeleton" spawntime="950" amount="2" radius="30" />
-	<tvpspawn centerx="32483" centery="32355" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="50" />
+	<tvpspawn centerx="32483" centery="32355" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32784" centery="32355" centerz="7" monstername="ghoul" spawntime="650" amount="4" radius="30" />
 	<tvpspawn centerx="32666" centery="32356" centerz="7" monstername="slime" spawntime="600" amount="1" radius="30" />
 	<tvpspawn centerx="32729" centery="32357" centerz="7" monstername="deer" spawntime="600" amount="2" radius="30" />
 	<tvpspawn centerx="33044" centery="32357" centerz="7" monstername="poison spider" spawntime="600" amount="3" radius="30" />
 	<tvpspawn centerx="32259" centery="32358" centerz="7" monstername="bear" spawntime="800" amount="3" radius="30" />
-	<tvpspawn centerx="32484" centery="32359" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="50" />
+	<tvpspawn centerx="32484" centery="32359" centerz="7" monstername="dragon" spawntime="60" amount="1" direction="2" radius="30" />
 	<tvpspawn centerx="32778" centery="32359" centerz="7" monstername="skeleton" spawntime="550" amount="3" radius="30" />
 	<tvpspawn centerx="33020" centery="32359" centerz="7" monstername="poison spider" spawntime="600" amount="4" radius="30" />
 	<tvpspawn centerx="32687" centery="32361" centerz="7" monstername="wolf" spawntime="600" amount="2" radius="30" />
