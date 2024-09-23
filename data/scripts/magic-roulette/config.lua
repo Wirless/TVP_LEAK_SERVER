@@ -11,8 +11,8 @@ return {
 	slots = {
 		[30020] = Slot { -- west roulette
 			needItem = {id = 5550, count = 1},
-			tilesPerSlot = 11,
-			centerPosition = Position(32217, 32212, 5),
+			tilesPerSlot = 13,
+			centerPosition = Position(32215, 32212, 5),
 
 			items = {
 				{id = 2472, count = 1, chance = 0.5, rare = true},
@@ -30,7 +30,7 @@ return {
 		},
 		[30021] = Slot { -- central roulette
 			needItem = {id = 5550, count = 1},
-			tilesPerSlot = 11,
+			tilesPerSlot = 13,
 			centerPosition = Position(32236, 32212, 5),
 
 			items = {
@@ -49,8 +49,8 @@ return {
 		},
 		[30022] = Slot { -- east roulette
 			needItem = {id = 5550, count = 1},
-			tilesPerSlot = 11,
-			centerPosition = Position(32255, 32212, 5),
+			tilesPerSlot = 13,
+			centerPosition = Position(32257, 32212, 5),
 
 			items = {
 				{id = 2472, count = 1, chance = 0.5, rare = true},
