@@ -1,5 +1,11 @@
 ### Retronia - TVP based server
 
+JOIN LEAK DISCORD
+https://discord.gg/FD2cYKBq5E  
+https://discord.gg/FD2cYKBq5E
+https://discord.gg/FD2cYKBq5E
+
+
 #### Compiling
 
 ##### Ubuntu 20.04+
