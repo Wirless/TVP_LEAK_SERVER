@@ -45,7 +45,7 @@ function onStartup()
 
 	Game.loadBosses()
 
-	if getConfigInfo("ignoreMaintance") then
+--[[	if getConfigInfo("ignoreMaintance") then
 		print("Ignoring maintenance game status.")
 		return true
 	end
@@ -58,5 +58,6 @@ function onStartup()
 	addEvent(function()
 		Game.setGameState(GAME_STATE_NORMAL)
 		print("Game state set to normal.")
-	end, 5 * 60 * 1000)
+	end, 5 * 60 * 1000)]]
+	Game.setGameState(GAME_STATE_NORMAL)
 end

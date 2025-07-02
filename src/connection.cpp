@@ -15,7 +15,7 @@
 extern ConfigManager g_config;
 extern Ban g_bans;
 
-Connection_ptr ConnectionManager::createConnection(boost::asio::io_service& io_service, ConstServicePort_ptr servicePort)
+Connection_ptr ConnectionManager::createConnection(boost::asio::io_context& io_service, ConstServicePort_ptr servicePort)
 {
 	std::lock_guard<std::mutex> lockClass(connectionManagerLock);
 
@@ -103,7 +103,7 @@ void Connection::accept()
 {
 	std::lock_guard<std::recursive_mutex> lockClass(connectionLock);
 	try {
-		readTimer.expires_from_now(std::chrono::seconds(CONNECTION_READ_TIMEOUT));
+		readTimer.expires_after(std::chrono::seconds(CONNECTION_READ_TIMEOUT));
 		readTimer.async_wait(std::bind(&Connection::handleTimeout, std::weak_ptr<Connection>(shared_from_this()), std::placeholders::_1));
 
 		// Read size of the first packet
@@ -148,7 +148,7 @@ void Connection::parseHeader(const boost::system::error_code& error)
 			// OTCv8 proxy, 6 bytes packet
 			// Starts from 2 bytes 0xFFFEu, then 4 bytes with IP uint32_t
 			auto self(shared_from_this());
-			readTimer.expires_from_now(std::chrono::seconds(CONNECTION_READ_TIMEOUT));
+			readTimer.expires_after(std::chrono::seconds(CONNECTION_READ_TIMEOUT));
 			readTimer.async_wait(std::bind(&Connection::handleTimeout, std::weak_ptr<Connection>(shared_from_this()), std::placeholders::_1));
 
 			boost::asio::async_read(socket, boost::asio::buffer(msg.getBuffer(), 4), [&, self](const boost::system::error_code& errorCode, size_t) {
@@ -174,7 +174,7 @@ void Connection::parseHeader(const boost::system::error_code& error)
 			// Starts from 2 bytes 0x0A0Du, IP uint32_t starts from 17th byte
 			// https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt - Read from Section 2.2 (Binary header format version 2)
 			auto self(shared_from_this());
-			readTimer.expires_from_now(std::chrono::seconds(CONNECTION_READ_TIMEOUT));
+			readTimer.expires_after(std::chrono::seconds(CONNECTION_READ_TIMEOUT));
 			readTimer.async_wait(std::bind(&Connection::handleTimeout, std::weak_ptr<Connection>(shared_from_this()), std::placeholders::_1));
 
 			boost::asio::async_read(socket, boost::asio::buffer(msg.getBuffer(), 26), [&, self](const boost::system::error_code& errorCode, size_t) {
@@ -211,7 +211,7 @@ void Connection::parseHeader(const boost::system::error_code& error)
 	}
 
 	try {
-		readTimer.expires_from_now(std::chrono::seconds(CONNECTION_READ_TIMEOUT));
+		readTimer.expires_after(std::chrono::seconds(CONNECTION_READ_TIMEOUT));
 		readTimer.async_wait(std::bind(&Connection::handleTimeout, std::weak_ptr<Connection>(shared_from_this()),
 		                                    std::placeholders::_1));
 
@@ -258,7 +258,7 @@ void Connection::parsePacket(const boost::system::error_code& error)
 	}
 
 	try {
-		readTimer.expires_from_now(std::chrono::seconds(CONNECTION_READ_TIMEOUT));
+		readTimer.expires_after(std::chrono::seconds(CONNECTION_READ_TIMEOUT));
 		readTimer.async_wait(std::bind(&Connection::handleTimeout, std::weak_ptr<Connection>(shared_from_this()),
 		                                    std::placeholders::_1));
 
@@ -290,7 +290,7 @@ void Connection::internalSend(const OutputMessage_ptr& msg)
 {
 	protocol->onSendMessage(msg);
 	try {
-		writeTimer.expires_from_now(std::chrono::seconds(CONNECTION_WRITE_TIMEOUT));
+		writeTimer.expires_after(std::chrono::seconds(CONNECTION_WRITE_TIMEOUT));
 		writeTimer.async_wait(std::bind(&Connection::handleTimeout, std::weak_ptr<Connection>(shared_from_this()),
 		                                     std::placeholders::_1));
 
@@ -318,7 +318,7 @@ uint32_t Connection::getIP()
 		return 0;
 	}
 
-	return htonl(endpoint.address().to_v4().to_ulong());
+	return htonl(endpoint.address().to_v4().to_uint());
 }
 
 void Connection::onWriteOperation(const boost::system::error_code& error)

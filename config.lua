@@ -9,8 +9,8 @@
 --ip = "127.0.0.1"       --oficial proxy
 --bindOnlyGlobalAddress = true --proxy
 --statusProtocolPort = 7173 --proxy
-ip = "191.96.81.140"
-statusIP = "191.96.81.140"
+ip = "127.0.0.1"
+statusIP = "127.0.0.1"
 bindOnlyGlobalAddress = false
 loginProtocolPort = 7171
 gameProtocolPort = 7172
@@ -27,10 +27,10 @@ maxPacketsPerSecond = 100
 -----------------------------
 -- MySql Database Settings --
 -----------------------------
-mysqlHost = "203.159.80.136"
-mysqlUser = "web"
-mysqlPass = "ohasd98234KSB297863SHBs"
-mysqlDatabase = "dev_env"
+mysqlHost = "127.0.0.1"
+mysqlUser = "root"
+mysqlPass = "root"
+mysqlDatabase = "tvp2"
 mysqlPort = 3306
 mysqlSock = ""
 
