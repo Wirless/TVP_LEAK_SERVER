@@ -188,3 +188,4 @@ config.lua
 cmake/
 backups/
 vcpkg_installed/
+/old_source_item_loading
