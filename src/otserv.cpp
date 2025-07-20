@@ -260,6 +260,11 @@ void mainLoader(int, char*[], ServiceManager* services)
 	// load item data
 	std::cout << ">> Loading items" << std::endl;
 
+	if (!Item::items.loadFromOtb("data/items/items.otb")) {
+		startupErrorMessage("Unable to load items (OTB)!");
+		return;
+	}
+
 	if (!Item::items.loadFromXml()) {
 		startupErrorMessage("Unable to load items (XML)!");
 		return;
@@ -299,6 +304,7 @@ void mainLoader(int, char*[], ServiceManager* services)
 		startupErrorMessage("Unable to load outfits!");
 		return;
 	}
+
 
 	std::cout << ">> Checking world type... " << std::flush;
 	std::string worldType = boost::algorithm::to_lower_copy(g_config.getString(ConfigManager::WORLD_TYPE));

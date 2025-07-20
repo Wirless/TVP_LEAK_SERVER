@@ -23,6 +23,7 @@
 #include "spells.h"
 #include "movement.h"
 #include "weapons.h"
+#include "fileloader.h"
 
 #include "pugicast.h"
 
@@ -265,6 +266,10 @@ bool Items::reload()
 {
 	clear();
 
+	if (!loadFromOtb("data/items/items.otb")) {
+		return false;
+	}
+
 	if (!loadFromXml()) {
 		return false;
 	}
@@ -272,6 +277,236 @@ bool Items::reload()
 	g_moveEvents->reload();
 	g_weapons->reload();
 	g_weapons->loadDefaults();
+	return true;
+}
+
+constexpr auto OTBI = OTB::Identifier{{'O','T', 'B', 'I'}};
+
+bool Items::loadFromOtb(const std::string& file)
+{
+	OTB::Loader loader{file, OTBI};
+
+	auto& root = loader.parseTree();
+
+	PropStream props;
+	if (loader.getProps(root, props)) {
+		//4 byte flags
+		//attributes
+		//0x01 = version data
+		uint32_t flags;
+		if (!props.read<uint32_t>(flags)) {
+			return false;
+		}
+
+		uint8_t attr;
+		if (!props.read<uint8_t>(attr)) {
+			return false;
+		}
+
+		if (attr == ROOT_ATTR_VERSION) {
+			uint16_t datalen;
+			if (!props.read<uint16_t>(datalen)) {
+				return false;
+			}
+
+			if (datalen != sizeof(VERSIONINFO)) {
+				return false;
+			}
+
+			VERSIONINFO vi;
+			if (!props.read(vi)) {
+				return false;
+			}
+
+			majorVersion = vi.dwMajorVersion; //items otb format file version
+			minorVersion = vi.dwMinorVersion; //client version
+			buildNumber = vi.dwBuildNumber; //revision
+		}
+	}
+
+	if (majorVersion == 0xFFFFFFFF) {
+		std::cout << "[Warning - Items::loadFromOtb] items.otb using generic client version." << std::endl;
+	} else if (majorVersion != 2) {
+		std::cout << "[Warning - Items::loadFromOtb] Detected OTB version " << majorVersion << "." << minorVersion << ", expected version 2.x" << std::endl;
+		std::cout << "[Warning - Items::loadFromOtb] Attempting to load anyway..." << std::endl;
+	} else {
+		std::cout << "[Info - Items::loadFromOtb] Loading OTB version " << majorVersion << "." << minorVersion << std::endl;
+	}
+
+	for (auto& itemNode : root.children) {
+		PropStream stream;
+		if (!loader.getProps(itemNode, stream)) {
+			return false;
+		}
+
+		uint32_t flags;
+		if (!stream.read<uint32_t>(flags)) {
+			return false;
+		}
+
+		uint16_t serverId = 0;
+		uint16_t clientId = 0;
+		uint16_t speed = 0;
+		uint16_t wareId = 0;
+		uint8_t lightLevel = 0;
+		uint8_t lightColor = 0;
+		uint8_t alwaysOnTopOrder = 0;
+
+		uint8_t attrib;
+		while (stream.read<uint8_t>(attrib)) {
+			uint16_t datalen;
+			if (!stream.read<uint16_t>(datalen)) {
+				return false;
+			}
+
+			switch (attrib) {
+				case ITEM_ATTR_SERVERID: {
+					if (datalen != sizeof(uint16_t)) {
+						return false;
+					}
+
+					if (!stream.read<uint16_t>(serverId)) {
+						return false;
+					}
+					break;
+				}
+
+				case ITEM_ATTR_CLIENTID: {
+					if (datalen != sizeof(uint16_t)) {
+						return false;
+					}
+
+					if (!stream.read<uint16_t>(clientId)) {
+						return false;
+					}
+					break;
+				}
+
+				case ITEM_ATTR_SPEED: {
+					if (datalen != sizeof(uint16_t)) {
+						return false;
+					}
+
+					if (!stream.read<uint16_t>(speed)) {
+						return false;
+					}
+					break;
+				}
+
+				case ITEM_ATTR_LIGHT2: {
+					if (datalen != sizeof(lightBlock2)) {
+						return false;
+					}
+
+					lightBlock2 lb2;
+					if (!stream.read(lb2)) {
+						return false;
+					}
+
+					lightLevel = static_cast<uint8_t>(lb2.lightLevel);
+					lightColor = static_cast<uint8_t>(lb2.lightColor);
+					break;
+				}
+
+				case ITEM_ATTR_TOPORDER: {
+					if (datalen != sizeof(uint8_t)) {
+						return false;
+					}
+
+					if (!stream.read<uint8_t>(alwaysOnTopOrder)) {
+						return false;
+					}
+					break;
+				}
+
+				case ITEM_ATTR_WAREID: {
+					if (datalen != sizeof(uint16_t)) {
+						return false;
+					}
+
+					if (!stream.read<uint16_t>(wareId)) {
+						return false;
+					}
+					break;
+				}
+
+				default: {
+					//skip unknown attributes
+					if (!stream.skip(datalen)) {
+						return false;
+					}
+					break;
+				}
+			}
+		}
+
+		clientIdToServerIdMap.emplace(clientId, serverId);
+
+		// store the found item
+		if (serverId >= items.size()) {
+			items.resize(serverId + 1);
+		}
+		ItemType& iType = items[serverId];
+
+		iType.group = static_cast<itemgroup_t>(itemNode.type);
+		switch (itemNode.type) {
+			case ITEM_GROUP_CONTAINER:
+				iType.type = ITEM_TYPE_CONTAINER;
+				break;
+			case ITEM_GROUP_DOOR:
+				//not used
+				iType.type = ITEM_TYPE_DOOR;
+				break;
+			case ITEM_GROUP_MAGICFIELD:
+				//not used
+				iType.type = ITEM_TYPE_MAGICFIELD;
+				break;
+			case ITEM_GROUP_TELEPORT:
+				//not used
+				iType.type = ITEM_TYPE_TELEPORT;
+				break;
+			case ITEM_GROUP_NONE:
+			case ITEM_GROUP_GROUND:
+			case ITEM_GROUP_SPLASH:
+			case ITEM_GROUP_FLUID:
+			case ITEM_GROUP_CHARGES:
+			case ITEM_GROUP_DEPRECATED:
+				break;
+			default:
+				return false;
+		}
+
+		iType.blockSolid = hasBitSet(FLAG_BLOCK_SOLID, flags);
+		iType.blockProjectile = hasBitSet(FLAG_BLOCK_PROJECTILE, flags);
+		iType.blockPathFind = hasBitSet(FLAG_BLOCK_PATHFIND, flags);
+		iType.hasHeight = hasBitSet(FLAG_HAS_HEIGHT, flags);
+		iType.useable = hasBitSet(FLAG_USEABLE, flags);
+		iType.pickupable = hasBitSet(FLAG_PICKUPABLE, flags);
+		iType.moveable = hasBitSet(FLAG_MOVEABLE, flags);
+		iType.stackable = hasBitSet(FLAG_STACKABLE, flags);
+
+		iType.alwaysOnTop = hasBitSet(FLAG_ALWAYSONTOP, flags);
+		iType.isVertical = hasBitSet(FLAG_VERTICAL, flags);
+		iType.isHorizontal = hasBitSet(FLAG_HORIZONTAL, flags);
+		iType.isHangable = hasBitSet(FLAG_HANGABLE, flags);
+		iType.allowDistRead = hasBitSet(FLAG_ALLOWDISTREAD, flags);
+		iType.rotatable = hasBitSet(FLAG_ROTATABLE, flags);
+		iType.canReadText = hasBitSet(FLAG_READABLE, flags);
+		iType.lookThrough = hasBitSet(FLAG_LOOKTHROUGH, flags);
+		iType.isAnimation = hasBitSet(FLAG_ANIMATION, flags);
+		// iType.walkStack = !hasBitSet(FLAG_FULLTILE, flags);
+		iType.forceUse = hasBitSet(FLAG_FORCEUSE, flags);
+
+		iType.id = serverId;
+		iType.clientId = clientId;
+		iType.speed = speed;
+		iType.lightLevel = lightLevel;
+		iType.lightColor = lightColor;
+		iType.wareId = wareId;
+		iType.alwaysOnTopOrder = alwaysOnTopOrder;
+	}
+
+	items.shrink_to_fit();
 	return true;
 }
 
@@ -344,12 +579,24 @@ void Items::buildInventoryList()
 
 void Items::parseItemNode(pugi::xml_node& itemNode, uint16_t id)
 {
+	if (id > 0 && id < 100) {
+		if (id >= items.size()) {
+			items.resize(id + 1);
+		}
+		ItemType& iType = items[id];
+		iType.id = id;
+	}
+
 	if (id >= items.size()){
 		items.resize(id + 1);
 	}
 
-ItemType& it = items[id];
-	it.id = id;
+	ItemType& it = items[id];
+	if (it.id == 0 && id >= 100) {
+		it.id = id;
+	} else if (it.id == 0) {
+		return;
+	}
 
 	if (!it.name.empty()) {
 		std::cout << "[Warning - Items::parseItemNode] Duplicate item with id: " << id << std::endl;
