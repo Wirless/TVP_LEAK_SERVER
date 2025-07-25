@@ -23,22 +23,21 @@ static constexpr auto BATTLEPASS_COOLDOWN_WEEK = BATTLEPASS_COOLDOWN_DAY * 7;
 bool BattlePassData::canAssignQuest(uint32_t level) const
 {
 	/*
-		0 - from level 1 to 25
-		1 - from level 15 to 90
-		2 - from level 50 to 120
-		3 - from level 75 to xxx
+		0 - from level 1 to 45
+		1 - from level 46 to 90
+		2 - from level 91 to xxx
 		4 - all levels
 	*/
 	switch (difficulty)
 	{
 		case 0:
-			return level <= 25;
+			return level <= 45;
 		case 1:
-			return level >= 15 && level <= 90;
+			return level >= 46 && level <= 90;
 		case 2:
-			return level >= 50 && level <= 120;
-		case 3:
-			return level >= 75;
+			return level >= 91; //&& level <= 120;
+//		case 3:
+//			return level >= 75;
 		default:
 			return true;
 	}
@@ -47,7 +46,7 @@ bool BattlePassData::canAssignQuest(uint32_t level) const
 // This function calculates how many experience per battlepass level player needs to get
 const uint32_t BattlePasses::getExperiencePerLevel(uint32_t level)
 {
-	return 500 + ((level / 2.) * (2000 + ((level - 1) * 100)));
+	return 500 + ((level / 2.) * (2000 + ((level - 1) * 50)));
 }
 
 static struct I {
@@ -151,7 +150,7 @@ bool BattlePasses::load()
 	luaL_openlibs(L);
 	LuaScriptInterface::registerEnums(L);
 
-	if (luaL_dofile(L, "data/LUA/battlepass.lua"))
+	if (luaL_dofile(L, "data/scripts/custom/battlepass.lua"))
 	{
 		std::cout << "[Error - battlepass] " << lua_tostring(L, -1) << std::endl;
 		lua_close(L);
@@ -484,11 +483,24 @@ void BattlePass::addRewards(Player* player) const
 		// Free rewards
 		switch (std::get<0>(itReward)) {
 			case BATTLEPASS_REWARD_ITEM: {
-				Item* item = Item::CreateItem(std::get<1>(itReward), std::get<3>(itReward));
-				if (!mailItem) {
-					mailItem = Item::CreateItem(ITEM_PARCEL, 1);
+				uint16_t itemId = std::get<1>(itReward);
+				uint16_t count = std::get<3>(itReward);
+
+				Item* item = Item::CreateItem(itemId, count);
+				if (item) {
+					item->setStoreItem(true);
+
+					StoreInbox* inbox = player->getStoreInbox();
+					if (inbox) {
+						inbox->addItem(item);
+						player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "BattlePass reward delivered to your Store Inbox!");
+					} else {
+						player->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Failed to deliver BattlePass reward.");
+						delete item;
+					}
+
+					item->setStoreItem(false);
 				}
-				g_game.internalAddItem(mailItem->getContainer(), item);
 				break;
 			}
 			case BATTLEPASS_REWARD_OUTFIT: {
@@ -516,11 +528,24 @@ void BattlePass::addRewards(Player* player) const
 			// Free rewards
 			switch (std::get<0>(itReward)) {
 				case BATTLEPASS_REWARD_ITEM: {
-					Item* item = Item::CreateItem(std::get<1>(itReward), std::get<3>(itReward));
-					if (!mailItem) {
-						mailItem = Item::CreateItem(ITEM_PARCEL, 1);
+					uint16_t itemId = std::get<1>(itReward);
+					uint16_t count = std::get<3>(itReward);
+
+					Item* item = Item::CreateItem(itemId, count);
+					if (item) {
+						item->setStoreItem(true); 
+
+						StoreInbox* inbox = player->getStoreInbox();
+						if (inbox) {
+							inbox->addItem(item);
+							player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "BattlePass reward delivered to your Store Inbox!");
+						} else {
+							player->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Failed to deliver BattlePass reward.");
+							delete item; 
+						}
+
+						item->setStoreItem(false);
 					}
-					g_game.internalAddItem(mailItem->getContainer(), item);
 					break;
 				}
 				case BATTLEPASS_REWARD_OUTFIT: {

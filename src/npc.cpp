@@ -513,7 +513,7 @@ void Npc::onPlayerTrade(Player* player, int32_t callback, uint16_t itemId, int32
 				const ItemType& itItem = Item::items.getItemType(itemId);
 
 				int weight = itItem.weight * amount;
-				if (weight > player->getFreeCapacity()) {
+				if (weight > (size_t)player->getFreeCapacity()) {
 					std::stringstream ss;
 					ss << "Sorry, you don't have enough capacity. You need " << ((weight - (player->getFreeCapacity())) / 100) << " oz. more" << std::endl;
 					doSay(ss.str());
@@ -612,7 +612,7 @@ void Npc::onPlayerTrade(Player* player, int32_t callback, uint16_t itemId, int32
 
 							bp->addItemBack(item);
 
-							if (i < amount && i >= bp->capacity() * b) {
+							if (i < amount && i >= (size_t)bp->capacity() * b) {
 								g_game.internalPlayerAddItem(player, bp);
 								bp = Item::CreateItem(bpID, 1)->getContainer();
 								b++;

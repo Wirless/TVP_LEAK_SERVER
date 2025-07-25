@@ -83,6 +83,7 @@ const std::unordered_map<std::string, ItemParseAttributes_t> ItemParseAttributes
 	{"healthticks", ITEM_PARSE_HEALTHTICKS},
 	{"managain", ITEM_PARSE_MANAGAIN},
 	{"manaticks", ITEM_PARSE_MANATICKS},
+	{"followvocationticks", ITEM_PARSE_FOLLOWVOCATIONTICKS},
 	{"manashield", ITEM_PARSE_MANASHIELD},
 	{"skillsword", ITEM_PARSE_SKILLSWORD},
 	{"skillaxe", ITEM_PARSE_SKILLAXE},
@@ -725,6 +726,11 @@ ItemType& it = items[id];
 				case ITEM_PARSE_HEALTHTICKS: {
 					abilities.regeneration = true;
 					abilities.healthTicks = pugi::cast<uint32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_FOLLOWVOCATIONTICKS: {
+					abilities.followVocationTicks = true;
 					break;
 				}
 

@@ -39,6 +39,13 @@ class Monster;
 class Npc;
 class CombatInfo;
 
+struct market_offer {
+	Item* item;
+	std::vector<Item*> subItems;
+	uint64_t price;
+	uint8_t rarity;
+};
+
 enum stackPosType_t {
 	STACKPOS_MOVE,
 	STACKPOS_LOOK,
@@ -503,6 +510,14 @@ class Game
 		const std::unordered_map<uint32_t, RuleViolation>& getRuleViolationReports() const { return ruleViolations; }
 		const std::unordered_map<uint32_t, Player*>& getPlayers() const { return players; }
 		const std::map<uint32_t, Npc*>& getNpcs() const { return npcs; }
+		const std::map<uint32_t, Monster*>& getMonsters() const { return monsters; }
+
+		bool loadMarketing();
+		const std::unordered_map<uint32_t, market_offer> getMarketingOffers(std::string marketName) const;
+		const std::vector<Item*> getMarketingSubOffers(std::string marketName, uint32_t uid) const;
+		bool removeMarketingOffer(std::string marketName, uint32_t uid);
+		void addMarketingOffer(std::string marketName, uint32_t uid, Item* item, bool subItemCheck, uint64_t price, uint8_t rarity);
+		bool buyMarketingOffer(Player* player, std::string marketName, uint32_t uid, uint16_t quant);
 
 		void addPlayer(Player* player);
 		void removePlayer(Player* player);
@@ -608,6 +623,10 @@ class Game
 		std::unordered_map<uint16_t, Item*> uniqueItems;
 		std::map<uint32_t, uint32_t> stages;
 		std::unordered_map<uint32_t, std::unordered_map<uint32_t, int32_t>> accountStorageMap;
+
+		std::unordered_map<uint32_t, market_offer> offerSend;
+		std::vector<Item*> subOfferSend;
+		std::unordered_map<std::string, std::unordered_map<uint32_t, market_offer>> marketing;
 
 		std::unordered_map<uint32_t, std::pair<uint32_t, uint64_t>> accountLoginAttemptsMap;
 		std::unordered_map<uint32_t, std::pair<uint32_t, uint64_t>> ipLoginAttemptsMap;

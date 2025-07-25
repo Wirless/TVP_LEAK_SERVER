@@ -146,6 +146,10 @@ class Player final : public Creature, public Cylinder
 		}
 		std::string getDescription(int32_t lookDistance) const override;
 
+		const std::string& getMarketDescription() const override {
+			return name;
+		}
+
 		CreatureType_t getType() const override {
 			return CREATURETYPE_PLAYER;
 		}
@@ -343,6 +347,17 @@ class Player final : public Creature, public Cylinder
 		bool canSeeGhostMode(const Creature* creature) const override;
 		void switchGhostMode() {
 			ghostMode = !ghostMode;
+		}
+		
+		bool canTradeItem(uint32_t storageCooldown);
+		void updateTradeCooldown(uint32_t storageCooldown);
+		
+		Player() : lastSpecialEffectTime(0) { }
+		bool canActivateSpecialEffect(uint64_t currentTime, uint64_t cooldown = 12000) {
+			return (currentTime - lastSpecialEffectTime) >= cooldown;
+		}
+		void updateSpecialEffectTime(uint64_t currentTime) {
+			lastSpecialEffectTime = currentTime;
 		}
 
 		uint32_t getAccount() const {
@@ -559,7 +574,7 @@ class Player final : public Creature, public Cylinder
 		BlockType_t blockHit(Creature* attacker, CombatType_t combatType, int32_t& damage,
 		                             bool checkDefense = false, bool checkArmor = false, bool field = false, bool ignoreResistances = false, bool meleeHit = false) override;
 		void doAttacking(bool skipDelay = false) override;
-
+		
 		uint16_t getSpecialSkill(uint8_t skill) const {
 			return std::max<int32_t>(0, varSpecialSkills[skill]);
 		}
@@ -1078,6 +1093,185 @@ class Player final : public Creature, public Cylinder
 		int32_t getBestiaryKill(uint16_t id);
 
 		BestiaryStage_t getBestiaryStage(MonsterType* mType);
+
+		bool getCharm(std::string charm) const {
+			auto charmSearch = allCharms.find(charm);
+			if (charmSearch != allCharms.end()) {
+				return true;
+			}
+
+			return false;
+		}
+		std::string getCharmMonster(std::string charm) {
+			auto charmSearch = allCharms.find(charm);
+			if (charmSearch != allCharms.end()) {
+				return charmSearch->second;
+			}
+
+			return "";
+		}
+		void setCharm(std::string charm, bool canCharm = false, std::string monster = "") {
+			if (canCharm) {
+				allCharms[charm] = monster;
+			} else {
+				auto charmSearch = allCharms.find(charm);
+				if (charmSearch != allCharms.end()) {
+					allCharms.erase(charmSearch);
+				}
+			}
+		}
+
+		uint32_t getWound(std::string monster = "") const {
+			uint32_t physicalDamage = 0;
+
+			if (monster != "") {
+				auto charmSearch = allCharms.find("Wound");
+				if (charmSearch != allCharms.end()) {
+					if (monster == charmSearch->second) {
+						physicalDamage += 4;
+					}
+				}
+			}
+
+			return physicalDamage;
+		}
+
+		uint32_t getEnflame(std::string monster = "") const {
+			uint32_t enflame = 0;
+
+			if (monster != "") {
+				auto charmSearch = allCharms.find("Enflame");
+				if (charmSearch != allCharms.end()) {
+					if (monster == charmSearch->second) {
+						enflame += 4;
+					}
+				}
+			}
+
+			return enflame;
+		}
+
+		uint32_t getPoison(std::string monster = "") const {
+			uint32_t poison = 0;
+
+			if (monster != "") {
+				auto charmSearch = allCharms.find("Poison");
+				if (charmSearch != allCharms.end()) {
+					if (monster == charmSearch->second) {
+						poison += 4;
+					}
+				}
+			}
+
+			return poison;
+		}
+
+		uint32_t getZap(std::string monster = "") const {
+			uint32_t zap = 0;
+
+			if (monster != "") {
+				auto charmSearch = allCharms.find("Zap");
+				if (charmSearch != allCharms.end()) {
+					if (monster == charmSearch->second) {
+						zap += 4;
+					}
+				}
+			}
+
+			return zap;
+		}
+
+		uint32_t getCriticalChance(std::string monster = "") const {
+			uint32_t criticalChance = 0;
+
+			static const slots_t slots[] = {CONST_SLOT_LEFT, CONST_SLOT_RIGHT};
+			for (slots_t slot : slots) {
+				Item* inventoryItem = inventory[slot];
+				if (inventoryItem) {
+					criticalChance += this->getCustomItemMaximumAttrStat(ITEM_RND_CRITICAL);
+				}
+			}
+
+			if (monster != "") {
+				auto charmSearch = allCharms.find("Low Blow");
+				if (charmSearch != allCharms.end()) {
+					if (monster == charmSearch->second) {
+						criticalChance += 4;
+					}
+				}
+			}
+
+			return criticalChance;
+		}
+
+		uint32_t getDodge(std::string monster = "") const {
+			uint32_t dodge = 0;
+
+			if (monster != "") {
+				auto charmSearch = allCharms.find("Dodge");
+				if (charmSearch != allCharms.end()) {
+					if (monster == charmSearch->second) {
+						dodge += 4;
+					}
+				}
+			}
+
+			return dodge;
+		}
+
+		uint32_t getParry(std::string monster = "") const {
+			uint32_t parry = 0;
+
+			static const slots_t slots[] = {CONST_SLOT_LEFT, CONST_SLOT_RIGHT};
+			for (slots_t slot : slots) {
+				Item* inventoryItem = inventory[slot];
+				if (inventoryItem) {
+					parry += this->getCustomItemMaximumAttrStat(ITEM_RND_PARRY);
+				}
+			}
+
+			if (monster != "") {
+				auto charmSearch = allCharms.find("Parry");
+				if (charmSearch != allCharms.end()) {
+					if (monster == charmSearch->second) {
+						parry += 4;
+					}
+				}
+			}
+
+			return parry;
+		}
+
+		uint32_t getNumb(std::string monster = "") const {
+			uint32_t numb = 0;
+
+			if (monster != "") {
+				auto charmSearch = allCharms.find("Numb");
+				if (charmSearch != allCharms.end()) {
+					if (monster == charmSearch->second) {
+						numb += 4;
+					}
+				}
+			}
+
+			return numb;
+		}
+
+		uint32_t getAdrenalineBurst(std::string monster = "") const {
+			uint32_t adrenalineBurst = 0;
+
+			if (monster != "") {
+				auto charmSearch = allCharms.find("Adrenaline Burst");
+				if (charmSearch != allCharms.end()) {
+					if (monster == charmSearch->second) {
+						adrenalineBurst += 4;
+					}
+				}
+			}
+
+			return adrenalineBurst;
+		}
+
 	private:
 		std::forward_list<Condition*> getMuteConditions() const;
 
@@ -1227,6 +1421,8 @@ class Player final : public Creature, public Cylinder
 		uint8_t levelPercent = 0;
 		uint8_t magLevelPercent = 0;
 
+		std::unordered_map<std::string, std::string> allCharms;
+
 		PlayerSex_t sex = PLAYERSEX_FEMALE;
 		OperatingSystem_t operatingSystem = CLIENTOS_NONE;
 		BlockType_t lastAttackBlockType = BLOCK_NONE;
@@ -1247,6 +1443,8 @@ class Player final : public Creature, public Cylinder
 		bool inventoryAbilities[CONST_SLOT_LAST + 1] = {};
 
 		static uint32_t playerAutoID;
+		
+		uint64_t lastSpecialEffectTime; // Armazena o último tempo de ativação bleeding
 
     void updateItemsLight();
 		int32_t getStepSpeed() const override {

@@ -1146,6 +1146,9 @@ const char* getReturnMessage(ReturnValue value)
 
 		case RETURNVALUE_YOUNEEDAWEAPONTOUSETHISSPELL:
 			return "You need to equip a weapon to use this spell.";
+			
+		case RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM:
+			return "You have the wrong vocation to use this item.";
 
 		case RETURNVALUE_PLAYERISPZLOCKEDLEAVEPVPZONE:
 			return "You can not leave a pvp zone after attacking another player.";

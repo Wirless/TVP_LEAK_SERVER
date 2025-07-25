@@ -74,6 +74,9 @@ class Monster final : public Creature
 			nameDescription = newNameDescription;
 		}
 
+		const std::string& getMarketDescription() const override {return marketDescription;}
+		void setMarketDescription(const std::string& description);
+
 		std::string getDescription(int32_t) const override {
 			return nameDescription + '.';
 		}
@@ -238,6 +241,8 @@ class Monster final : public Creature
 
 		std::string name;
 		std::string nameDescription;
+
+		std::string marketDescription;
 
 		MonsterType* mType;
 		BaseSpawn* spawn = nullptr;

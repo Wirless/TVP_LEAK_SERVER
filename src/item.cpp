@@ -87,6 +87,8 @@ Item* Item::CreateItem(const uint16_t type, uint16_t count /*= 0*/)
 		}
 
 		newItem->incrementReferenceCounter();
+		
+		newItem->applyFixedBonuses();
 	}
 
 	return newItem;
@@ -737,11 +739,381 @@ Attr_ReadValue Item::readAttr(AttrTypes_t attr, PropStream& propStream)
 	return ATTR_READ_CONTINUE;
 }
 
-bool Item::unserializeAttr(PropStream& propStream)
+Attr_ReadValue Item::readAttr2(AttrTypes_t attr, PropStream& propStream)
+{
+	switch (attr) {
+		case ATTR_COUNT:
+		case ATTR_RUNE_CHARGES: {
+			uint8_t count;
+			if (!propStream.read<uint8_t>(count)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setSubType(count);
+			break;
+		}
+
+		case ATTR_ACTION_ID: {
+			uint16_t actionId;
+			if (!propStream.read<uint16_t>(actionId)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setActionId(actionId);
+			break;
+		}
+
+		case ATTR_UNIQUE_ID: {
+			uint32_t uniqueId;
+			if (!propStream.read<uint32_t>(uniqueId)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setUniqueId(uniqueId);
+			break;
+		}
+
+		case ATTR_TEXT: {
+			std::string text;
+			if (!propStream.readString(text)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setText(text);
+			break;
+		}
+
+		case ATTR_WRITTENDATE: {
+			uint32_t writtenDate;
+			if (!propStream.read<uint32_t>(writtenDate)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setDate(writtenDate);
+			break;
+		}
+
+		case ATTR_WRITTENBY: {
+			std::string writer;
+			if (!propStream.readString(writer)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setWriter(writer);
+			break;
+		}
+
+		case ATTR_DESC: {
+			std::string text;
+			if (!propStream.readString(text)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setSpecialDescription(text);
+			break;
+		}
+
+		case ATTR_CHARGES: {
+			uint16_t charges;
+			if (!propStream.read<uint16_t>(charges)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setSubType(charges);
+			break;
+		}
+
+		case ATTR_DURATION: {
+			int32_t duration;
+			if (!propStream.read<int32_t>(duration)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setDuration(std::max<int32_t>(0, duration));
+			break;
+		}
+
+		case ATTR_DECAYING_STATE: {
+			uint8_t state;
+			if (!propStream.read<uint8_t>(state)) {
+				return ATTR_READ_ERROR;
+			}
+
+			if (state != DECAYING_FALSE) {
+				setDecaying(DECAYING_PENDING);
+			}
+			break;
+		}
+
+		case ATTR_NAME: {
+			std::string name;
+			if (!propStream.readString(name)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setStrAttr(ITEM_ATTRIBUTE_NAME, name);
+			break;
+		}
+
+		case ATTR_ARTICLE: {
+			std::string article;
+			if (!propStream.readString(article)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setStrAttr(ITEM_ATTRIBUTE_ARTICLE, article);
+			break;
+		}
+
+		case ATTR_PLURALNAME: {
+			std::string pluralName;
+			if (!propStream.readString(pluralName)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setStrAttr(ITEM_ATTRIBUTE_PLURALNAME, pluralName);
+			break;
+		}
+
+		case ATTR_WEIGHT: {
+			uint32_t weight;
+			if (!propStream.read<uint32_t>(weight)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_WEIGHT, weight);
+			break;
+		}
+
+		case ATTR_ATTACK: {
+			int32_t attack;
+			if (!propStream.read<int32_t>(attack)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_ATTACK, attack);
+			break;
+		}
+
+		case ATTR_ATTACK_SPEED: {
+			uint32_t attackSpeed;
+			if (!propStream.read<uint32_t>(attackSpeed)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_ATTACK_SPEED, attackSpeed);
+			break;
+		}
+
+		case ATTR_DEFENSE: {
+			int32_t defense;
+			if (!propStream.read<int32_t>(defense)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_DEFENSE, defense);
+			break;
+		}
+
+		case ATTR_EXTRADEFENSE: {
+			int32_t extraDefense;
+			if (!propStream.read<int32_t>(extraDefense)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_EXTRADEFENSE, extraDefense);
+			break;
+		}
+
+		case ATTR_ARMOR: {
+			int32_t armor;
+			if (!propStream.read<int32_t>(armor)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_ARMOR, armor);
+			break;
+		}
+
+		case ATTR_HITCHANCE: {
+			int8_t hitChance;
+			if (!propStream.read<int8_t>(hitChance)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_HITCHANCE, hitChance);
+			break;
+		}
+
+		case ATTR_SHOOTRANGE: {
+			uint8_t shootRange;
+			if (!propStream.read<uint8_t>(shootRange)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_SHOOTRANGE, shootRange);
+			break;
+		}
+
+		case ATTR_DECAYTO: {
+			int32_t decayTo;
+			if (!propStream.read<int32_t>(decayTo)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_DECAYTO, decayTo);
+			break;
+		}
+
+		case ATTR_KEYNUMBER: {
+			uint16_t keyNumber;
+			if (!propStream.read<uint16_t>(keyNumber)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_KEYNUMBER, keyNumber);
+			break;
+		}
+
+		case ATTR_KEYHOLENUMBER: {
+			uint16_t keyHoleNumber;
+			if (!propStream.read<uint16_t>(keyHoleNumber)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_KEYHOLENUMBER, keyHoleNumber);
+			break;
+		}
+
+		case ATTR_DOORQUESTNUMBER: {
+			uint16_t doorQuestNumber;
+			if (!propStream.read<uint16_t>(doorQuestNumber)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_DOORQUESTNUMBER, doorQuestNumber);
+			break;
+		}
+
+		case ATTR_DOORQUESTVALUE: {
+			uint16_t doorQuestValue;
+			if (!propStream.read<uint16_t>(doorQuestValue)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_DOORQUESTVALUE, doorQuestValue);
+			break;
+		}
+
+		case ATTR_DOORLEVEL: {
+			uint16_t doorLevel;
+			if (!propStream.read<uint16_t>(doorLevel)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_DOORLEVEL, doorLevel);
+			break;
+		}
+
+		case ATTR_AUTOOPEN: {
+			int8_t autoOpen;
+			if (!propStream.read<int8_t>(autoOpen)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_AUTOOPEN, autoOpen);
+			break;
+		}
+
+		//these should be handled through derived classes
+		//If these are called then something has changed in the items.xml since the map was saved
+		//just read the values
+
+		//Depot class
+		case ATTR_DEPOT_ID: {
+			if (!propStream.skip(2)) {
+				return ATTR_READ_ERROR;
+			}
+			break;
+		}
+
+		//Door class
+		case ATTR_HOUSEDOORID: {
+			if (!propStream.skip(1)) {
+				return ATTR_READ_ERROR;
+			}
+			break;
+		}
+
+		//Bed class
+		case ATTR_SLEEPERGUID: {
+			if (!propStream.skip(4)) {
+				return ATTR_READ_ERROR;
+			}
+			break;
+		}
+
+		case ATTR_SLEEPSTART: {
+			if (!propStream.skip(4)) {
+				return ATTR_READ_ERROR;
+			}
+			break;
+		}
+
+		//Teleport class
+		case ATTR_TELE_DEST: {
+			if (!propStream.skip(5)) {
+				return ATTR_READ_ERROR;
+			}
+			break;
+		}
+
+		//Container class
+		case ATTR_CONTAINER_ITEMS: {
+			return ATTR_READ_ERROR;
+		}
+
+		case ATTR_CUSTOM_ATTRIBUTES: {
+			uint64_t size;
+			if (!propStream.read<uint64_t>(size)) {
+				return ATTR_READ_ERROR;
+			}
+
+			for (uint64_t i = 0; i < size; i++) {
+				// Unserialize key type and value
+				std::string key;
+				if (!propStream.readString(key)) {
+					return ATTR_READ_ERROR;
+				};
+
+				// Unserialize value type and value
+				ItemAttributes::CustomAttribute val;
+				if (!val.unserialize(propStream)) {
+					return ATTR_READ_ERROR;
+				}
+
+				setCustomAttribute(key, val);
+			}
+			break;
+		}
+
+		default:
+			return ATTR_READ_ERROR;
+	}
+
+	return ATTR_READ_CONTINUE;
+}
+
+bool Item::unserializeAttr(PropStream& propStream, bool uid)
 {
 	uint8_t attr_type;
 	while (propStream.read<uint8_t>(attr_type) && attr_type != 0) {
-		Attr_ReadValue ret = readAttr(static_cast<AttrTypes_t>(attr_type), propStream);
+		Attr_ReadValue ret = ATTR_READ_ERROR;
+		if (!uid) {
+			ret = readAttr(static_cast<AttrTypes_t>(attr_type), propStream);
+		} else {
+			ret = readAttr2(static_cast<AttrTypes_t>(attr_type), propStream);
+		}
 		if (ret == ATTR_READ_ERROR) {
 			return false;
 		} else if (ret == ATTR_READ_END) {
@@ -786,7 +1158,7 @@ bool Item::unserializeTVPFormat(PropStream& propStream)
 
 bool Item::unserializeItemNode(OTB::Loader&, const OTB::Node&, PropStream& propStream)
 {
-	return unserializeAttr(propStream);
+	return unserializeAttr(propStream, false);
 }
 
 void Item::serializeAttr(PropWriteStream& propWriteStream) const
@@ -807,6 +1179,12 @@ void Item::serializeAttr(PropWriteStream& propWriteStream) const
 	if (actionId != 0) {
 		propWriteStream.write<uint8_t>(ATTR_ACTION_ID);
 		propWriteStream.write<uint16_t>(actionId);
+	}
+
+	uint32_t uniqueId = getUniqueId();
+	if (actionId != 0) {
+		propWriteStream.write<uint8_t>(ATTR_UNIQUE_ID);
+		propWriteStream.write<uint32_t>(uniqueId);
 	}
 
 	const std::string& text = getText();
@@ -986,6 +1364,10 @@ bool Item::hasProperty(ITEMPROPERTY prop) const
 
 uint32_t Item::getWeight() const
 {
+		if (hasAttribute(ITEM_ATTRIBUTE_WEIGHT)) {
+		return getIntAttr(ITEM_ATTRIBUTE_WEIGHT);
+	}
+	
 	uint32_t weight = getBaseWeight();
 	if (isStackable()) {
 		return weight * std::max<uint32_t>(1, getItemCount());
@@ -997,19 +1379,49 @@ int32_t getRarityAttributeRequiredLevelFunction(ItemRarityLevel rarityLevel, Ite
 {
 	if (tierLevel == ITEM_TIER_1)
 	{
-		return 1;
+		if (rarityLevel == ITEM_UNCOMMON)
+			return 10;
+		else if (rarityLevel == ITEM_RARE)
+			return 10;
+		else if (rarityLevel == ITEM_EPIC)
+			return 10;
+		else if (rarityLevel == ITEM_LEGENDARY)
+			return 10;
 	}
 	else if (tierLevel == ITEM_TIER_2)
 	{
-		return 30;
+		if (rarityLevel == ITEM_UNCOMMON)
+			return 15;
+		else if (rarityLevel == ITEM_RARE)
+			return 20;
+		else if (rarityLevel == ITEM_EPIC)
+			return 25;
+		else if (rarityLevel == ITEM_LEGENDARY)
+			return 30;
 	}
 	else if (tierLevel == ITEM_TIER_3)
 	{
-		return 50;
+		{
+			if (rarityLevel == ITEM_UNCOMMON)
+				return 35;
+			else if (rarityLevel == ITEM_RARE)
+				return 40;
+			else if (rarityLevel == ITEM_EPIC)
+				return 45;
+			else if (rarityLevel == ITEM_LEGENDARY)
+				return 50;
+		}
 	}
 	else if (tierLevel == ITEM_TIER_4)
 	{
-		return 80;
+		if (rarityLevel == ITEM_UNCOMMON)
+			return 55;
+		else if (rarityLevel == ITEM_RARE)
+			return 60;
+		else if (rarityLevel == ITEM_EPIC)
+			return 65;
+		else if (rarityLevel == ITEM_LEGENDARY)
+			return 70;
 	}
 
 	return 0;
@@ -1329,7 +1741,7 @@ std::string Item::getWeightDescription(const ItemType& it, uint32_t weight, uint
 
 bool Item::canPlayerUseRarityAttribute(const Player* player, int tier)
 {
-	return player->getLevel() >= getRarityAttributeRequiredLevelFunction((ItemRarityLevel)getItemRarity(), (ItemTierLevel)tier);
+	return player->getLevel() >= (size_t)getRarityAttributeRequiredLevelFunction((ItemRarityLevel)getItemRarity(), (ItemTierLevel)tier);
 }
 
 int64_t Item::getIntCustomAttribute(const Player* player, std::string key) {
@@ -1407,9 +1819,9 @@ ItemTierLevel Item::updateItemAttributes(const Player* player)
 					if (level >= getRarityAttributeRequiredLevel())
 					{
 						if (itemType.attackSpeed == 0)
-							setIntAttr(ITEM_ATTRIBUTE_ATTACK_SPEED, 2000 - (tierLevel * 100));
+							setIntAttr(ITEM_ATTRIBUTE_ATTACK_SPEED, 2000 - (tierLevel * 50));
 						else
-							setIntAttr(ITEM_ATTRIBUTE_ATTACK_SPEED, itemType.attackSpeed - (tierLevel * 100));
+							setIntAttr(ITEM_ATTRIBUTE_ATTACK_SPEED, itemType.attackSpeed - (tierLevel * 50));
 					}
 					else
 					{
@@ -1423,6 +1835,84 @@ ItemTierLevel Item::updateItemAttributes(const Player* player)
 		}
 	}
 
+	if (itemType.slotPosition & SLOTP_HEAD) {
+		if (itemType.armor <= 6)
+			tierLevel = ITEM_TIER_1;
+		else if (itemType.armor <= 8)
+			tierLevel = ITEM_TIER_2;
+		else if (itemType.armor <= 9)
+			tierLevel = ITEM_TIER_3;
+		else
+			tierLevel = ITEM_TIER_4;
+	} else if (itemType.slotPosition & SLOTP_ARMOR) {
+		if (itemType.armor <= 10)
+			tierLevel = ITEM_TIER_1;
+		else if (itemType.armor <= 13)
+			tierLevel = ITEM_TIER_2;
+		else if (itemType.armor <= 15)
+			tierLevel = ITEM_TIER_3;
+		else
+			tierLevel = ITEM_TIER_4;
+	} else if (itemType.slotPosition & SLOTP_LEGS) {
+		if (itemType.armor <= 7)
+			tierLevel = ITEM_TIER_1;
+		else if (itemType.armor <= 8)
+			tierLevel = ITEM_TIER_2;
+		else if (itemType.armor <= 9)
+			tierLevel = ITEM_TIER_3;
+		else
+			tierLevel = ITEM_TIER_4;
+	} else if (itemType.slotPosition & SLOTP_FEET) {
+		if (itemType.armor <= 1)
+			tierLevel = ITEM_TIER_1;
+		else if (itemType.armor <= 2)
+			tierLevel = ITEM_TIER_2;
+		else if (itemType.armor <= 3)
+			tierLevel = ITEM_TIER_3;
+		else
+			tierLevel = ITEM_TIER_4;
+	} else if (itemType.weaponType == WEAPON_SHIELD) {
+		if (itemType.defense <= 28)
+			tierLevel = ITEM_TIER_1;
+		else if (itemType.defense <= 34)
+			tierLevel = ITEM_TIER_2;
+		else if (itemType.defense <= 36)
+			tierLevel = ITEM_TIER_3;
+		else
+			tierLevel = ITEM_TIER_4;
+	} else if (itemType.attack > 0 && (itemType.weaponType == WEAPON_CLUB || itemType.weaponType == WEAPON_AXE || itemType.weaponType == WEAPON_SWORD || itemType.weaponType == WEAPON_DISTANCE)) {
+		if (itemType.slotPosition & SLOTP_TWO_HAND) {
+			// two handed weapons
+			if (itemType.attack <= 35)
+				tierLevel = ITEM_TIER_1;
+			else if (itemType.attack <= 39)
+				tierLevel = ITEM_TIER_2;
+			else if (itemType.attack <= 47)
+				tierLevel = ITEM_TIER_3;
+			else
+				tierLevel = ITEM_TIER_4; // a partir de 48
+		} else {
+			// one handed weapons
+			if (itemType.attack <= 31)
+				tierLevel = ITEM_TIER_1;
+			else if (itemType.attack <= 35)
+				tierLevel = ITEM_TIER_2;
+			else if (itemType.attack <= 39)
+				tierLevel = ITEM_TIER_3;
+			else
+				tierLevel = ITEM_TIER_4; // a partir de 40
+		}
+	}
+
+	if (itemType.rarityTier == 1)
+		tierLevel = ITEM_TIER_1;
+	else if (itemType.rarityTier == 2)
+		tierLevel = ITEM_TIER_2;
+	else if (itemType.rarityTier == 3)
+		tierLevel = ITEM_TIER_3;
+	else if (itemType.rarityTier == 4)
+		tierLevel = ITEM_TIER_4;
+
 	ItemAttributes::CustomAttribute val;
 	val.set<int64_t>(tierLevel);
 	std::string key = "tr";
@@ -1430,7 +1920,40 @@ ItemTierLevel Item::updateItemAttributes(const Player* player)
 	return tierLevel;
 }
 
-void Item::rollRarityLevel(Star_t monsterStar)
+void Item::applyRarity(ItemTierLevel tierLevel, ItemRarityLevel rarityLevel, std::vector<ItemRandomAttributeType> attrList) 
+{
+    if (isStackable()) {
+        return;
+    }
+
+    static const std::unordered_map<ItemRarityLevel, std::pair<uint32_t, std::string>> rarityData = {
+        {ITEM_COMMON,    {0, "common"}},
+        {ITEM_UNCOMMON,  {UNCOMMON_ITEM_SLOTS, "uncommon"}},
+        {ITEM_RARE,      {RARE_ITEM_SLOTS, "rare"}},
+        {ITEM_EPIC,      {EPIC_ITEM_SLOTS, "epic"}},
+        {ITEM_LEGENDARY, {LEGENDARY_ITEM_SLOTS, "legendary"}}
+    };
+
+    auto it = rarityData.find(rarityLevel);
+    if (it == rarityData.end()) {
+        return; 
+    }
+
+    uint32_t totalAttributeSlots = it->second.first;
+    const std::string& rarityStr = it->second.second;
+
+    ItemAttributes::CustomAttribute rarityLevelValue;
+    rarityLevelValue.set<int64_t>(static_cast<int64_t>(rarityLevel));
+
+    std::string rarityLevelKey = ItemAttributes::customAttributeMapKeyToString(ITEM_RARITY_ATTRIBUTE);
+    setStrAttr(ITEM_ATTRIBUTE_NAME, fmt::format("{} {}", rarityStr, getName()));
+    setCustomAttribute(rarityLevelKey, rarityLevelValue);
+ 
+    attrList.reserve(totalAttributeSlots);
+    rollAttributes(tierLevel, attrList.size(), attrList);
+}
+
+void Item::rollRarityLevel(bool forceRarity, uint8_t rarity)
 {
 	if (isStackable()) {
 		return;
@@ -1444,7 +1967,7 @@ void Item::rollRarityLevel(Star_t monsterStar)
 			tierLevel = ITEM_TIER_1;
 		else if (itemType.armor <= 8)
 			tierLevel = ITEM_TIER_2;
-		else if (itemType.armor <= 10)
+		else if (itemType.armor <= 9)
 			tierLevel = ITEM_TIER_3;
 		else
 			tierLevel = ITEM_TIER_4;
@@ -1481,64 +2004,44 @@ void Item::rollRarityLevel(Star_t monsterStar)
 			tierLevel = ITEM_TIER_4;
 	}
 	else if (itemType.weaponType == WEAPON_SHIELD) {
-		if (itemType.defense <= 29)
+		if (itemType.defense <= 28)
 			tierLevel = ITEM_TIER_1;
-		else if (itemType.defense <= 33)
+		else if (itemType.defense <= 34)
 			tierLevel = ITEM_TIER_2;
-		else if (itemType.defense <= 35)
+		else if (itemType.defense <= 36)
 			tierLevel = ITEM_TIER_3;
 		else
 			tierLevel = ITEM_TIER_4;
 	}
 	else if (itemType.weaponType == WEAPON_QUIVER && itemType.ammoType == AMMO_ARROW)
-	{
-		if (itemType.attack == 0)
-			tierLevel = ITEM_TIER_1;
-		// else if (itemType.attack <= 1)
-		// 	tierLevel = ITEM_TIER_2;
-		// else if (itemType.attack <= 2)
-		// 	tierLevel = ITEM_TIER_3;
-		// else 
-		// 	tierLevel = ITEM_TIER_4;
+	{			
 		freeze_chance = true;
 	}
 	else if (itemType.weaponType == WEAPON_QUIVER && itemType.ammoType == AMMO_BOLT)
-	{
-		if (itemType.attack == 0)
-			tierLevel = ITEM_TIER_1;
-		// else if (itemType.attack <= 1)
-		// 	tierLevel = ITEM_TIER_2;
-		// else if (itemType.attack <= 2)
-		// 	tierLevel = ITEM_TIER_3;
-		// else 
-		// 	tierLevel = ITEM_TIER_4;
+	{				
 		freeze_chance = true;
 	}
 	else if (itemType.weaponType == WEAPON_DISTANCE && itemType.slotPosition & SLOTP_TWO_HAND)
-	{
-		if (itemType.attack == 0)
-			tierLevel = ITEM_TIER_1;
-		// else if (itemType.attack <= 1)
-		// 	tierLevel = ITEM_TIER_2;
-		// else if (itemType.attack <= 2)
-		// 	tierLevel = ITEM_TIER_3;
-		// else 
-		// 	tierLevel = ITEM_TIER_4;
+	{		
 		freeze_chance = true;
 	}
+	else if (itemType.weaponType == WEAPON_WAND)
+	{
+			freeze_chance = true;
+	}	
 	else if (itemType.attack > 0 && (itemType.weaponType == WEAPON_CLUB || itemType.weaponType == WEAPON_AXE || itemType.weaponType == WEAPON_SWORD || itemType.weaponType == WEAPON_DISTANCE))
 	{
 		if (itemType.slotPosition & SLOTP_TWO_HAND)
 		{
 			// two handed weapons
-			if (itemType.attack <= 44)
+			if (itemType.attack <= 35)
 				tierLevel = ITEM_TIER_1;
-			else if (itemType.attack <= 49)
+			else if (itemType.attack <= 39)
 				tierLevel = ITEM_TIER_2;
-			else if (itemType.attack <= 59)
+			else if (itemType.attack <= 47)
 				tierLevel = ITEM_TIER_3;
 			else
-				tierLevel = ITEM_TIER_4; // a partir de 60
+				tierLevel = ITEM_TIER_4; // a partir de 48
 		}
 		else {
 			// one handed weapons
@@ -1622,25 +2125,29 @@ void Item::rollRarityLevel(Star_t monsterStar)
 
 	uint32_t chance = uniform_random(1, legendaryChance);
 
-	if (chance <= commonChance) // de 1 a 100 (para tier 4)
-	{
-		rarityLevel = ITEM_COMMON;
-	}
-	else if (chance <= uncommonChance) // de 101 a 104 (para tier 4)
-	{
-		rarityLevel = ITEM_UNCOMMON;
-	}
-	else if (chance <= rareChance) // de 105 a 107 (para tier 4)
-	{
-		rarityLevel = ITEM_RARE;
-	}
-	else if (chance <= epicChance) // de 108 a 109
-	{
-		rarityLevel = ITEM_EPIC;
-	}
-	else if (chance <= legendaryChance) // se igual a 110
-	{
-		rarityLevel = ITEM_LEGENDARY;
+	if (!forceRarity) {
+		if (chance <= commonChance) // de 1 a 100 (para tier 4)
+		{
+			rarityLevel = ITEM_COMMON;
+		}
+		else if (chance <= uncommonChance) // de 101 a 104 (para tier 4)
+		{
+			rarityLevel = ITEM_UNCOMMON;
+		}
+		else if (chance <= rareChance) // de 105 a 107 (para tier 4)
+		{
+			rarityLevel = ITEM_RARE;
+		}
+		else if (chance <= epicChance) // de 108 a 109
+		{
+			rarityLevel = ITEM_EPIC;
+		}
+		else if (chance <= legendaryChance) // se igual a 110
+		{
+			rarityLevel = ITEM_LEGENDARY;
+		}
+	} else {
+		rarityLevel = rarity;
 	}
 
 	if (rarityLevel == ITEM_COMMON) {
@@ -1678,35 +2185,98 @@ void Item::rollRarityLevel(Star_t monsterStar)
 	default: break;
 	}
 
-	rollAttributes(tierLevel, totalAttributeSlots);
+	rollAttributes(tierLevel, (!forceRarity ? totalAttributeSlots : 1));
 
 	if (!rarityStr.empty()) {
-		setStrAttr(ITEM_ATTRIBUTE_NAME, fmt::format("{:s} {:s}", rarityStr, getName()));
+		setStrAttr(ITEM_ATTRIBUTE_NAME, fmt::format("{:s} {:s}", rarityStr, itemType.name));
 		setCustomAttribute(rarityLevelKey, rarityLevelValue);
+	}
+
+	Cylinder* cylinder = this->getParent();
+	if (cylinder) {
+		cylinder->updateThing(this, this->getID(), this->getItemCount());
 	}
 }
 
 void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 {
-	std::string dataDescription;
-
 	const ItemType& itemType = Item::items[id];
 
-	if (itemType.weaponType == WEAPON_WAND) {
-		// No attributes for wands ... yet ;)
-		return;
-	}
-
 	std::vector<ItemRandomAttributeType> attrList{};
+
 	for (int i = ITEM_RND_FIRST; i <= ITEM_RND_LAST; i++) {
 		attrList.push_back(static_cast<ItemRandomAttributeType>(i));
 	}
 
+	//attrList.push_back(ITEM_RND_RESISTANCE);
+	//attrList.push_back(ITEM_RND_RESISTANCE);
+	//attrList.push_back(ITEM_RND_RESISTANCE);
 	attrList.push_back(ITEM_RND_RESISTANCE);
-	attrList.push_back(ITEM_RND_RESISTANCE);
-	attrList.push_back(ITEM_RND_RESISTANCE);
-	attrList.push_back(ITEM_RND_RESISTANCE);
-	
+
+
+	if (itemType.weaponType == WEAPON_WAND) {
+		attrList.push_back(ITEM_RND_RESISTANCE);
+	}
+
+	rollAttributes(tierLevel, totalAttributes, attrList);
+}
+
+void Item::applyFixedBonuses() {
+	uint16_t itemId = this->getID();
+	std::string newDesc;
+
+	if (itemId == 5549) {
+
+		std::string manaKey = std::to_string(ITEM_RND_MANA_REGEN);
+		if (!this->getCustomAttribute(manaKey)) {
+			ItemAttributes::CustomAttribute val;
+			val.set<int64_t>(10); // 10 * 0.2 = 2.0
+			this->setCustomAttribute(manaKey, val);
+			newDesc += fmt::format("\nIncreased Mana Regeneration +{:.1f}", 2.0);
+		}
+
+		std::string healthKey = std::to_string(ITEM_RND_HEALTH_REGEN);
+		if (!this->getCustomAttribute(healthKey)) {
+			ItemAttributes::CustomAttribute val;
+			val.set<int64_t>(5); // 5 * 0.2 = 1.0
+			this->setCustomAttribute(healthKey, val);
+			newDesc += fmt::format("\nIncreased Health Regeneration +{:.1f}", 1.0);
+		}
+	}
+
+	else if (itemId == 5548) {
+
+		std::string manaKey = std::to_string(ITEM_RND_MANA_REGEN);
+		if (!this->getCustomAttribute(manaKey)) {
+			ItemAttributes::CustomAttribute val;
+			val.set<int64_t>(5);
+			this->setCustomAttribute(manaKey, val);
+			newDesc += fmt::format("\nIncreased Mana Regeneration +{:.1f}", 1.0);
+		}
+
+		std::string healthKey = std::to_string(ITEM_RND_HEALTH_REGEN);
+		if (!this->getCustomAttribute(healthKey)) {
+			ItemAttributes::CustomAttribute val;
+			val.set<int64_t>(10);
+			this->setCustomAttribute(healthKey, val);
+			newDesc += fmt::format("\nIncreased Health Regeneration +{:.1f}", 2.0);
+		}
+	}
+	if (!newDesc.empty()) {
+		std::string currentDesc = getStrAttr(ITEM_ATTRIBUTE_DESCRIPTION);
+		if (!currentDesc.empty()) {
+			newDesc = currentDesc + "\n" + newDesc;
+		}
+		setStrAttr(ITEM_ATTRIBUTE_DESCRIPTION, newDesc);
+	}
+}
+
+void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes, std::vector<ItemRandomAttributeType> attrList)
+{
+	std::string dataDescription = getSpecialDescription();
+
+	const ItemType& itemType = Item::items[id];
+
 	std::ranges::shuffle(attrList, getRandomGenerator());
 
 	for (uint8_t i = 0; i < totalAttributes;) {
@@ -1722,9 +2292,15 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 		switch (attr) {
 			case ITEM_RND_ATTACK: {
 				if (itemType.weaponType == WEAPON_CLUB || itemType.weaponType == WEAPON_AXE || itemType.weaponType == WEAPON_SWORD ||
-					itemType.weaponType == WEAPON_DISTANCE && itemType.weaponType != WEAPON_WAND || itemType.weaponType == WEAPON_QUIVER) {
-					setIntAttr(ITEM_ATTRIBUTE_ATTACK, itemType.attack + tierLevel);
+				itemType.weaponType == WEAPON_QUIVER) {
 					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
+					setIntAttr(ITEM_ATTRIBUTE_ATTACK, itemType.attack + tierLevel);
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
 					setCustomAttribute(str, val);
@@ -1738,10 +2314,16 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 			case ITEM_RND_SPEED: {
 				if (itemType.slotPosition & SLOTP_FEET) {
 					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
 					setCustomAttribute(str, val);
-					dataDescription = fmt::format("{:s}\nIncreased Movement Speed +{:d}", dataDescription, static_cast<uint16_t>(tierLevel));
+					dataDescription = fmt::format("{:s}\nIncreased Movement Speed +{:d}", dataDescription, static_cast<uint16_t>(tierLevel * 5));
 				}
 				else {
 					inc = false;
@@ -1751,8 +2333,14 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 			case ITEM_RND_ARMOR: {
 				bool hasArmor = itemType.armor != 0 || itemType.slotPosition & SLOTP_FEET;
 				if (hasArmor) {
-					setIntAttr(ITEM_ATTRIBUTE_ARMOR, itemType.armor + tierLevel);
 					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
+					setIntAttr(ITEM_ATTRIBUTE_ARMOR, itemType.armor + tierLevel);
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
 					setCustomAttribute(str, val);
@@ -1765,8 +2353,14 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 			}
 			case ITEM_RND_DEF: {
 				if (itemType.defense != 0 && itemType.weaponType == WEAPON_SHIELD) {
-					setIntAttr(ITEM_ATTRIBUTE_DEFENSE, itemType.defense + tierLevel);
 					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
+					setIntAttr(ITEM_ATTRIBUTE_DEFENSE, itemType.defense + tierLevel);
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
 					setCustomAttribute(str, val);
@@ -1780,6 +2374,12 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 			case ITEM_RND_SKILL: {
 				if (itemType.weaponType == WEAPON_CLUB || itemType.weaponType == WEAPON_AXE || itemType.weaponType == WEAPON_SWORD || itemType.weaponType == WEAPON_DISTANCE || itemType.weaponType == WEAPON_QUIVER || itemType.weaponType == WEAPON_SHIELD) {
 					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
 					setCustomAttribute(str, val);
@@ -1790,8 +2390,8 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 				}
 				break;
 			}
-			case ITEM_RND_MAGIC: {
-				if (itemType.weaponType == WEAPON_NONE) {
+/*			case ITEM_RND_MAGIC: {
+				if (itemType.weaponType == WEAPON_NONE || itemType.weaponType == WEAPON_WAND) {
 					std::string str = std::to_string(attr);
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
@@ -1802,11 +2402,41 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 					inc = false;
 				}
 				break;
-			}
+			}*/
+			case ITEM_RND_WEIGHT_REDUCTION: {
+				if (itemType.weaponType == WEAPON_NONE || itemType.weaponType == WEAPON_SHIELD) {
+					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
+					uint32_t baseWeight = getWeight();
+					double weightReduction = 1.0 - ((size_t)tierLevel * 0.2); // -20% por Tier
+					uint32_t newWeight = std::max(static_cast<uint32_t>(baseWeight * weightReduction), 1U);
+
+					setIntAttr(ITEM_ATTRIBUTE_WEIGHT, newWeight);
+					ItemAttributes::CustomAttribute val;
+					val.set<int64_t>(tierLevel);
+					setCustomAttribute(str, val);
+
+					dataDescription = fmt::format("{:s}\nWeight Reduction -{:d}%", dataDescription, tierLevel * 20);
+				} else {
+					inc = false;
+				}
+				break;
+			}			
 			case ITEM_RND_MAX_HEALTH:
 			case ITEM_RND_MAX_MANA: {
 				if (itemType.weaponType == WEAPON_NONE || itemType.weaponType == WEAPON_SHIELD) {
 					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
 					setCustomAttribute(str, val);
@@ -1827,15 +2457,23 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 			case ITEM_RND_MANA_REGEN: {
 				if (itemType.weaponType == WEAPON_NONE || itemType.weaponType == WEAPON_SHIELD) {
 					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
 					setCustomAttribute(str, val);
 
 					if (attr == ITEM_RND_HEALTH_REGEN) {
-						dataDescription = fmt::format("{:s}\nIncreased Health Regeneration +{:d}", dataDescription, static_cast<uint16_t>(tierLevel));
+						dataDescription = fmt::format("{:s}\nIncreased Health Regeneration +{:.1f}", 
+                                  dataDescription, static_cast<double>(tierLevel) * 0.2);
 					}
 					else if (attr == ITEM_RND_MANA_REGEN) {
-						dataDescription = fmt::format("{:s}\nIncreased Mana Regeneration +{:d}", dataDescription, static_cast<uint16_t>(tierLevel));
+						dataDescription = fmt::format("{:s}\nIncreased Mana Regeneration +{:.1f}", 
+                                  dataDescription, static_cast<double>(tierLevel) * 0.2);
 					}
 				}
 				else {
@@ -1845,8 +2483,14 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 			}
 
 			case ITEM_RND_RESISTANCE: {
-				if (itemType.weaponType == WEAPON_NONE || itemType.weaponType == WEAPON_SHIELD) {
-					std::vector<ItemAttributeDefenseType> resistances = { ITEM_RND_RESIST_PHYSICAL,ITEM_RND_RESIST_FIRE,ITEM_RND_RESIST_POISON,ITEM_RND_RESIST_ENERGY,ITEM_RND_RESIST_ICE };
+				if (itemType.weaponType == WEAPON_NONE || itemType.weaponType == WEAPON_SHIELD || itemType.weaponType == WEAPON_WAND) {
+					
+					std::vector<ItemAttributeDefenseType> resistances;					
+					if (itemType.weaponType == WEAPON_WAND)
+						resistances = { ITEM_RND_RESIST_FIRE,ITEM_RND_RESIST_POISON,ITEM_RND_RESIST_ENERGY,ITEM_RND_RESIST_ICE };
+					else
+						resistances = { ITEM_RND_RESIST_PHYSICAL,ITEM_RND_RESIST_FIRE,ITEM_RND_RESIST_POISON,ITEM_RND_RESIST_ENERGY,ITEM_RND_RESIST_ICE };					
+					
 					std::ranges::shuffle(resistances, getRandomGenerator());
 
 					bool added = false;
@@ -1856,6 +2500,12 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 						}
 
 						std::string str = std::to_string(resistance);
+						if (totalAttributes == 1) {
+							if (getCustomAttribute(str)) {
+								rollAttributes(tierLevel, 1);
+								return;
+							}
+						}
 
 						ItemAttributes::CustomAttribute val;
 						val.set<int64_t>(tierLevel);
@@ -1900,26 +2550,47 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 			}
 
 			case ITEM_RND_CRITICAL:
-			case ITEM_RND_ATTACK_SPEED: {
-				if (itemType.weaponType != WEAPON_NONE && itemType.weaponType != WEAPON_SHIELD && itemType.weaponType != WEAPON_WAND) {
+			{
+				if (itemType.weaponType != WEAPON_NONE && itemType.weaponType != WEAPON_SHIELD) {
 					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
 					setCustomAttribute(str, val);
 
-					if (attr == ITEM_RND_CRITICAL) {
-						dataDescription = fmt::format("{:s}\nCritical Hit {:d}%", dataDescription, static_cast<uint16_t>(tierLevel));
-					} 
-					
-					if (attr == ITEM_RND_ATTACK_SPEED) {
-						if (itemType.attackSpeed == 0)
-							setIntAttr(ITEM_ATTRIBUTE_ATTACK_SPEED, 2000 - (tierLevel * 100));
-						else
-							setIntAttr(ITEM_ATTRIBUTE_ATTACK_SPEED, itemType.attackSpeed - (tierLevel * 100));
+					dataDescription = fmt::format("{:s}\nCritical Hit {:d}%", dataDescription, static_cast<uint16_t>(tierLevel));
 
-						dataDescription = fmt::format("{:s}\nDecrease Attack Interval -0.{:d}", dataDescription, static_cast<uint16_t>(tierLevel));
+				}
+				else {
+					inc = false;
+				}
+				break;
+			}
+			
+			case ITEM_RND_ATTACK_SPEED: {
+				if (itemType.weaponType != WEAPON_NONE && itemType.weaponType != WEAPON_SHIELD && itemType.weaponType != WEAPON_WAND) {
+					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
 					}
+					ItemAttributes::CustomAttribute val;
+					val.set<int64_t>(tierLevel);
+					setCustomAttribute(str, val);
 
+					if (itemType.attackSpeed == 0)
+						setIntAttr(ITEM_ATTRIBUTE_ATTACK_SPEED, 2000 - (tierLevel * 50));
+					else
+						setIntAttr(ITEM_ATTRIBUTE_ATTACK_SPEED, itemType.attackSpeed - (tierLevel * 50));
+						float decreaseValue = static_cast<float>(tierLevel) * 0.05f;
+						dataDescription = fmt::format("{:s}\nDecrease Attack Interval -{:.2f}", dataDescription, decreaseValue);				
 				}
 				else {
 					inc = false;
@@ -1928,8 +2599,14 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 			}
 
 			case ITEM_RND_PARRY: {
-				if (itemType.weaponType == WEAPON_AXE || itemType.weaponType == WEAPON_CLUB || itemType.weaponType == WEAPON_SWORD) {
+				if (itemType.weaponType == WEAPON_AXE || itemType.weaponType == WEAPON_CLUB || itemType.weaponType == WEAPON_SWORD || itemType.weaponType == WEAPON_WAND) {
 					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
 					setCustomAttribute(str, val);
@@ -1946,6 +2623,12 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 				if ((itemType.weaponType == WEAPON_AXE || itemType.weaponType == WEAPON_CLUB || itemType.weaponType == WEAPON_SWORD) &&
 					!(itemType.slotPosition & SLOTP_TWO_HAND)) {
 					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
 					setCustomAttribute(str, val);
@@ -1962,6 +2645,12 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 				if ((itemType.weaponType == WEAPON_AXE || itemType.weaponType == WEAPON_CLUB || itemType.weaponType == WEAPON_SWORD) &&
 					itemType.slotPosition & SLOTP_TWO_HAND) {
 					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
 					setCustomAttribute(str, val);
@@ -1977,6 +2666,12 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 			case ITEM_RND_CRUSHING_BLOW: {
 				if (itemType.isCrossbow || (itemType.weaponType == WEAPON_QUIVER && itemType.ammoType == AMMO_BOLT)) {
 					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
 					setCustomAttribute(str, val);
@@ -1992,6 +2687,12 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 			case ITEM_RND_FAST_HAND: {
 				if (itemType.isBow || (itemType.weaponType == WEAPON_QUIVER && itemType.ammoType == AMMO_ARROW)) {
 					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
 					setCustomAttribute(str, val);
@@ -2007,6 +2708,12 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 			case ITEM_RND_SHARPSHOOTER: {
 				if ((itemType.weaponType == WEAPON_DISTANCE && itemType.slotPosition & SLOTP_TWO_HAND || itemType.weaponType == WEAPON_QUIVER)) {
 					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
 					setCustomAttribute(str, val);
@@ -2019,16 +2726,40 @@ void Item::rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes)
 				break;
 			}
 
-			case ITEM_RND_BLEEDING: {
-				if (itemType.weaponType != WEAPON_NONE && itemType.weaponType != WEAPON_WAND && itemType.weaponType != WEAPON_SHIELD) {
+			case ITEM_RND_BLEEDING:
+			case ITEM_RND_ELETRICFYING:
+			case ITEM_RND_BURNING:
+			case ITEM_RND_POISONING: {
+				// Verifica se o item já possui um dos atributos de "bleeding"
+				if (getCustomAttribute(std::to_string(ITEM_RND_BLEEDING)) ||
+					getCustomAttribute(std::to_string(ITEM_RND_ELETRICFYING)) ||
+					getCustomAttribute(std::to_string(ITEM_RND_BURNING)) ||
+					getCustomAttribute(std::to_string(ITEM_RND_POISONING))) {
+					inc = false; // Bloqueia a adição de outro atributo de "bleeding"
+					break;
+				}
+				if (itemType.weaponType != WEAPON_NONE && itemType.weaponType != WEAPON_SHIELD) {
 					std::string str = std::to_string(attr);
+					if (totalAttributes == 1) {
+						if (getCustomAttribute(str)) {
+							rollAttributes(tierLevel, 1);
+							return;
+						}
+					}
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(tierLevel);
-					setCustomAttribute(str, val);
-
-					dataDescription = fmt::format("{:s}\nBleeding {:d}%", dataDescription, static_cast<uint16_t>(tierLevel));
-				}
-				else {
+					setCustomAttribute(str, val);					
+					std::unordered_map<int, std::string> attributeNames = {
+						{ ITEM_RND_BLEEDING, "\nBleeding" },
+						{ ITEM_RND_ELETRICFYING, "\nEletricfying" },
+						{ ITEM_RND_BURNING, "\nBurning" },
+						{ ITEM_RND_POISONING, "\nPoisoning" }
+					};
+					
+					std::string effectName = attributeNames[attr];
+					
+					dataDescription = fmt::format("{:s}{} {:d}%", dataDescription, effectName, static_cast<uint16_t>(tierLevel));
+				} else {
 					inc = false;
 				}
 				break;
@@ -2062,7 +2793,7 @@ std::string Item::getWeightDescription() const
 	return getWeightDescription(weight);
 }
 
-void Item::setUniqueId(uint16_t n)
+void Item::setUniqueId(uint32_t n)
 {
 	if (hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
 		return;

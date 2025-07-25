@@ -391,7 +391,7 @@ void Creature::distributeExperiencePoints()
 			if (Player* thisPlayer = getPlayer()) {
 				const int32_t formula = thisPlayer->getLevel() + ((thisPlayer->getLevel() * g_config.getNumber(ConfigManager::PVP_EXP_FORMULA)) / 100);
 				if (g_config.getBoolean(ConfigManager::EXPERIENCE_FROM_PLAYERS)) {
-					if (attackerPlayer->getLevel() > formula || !(attackerPlayer && attackerPlayer != this && skillLoss) ||
+					if (attackerPlayer->getLevel() > (size_t)formula || !(attackerPlayer && attackerPlayer != this && skillLoss) ||
 						attackerPlayer->getParty() && thisPlayer->getParty() == attackerPlayer->getParty()) {
 						gainedExperience = 0;
 					}

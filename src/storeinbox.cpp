@@ -21,7 +21,7 @@
 
 #include "storeinbox.h"
 
-StoreInbox::StoreInbox(uint16_t type) : Container(type, 20, true, true) {}
+StoreInbox::StoreInbox(uint16_t type) : Container(type, 100, true, true) {}
 
 ReturnValue StoreInbox::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t flags, Creature*) const
 {

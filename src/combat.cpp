@@ -880,9 +880,11 @@ void Combat::doTargetCombat(Creature* caster, Creature* target, CombatDamage& da
 				Player* targetPlayer = target ? target->getPlayer() : nullptr;
 
 				if (!damage.critical && damage.type != COMBAT_HEALING && damage.origin != ORIGIN_CONDITION) {
-					uint16_t skill = casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_CRITICAL);
-					uint16_t chance = skill;
-					if (chance > 0 && skill > 0 && random(1, 100) <= chance) {
+					uint16_t chance = casterPlayer->getCriticalChance(target ? target->getName() : "");
+//					uint16_t skill = casterPlayer->getCriticalChance(target ? target->getName() : "");
+//					uint16_t chance = skill;
+//					if (chance > 0 && skill > 0 && random(1, 100) <= chance) {
+					if (chance > 0 && random(1, 100) <= chance) {
 						
 						if (damage.origin == ORIGIN_RANGED)
 						{
@@ -906,7 +908,7 @@ void Combat::doTargetCombat(Creature* caster, Creature* target, CombatDamage& da
 										attackValue += quiver->getIntCustomAttribute(casterPlayer, std::to_string(ITEM_RND_ATTACK));
 
 									float maxDamage = Weapons::getRealMaxWeaponDamage(casterPlayer->getLevel(), casterPlayer->getSkillLevel(SKILL_DISTANCE), attackValue);
-									damage.value = -maxDamage * (100 + skill * ( 5 + rand() % 5 ) ) / 100;
+									damage.value = -maxDamage * (100 + 4 * ( 5 + rand() % 5 ) ) / 100;	//AQUI SKILL FOI SUBSTUIDO POR 4 PARA FIXAR O DANO CRITICO T4
 								}
 							}
 						} else {
@@ -918,24 +920,102 @@ void Combat::doTargetCombat(Creature* caster, Creature* target, CombatDamage& da
 								{
 
 									float maxDamage = Weapons::getRealMaxWeaponDamage(casterPlayer->getLevel(), casterPlayer->getWeaponSkill(tool), std::max<int32_t>(0, tool->getAttack()));
-									damage.value = -maxDamage * (100 + skill * ( 5 + rand() % 5 ) ) / 100;
+									damage.value = -maxDamage * (100 + 4 * ( 5 + rand() % 5 ) ) / 100; 	//AQUI SKILL FOI SUBSTUIDO POR 4 PARA FIXAR O DANO CRITICO T4
 								}
 							}
 						}
-
 						damage.critical = true;
 					}
 				}
-
 				if (damage.value != 0 && targetPlayer && casterPlayer != targetPlayer && damage.type != COMBAT_HEALING) {
 					damage.value /= 2;
 				}
 			}
 
 			success = g_game.combatChangeHealth(caster, target, damage);
+
+			if (casterPlayer && target) {
+				if (caster->getPlayer()) {
+					if (random(1, 100) <= (size_t)casterPlayer->getWound(target ? target->getName() : "")) {
+						damage.type = COMBAT_PHYSICALDAMAGE;
+						damage.value = -(target->getMaxHealth()*0.05);
+						g_game.combatChangeHealth(caster, target, damage);
+						caster->getPlayer()->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Wound has been enabled.");
+					}
+
+					if (random(1, 100) <= (size_t)casterPlayer->getEnflame(target ? target->getName() : "")) {
+						damage.type = COMBAT_FIREDAMAGE;
+						damage.value = -(target->getMaxHealth()*0.05);
+						g_game.combatChangeHealth(caster, target, damage);
+						caster->getPlayer()->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Enflame has been enabled.");
+					}
+
+					if (random(1, 100) <= (size_t)casterPlayer->getPoison(target ? target->getName() : "")) {
+						damage.type = COMBAT_EARTHDAMAGE;
+						damage.value = -(target->getMaxHealth()*0.05);
+						g_game.combatChangeHealth(caster, target, damage);
+						caster->getPlayer()->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Poison has been enabled.");
+					}
+
+					if (random(1, 100) <= (size_t)casterPlayer->getZap(target ? target->getName() : "")) {
+						damage.type = COMBAT_ENERGYDAMAGE;
+						damage.value = -(target->getMaxHealth()*0.05);
+						g_game.combatChangeHealth(caster, target, damage);
+						caster->getPlayer()->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Zap has been enabled.");
+					}
+				}
+			}
 		} else {
 			success = g_game.combatChangeMana(caster, target, damage);
 		}
+		
+		if (casterPlayer && damage.type != COMBAT_HEALING && damage.origin != ORIGIN_CONDITION) {
+			uint64_t currentTime = OTSYS_TIME();
+        if (casterPlayer->canActivateSpecialEffect(currentTime)) {
+            bool effectActivated = false;
+            // Chance para Bleeding
+            if (uniform_random(1, 100) <= casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_BLEEDING)) {
+                ConditionDamage* damageBleeding = new ConditionDamage(CONDITIONID_DEFAULT, CONDITION_BLEEDING);
+                damageBleeding->addDamage(10, 2000, -5 * casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_BLEEDING));
+                target->addCondition(damageBleeding);
+                casterPlayer->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Bleeding has been enabled.");
+                g_game.addMagicEffect(target->getPosition(), CONST_ME_MAGIC_RED);
+                effectActivated = true;
+            }
+            // Chance para Electrifying
+            if (uniform_random(1, 100) <= casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_ELETRICFYING)) {
+                ConditionDamage* damageElectrifying = new ConditionDamage(CONDITIONID_DEFAULT, CONDITION_ENERGY);
+                damageElectrifying->addDamage(10, 2000, -5 * casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_ELETRICFYING));
+                target->addCondition(damageElectrifying);
+                casterPlayer->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Eletricfying has been enabled.");
+                g_game.addMagicEffect(target->getPosition(), CONST_ME_MAGIC_RED);
+                effectActivated = true;
+            }
+            // Chance para Burning
+            if (uniform_random(1, 100) <= casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_BURNING)) {
+                ConditionDamage* damageBurning = new ConditionDamage(CONDITIONID_DEFAULT, CONDITION_FIRE);
+                damageBurning->addDamage(10, 2000, -5 * casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_BURNING));
+                target->addCondition(damageBurning);
+                casterPlayer->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Burning has been enabled.");
+                g_game.addMagicEffect(target->getPosition(), CONST_ME_MAGIC_RED);
+                effectActivated = true;
+            }
+            // Chance para Poisoning
+            if (uniform_random(1, 100) <= casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_POISONING)) {
+                ConditionDamage* damagePoisoning = new ConditionDamage(CONDITIONID_DEFAULT, CONDITION_POISON);
+                damagePoisoning->addDamage(10, 2000, -5 * casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_POISONING));
+                target->addCondition(damagePoisoning);
+                casterPlayer->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Poisoning has been enabled.");
+                g_game.addMagicEffect(target->getPosition(), CONST_ME_MAGIC_RED);
+                effectActivated = true;
+            }
+            // Atualiza o cooldown se algum efeito foi ativado
+            if (effectActivated) {
+                casterPlayer->updateSpecialEffectTime(currentTime);
+            }
+        }
+    }
+		
 	} else {
 		// no damage spell
 		caster->onAttackedCreature(target, true);
@@ -1011,18 +1091,68 @@ void Combat::doAreaCombat(Creature* caster, const Position& position, const Area
 	Player* casterPlayer = caster ? caster->getPlayer() : nullptr;
 	int32_t criticalPrimary = 0;
 
-
-	if (!damage.critical && damage.type != COMBAT_HEALING && casterPlayer && damage.origin != ORIGIN_CONDITION) {
-		uint16_t skill = casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_CRITICAL);
-		uint16_t chance = skill;
-		if (chance > 0 && skill > 0 && random(1, 100) <= chance) {
-
-			if (damage.maxValue != 0)
-				damage.value = damage.maxValue * (100 + skill * ( 5 + rand() % 5 ) ) / 100;
-
-			damage.critical = true;
+	if (casterPlayer) {
+		uint64_t currentTime = OTSYS_TIME();
+		// Verifica se o cooldown para efeitos especiais foi liberado
+		if (casterPlayer->canActivateSpecialEffect(currentTime)) {
+			bool effectActivated = false;
+			for (Tile* tile : tiles) {
+				if (tile) {
+					// Pega todas as criaturas do tile
+					CreatureVector* creatures = tile->getCreatures();
+					if (creatures) {
+						for (Creature* target : *creatures) { // Itera sobre todas as criaturas no tile
+							if (!target || target == casterPlayer) {
+								continue;
+							}
+		
+							// Verifica e aplica os efeitos especiais somente se a chance for bem-sucedida
+							if (uniform_random(1, 100) <= casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_BLEEDING)) {
+								ConditionDamage* damageBleeding = new ConditionDamage(CONDITIONID_DEFAULT, CONDITION_BLEEDING);
+								damageBleeding->addDamage(10, 2000, -5 * casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_BLEEDING));
+								target->addCondition(damageBleeding);
+								casterPlayer->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Bleeding has been enabled.");
+								g_game.addMagicEffect(target->getPosition(), CONST_ME_MAGIC_RED);
+								effectActivated = true;
+							}
+		
+							if (uniform_random(1, 100) <= casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_ELETRICFYING)) {
+								ConditionDamage* damageElectrifying = new ConditionDamage(CONDITIONID_DEFAULT, CONDITION_ENERGY);
+								damageElectrifying->addDamage(10, 2000, -5 * casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_ELETRICFYING));
+								target->addCondition(damageElectrifying);
+								casterPlayer->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Electrifying has been enabled.");
+								g_game.addMagicEffect(target->getPosition(), CONST_ME_MAGIC_RED);
+								effectActivated = true;
+							}
+		
+							if (uniform_random(1, 100) <= casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_BURNING)) {
+								ConditionDamage* damageBurning = new ConditionDamage(CONDITIONID_DEFAULT, CONDITION_FIRE);
+								damageBurning->addDamage(10, 2000, -5 * casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_BURNING));
+								target->addCondition(damageBurning);
+								casterPlayer->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Burning has been enabled.");
+								g_game.addMagicEffect(target->getPosition(), CONST_ME_MAGIC_RED);
+								effectActivated = true;
+							}
+		
+							if (uniform_random(1, 100) <= casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_POISONING)) {
+								ConditionDamage* damagePoisoning = new ConditionDamage(CONDITIONID_DEFAULT, CONDITION_POISON);
+								damagePoisoning->addDamage(10, 2000, -5 * casterPlayer->getCustomItemMaximumAttrStat(ITEM_RND_POISONING));
+								target->addCondition(damagePoisoning);
+								casterPlayer->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Poisoning has been enabled.");
+								g_game.addMagicEffect(target->getPosition(), CONST_ME_MAGIC_RED);
+								effectActivated = true;
+							}
+						}
+					}
+				}
+			}
+			// Atualiza o cooldown se algum efeito foi ativado
+			if (effectActivated) {
+				casterPlayer->updateSpecialEffectTime(currentTime);
+			}
 		}
 	}
+
 
 	uint32_t maxX = 0;
 	uint32_t maxY = 0;
@@ -1053,6 +1183,11 @@ void Combat::doAreaCombat(Creature* caster, const Position& position, const Area
 	std::vector<Creature*> toDamageCreatures;
 	toDamageCreatures.reserve(100);
 
+	bool wound = false;
+	bool enflame = false;
+	bool poison = false;
+	bool zap = false;
+
 	for (Tile* tile : tiles) {
 		if (canDoCombat(caster, tile, params.aggressive) != RETURNVALUE_NOERROR) {
 			continue;
@@ -1072,6 +1207,47 @@ void Combat::doAreaCombat(Creature* caster, const Position& position, const Area
 				}
 
 				if (!params.aggressive || (caster != creature && Combat::canDoCombat(caster, creature) == RETURNVALUE_NOERROR)) {
+
+					if (casterPlayer && creature) {
+						if (!wound) {
+							if (random(1, 100) <= (size_t)casterPlayer->getWound(creature ? creature->getName() : "")) {
+								wound = true;
+							}
+						}
+
+						if (!enflame) {
+							if (random(1, 100) <= (size_t)casterPlayer->getEnflame(creature ? creature->getName() : "")) {
+								enflame = true;
+							}
+						}
+
+						if (!poison) {
+							if (random(1, 100) <= (size_t)casterPlayer->getPoison(creature ? creature->getName() : "")) {
+								poison = true;
+							}
+						}
+
+						if (!zap) {
+							if (random(1, 100) <= (size_t)casterPlayer->getZap(creature ? creature->getName() : "")) {
+								zap = true;
+							}
+						}
+					}
+
+					if (!damage.critical && damage.type != COMBAT_HEALING && casterPlayer && damage.origin != ORIGIN_CONDITION) {
+						uint16_t chance = casterPlayer->getCriticalChance(creature ? creature->getName() : "");
+//						uint16_t skill = casterPlayer->getCriticalChance(creature ? creature->getName() : "");
+//						uint16_t chance = skill;
+//						if (chance > 0 && skill > 0 && random(1, 100) <= chance) {
+						if (chance > 0 && random(1, 100) <= chance) {
+
+							if (damage.maxValue != 0)
+								damage.value = damage.maxValue * (100 + 4 * ( 5 + rand() % 5 ) ) / 100;		//skill trocado por 4 para fixar o dano em t4
+
+							damage.critical = true;
+						}
+					}
+
 					toDamageCreatures.push_back(creature);
 
 					if (params.targetCasterOrTopMost) {
@@ -1107,6 +1283,36 @@ void Combat::doAreaCombat(Creature* caster, const Position& position, const Area
 					continue;
 				}
 				success = g_game.combatChangeHealth(caster, creature, damageCopy);
+
+				if (caster->getPlayer()) {
+					if (wound) {
+						damageCopy.type = COMBAT_PHYSICALDAMAGE;
+						damageCopy.value = -(creature->getMaxHealth()*0.05);
+						g_game.combatChangeHealth(caster, creature, damageCopy);
+						caster->getPlayer()->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Wound has been enabled.");
+					}
+
+					if (enflame) {
+						damageCopy.type = COMBAT_FIREDAMAGE;
+						damageCopy.value = -(creature->getMaxHealth()*0.05);
+						g_game.combatChangeHealth(caster, creature, damageCopy);
+						caster->getPlayer()->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Enflame has been enabled.");
+					}
+
+					if (poison) {
+						damageCopy.type = COMBAT_EARTHDAMAGE;
+						damageCopy.value = -(creature->getMaxHealth()*0.05);
+						g_game.combatChangeHealth(caster, creature, damageCopy);
+						caster->getPlayer()->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Poison has been enabled.");
+					}
+
+					if (zap) {
+						damageCopy.type = COMBAT_ENERGYDAMAGE;
+						damageCopy.value = -(creature->getMaxHealth()*0.05);
+						g_game.combatChangeHealth(caster, creature, damageCopy);
+						caster->getPlayer()->sendTextMessage(MESSAGE_EVENT_DEFAULT, "Zap has been enabled.");
+					}
+				}
 			}
 			else {
 				success = g_game.combatChangeMana(caster, creature, damageCopy);

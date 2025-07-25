@@ -31,7 +31,7 @@ class ConnectionManager
 			return instance;
 		}
 
-		Connection_ptr createConnection(boost::asio::io_context& io_service, ConstServicePort_ptr servicePort);
+		Connection_ptr createConnection(boost::asio::io_service& io_service, ConstServicePort_ptr servicePort);
 		void releaseConnection(const Connection_ptr& connection);
 		void closeAll();
 
@@ -51,7 +51,7 @@ class Connection : public std::enable_shared_from_this<Connection>
 
 		enum { FORCE_CLOSE = true };
 
-		Connection(boost::asio::io_context& io_service,
+		Connection(boost::asio::io_service& io_service,
 		ConstServicePort_ptr service_port) :
 			readTimer(io_service),
 			writeTimer(io_service),
@@ -70,6 +70,8 @@ class Connection : public std::enable_shared_from_this<Connection>
 		void send(const OutputMessage_ptr& msg);
 
 		uint32_t getIP();
+		bool isOtcProxy() const { return otcProxy; };
+		bool isHaProxy() const { return haProxy; };
 
 	private:
 		void parseHeader(const boost::system::error_code& error);
@@ -104,6 +106,8 @@ class Connection : public std::enable_shared_from_this<Connection>
 		time_t timeConnected;
 		uint32_t packetsSent = 0;
 		uint32_t realIP = 0;
+		bool otcProxy = false;
+		bool haProxy = false;
 
 		bool closed = false;
 		bool receivedFirst = false;

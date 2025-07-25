@@ -227,7 +227,7 @@ void BedItem::regeneratePlayer(Player* player) const
 	Condition* condition = player->getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT);
 	if (condition) {
 		if (condition->getTicks() >= 1000) {
-			if (condition->getTicks() * 5 < sleptTime * 1000) {
+			if ((size_t)condition->getTicks() * 5 < sleptTime * 1000) {
 				regenAmount = (condition->getTicks() * 5) / (60 * 1000);
 			}
 

@@ -36,6 +36,10 @@
 #endif
 #endif
 
+#if LUA_VERSION_NUM < 502
+#define lua_rawlen lua_objlen
+#endif
+
 #include "database.h"
 #include "enums.h"
 #include "position.h"
@@ -559,6 +563,7 @@ class LuaScriptInterface
 		static int luaGameGetPlayers(lua_State* L);
 		static int luaGameLoadMap(lua_State* L);
 		static int luaGamePayHouses(lua_State* L);
+		static int luaGameGetMonsters(lua_State* L);
 
 		static int luaGameGetExperienceStage(lua_State* L);
 		static int luaGameGetExperienceForLevel(lua_State* L);
@@ -602,6 +607,15 @@ class LuaScriptInterface
 
 		static int luaGameGetRealUniqueItem(lua_State* L);
 
+		static int luaGameGetItemTypeByClientId(lua_State* L);
+
+		static int luaGameLoadMarketing(lua_State* L);
+		static int luaGameGetMarketingOffers(lua_State* L);
+		static int luaGameGetMarketingSubOffers(lua_State* L);
+		static int luaGameRemoveMarketingOffer(lua_State* L);
+		static int luaGameAddMarketingOffer(lua_State* L);
+		static int luaGameBuyMarketingOffer(lua_State* L);
+
 		// Variant
 		static int luaVariantCreate(lua_State* L);
 
@@ -632,6 +646,7 @@ class LuaScriptInterface
 		static int luaTileGetGround(lua_State* L);
 		static int luaTileGetThing(lua_State* L);
 		static int luaTileGetThingCount(lua_State* L);
+		static int luaItemgetItemRarity(lua_State* L);
 		static int luaItemgetItemTierRarity(lua_State* L);
 		static int luaTileGetTopVisibleThing(lua_State* L);
 
@@ -746,6 +761,7 @@ class LuaScriptInterface
 
 		static int luaItemHasProperty(lua_State* L);
 
+		static int luaItemapplyRarity(lua_State* L);
 		static int luaItemRollRarity(lua_State* L);
 		
 		static int luaItemGetRealUID(lua_State * L);
@@ -1033,6 +1049,20 @@ class LuaScriptInterface
 
 		static int luaPlayerUpdateBattlepass(lua_State* L);
 
+		static int luaPlayerGetCharm(lua_State* L);
+		static int luaPlayerGetCharmMonster(lua_State* L);
+		static int luaPlayerSetCharm(lua_State* L);
+
+		static int luaPlayerGetWound(lua_State* L);
+		static int luaPlayerGetEnflame(lua_State* L);
+		static int luaPlayerGetPoison(lua_State* L);
+		static int luaPlayerGetZap(lua_State* L);
+		static int luaPlayerGetCriticalChance(lua_State* L);
+		static int luaPlayerGetDodge(lua_State* L);
+		static int luaPlayerGetParry(lua_State* L);
+		static int luaPlayerGetNumb(lua_State* L);
+		static int luaPlayerGetAdrenalineBurst(lua_State* L);
+
 		// Monster
 		static int luaMonsterCreate(lua_State* L);
 
@@ -1058,6 +1088,8 @@ class LuaScriptInterface
 
 		static int luaMonsterGetStar(lua_State* L);
 		static int luaMonsterSetStar(lua_State* L);
+
+		static int luaMonsterSetMarketDescription(lua_State* L);
 
 		// Npc
 		static int luaNpcCreate(lua_State* L);

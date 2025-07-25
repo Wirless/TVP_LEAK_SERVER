@@ -17,6 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
+
 #include "otpch.h"
 
 #include "protocollogin.h"
@@ -47,6 +49,11 @@ void ProtocolLogin::disconnectClient(const std::string& message)
 
 void ProtocolLogin::getCharacterList(uint32_t accountNumber, const std::string& password)
 {
+	auto connection = getConnection();
+	if (!connection) {
+		return;
+	}
+
 	Account account;
 	if (!IOLoginData::loginserverAuthentication(accountNumber, password, account)) {
 		g_game.registerFailedIPLogin(getIP());
@@ -81,7 +88,15 @@ void ProtocolLogin::getCharacterList(uint32_t accountNumber, const std::string& 
 		const std::string& character = account.characters[i];
 		output->addString(character);
 		output->addString(g_config.getString(ConfigManager::SERVER_NAME));
-		output->add<uint32_t>(inet_addr(g_config.getString(ConfigManager::IP).c_str()));
+
+		if (connection->isOtcProxy()) {
+			output->add<uint32_t>(inet_addr("127.0.0.1"));
+		} else if (connection->isHaProxy()) {
+			output->add<uint32_t>(inet_addr(g_config.getString(ConfigManager::STATUS_IP).c_str()));
+		} else {
+			output->add<uint32_t>(inet_addr(g_config.getString(ConfigManager::IP).c_str()));
+		}
+
 		output->add<uint16_t>(g_config.getNumber(ConfigManager::GAME_PORT));
 	}
 

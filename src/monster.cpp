@@ -53,7 +53,7 @@ void Monster::addMonsterItemInventory(Container* bagItem, Item* item)
 		weaponType == WEAPON_CLUB ||
 		weaponType == WEAPON_SWORD ||
 		weaponType == WEAPON_SHIELD ||
-		weaponType == WEAPON_WAND ||
+	//	weaponType == WEAPON_WAND ||
 		weaponType == WEAPON_DISTANCE ||
 		itemType.decayTime > 0 ||
 		itemType.charges > 0 ||
@@ -2043,4 +2043,22 @@ bool Monster::canPushItems() const
 	}
 
 	return mType->info.canPushItems;
+}
+
+void Monster::setMarketDescription(const std::string& description)
+{
+	if (getMarketDescription() == description) {
+		return;
+	}
+
+	this->marketDescription = description;
+
+	// NOTE: Due to how client caches known creatures,
+	// it is not feasible to send creature update to everyone that has ever met it
+	SpectatorVec spectators;
+	g_game.map.getSpectators(spectators, position, true, true);
+	for (Creature* spectator : spectators) {
+		assert(dynamic_cast<Player*>(spectator) != nullptr);
+		static_cast<Player*>(spectator)->sendUpdateTileCreature(this);
+	}
 }

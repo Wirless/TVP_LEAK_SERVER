@@ -17,7 +17,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#define FS_OTPCH_H_F00C737DA6CA4C8D90F57430C614367F
+#ifndef FS_OTPCH_H
+#define FS_OTPCH_H
+
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
 
 // Definitions should be global.
 #include "definitions.h"
@@ -34,7 +37,6 @@
 #include <boost/variant.hpp>
 #include <cassert>
 #include <condition_variable>
-#include <cryptopp/rsa.h>
 #include <cstdint>
 #include <cstdlib>
 #include <deque>
@@ -71,3 +73,5 @@
 #endif
 
 #include <pugixml.hpp>
+
+#endif

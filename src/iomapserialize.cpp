@@ -268,6 +268,14 @@ bool IOMapSerialize::loadHouseItems(Map* map)
 
 					for (Item* houseItem : preloadedItems) {
 						tile->internalAddThing(houseItem);
+
+						const ItemType& itemType = Item::items[houseItem->getID()];
+						if (itemType.isGroundTile()) {
+							if (Item* ground = tile->getGround()) {
+								g_game.transformItem(ground, houseItem->getID());
+							}
+						}
+
 						houseItem->startDecaying();
 					}
 				}
@@ -748,6 +756,11 @@ bool IOMapSerialize::saveHouseTVPFormat(const House* house)
 				if (item->isHouseItem()) {
 					houseItems.push_back(item);
 				}
+			}
+
+			Item* groundItem = tile->getGround();
+			if (groundItem && groundItem->isHouseItem()) {
+				houseItems.push_back(groundItem);
 			}
 
 			f.write<uint32_t>(houseItems.size());

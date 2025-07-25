@@ -689,7 +689,7 @@ void NpcBehavior::react(NpcBehaviourSituation_t situation, Player* player, const
 		return;
 	}
 
-	if (OTSYS_TIME() < npc->reactionLockTime) {
+	if ((size_t)OTSYS_TIME() < npc->reactionLockTime) {
 		return;
 	}
 

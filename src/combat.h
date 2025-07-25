@@ -201,7 +201,8 @@ class Combat
 		double maxa = 0.0;
 		double maxb = 0.0;
 
-		std::unique_ptr<AreaCombat> area;
+		std::unique_ptr<AreaCombat> area;		
+		std::unordered_map<uint32_t, uint64_t> lastSpecialEffectTime;
 };
 
 class MagicField final : public Item

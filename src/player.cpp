@@ -1,3 +1,4 @@
+
 /**
  * The Violet Project - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
@@ -238,6 +239,10 @@ int32_t Player::getCustomItemAttrStat(int32_t stat) const
 	return total;
 }
 
+static std::set<uint32_t> IdsSorcDruid{
+	1, 2, 5, 6
+};
+
 int32_t Player::getCustomItemMaximumAttrStat(int32_t stat) const
 {
 	int32_t maximum = 0;
@@ -253,6 +258,32 @@ int32_t Player::getCustomItemMaximumAttrStat(int32_t stat) const
 
 			if (toSlot == slot) {
 				int32_t current = item->getIntCustomAttribute(this, std::to_string(stat));
+
+				if (stat == ITEM_RND_CRITICAL)
+				{
+					WeaponType_t weaponType = item->getWeaponType();
+					if (weaponType == WEAPON_AXE || weaponType == WEAPON_CLUB || weaponType == WEAPON_SWORD)
+					{
+						// knight e ek
+						if (getVocationId() != 4 && getVocationId() != 8)
+							continue;
+
+					}
+					else if (weaponType == WEAPON_DISTANCE || weaponType == WEAPON_POUCH || weaponType == WEAPON_AMMO)
+					{
+						// paladin e rp
+						if (getVocationId() != 7 && getVocationId() != 8)
+							continue;
+
+					} else if (weaponType == WEAPON_WAND)
+					{
+						if (IdsSorcDruid.find(getVocationId()) == IdsSorcDruid.end())
+							continue;
+
+						// ed, ms, druid e sorcerer
+					}
+				}
+				
 				if (current > maximum) {
 					maximum = current;
 				}
@@ -1757,6 +1788,14 @@ void Player::addExperience(Creature* source, uint64_t exp)
 		g_creatureEvents->playerAdvance(this, SKILL_LEVEL, prevLevel, level);
 
 		sendTextMessage(MESSAGE_EVENT_ADVANCE, fmt::format("You advanced from Level {:d} to Level {:d}.", prevLevel, level));
+
+		std::string logText = fmt::format("{} advanced from level {:d} to level {:d}!", getName(), prevLevel, level);
+		std::string escapedLog = Database::getInstance().escapeString(logText);
+		std::string escapedName = Database::getInstance().escapeString(getName());
+
+		std::string query = "INSERT INTO log_register (log_text, param1, param2) VALUES (" + escapedLog + ", 0, " + escapedName + ")";
+
+		Database::getInstance().executeQuery(query);
 	}
 
 	if (nextLevelExp > currLevelExp) {
@@ -1911,7 +1950,7 @@ BlockType_t Player::blockHit(Creature* attacker, CombatType_t combatType, int32_
 		return BLOCK_ARMOR;
 	}
 
-	if (!field && meleeHit && combatType == COMBAT_PHYSICALDAMAGE && uniform_random(1, 100) <= getCustomItemAttrStat(ITEM_RND_PARRY)) {
+	if (!field && meleeHit && combatType == COMBAT_PHYSICALDAMAGE && uniform_random(1, 100) <= (size_t)getParry(attacker ? attacker->getName() : "")) {
 		sendTextMessage(MESSAGE_EVENT_DEFAULT, "Parry has been enabled.");
 
 		if (attacker)
@@ -1919,7 +1958,7 @@ BlockType_t Player::blockHit(Creature* attacker, CombatType_t combatType, int32_
 			CombatDamage cDamage;
 			cDamage.origin = ORIGIN_NONE;
 			cDamage.type = combatType;
-			cDamage.value = -(damage * (0.25f * getCustomItemAttrStat(ITEM_RND_PARRY)) + 0.5f);
+			cDamage.value = -(damage * (0.25f * (size_t)getParry(attacker ? attacker->getName() : "")) + 0.5f);
 			if (attacker->getPlayer())
 				cDamage.value /= 2;
 			g_game.combatChangeHealth(getCreature(), attacker->getCreature(), cDamage);
@@ -2480,43 +2519,101 @@ ReturnValue Player::queryAdd(int32_t index, const Thing& thing, uint32_t count, 
 
 		case CONST_SLOT_RIGHT: {
 			if (slotPosition & SLOTP_RIGHT) {
+				
+				WeaponType_t type = item->getWeaponType();
+
+				// Validação de vocação mesmo com mão oposta vazia
+				if (type == WEAPON_QUIVER && !(getVocationId() == 3 || getVocationId() == 7)) {
+					ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+					break;
+				}
+				if (type == WEAPON_WAND && !(getVocationId() == 1 || getVocationId() == 2 || getVocationId() == 5 || getVocationId() == 6)) {
+					ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+					break;
+				}				
 				if (slotPosition & SLOTP_TWO_HAND) {
 					if (inventory[CONST_SLOT_LEFT] && inventory[CONST_SLOT_LEFT] != item) {
 						const Item* leftItem = inventory[CONST_SLOT_LEFT];
-						WeaponType_t type = item->getWeaponType(), leftType = leftItem->getWeaponType();
+						WeaponType_t type = item->getWeaponType();
+						WeaponType_t leftType = leftItem->getWeaponType();
 
-						if ( type == WEAPON_QUIVER && (leftItem->isBow() || leftItem->isCrossbow()) ) // Já tenho bow/crossbow e vou colocar quiver
+						// Validar vocação para quiver
+						if (type == WEAPON_QUIVER && !(getVocationId() == 3 || getVocationId() == 7)) {
+							ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+							break;
+						}
+						if (leftType == WEAPON_QUIVER && !(getVocationId() == 3 || getVocationId() == 7)) {
+							ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+							break;
+						}
+
+						// Validar vocação para wand
+						if (type == WEAPON_WAND && !(getVocationId() == 1 || getVocationId() == 2 || getVocationId() == 5 || getVocationId() == 6)) {
+							ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+							break;
+						}
+
+						// Permitir bow/crossbow com quiver
+						if (type == WEAPON_QUIVER && (leftItem->isBow() || leftItem->isCrossbow())) {
 							ret = RETURNVALUE_NOERROR;
-						else if ( leftType == WEAPON_QUIVER && (item->isBow() || item->isCrossbow()) ) // Já tenho quiver e vou colocar bow/crossbow
+						}
+						else if (leftType == WEAPON_QUIVER && (item->isBow() || item->isCrossbow())) {
 							ret = RETURNVALUE_NOERROR;
-						else
+						}
+						else {
 							ret = RETURNVALUE_BOTHHANDSNEEDTOBEFREE;
+						}
 					} else {
 						ret = RETURNVALUE_NOERROR;
 					}
-				} else if (inventory[CONST_SLOT_LEFT]) {
+				}
+				else if (inventory[CONST_SLOT_LEFT]) {
 					const Item* leftItem = inventory[CONST_SLOT_LEFT];
-					WeaponType_t type = item->getWeaponType(), leftType = leftItem->getWeaponType();
+					WeaponType_t type = item->getWeaponType();
+					WeaponType_t leftType = leftItem->getWeaponType();
+
+					// Validar vocações
+					if (item->getWeaponType() == WEAPON_QUIVER && !(getVocationId() == 3 || getVocationId() == 7)) {
+						ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+						break;
+					}
+
+					if (type == WEAPON_WAND && !(getVocationId() == 1 || getVocationId() == 2 || getVocationId() == 5 || getVocationId() == 6)) {
+						ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+						break;
+					}
+					if (leftType == WEAPON_QUIVER && !(getVocationId() == 3 || getVocationId() == 7)) {
+						ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+						break;
+					}
 
 					if (leftItem->getSlotPosition() & SLOTP_TWO_HAND) {
-						if ( type == WEAPON_QUIVER && (leftItem->isBow() || leftItem->isCrossbow()) ) // Já tenho bow/crossbow e vou colocar quiver
+						if (type == WEAPON_QUIVER && (leftItem->isBow() || leftItem->isCrossbow())) {
 							ret = RETURNVALUE_NOERROR;
-						else if ( leftType == WEAPON_QUIVER && (item->isBow() || item->isCrossbow()) ) // Já tenho quiver e vou colocar bow/crossbow
+						}
+						else if (leftType == WEAPON_QUIVER && (item->isBow() || item->isCrossbow())) {
 							ret = RETURNVALUE_NOERROR;
-						else
+						}
+						else {
 							ret = RETURNVALUE_DROPTWOHANDEDITEM;
-					} else if (item == leftItem && count == item->getItemCount()) {
+						}
+					}
+					else if (item == leftItem && count == item->getItemCount()) {
 						ret = RETURNVALUE_NOERROR;
-					// } else if (leftType == WEAPON_SHIELD && type == WEAPON_SHIELD) {
-					// 	// ret = RETURNVALUE_CANONLYUSEONESHIELD;
-					} else if (leftType == WEAPON_NONE || type == WEAPON_NONE ||
-					           leftType == WEAPON_SHIELD || leftType == WEAPON_AMMO
-					           || type == WEAPON_SHIELD || type == WEAPON_AMMO || type == WEAPON_QUIVER) {
-						ret = RETURNVALUE_NOERROR;
-					} else {
+					}
+					else if (leftType == WEAPON_WAND && type == WEAPON_WAND) {
 						ret = RETURNVALUE_CANONLYUSEONEWEAPON;
 					}
-				} else {
+					else if (leftType == WEAPON_NONE || type == WEAPON_NONE ||
+							 leftType == WEAPON_SHIELD || leftType == WEAPON_AMMO || leftType == WEAPON_QUIVER ||
+							 type == WEAPON_SHIELD || type == WEAPON_AMMO || type == WEAPON_QUIVER) {
+						ret = RETURNVALUE_NOERROR;
+					}
+					else {
+						ret = RETURNVALUE_CANONLYUSEONEWEAPON;
+					}
+				}
+				else {
 					ret = RETURNVALUE_NOERROR;
 				}
 			}
@@ -2525,41 +2622,97 @@ ReturnValue Player::queryAdd(int32_t index, const Thing& thing, uint32_t count, 
 
 		case CONST_SLOT_LEFT: {
 			if (slotPosition & SLOTP_LEFT) {
+
+				WeaponType_t type = item->getWeaponType();
+
+				// Validação de vocação mesmo com mão oposta vazia
+				if (type == WEAPON_QUIVER && !(getVocationId() == 3 || getVocationId() == 7)) {
+					ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+					break;
+				}
+				if (type == WEAPON_WAND && !(getVocationId() == 1 || getVocationId() == 2 || getVocationId() == 5 || getVocationId() == 6)) {
+					ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+					break;
+				}
+
 				if (slotPosition & SLOTP_TWO_HAND) {
 					if (inventory[CONST_SLOT_RIGHT] && inventory[CONST_SLOT_RIGHT] != item) {
 						const Item* rightItem = inventory[CONST_SLOT_RIGHT];
-						WeaponType_t type = item->getWeaponType(), leftType = rightItem->getWeaponType();
+						WeaponType_t rightType = rightItem->getWeaponType();
 
-						if ( type == WEAPON_QUIVER && (rightItem->isBow() || rightItem->isCrossbow()) ) // Já tenho bow/crossbow e vou colocar quiver
+						// Validar vocações
+						if (type == WEAPON_QUIVER && !(getVocationId() == 3 || getVocationId() == 7)) {
+							ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+							break;
+						}
+						if (rightType == WEAPON_QUIVER && !(getVocationId() == 3 || getVocationId() == 7)) {
+							ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+							break;
+						}
+						if (type == WEAPON_WAND && !(getVocationId() == 1 || getVocationId() == 2 || getVocationId() == 5 || getVocationId() == 6)) {
+							ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+							break;
+						}
+
+						// Permitir bow/crossbow com quiver
+						if (type == WEAPON_QUIVER && (rightItem->isBow() || rightItem->isCrossbow())) {
 							ret = RETURNVALUE_NOERROR;
-						else if ( leftType == WEAPON_QUIVER && (item->isBow() || item->isCrossbow()) ) // Já tenho quiver e vou colocar bow/crossbow
+						}
+						else if (rightType == WEAPON_QUIVER && (item->isBow() || item->isCrossbow())) {
 							ret = RETURNVALUE_NOERROR;
-						else
+						}
+						else {
 							ret = RETURNVALUE_BOTHHANDSNEEDTOBEFREE;
+						}
 					} else {
 						ret = RETURNVALUE_NOERROR;
 					}
-				} else if (inventory[CONST_SLOT_RIGHT]) {
+				}
+				else if (inventory[CONST_SLOT_RIGHT]) {
 					const Item* rightItem = inventory[CONST_SLOT_RIGHT];
-					WeaponType_t type = item->getWeaponType(), rightType = rightItem->getWeaponType();
+					WeaponType_t rightType = rightItem->getWeaponType();
+
+					// Validar vocações
+					if (type == WEAPON_QUIVER && !(getVocationId() == 3 || getVocationId() == 7)) {
+						ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+						break;
+					}
+					if (type == WEAPON_WAND && !(getVocationId() == 1 || getVocationId() == 2 || getVocationId() == 5 || getVocationId() == 6)) {
+						ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+						break;
+					}
+					if (rightType == WEAPON_QUIVER && !(getVocationId() == 3 || getVocationId() == 7)) {
+						ret = RETURNVALUE_YOURVOCATIONCANNOTUSETHISITEM;
+						break;
+					}
 
 					if (rightItem->getSlotPosition() & SLOTP_TWO_HAND) {
-						if ( type == WEAPON_QUIVER && (rightItem->isBow() || rightItem->isCrossbow()) ) // Já tenho bow/crossbow e vou colocar quiver
+						if (type == WEAPON_QUIVER && (rightItem->isBow() || rightItem->isCrossbow())) {
 							ret = RETURNVALUE_NOERROR;
-						else if (rightType == WEAPON_QUIVER && (item->isBow() || item->isCrossbow()) ) // Já tenho quiver e vou colocar bow/crossbow
+						}
+						else if (rightType == WEAPON_QUIVER && (item->isBow() || item->isCrossbow())) {
 							ret = RETURNVALUE_NOERROR;
-						else
+						}
+						else {
 							ret = RETURNVALUE_DROPTWOHANDEDITEM;
-					} else if (item == rightItem && count == item->getItemCount()) {
+						}
+					}
+					else if (item == rightItem && count == item->getItemCount()) {
 						ret = RETURNVALUE_NOERROR;
-					} else if (rightType == WEAPON_NONE || type == WEAPON_NONE ||
-					           rightType == WEAPON_SHIELD || rightType == WEAPON_AMMO
-					           || type == WEAPON_SHIELD || type == WEAPON_AMMO || type == WEAPON_QUIVER) {
-						ret = RETURNVALUE_NOERROR;
-					} else {
+					}
+					else if (rightType == WEAPON_WAND && type == WEAPON_WAND) {
 						ret = RETURNVALUE_CANONLYUSEONEWEAPON;
 					}
-				} else {
+					else if (rightType == WEAPON_NONE || type == WEAPON_NONE ||
+							 rightType == WEAPON_SHIELD || rightType == WEAPON_AMMO || rightType == WEAPON_QUIVER ||
+							 type == WEAPON_SHIELD || type == WEAPON_AMMO || type == WEAPON_QUIVER) {
+						ret = RETURNVALUE_NOERROR;
+					}
+					else {
+						ret = RETURNVALUE_CANONLYUSEONEWEAPON;
+					}
+				}
+				else {
 					ret = RETURNVALUE_NOERROR;
 				}
 			}
@@ -3366,16 +3519,56 @@ void Player::doAttacking(bool skipDelay)
 	}
 
 	if (result) {
+		
+/*		uint64_t currentTime = OTSYS_TIME();
+		
+		if (canActivateSpecialEffect(currentTime)) {
+			bool effectActivated = false;
+			if (uniform_random(1, 100) <= getCustomItemMaximumAttrStat(ITEM_RND_BLEEDING)) {
+				ConditionDamage* damage = new ConditionDamage(CONDITIONID_DEFAULT, CONDITION_BLEEDING);
+				damage->addDamage(10, 2000, -5 * getCustomItemMaximumAttrStat(ITEM_RND_BLEEDING));
+				attackedCreature->addCondition(damage);
 
-		if (uniform_random(1, 100) <= getCustomItemMaximumAttrStat(ITEM_RND_BLEEDING)) {
-			ConditionDamage* damage = new ConditionDamage(CONDITIONID_DEFAULT, CONDITION_BLEEDING);
-			damage->addDamage(10, 2000, -5 * getCustomItemMaximumAttrStat(ITEM_RND_BLEEDING));
-			attackedCreature->addCondition(damage);
+				sendTextMessage(MESSAGE_EVENT_DEFAULT, "Bleeding has been enabled.");
+				g_game.addMagicEffect(getPosition(), CONST_ME_MAGIC_RED);
+				effectActivated = true;
+			}
+			
+			if (uniform_random(1, 100) <= getCustomItemMaximumAttrStat(ITEM_RND_ELETRICFYING)) {
+				ConditionDamage* damage = new ConditionDamage(CONDITIONID_DEFAULT, CONDITION_ENERGY);
+				damage->addDamage(10, 2000, -5 * getCustomItemMaximumAttrStat(ITEM_RND_ELETRICFYING));
+				attackedCreature->addCondition(damage);
 
-			sendTextMessage(MESSAGE_EVENT_DEFAULT, "Bleeding has been enabled.");
-			g_game.addMagicEffect(getPosition(), CONST_ME_MAGIC_RED);
-		}
+				sendTextMessage(MESSAGE_EVENT_DEFAULT, "Electrifying has been enabled.");
+				g_game.addMagicEffect(getPosition(), CONST_ME_MAGIC_RED);
+				effectActivated = true;
+			}
+			
+			if (uniform_random(1, 100) <= getCustomItemMaximumAttrStat(ITEM_RND_BURNING)) {
+				ConditionDamage* damage = new ConditionDamage(CONDITIONID_DEFAULT, CONDITION_FIRE);
+				damage->addDamage(10, 2000, -5 * getCustomItemMaximumAttrStat(ITEM_RND_BURNING));
+				attackedCreature->addCondition(damage);
 
+				sendTextMessage(MESSAGE_EVENT_DEFAULT, "Burning has been enabled.");
+				g_game.addMagicEffect(getPosition(), CONST_ME_MAGIC_RED);
+				effectActivated = true;
+			}
+			
+			if (uniform_random(1, 100) <= getCustomItemMaximumAttrStat(ITEM_RND_POISONING)) {
+				ConditionDamage* damage = new ConditionDamage(CONDITIONID_DEFAULT, CONDITION_POISON);
+				damage->addDamage(10, 2000, -5 * getCustomItemMaximumAttrStat(ITEM_RND_POISONING));
+				attackedCreature->addCondition(damage);
+
+				sendTextMessage(MESSAGE_EVENT_DEFAULT, "Poisoning has been enabled.");
+				g_game.addMagicEffect(getPosition(), CONST_ME_MAGIC_RED);
+				effectActivated = true;
+			}
+			
+			if (effectActivated) {
+				updateSpecialEffectTime(currentTime);
+			}
+		} */
+		
 		if ((getVocation()->getId() == 4 || getVocation()->getId() == 8) && uniform_random(1, 100) <= getCustomItemAttrStat(ITEM_RND_PERSEVERANCE) && OTSYS_TIME() + 1000 >= perseveranceTicks) {
 			perseveranceTicks = OTSYS_TIME() + (2 * 60 * 1000);
 			
@@ -3700,7 +3893,7 @@ bool Player::onKilledCreature(Creature* target, bool lastHit/* = true*/)
 		if (monsterClass != MONSTER_NONE) {
 			updateBattlepass(BATTLEPASS_QUEST_KILL_MONSTERS, monsterClass);
 		}
-
+		
 		if (target->isBoss()) {
 			updateBattlepass(BATTLEPASS_QUEST_KILL_BOSS, target->getName());
 		}
@@ -4566,12 +4759,12 @@ void Player::updateRegeneration()
 
 		if (healthRegen > 0) {
 			conditionAttr->setParam(CONDITION_PARAM_HEALTHGAIN, health_amount);
-			conditionAttr->setParam(CONDITION_PARAM_HEALTHTICKS, 25 * health_ticks / healthRegen);
+			conditionAttr->setParam(CONDITION_PARAM_HEALTHTICKS, 5 * health_ticks / healthRegen);
 		}
 
 		if (manaRegen > 0) {
 			conditionAttr->setParam(CONDITION_PARAM_MANAGAIN, mana_amount);
-			conditionAttr->setParam(CONDITION_PARAM_MANATICKS, 25 * mana_ticks / manaRegen);
+			conditionAttr->setParam(CONDITION_PARAM_MANATICKS, 5 * mana_ticks / manaRegen);
 		}
 	}
 }
@@ -4602,7 +4795,7 @@ void Player::updateBattlepassCounter(BattlePassQuests_t id, std::any value)
 		// Send to client
 		if (openBattlepass && client) {
 			// Send the battlepass quest progress to the game client
-			client->sendUpdateBattlepassQuest(quests);
+			// client->sendUpdateBattlepassQuest(quests);
 		}
 	}
 }
@@ -4631,24 +4824,57 @@ void Player::resetBattlepass()
 
 void Player::buyPremiumBattlepass()
 {
-	if (!openBattlepass || !client) {
-		return;
-	}
+    if (!openBattlepass || !client) {
+        return;
+    }
 
-	if (battlepass->hasPremium()) {
-		// Already has premium battlepass
-		client->sendBattlepassPremium(0, true);
-	}
-	else if (!removeItemOfType(BATTLEPASS_PREMIUM_COIN_ID, BATTLEPASS_PREMIUM_COST, -1)) {
-		// Not enough items to activate premium battlepass
-		client->sendBattlepassPremium(1, false);
-	}
-	else {
-		// Buy premium battlepass
-		battlepass->setPremium(true);
-		client->sendBattlepassPremium(2, true);
-	}
+    if (battlepass->hasPremium()) {
+        // Já possui premium battlepass
+        client->sendBattlepassPremium(0, true);
+        return;
+    }
+
+    uint32_t accountId = getAccount();
+    Database& db = Database::getInstance();
+
+    int32_t shopCoins = -1;
+    {
+        std::ostringstream query;
+        query << "SELECT shop_coins FROM web_accounts WHERE account_id = " << accountId;
+        DBResult_ptr result = db.storeQuery(query.str());
+        if (result) {
+            shopCoins = result->getNumber<int32_t>("shop_coins");
+        }
+    }
+
+    if (shopCoins < BATTLEPASS_PREMIUM_COST) {
+        client->sendBattlepassPremium(1, false);
+        return;
+    }
+
+    std::ostringstream updateQuery;
+    updateQuery << "UPDATE web_accounts SET shop_coins = shop_coins - " << BATTLEPASS_PREMIUM_COST
+                << " WHERE account_id = " << accountId << " AND shop_coins >= " << BATTLEPASS_PREMIUM_COST;
+				
+    if (!db.executeQuery(updateQuery.str())) {
+        client->sendBattlepassPremium(1, false);
+        return;
+    }
+
+    std::ostringstream insertQuery;
+    insertQuery << "INSERT INTO store_history (account_id, mode, description, coin_amount, time) VALUES ("
+                << accountId << ", "
+                << "1" << ", "
+                << "'Purchase Premium Battlepass', "
+                << "-" << BATTLEPASS_PREMIUM_COST << ", "
+                << std::time(nullptr) << ")";
+
+    db.executeQuery(insertQuery.str());
+
+    battlepass->setPremium(true);
+    client->sendBattlepassPremium(2, true);
 }
+
 
 void Player::completeBattlepassQuest(uint8_t id, uint16_t questId)
 {
@@ -4666,21 +4892,51 @@ void Player::completeBattlepassQuest(uint8_t id, uint16_t questId)
 	}
 	case 3:
 	{
-		if (getItemTypeCount(BATTLEPASS_PREMIUM_COIN_ID) < BATTLEPASS_SHUFFLE_COST) {
-			// Not enough items to shuffle quest
+		uint32_t accountId = getAccount();
+		Database& db = Database::getInstance();
+
+		int32_t shopCoins = -1;
+		{
+			std::ostringstream query;
+			query << "SELECT shop_coins FROM web_accounts WHERE account_id = " << accountId;
+
+			DBResult_ptr result = db.storeQuery(query.str());
+			if (result) {
+				shopCoins = result->getNumber<int32_t>("shop_coins");
+			}
+		}
+
+		if (shopCoins < BATTLEPASS_SHUFFLE_COST) {
 			client->sendBattlepassPremium(4, battlepass->hasPremium());
-			break;
+			break;  
 		}
 
 		BattlePassPlayerData data;
 		if (battlepass->shuffleQuest(level, questId, data)) {
-			// Quest shuffled successfully, send the info back to game client
-			removeItemOfType(BATTLEPASS_PREMIUM_COIN_ID, BATTLEPASS_SHUFFLE_COST, -1);
+
+			std::ostringstream updateQuery;
+			updateQuery << "UPDATE web_accounts SET shop_coins = shop_coins - " << BATTLEPASS_SHUFFLE_COST
+						<< " WHERE account_id = " << accountId << " AND shop_coins >= " << BATTLEPASS_SHUFFLE_COST;
+
+			db.executeQuery(updateQuery.str());
+
+			// Inserir no store_history
+			std::ostringstream insertQuery;
+			insertQuery << "INSERT INTO store_history (account_id, mode, description, coin_amount, time) VALUES ("
+						<< accountId << ", "
+						<< "1" << ", "
+						<< "'Battlepass Shuffle Quest', "
+						<< "-" << BATTLEPASS_SHUFFLE_COST << ", "
+						<< std::time(nullptr) << ")";
+
+			db.executeQuery(insertQuery.str());
+
 			if (client && openBattlepass) {
 				client->sendBattlepassQuest(questId, data);
 				client->sendBattlepassPremium(3, battlepass->hasPremium());
 			}
 		}
+
 		break;
 	}
 	default:
@@ -4766,4 +5022,23 @@ BestiaryStage_t Player::getBestiaryStage(MonsterType* mType)
 	}
 
 	return BESTIARY_STAGE_NONE;
+}
+
+bool Player::canTradeItem(uint32_t storageCooldown) {
+    int32_t lastTradeTime = -1;
+    getStorageValue(storageCooldown, lastTradeTime);
+
+    uint64_t currentTime = OTSYS_TIME();
+
+    if (lastTradeTime == -1) {
+        return true; // Nunca trocou antes, pode trocar
+    }
+
+    uint64_t cooldownTime = 20 * 60 * 60 * 1000;
+    return (currentTime >= static_cast<uint64_t>(lastTradeTime) + cooldownTime);
+}
+
+// Atualiza o tempo da última troca no storage
+void Player::updateTradeCooldown(uint32_t storageCooldown) {
+    addStorageValue(storageCooldown, static_cast<int32_t>(OTSYS_TIME()));
 }

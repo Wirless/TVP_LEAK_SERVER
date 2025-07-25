@@ -148,7 +148,8 @@ enum ItemRandomAttributeType : uint8_t {
 	ITEM_RND_ARMOR,
 	ITEM_RND_DEF,
 	ITEM_RND_SKILL,
-	ITEM_RND_MAGIC,
+	//ITEM_RND_MAGIC,
+	ITEM_RND_WEIGHT_REDUCTION,
 	ITEM_RND_MANA_REGEN,
 	ITEM_RND_HEALTH_REGEN,
 	ITEM_RND_MAX_HEALTH,
@@ -163,6 +164,9 @@ enum ItemRandomAttributeType : uint8_t {
 	ITEM_RND_FAST_HAND,
 	ITEM_RND_SHARPSHOOTER,
 	ITEM_RND_BLEEDING,
+	ITEM_RND_ELETRICFYING,
+	ITEM_RND_BURNING,
+	ITEM_RND_POISONING,
 	ITEM_RND_SPEED,
 
 	ITEM_RND_FIRST = ITEM_RND_ATTACK,
@@ -235,11 +239,11 @@ class ItemAttributes
 			return static_cast<uint16_t>(getIntAttr(ITEM_ATTRIBUTE_ACTIONID));
 		}
 
-		void setUniqueId(uint16_t n) {
+		void setUniqueId(uint32_t n) {
 			setIntAttr(ITEM_ATTRIBUTE_UNIQUEID, n);
 		}
-		uint16_t getUniqueId() const {
-			return static_cast<uint16_t>(getIntAttr(ITEM_ATTRIBUTE_UNIQUEID));
+		uint32_t getUniqueId() const {
+			return static_cast<uint32_t>(getIntAttr(ITEM_ATTRIBUTE_UNIQUEID));
 		}
 
 		void setCharges(uint16_t n) {
@@ -858,11 +862,11 @@ class Item : virtual public Thing
 			return static_cast<uint16_t>(getIntAttr(ITEM_ATTRIBUTE_ACTIONID));
 		}
 
-		uint16_t getUniqueId() const {
+		uint32_t getUniqueId() const {
 			if (!attributes) {
 				return 0;
 			}
-			return static_cast<uint16_t>(getIntAttr(ITEM_ATTRIBUTE_UNIQUEID));
+			return static_cast<uint32_t>(getIntAttr(ITEM_ATTRIBUTE_UNIQUEID));
 		}
 
 		void setDoorLevel(uint16_t n) {
@@ -968,7 +972,8 @@ class Item : virtual public Thing
 
 		//serialization
 		virtual Attr_ReadValue readAttr(AttrTypes_t attr, PropStream& propStream);
-		bool unserializeAttr(PropStream& propStream);
+		virtual Attr_ReadValue readAttr2(AttrTypes_t attr, PropStream& propStream);
+		bool unserializeAttr(PropStream& propStream, bool uid = true);
 		bool unserializeTVPFormat(PropStream& propStream);
 		virtual bool unserializeItemNode(OTB::Loader&, const OTB::Node&, PropStream& propStream);
 
@@ -1151,7 +1156,7 @@ class Item : virtual public Thing
 		uint16_t getSubType() const;
 		void setSubType(uint16_t n);
 
-		void setUniqueId(uint16_t n);
+		void setUniqueId(uint32_t n);
 
 		void setDefaultDuration() {
 			uint32_t duration = getDefaultDuration();
@@ -1221,9 +1226,13 @@ class Item : virtual public Thing
 			removeAttribute(ITEM_ATTRIBUTE_AUTOOPEN);
 		}
 
-		void rollRarityLevel(Star_t monsterStar = STAR_NONE);
+		void rollRarityLevel(bool forceRarity = false, uint8_t rarity = 1);
 		void rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes);
-
+		void rollAttributes(ItemTierLevel tierLevel, uint8_t totalAttributes, std::vector<ItemRandomAttributeType> attrList);
+		void applyRarity(ItemTierLevel tierLevel = ITEM_TIER_1, ItemRarityLevel rarityLevel = ITEM_COMMON, std::vector<ItemRandomAttributeType> attrList = {});
+		void addArmorAttribute();
+		void applyFixedBonuses();
+		
 	protected:
 		Cylinder* parent = nullptr;
 

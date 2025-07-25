@@ -17,268 +17,268 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "otpch.h"
+// #include "otpch.h"
 
-#include "bed.h"
-#include "game.h"
-#include "iologindata.h"
-#include "scheduler.h"
+// #include "bed.h"
+// #include "game.h"
+// #include "iologindata.h"
+// #include "scheduler.h"
 
-#include <fmt/format.h>
+// #include <fmt/format.h>
 
-extern Game g_game;
+// extern Game g_game;
 
 
-Attr_ReadValue BedItem::readAttr(AttrTypes_t attr, PropStream& propStream)
-{
-	switch (attr) {
-		case ATTR_SLEEPERGUID: {
-			uint32_t guid;
-			if (!propStream.read<uint32_t>(guid)) {
-				return ATTR_READ_ERROR;
-			}
+// Attr_ReadValue BedItem::readAttr(AttrTypes_t attr, PropStream& propStream)
+// {
+// 	switch (attr) {
+// 		case ATTR_SLEEPERGUID: {
+// 			uint32_t guid;
+// 			if (!propStream.read<uint32_t>(guid)) {
+// 				return ATTR_READ_ERROR;
+// 			}
 
-			if (guid != 0) {
-				std::string name = IOLoginData::getNameByGuid(guid);
-				if (!name.empty()) {
-					setSpecialDescription(name + " is sleeping there.");
-					g_game.setBedSleeper(this, guid);
-					sleeperGUID = guid;
-				}
-			}
-			return ATTR_READ_CONTINUE;
-		}
+// 			if (guid != 0) {
+// 				std::string name = IOLoginData::getNameByGuid(guid);
+// 				if (!name.empty()) {
+// 					setSpecialDescription(name + " is sleeping there.");
+// 					g_game.setBedSleeper(this, guid);
+// 					sleeperGUID = guid;
+// 				}
+// 			}
+// 			return ATTR_READ_CONTINUE;
+// 		}
 
-		case ATTR_SLEEPSTART: {
-			uint32_t sleep_start;
-			if (!propStream.read<uint32_t>(sleep_start)) {
-				return ATTR_READ_ERROR;
-			}
+// 		case ATTR_SLEEPSTART: {
+// 			uint32_t sleep_start;
+// 			if (!propStream.read<uint32_t>(sleep_start)) {
+// 				return ATTR_READ_ERROR;
+// 			}
 
-			sleepStart = static_cast<uint64_t>(sleep_start);
-			return ATTR_READ_CONTINUE;
-		}
+// 			sleepStart = static_cast<uint64_t>(sleep_start);
+// 			return ATTR_READ_CONTINUE;
+// 		}
 
-		default:
-			break;
-	}
-	return Item::readAttr(attr, propStream);
-}
+// 		default:
+// 			break;
+// 	}
+// 	return Item::readAttr(attr, propStream);
+// }
 
-void BedItem::serializeAttr(PropWriteStream& propWriteStream) const
-{
-	Item::serializeAttr(propWriteStream);
+// void BedItem::serializeAttr(PropWriteStream& propWriteStream) const
+// {
+// 	Item::serializeAttr(propWriteStream);
 
-	if (sleeperGUID != 0) {
-		propWriteStream.write<uint8_t>(ATTR_SLEEPERGUID);
-		propWriteStream.write<uint32_t>(sleeperGUID);
-	}
+// 	if (sleeperGUID != 0) {
+// 		propWriteStream.write<uint8_t>(ATTR_SLEEPERGUID);
+// 		propWriteStream.write<uint32_t>(sleeperGUID);
+// 	}
 
-	if (sleepStart != 0) {
-		propWriteStream.write<uint8_t>(ATTR_SLEEPSTART);
-		// FIXME: should be stored as 64-bit, but we need to retain backwards compatibility
-		propWriteStream.write<uint32_t>(static_cast<uint32_t>(sleepStart));
-	}
-}
+// 	if (sleepStart != 0) {
+// 		propWriteStream.write<uint8_t>(ATTR_SLEEPSTART);
+// 		// FIXME: should be stored as 64-bit, but we need to retain backwards compatibility
+// 		propWriteStream.write<uint32_t>(static_cast<uint32_t>(sleepStart));
+// 	}
+// }
 
-BedItem* BedItem::getNextBedItem() const
-{
-	Direction dir = Item::items[id].bedPartnerDir;
-	Position targetPos = getNextPosition(dir, getPosition());
+// BedItem* BedItem::getNextBedItem() const
+// {
+// 	Direction dir = Item::items[id].bedPartnerDir;
+// 	Position targetPos = getNextPosition(dir, getPosition());
 
-	Tile* tile = g_game.map.getTile(targetPos);
-	if (!tile) {
-		return nullptr;
-	}
-	return tile->getBedItem();
-}
+// 	Tile* tile = g_game.map.getTile(targetPos);
+// 	if (!tile) {
+// 		return nullptr;
+// 	}
+// 	return tile->getBedItem();
+// }
 
-bool BedItem::canUse(Player* player)
-{
-	if (!player || !house || !player->isPremium() || player->getZone() != ZONE_PROTECTION) {
-		return false;
-	}
+// bool BedItem::canUse(Player* player)
+// {
+// 	if (!player || !house || !player->isPremium() || player->getZone() != ZONE_PROTECTION) {
+// 		return false;
+// 	}
 
-	const ItemType& iType = Item::items[getID()];
-	if (!(iType.bedPartnerDir == DIRECTION_SOUTH || iType.bedPartnerDir == DIRECTION_EAST)) {
-		return false;
-	}
+// 	const ItemType& iType = Item::items[getID()];
+// 	if (!(iType.bedPartnerDir == DIRECTION_SOUTH || iType.bedPartnerDir == DIRECTION_EAST)) {
+// 		return false;
+// 	}
 
-	if (sleeperGUID == 0) {
-		return true;
-	}
+// 	if (sleeperGUID == 0) {
+// 		return true;
+// 	}
 
-	if (house->getHouseAccessLevel(player) == HOUSE_OWNER) {
-		return true;
-	}
+// 	if (house->getHouseAccessLevel(player) == HOUSE_OWNER) {
+// 		return true;
+// 	}
 
-	Player sleeper(nullptr);
-	if (!IOLoginData::loadPlayerById(&sleeper, sleeperGUID)) {
-		return false;
-	}
+// 	Player sleeper(nullptr);
+// 	if (!IOLoginData::loadPlayerById(&sleeper, sleeperGUID)) {
+// 		return false;
+// 	}
 
-	if (house->getHouseAccessLevel(&sleeper) > house->getHouseAccessLevel(player)) {
-		return false;
-	}
-	return true;
-}
+// 	if (house->getHouseAccessLevel(&sleeper) > house->getHouseAccessLevel(player)) {
+// 		return false;
+// 	}
+// 	return true;
+// }
 
-bool BedItem::trySleep(Player* player)
-{
-	if (!house || player->isRemoved()) {
-		return false;
-	}
+// bool BedItem::trySleep(Player* player)
+// {
+// 	if (!house || player->isRemoved()) {
+// 		return false;
+// 	}
 
-	if (sleeperGUID != 0) {
-		if (Item::items[id].transformToFree != 0 && house->getOwner() == player->getGUID()) {
-			wakeUp(nullptr);
-		}
+// 	if (sleeperGUID != 0) {
+// 		if (Item::items[id].transformToFree != 0 && house->getOwner() == player->getGUID()) {
+// 			wakeUp(nullptr);
+// 		}
 
-		g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
-		return false;
-	}
-	return true;
-}
+// 		g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
+// 		return false;
+// 	}
+// 	return true;
+// }
 
-bool BedItem::sleep(Player* player)
-{
-	if (!house) {
-		return false;
-	}
+// bool BedItem::sleep(Player* player)
+// {
+// 	if (!house) {
+// 		return false;
+// 	}
 
-	if (sleeperGUID != 0) {
-		return false;
-	}
+// 	if (sleeperGUID != 0) {
+// 		return false;
+// 	}
 
-	internalSetSleeper(player);
+// 	internalSetSleeper(player);
 
 	
 
-	// update the bedSleepersMap
-	g_game.setBedSleeper(this, player->getGUID());
+// 	// update the bedSleepersMap
+// 	g_game.setBedSleeper(this, player->getGUID());
 
-	// make the player walk onto the bed
-	g_game.map.moveCreature(*player, *getTile());
+// 	// make the player walk onto the bed
+// 	g_game.map.moveCreature(*player, *getTile());
 
-	// display poff effect
-	g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
+// 	// display poff effect
+// 	g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
 
-	// kick player after he sees himself walk onto the bed and it change id
-	uint32_t playerId = player->getID();
-	g_scheduler.addEvent(createSchedulerTask(SCHEDULER_MINTICKS, std::bind(&Game::kickPlayer, &g_game, playerId, false)));
+// 	// kick player after he sees himself walk onto the bed and it change id
+// 	uint32_t playerId = player->getID();
+// 	g_scheduler.addEvent(createSchedulerTask(SCHEDULER_MINTICKS, std::bind(&Game::kickPlayer, &g_game, playerId, false)));
 
-	// change self and partner's appearance
-	updateAppearance(player);
+// 	// change self and partner's appearance
+// 	updateAppearance(player);
 
-	if (BedItem* nextBedItem = getNextBedItem()) {
-		nextBedItem->updateAppearance(player);
-	}
+// 	if (BedItem* nextBedItem = getNextBedItem()) {
+// 		nextBedItem->updateAppearance(player);
+// 	}
 
-	return true;
-}
+// 	return true;
+// }
 
-void BedItem::wakeUp(Player* player)
-{
-	if (!house) {
-		return;
-	}
+// void BedItem::wakeUp(Player* player)
+// {
+// 	if (!house) {
+// 		return;
+// 	}
 
-	if (sleeperGUID != 0) {
-    if (player) {
-			regeneratePlayer(player);
-			g_game.addCreatureHealth(player);
-		}
-	}
+// 	if (sleeperGUID != 0) {
+//     if (player) {
+// 			regeneratePlayer(player);
+// 			g_game.addCreatureHealth(player);
+// 		}
+// 	}
 
-	// update the bedSleepersMap
-	g_game.removeBedSleeper(sleeperGUID);
+// 	// update the bedSleepersMap
+// 	g_game.removeBedSleeper(sleeperGUID);
 
-	BedItem* nextBedItem = getNextBedItem();
+// 	BedItem* nextBedItem = getNextBedItem();
 
-	// unset sleep info
-	internalRemoveSleeper();
+// 	// unset sleep info
+// 	internalRemoveSleeper();
 
-	if (nextBedItem) {
-		nextBedItem->internalRemoveSleeper();
-	}
+// 	if (nextBedItem) {
+// 		nextBedItem->internalRemoveSleeper();
+// 	}
 
-	// change self and partner's appearance
-	updateAppearance(nullptr);
+// 	// change self and partner's appearance
+// 	updateAppearance(nullptr);
 
-	if (nextBedItem) {
-		nextBedItem->updateAppearance(nullptr);
-	}
-}
+// 	if (nextBedItem) {
+// 		nextBedItem->updateAppearance(nullptr);
+// 	}
+// }
 
-void BedItem::regeneratePlayer(Player* player) const
-{
-	const uint32_t sleptTime = time(nullptr) - sleepStart;
+// void BedItem::regeneratePlayer(Player* player) const
+// {
+// 	const uint32_t sleptTime = time(nullptr) - sleepStart;
 
-    if (sleptTime < 60) {
-		return;
-	}
+//     if (sleptTime < 60) {
+// 		return;
+// 	}
 
-	int32_t regenAmount = sleptTime / 60;
-	Condition* condition = player->getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT);
-	if (condition) {
-		if (condition->getTicks() >= 1000) {
-			if (condition->getTicks() * 5 < sleptTime * 1000) {
-				regenAmount = (condition->getTicks() * 5) / (60 * 1000);
-			}
+// 	int32_t regenAmount = sleptTime / 60;
+// 	Condition* condition = player->getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT);
+// 	if (condition) {
+// 		if (condition->getTicks() >= 1000) {
+// 			if (condition->getTicks() * 5 < sleptTime * 1000) {
+// 				regenAmount = (condition->getTicks() * 5) / (60 * 1000);
+// 			}
 
-			const int32_t newRegenTicks = condition->getTicks() - (1000 * (sleptTime / 5));
-			if (newRegenTicks <= 0) {
-				player->removeCondition(condition);
-			}
-			else {
-				condition->setTicks(newRegenTicks);
-			}
-		}
+// 			const int32_t newRegenTicks = condition->getTicks() - (1000 * (sleptTime / 5));
+// 			if (newRegenTicks <= 0) {
+// 				player->removeCondition(condition);
+// 			}
+// 			else {
+// 				condition->setTicks(newRegenTicks);
+// 			}
+// 		}
 
-		if (regenAmount > 0) {
-			player->changeHealth(regenAmount, false);
-			player->changeMana(regenAmount);
-		}
-	}
+// 		if (regenAmount > 0) {
+// 			player->changeHealth(regenAmount, false);
+// 			player->changeMana(regenAmount);
+// 		}
+// 	}
 
-	if (sleptTime > 899) {
-		player->changeSoul(sleptTime / 900);
-	}
-}
+// 	if (sleptTime > 899) {
+// 		player->changeSoul(sleptTime / 900);
+// 	}
+// }
 
-void BedItem::updateAppearance(const Player* player)
-{
-	const ItemType& it = Item::items[id];
-	if (it.type == ITEM_TYPE_BED) {
-		if (player && it.transformToOnUse[player->getSex()] != 0) {
-			const ItemType& newType = Item::items[it.transformToOnUse[player->getSex()]];
-			if (newType.type == ITEM_TYPE_BED) {
-				g_game.transformItem(this, it.transformToOnUse[player->getSex()]);
-			}
-		} else if (it.transformToFree != 0) {
-			const ItemType& newType = Item::items[it.transformToFree];
-			if (newType.type == ITEM_TYPE_BED) {
-				g_game.transformItem(this, it.transformToFree);
-			}
-		}
-	}
-}
+// void BedItem::updateAppearance(const Player* player)
+// {
+// 	const ItemType& it = Item::items[id];
+// 	if (it.type == ITEM_TYPE_BED) {
+// 		if (player && it.transformToOnUse[player->getSex()] != 0) {
+// 			const ItemType& newType = Item::items[it.transformToOnUse[player->getSex()]];
+// 			if (newType.type == ITEM_TYPE_BED) {
+// 				g_game.transformItem(this, it.transformToOnUse[player->getSex()]);
+// 			}
+// 		} else if (it.transformToFree != 0) {
+// 			const ItemType& newType = Item::items[it.transformToFree];
+// 			if (newType.type == ITEM_TYPE_BED) {
+// 				g_game.transformItem(this, it.transformToFree);
+// 			}
+// 		}
+// 	}
+// }
 
-void BedItem::internalSetSleeper(const Player* player)
-{
-	std::string desc_str = player->getName() + " is sleeping there.";
+// void BedItem::internalSetSleeper(const Player* player)
+// {
+// 	std::string desc_str = player->getName() + " is sleeping there.";
 
-	sleeperGUID = player->getGUID();
-	sleepStart = time(nullptr);
-	setSpecialDescription(desc_str);
-}
+// 	sleeperGUID = player->getGUID();
+// 	sleepStart = time(nullptr);
+// 	setSpecialDescription(desc_str);
+// }
 
-void BedItem::internalRemoveSleeper()
-{
-	sleeperGUID = 0;
-	sleepStart = 0;
+// void BedItem::internalRemoveSleeper()
+// {
+// 	sleeperGUID = 0;
+// 	sleepStart = 0;
 
-	if (hasAttribute(ITEM_ATTRIBUTE_DESCRIPTION)) {
-		removeAttribute(ITEM_ATTRIBUTE_DESCRIPTION);
-	}
-}
+// 	if (hasAttribute(ITEM_ATTRIBUTE_DESCRIPTION)) {
+// 		removeAttribute(ITEM_ATTRIBUTE_DESCRIPTION);
+// 	}
+// }

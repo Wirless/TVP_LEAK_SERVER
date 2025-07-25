@@ -26,11 +26,10 @@ class Signals
 {
 	boost::asio::signal_set set;
 	public:
-		explicit Signals(boost::asio::io_context& service);
+		explicit Signals(boost::asio::io_service& service);
 
 	private:
 		void asyncWait();
 };
 
 #endif
-

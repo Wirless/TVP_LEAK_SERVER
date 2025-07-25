@@ -2413,6 +2413,7 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 		msg.add<uint32_t>(remove);
 		msg.add<uint32_t>(creature->getID());
 		msg.addString(creature->getName());
+		msg.addString(creature->getMonster() ? creature->getMarketDescription() : "");
 	}
 
 	if (creature->isHealthHidden()) {
@@ -2890,8 +2891,11 @@ void ProtocolGame::sendUpdateBattlepassQuest(const BattlePassQuestsVector& quest
 			}
 			else {
 				msg.add<uint32_t>(1);
-			}
+			}			
 		}
+		else {
+				msg.add<uint32_t>(1);
+		}		
 	}
 	writeToOutputBuffer(msg);
 }

@@ -128,6 +128,7 @@ enum ItemParseAttributes_t {
 	ITEM_PARSE_WALKSPEED,
 	ITEM_PARSE_HEALTHGAIN,
 	ITEM_PARSE_HEALTHTICKS,
+	ITEM_PARSE_FOLLOWVOCATIONTICKS,
 	ITEM_PARSE_MANAGAIN,
 	ITEM_PARSE_MANATICKS,
 	ITEM_PARSE_MANASHIELD,
@@ -203,7 +204,7 @@ enum ItemParseAttributes_t {
 	ITEM_PARSE_ISBOW,
 	ITEM_PARSE_SPECIALFIELDBLOCKPATH,
 	ITEM_PARSE_STOREITEM,
-	ITEM_PARSE_RARITYTIER,
+	ITEM_PARSE_RARITYTIER
 };
 
 struct Abilities {
@@ -238,6 +239,7 @@ struct Abilities {
 	bool manaShield = false;
 	bool invisible = false;
 	bool regeneration = false;
+	bool followVocationTicks = false;
 };
 
 class ConditionDamage;

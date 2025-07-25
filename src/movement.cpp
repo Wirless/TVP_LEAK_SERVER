@@ -843,12 +843,12 @@ ReturnValue MoveEvent::EquipItem(MoveEvent* moveEvent, Player* player, Item* ite
 
 	std::map<int32_t, int32_t> statAttributes;
 
-	if (item->getIntCustomAttribute(player, std::to_string(ITEM_RND_MAGIC)) > 0) {
+/*	if (item->getIntCustomAttribute(player, std::to_string(ITEM_RND_MAGIC)) > 0) {
 		if (mageVocationIds.find(player->getVocationId()) != mageVocationIds.end()) {
 			statAttributes[CONDITION_PARAM_STAT_MAGICPOINTS] = item->getIntCustomAttribute(player, std::to_string(ITEM_RND_MAGIC));
 		}
 		rngSkills = true;
-	}
+	}*/
 
 	if (item->getIntCustomAttribute(player, std::to_string(ITEM_RND_MAX_MANA)) > 0) {
 		statAttributes[CONDITION_PARAM_STAT_MAXMANAPOINTS] = player->getVocation()->getManaGain() * item->getIntCustomAttribute(player, std::to_string(ITEM_RND_MAX_MANA));
@@ -912,6 +912,12 @@ ReturnValue MoveEvent::EquipItem(MoveEvent* moveEvent, Player* player, Item* ite
 		if (it.abilities->healthTicks != 0) {
 			condition->setParam(CONDITION_PARAM_HEALTHTICKS, it.abilities->healthTicks);
 		}
+		else if (it.abilities->followVocationTicks) {
+			Vocation* vocation = player->getVocation();
+			uint32_t health_ticks = vocation->getHealthGainTicks() * 1000;
+			condition->setParam(CONDITION_PARAM_HEALTHTICKS, health_ticks);
+			std::cout << "health ticks: " << health_ticks << std::endl;
+		}
 
 		if (it.abilities->manaGain != 0) {
 			condition->setParam(CONDITION_PARAM_MANAGAIN, it.abilities->manaGain);
@@ -919,6 +925,12 @@ ReturnValue MoveEvent::EquipItem(MoveEvent* moveEvent, Player* player, Item* ite
 
 		if (it.abilities->manaTicks != 0) {
 			condition->setParam(CONDITION_PARAM_MANATICKS, it.abilities->manaTicks);
+		}
+		else if (it.abilities->followVocationTicks) {
+			Vocation* vocation = player->getVocation();
+			uint32_t mana_ticks = vocation->getManaGainTicks() * 1000;
+			condition->setParam(CONDITION_PARAM_MANATICKS, mana_ticks);
+			std::cout << "mana ticks: " << mana_ticks << std::endl;
 		}
 
 		player->addCondition(condition);
@@ -1008,12 +1020,12 @@ ReturnValue MoveEvent::DeEquipItem(MoveEvent*, Player* player, Item* item, slots
 		}
 	}
 
-	if (item->getIntCustomAttribute(player, std::to_string(ITEM_RND_MAGIC)) > 0) {
+/*	if (item->getIntCustomAttribute(player, std::to_string(ITEM_RND_MAGIC)) > 0) {
 		if (mageVocationIds.find(player->getVocationId()) != mageVocationIds.end()) {
 			player->removeCondition(CONDITION_ATTRIBUTES, static_cast<ConditionId_t>(slot));
 		}
 		rngSkills = true;
-	}
+	}*/
 
 
 	if (item->getIntCustomAttribute(player, std::to_string(ITEM_RND_MAX_MANA)) > 0) {

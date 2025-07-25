@@ -15,7 +15,7 @@ struct BattlePassData
 
 static constexpr auto BATTLEPASS_PREMIUM_COIN_ID = 2148;
 static constexpr auto BATTLEPASS_SHUFFLE_COST = 10;
-static constexpr auto BATTLEPASS_PREMIUM_COST = 100;
+static constexpr auto BATTLEPASS_PREMIUM_COST = 200;
 
 //							   type					   itemId,	 clientId, amount
 typedef std::vector<std::tuple<BattlePassRewardType_t, uint16_t, uint16_t, uint16_t>> BattlepassRewardsContainer;

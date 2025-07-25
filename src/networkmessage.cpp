@@ -101,10 +101,18 @@ void NetworkMessage::addItem(uint16_t id, uint8_t count)
 
 	add<uint16_t>(it.clientId);
 
-	if (it.stackable) {
-		addByte(count);
+	if (it.charges > 0) {
+		addByte(2);
+		addByte(std::min<uint16_t>(0xFF, it.charges));
+	} else if (it.stackable) {
+		addByte(1);
+		addByte(std::min<uint16_t>(0xFF, count));
 	} else if (it.isSplash() || it.isFluidContainer()) {
+		std::cout << "enviou splash" << std::endl;
+		addByte(4);
 		addByte(getLiquidColor(count));
+	} else {
+		addByte(0);
 	}
 }
 
@@ -114,10 +122,23 @@ void NetworkMessage::addItem(const Item* item)
 
 	add<uint16_t>(it.clientId);
 
-	if (it.stackable) {
+	//if (item->getDuration() > 0 && !it.isSplash() || item->getDuration() > 0 && !it.isFluidContainer()) {
+	//	addByte(3);
+	//	uint32_t duration = item->getDuration() / 1000;
+	//	add<uint32_t>(duration);
+	//} 
+	
+	if (item->getCharges() > 0) {
+		addByte(2);
+		addByte(std::min<uint16_t>(0xFF, item->getCharges()));
+	} else if (it.stackable) {
+		addByte(1);
 		addByte(std::min<uint16_t>(0xFF, item->getItemCount()));
 	} else if (it.isSplash() || it.isFluidContainer()) {
+		addByte(4);
 		addByte(getLiquidColor(item->getFluidType()));
+	} else {
+		addByte(0);
 	}
 
 	addItemCustomAttributes(item);

@@ -23,6 +23,7 @@
 #include "iomap.h"
 #include "game.h"
 
+
 extern Game g_game;
 
 Container::Container(uint16_t type) :
@@ -136,9 +137,29 @@ void Container::updateItemWeight(int32_t diff)
 	}
 }
 
-uint32_t Container::getWeight() const
+/*uint32_t Container::getWeight() const
 {
 	return Item::getWeight() + totalWeight;
+}*/
+
+uint32_t Container::getWeight() const 
+{
+	uint32_t baseWeight = Item::getWeight();
+	uint32_t contentWeight = totalWeight;
+	uint32_t fullWeight = baseWeight + contentWeight;
+	
+	static const std::unordered_set<uint16_t> reducedWeightContainerIDs = {
+		5569,
+		5545,
+		5546,
+	};
+
+	if (reducedWeightContainerIDs.find(getID()) != reducedWeightContainerIDs.end()) {
+		double reductionFactor = 0.8;
+		fullWeight = baseWeight + static_cast<uint32_t>(contentWeight * reductionFactor);
+	}
+
+	return fullWeight;
 }
 
 std::string Container::getContentDescription(bool includeItemID) const
