@@ -2072,6 +2072,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("MonsterType", "isIgnoringSpawnBlock", LuaScriptInterface::luaMonsterTypeIsIgnoringSpawnBlock);
 	registerMethod("MonsterType", "isIllusionable", LuaScriptInterface::luaMonsterTypeIsIllusionable);
 	registerMethod("MonsterType", "isHostile", LuaScriptInterface::luaMonsterTypeIsHostile);
+	registerMethod("MonsterType", "canWalk", LuaScriptInterface::luaMonsterTypeCanWalk);
+
 	registerMethod("MonsterType", "isPushable", LuaScriptInterface::luaMonsterTypeIsPushable);
 	registerMethod("MonsterType", "isHealthHidden", LuaScriptInterface::luaMonsterTypeIsHealthHidden);
 	registerMethod("MonsterType", "isBoss", LuaScriptInterface::luaMonsterTypeIsBoss);
@@ -13740,6 +13742,26 @@ int LuaScriptInterface::luaMonsterTypeIsHostile(lua_State* L)
 	}
 	return 1;
 }
+
+int LuaScriptInterface::luaMonsterTypeCanWalk(lua_State* L)
+{
+	// get: monsterType:canWalk() set: monsterType:canWalk(bool)
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			pushBoolean(L, monsterType->info.canWalk);
+		}
+		else {
+			monsterType->info.canWalk = getBoolean(L, 2);
+			pushBoolean(L, true);
+		}
+	}
+	else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 
 int LuaScriptInterface::luaMonsterTypeIsPushable(lua_State* L)
 {

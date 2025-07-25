@@ -975,8 +975,11 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 				mType->info.isSummonable = attr.as_bool();
 			} else if (strcasecmp(attrName, "attackable") == 0) {
 				mType->info.isAttackable = attr.as_bool();
-			} else if (strcasecmp(attrName, "hostile") == 0) {
+			}
+			else if (strcasecmp(attrName, "hostile") == 0) {
 				mType->info.isHostile = attr.as_bool();
+			} else if (strcasecmp(attrName, "canwalk") == 0) {
+				mType->info.canWalk = attr.as_bool();
 			} else if (strcasecmp(attrName, "ignorespawnblock") == 0) {
 				mType->info.isIgnoringSpawnBlock = attr.as_bool();
 			} else if (strcasecmp(attrName, "illusionable") == 0) {

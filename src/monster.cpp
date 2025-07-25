@@ -814,9 +814,10 @@ void Monster::onAttackedCreatureBlockHit(BlockType_t blockType, bool meleeHit /*
 
 void Monster::onIdleStimulus()
 {
-	if (isIdle || isExecuting || isRemoved() || getHealth() <= 0) {
+	if (isIdle || isExecuting || isRemoved() || getHealth() <= 0 || !canWalk()) {
 		return;
 	}
+
 
 	// Panic toggle count means 3 steps before entering normal state
 	// This is following CIP monster states in code

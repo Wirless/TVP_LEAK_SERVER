@@ -1432,6 +1432,7 @@ void Creature::startToDo()
 		return;
 	}
 
+
 	isExecuting = true;
 	currentToDo = 0;
 

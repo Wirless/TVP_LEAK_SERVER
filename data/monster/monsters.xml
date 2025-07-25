@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="iso - 8859 - 1"?>
 <monsters>
+<monster name="Market" file="monsters/market.xml"/>
 	<monster name="Evil Grinch" file="monsters/evil grinch.xml"/>
 	<monster name="Grinch" file="monsters/grinch.xml"/>
 	<monster name="Helper Elf" file="monsters/christmas elf.xml"/>

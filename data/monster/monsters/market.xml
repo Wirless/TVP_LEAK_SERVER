@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<monster name="Market" nameDescription="a market" race="blood" experience="300" speed="0" manacost="0">
+	<health now="550" max="550" />
+	<look type="347" head="0" body="0" legs="0" feet="0" corpse="3040" />
+	<targetchange chance="0" />
+	<targetstrategy nearest="100" weakest="0" mostdamage="0" random="0" />
+	<bestiary id="72" class="magical" prowess="1500" expertise="3000" mastery="5000" difficulty="3" occurrence="3"/>
+	<flags>
+		<flag hostile="0" />
+		<flag summonable="0" />
+		<flag illusionable="0" />
+		<flag pushable="0" />
+		<flag convinceable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag runonhealth="0" />
+		<flag canwalk="0" />
+		<flag attackable="0" />
+	</flags>
+	<attacks>
+
+	</attacks>
+	<defenses armor="24" defense="35">
+		
+	</defenses>
+	<immunities>
+		<immunity fire="1" />
+		<immunity energy="1" />
+		<immunity poison="1" />
+		<immunity physical="0" />
+		<immunity outfit="1" />
+		<immunity lifedrain="1" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<summons maxSummons="2">
+		<summon name="Blue Djinn" max="2" delay="7" />
+	</summons>
+	<voices>
+		<voice sentence="Simsalabim" />
+		<voice sentence="Feel the power of my magic, tiny mortal!" />
+		<voice sentence="Be careful what you wish for." />
+		<voice sentence="Wishes can come true." />
+	</voices>
+	<loot>
+		<item id="2070" countmax="1" chance="300"/><!-- wooden flute -->		
+		<item id="2146" countmax="2" chance="7000"/><!-- small sapphire -->
+		<item id="2063" countmax="1" chance="20000"/><!-- small oil lamp -->
+		<item id="2663" countmax="1" chance="200"/><!-- mystic turban -->
+		<item id="2442" countmax="1" chance="20000"/><!-- heavy machete -->
+		<item id="2148" countmax="80" chance="50000"/><!-- gold coin -->
+		<item id="2148" countmax="50" chance="70000"/><!-- gold coin -->
+		<item id="2677" countmax="25" chance="25000"/><!-- blueberry -->
+		<item id="1872" countmax="1" chance="2500"/><!-- blue tapestry -->
+		<item id="2158" countmax="1" chance="100"/><!-- blue gem -->
+	</loot>
+</monster>

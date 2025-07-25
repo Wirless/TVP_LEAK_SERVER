@@ -183,6 +183,7 @@ class MonsterType
 		bool isChallengeable = true;
 		bool isConvinceable = false;
 		bool isHostile = true;
+		bool canWalk = true;
 		bool isIgnoringSpawnBlock = false;
 		bool isIllusionable = false;
 		bool isSummonable = false;
