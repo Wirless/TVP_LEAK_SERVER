@@ -22,6 +22,8 @@
 
 #include "tasks.h"
 #include <unordered_map>
+#include <boost/asio/executor_work_guard.hpp>
+#include <boost/asio/io_context.hpp>
 
 #include "thread_holder_base.h"
 
@@ -65,7 +67,7 @@ class Scheduler : public ThreadHolder<Scheduler>
 		std::atomic<uint32_t> lastEventId{1};
 		std::unordered_map<uint32_t, boost::asio::steady_timer> eventIdTimerMap;
 		boost::asio::io_context io_context;
-		boost::asio::io_context::work work{io_context};
+		boost::asio::executor_work_guard<boost::asio::io_context::executor_type> workGuard{ boost::asio::make_work_guard(io_context) };
 };
 
 extern Scheduler g_scheduler;

@@ -61,7 +61,8 @@ local customAttributes = {
 	[ITEM_RND_ARMOR] = "attrArmor",
 	[ITEM_RND_DEF] = "attrDef",
 	[ITEM_RND_SKILL] = "attrSkill",
-	[ITEM_RND_MAGIC] = "attrMagic",
+--	[ITEM_RND_MAGIC] = "attrMagic",
+	[ITEM_RND_WEIGHT_REDUCTION] = "attrWeightReduction",
 	[ITEM_RND_MANA_REGEN] = "attrManaRegen",
 	[ITEM_RND_HEALTH_REGEN] = "attrHpRegen",
 	[ITEM_RND_MAX_HEALTH] = "attrMaxHp",
@@ -80,6 +81,9 @@ local customAttributes = {
 	[ITEM_RND_FAST_HAND] = "attrFastHand",
 	[ITEM_RND_SHARPSHOOTER] = "attrSharpShooter",
 	[ITEM_RND_BLEEDING] = "attrBleeding",
+	[ITEM_RND_ELETRICFYING] = "attrEletricfying",
+	[ITEM_RND_BURNING] = "attrBurning",
+	[ITEM_RND_POISONING] = "attrPoisoning",
     [ITEM_RND_SPEED] = "attrSpeed",
 }
 
