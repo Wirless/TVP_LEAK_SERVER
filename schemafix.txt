@@ -1,0 +1,45 @@
+-- Tabela de configuração do anticheat
+CREATE TABLE emac_anticheat_config (
+  name varchar(255) NOT NULL,
+  value varchar(255) NOT NULL,
+  PRIMARY KEY (name)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Tabela principal de status dos jogadores
+CREATE TABLE emac_anticheat (
+  account_id int(11) NOT NULL,
+  name varchar(255) NOT NULL,
+  email varchar(255) NOT NULL DEFAULT '',
+  version varchar(50) DEFAULT NULL,
+  last_heartbeat_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  banned tinyint(1) NOT NULL DEFAULT '0',
+  cheating tinyint(1) NOT NULL DEFAULT '0',
+  kicked tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (account_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Tabela de registro de kicks
+CREATE TABLE emac_anticheat_kicks (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  account_id int(11) NOT NULL,
+  kick_reason varchar(255) NOT NULL,
+  version varchar(50) DEFAULT NULL,
+  time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  KEY account_id (account_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Tabela de whitelist (jogadores que não são verificados)
+CREATE TABLE emac_anticheat_whitelist (
+  account_id int(11) NOT NULL,
+  PRIMARY KEY (account_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO emac_anticheat_config (name, value) VALUES
+('enable_kick', '1'),
+('kick_message_noac', 'You must use EMAC Anti-Cheat to play on this server'),
+('kick_message_cheat', 'Kicked by EMAC Anti-Cheat (cheat detected)'),
+('kick_message_bannedcheat', 'You have been banned by EMAC Anti-Cheat'),
+('kick_message_oldversion', 'You need to reopen your client to update EMAC Anti-Cheat to the lastest version to play on this server'),
+('min_version', '1.0.0'),
+('last_heartbeat_time', '0');
