@@ -42,6 +42,7 @@
 	<event class="Monster" method="onDeath" enabled="1" />
 	<event class="Monster" method="onGenerateLootChance" enabled="1" />
 
+
 	<!-- Item methods -->
 	<event class="Item" method="onItemRemoved" enabled="0" />
 	<event class="Item" method="onItemTransformed" enabled="0" />

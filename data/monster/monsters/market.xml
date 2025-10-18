@@ -16,7 +16,7 @@
 		<flag targetdistance="1" />
 		<flag runonhealth="0" />
 		<flag canwalk="0" />
-		<flag attackable="0" />
+		<flag attackable="1" />
 	</flags>
 	<attacks>
 

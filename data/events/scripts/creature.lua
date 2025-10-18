@@ -14,20 +14,20 @@ function Creature:onAreaCombat(tile, isAggressive)
 	end
 end
 
-function Creature:onTargetCombat(target)
-	if self then
-		local ret = self:onTargetDummy(target)
-		if ret ~= RETURNVALUE_NOERROR then
-			return ret
-		end
-	end
 
-	if hasEventCallback(EVENT_CALLBACK_ONTARGETCOMBAT) then
-		return EventCallback(EVENT_CALLBACK_ONTARGETCOMBAT, self, target)
-	else
-		return RETURNVALUE_NOERROR
-	end
+function Creature:onTargetCombat(target)
+    if not self or not target then
+        return RETURNVALUE_NOERROR
+    end
+
+
+    if hasEventCallback(EVENT_CALLBACK_ONTARGETCOMBAT) then
+        return EventCallback(EVENT_CALLBACK_ONTARGETCOMBAT, self, target)
+    end
+
+    return RETURNVALUE_NOERROR
 end
+
 
 function Creature:onHear(speaker, words, type)
 	if hasEventCallback(EVENT_CALLBACK_ONHEAR) then

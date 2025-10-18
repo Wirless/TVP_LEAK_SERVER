@@ -177,10 +177,10 @@ houseDoorsDisplayHouseInfo = false
 deepPlayerContainerSearch = false 
 
 -- Rarity Items System
-itemUncommonChance = 4
-itemRareChance = 3
-itemEpicChance = 2
-itemLegendaryChance = 1000
+itemUncommonChance = 40
+itemRareChance = 30
+itemEpicChance = 20
+itemLegendaryChance = 5
 
 -- Allow sending parcels and letters with trash on top of mailboxes
 trashableMailbox = false
